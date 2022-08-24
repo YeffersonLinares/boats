@@ -11,7 +11,8 @@
  */
 
 // function incluirphp($atts){
-include 'prueba.php';
+// include 'prueba.php';
+// include 'home.php';
 // }
 
 add_shortcode('reservas_admin', 'plugin_reservas_admin');
