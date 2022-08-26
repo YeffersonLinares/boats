@@ -4,9 +4,11 @@ if (empty($date)) {
     $date = date('Y-m-d');
 }
 
-$wpdb = mysqli_connect('localhost', 'root', 'KWsTepfFe3yWch3b8qHx', 'nygboat2');
+// $wpdb = mysqli_connect('localhost', 'root', 'KWsTepfFe3yWch3b8qHx', 'nygboat2');
+$wpdb = mysqli_connect('localhost', 'root', 'KWsTepfFe3yWch3b8qHx');
+mysqli_select_db($wpdb, 'nygboat2');
 
-function index($wpdb)
+function index($wpdb, $date)
 {
     try {
 
@@ -17,35 +19,20 @@ function index($wpdb)
             '20:00', '20:30', '21:00', '21:30'
         ];
 
-        $date = date('Y-m-d');
-
         $sql = "SELECT vote.id, vote.nombre, reserva.hora_inicio, reserva.hora_fin, reserva.id as reserva_id 
                 FROM vote, reserva
                 WHERE vote.id = reserva.id_vote AND
-                estado = 1";
-        // reserva.fecha = '$date' AND
+                reserva.fecha = '$date' AND
+                vote.estado = 1";
         $data = mysqli_query($wpdb, $sql);
-
-        foreach ($data as $key => $value) {
-            return $key;
-        }
-
-        $botes = mysqli_fetch_array($data);
-        return json_encode($botes, true);
-        // $botes = $wpdb->get_results($sql);
+        $botes = map(mysqli_fetch_all($data));
 
         $data = array();
-        $botes2 = [];
-
-        foreach ($botes as $key => $value) {
-            if($key == 'id' || $key == 'nombre' || $key == 'hora_inicio' || $key == 'hora_fin' || $key == 'reserva_id') {
-            }
-        }
-
 
         foreach ($botes as $key => $value) :
-            $data[$value->id]['nombre'] = $value->nombre;
-            $data[$value->id]['reserva_id'] = $value->reserva_id;
+
+            $data[$value['id']]['nombre'] = $value['nombre'];
+            $data[$value['id']]['reserva_id'] = $value['reserva_id'];
             foreach ($horas_array as $index => $h) :
                 $first = 0;
                 if ($key >= 1 && $first = 0) {
@@ -53,23 +40,21 @@ function index($wpdb)
                     $horas_array[$index - 1]    = 2;
                 }
 
-
-
-                if (!isset($data[$value->id]['horas'][$h]) ||  $data[$value->id]['horas'][$h] == 0) :
-                    if ($value->hora_inicio <= $h and $value->hora_fin >= $h) :
-                        $data[$value->id]['horas'][$h] = 1;
-                        $data[$value->id]['horas'][$horas_array[$index - 1]] = 1;
+                if (!isset($data[$value['id']]['horas'][$h]) ||  $data[$value['id']]['horas'][$h] == 0) :
+                    if ($value['hora_inicio'] <= $h and $value['hora_fin'] >= $h) :
+                        $data[$value['id']]['horas'][$h] = 1;
+                        $data[$value['id']]['horas'][$horas_array[$index - 1]] = 1;
                         if (
-                            $value->hora_inicio == $horas_array[$index - 1] . ":00" &&
-                            $value->hora_inicio != '09:00:00'
+                            $value['hora_inicio'] == $horas_array[$index - 1] . ":00" &&
+                            $value['hora_inicio'] != '09:00:00'
                         ) :
-                            $data[$value->id]['horas'][$horas_array[$index - 2]] = 2;
+                            $data[$value['id']]['horas'][$horas_array[$index - 2]] = 2;
                         endif;
-                        if ($h . ':00' == $value->hora_fin &&  $value->hora_fin != '21:30:00') :
-                            $data[$value->id]['horas'][$h] = 3;
+                        if ($h . ':00' == $value['hora_fin'] &&  $value['hora_fin'] != '21:30:00') :
+                            $data[$value['id']]['horas'][$h] = 3;
                         endif;
                     else :
-                        $data[$value->id]['horas'][$h] = 0;
+                        $data[$value['id']]['horas'][$h] = 0;
                     endif;
                 endif;
             endforeach;
@@ -81,9 +66,24 @@ function index($wpdb)
         ];
         return json_encode($return, true);
     } catch (\Throwable $th) {
+        echo 'error';
         echo $th->getMessage();
         echo $th->getLine();
     }
 }
+function map($data)
+{
+    $array = [];
+    $index = 0;
+    foreach ($data as $value) :
+        $array[$index]['id'] = $value[0];
+        $array[$index]['nombre'] = $value[1];
+        $array[$index]['hora_inicio'] = $value[2];
+        $array[$index]['hora_fin'] = $value[3];
+        $array[$index]['reserva_id'] = $value[4];
+        $index++;
+    endforeach;
+    return $array;
+}
 
-echo index($wpdb);
+echo index($wpdb, $date);

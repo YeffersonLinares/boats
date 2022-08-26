@@ -70,9 +70,20 @@
                             <td v-for="(i, index) in table.horas_array" :key="index"> {{ i }}</td>
                             <td>Cierre</td>
                         </tr>
-                        <tr v-for="(i, index) in table.reservas" :key="index">
+                        <tr v-for="(i, index) in table.reservas" :key="index" class="recorrido-bote">
                             <td>{{ i.nombre }}</td>
-                            <td v-for="(hour, key) in i.horas" :key="key" v-bind:class="[hour == 1 || hour == 2 || hour == 3 ] ? 'recorrido-bote-td' : ''" >{{ i.nombre }}</td>
+                            <td v-for="(hour, key) in i.horas" :key="key" v-bind:class="[hour == 1 || hour == 2 || hour == 3 ? 'recorrido-bote-td' : '']">
+                                        <button class="btn btn-transparent color-dark-blue button-ellipsis btn-ellipsis-script" v-if="hour == 3">
+                                            <i class="fa-solid fa-ellipsis button-ellipsis"></i></button>
+                                        <button v-if="hour == 3" class="btn btn-transparent color-dark-blue"><i class="fa-solid fa-flag-checkered"></i>  </button>
+                                        <button v-else-if="hour == 1 || hour == 2" class="btn btn-transparent color-dark-blue">
+                                                <i v-if="hour == 1" class="fa-solid fa-sailboat"></i>
+                                                <i v-if="hour == 2" class="fa-solid fa-hand-sparkles"></i>
+                                        </button>
+                            </td>
+                            <td>
+                                <button class="btn btn-transparent color-dark-blue"> <i class="fa-solid fa-power-off"></i> </button>
+                            </td>
                         </tr>
                     </thead>
                     <tbody>
