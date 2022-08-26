@@ -12,6 +12,8 @@
 
 // function incluirphp($atts){
 // include 'prueba.php';
+// require 'home.html';
+require 'Reserva_mes.html';
 
 // }
 
@@ -23,7 +25,6 @@ function plugin_reservas_admin()
     global $current_user, $user_login;
     //$ID = $current_user->ID;
     // include 'logica.php';
-    include 'home.html';
     ob_start();
 
 
@@ -1834,6 +1835,50 @@ function plugin_reservas_admin()
         button {
             font-family: 'Poppins', sans-serif !important;
             /* font-size: .9rem; */
+        }
+
+        .equals td {
+            width: 14.2%;
+        }
+
+        .in_progress strong {
+            color: #464646;
+            font-size: .8rem;
+        }
+
+        .in_progress span {
+            font-size: .8rem;
+        }
+
+        .in_progress button {
+            color: #31A6FB;
+        }
+
+        .not_in_progress strong {
+            color: #b5b5b5;
+            font-size: .8rem;
+        }
+
+        .not_in_progress button {
+            color: #b5b5b5;
+        }
+
+        .not_in_progress span {
+            color: #b5b5b5;
+            font-size: .8rem;
+        }
+
+        .btn-day {
+            background-color: #1D6CAF;
+            color: white;
+            padding: .15rem;
+            border: 1px solid #1D6CAF;
+            position: relative;
+        }
+
+        .table-td-0 td {
+            padding-top: 0;
+            padding-left: 0;
         }
 
         .d-flex>h2 {

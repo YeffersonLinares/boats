@@ -94,7 +94,7 @@
     </div>
 </div>
 <script>
-    const {
+    var {
         createApp
     } = Vue
 
@@ -104,7 +104,8 @@
                 count: 0,
                 message: 'Hello Vue!',
                 table: {horas_array: [], reservas: []},
-                filter: {date: ''}
+                filter: {date: ''},
+                days: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
             }
         },
         mounted() {
