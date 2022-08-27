@@ -1,5 +1,6 @@
-        <!-- <template> -->
-        <div id="app">
+<!-- <template> -->
+<script src="./app.js"></script>        
+<div id="app1">
                     <div class="px-md-5">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
@@ -81,7 +82,7 @@
                                                     <strong> {{ reserva.hora_inicio }} - {{ reserva.hora_fin }} </strong>
                                                     <span>{{ reserva.nombre }}</span>
                                                 </div>
-                                                <button class="btn btn-transparent color-dark-blue button-ellipsis"><i class="fa-solid fa-ellipsis button-ellipsis"></i></button>
+                                                <a class="btn btn-transparent color-dark-blue button-ellipsis" href="https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/home.html"><i class="fa-solid fa-ellipsis button-ellipsis"></i></a>
                                                 <hr class="my-1 mx-2" style="opacity: .1;">
                                             </div>
                                             <!-- <div class="d-flex justify-content-between not_in_progress ps-2">
@@ -198,5 +199,5 @@
                     console.log('entro a esta pagina')
                 }
             },
-        }).mount('#app')
+        }).mount('#app1')
     </script>

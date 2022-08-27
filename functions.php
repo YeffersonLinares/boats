@@ -12,8 +12,8 @@
 
 // function incluirphp($atts){
 // include 'prueba.php';
-// require 'home.html';
-require 'Reserva_mes.html';
+    require 'Reserva_mes.php';
+    // require 'home.html';
 
 // }
 
