@@ -1,110 +1,114 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://unpkg.com/vue@3"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+        <!-- <template> -->
         <div id="app">
-            <div class="px-md-5">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <button class="btn btn-transparent color-extras-gray"> <i
-                                class="fa-solid fa-angle-left color-dark-blue fa-lg me-3"></i> <span>Julio 2022</span>
-                        </button>
+                    <div class="px-md-5">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <button class="btn btn-transparent color-extras-gray"> <i
+                                        class="fa-solid fa-angle-left color-dark-blue fa-lg me-3"></i> <span>Julio 2022</span>
+                                </button>
+                            </div>
+                            <div>
+                                <h4 class="text-center mt-3 color-dark-blue"> <b> Agosto 2022 </b> </h4>
+                            </div>
+                            <div>
+                                <button class="btn btn-transparent color-extras-gray"> <span>Septiembre 2022</span> <i
+                                        class="fa-solid fa-angle-right color-dark-blue fa-lg ms-3"></i> </button>
+                            </div>
+                        </div>
+                        <hr>
                     </div>
-                    <div>
-                        <h4 class="text-center mt-3 color-dark-blue"> <b> Agosto 2022 </b> </h4>
+        
+                    <div class="d-flex justify-content-end mt-3">
+                        <button class="btn btn-blue-reserva me-5"><span class="">Nueva Reserva</span> <i class="fa-solid fa-circle-arrow-right"></i> </button>
                     </div>
-                    <div>
-                        <button class="btn btn-transparent color-extras-gray"> <span>Septiembre 2022</span> <i
-                                class="fa-solid fa-angle-right color-dark-blue fa-lg ms-3"></i> </button>
+        
+                    <div class="row my-3 px-2" style="max-width: 100%;">
+                        <div class="col-12 col-lg-7 col-xl-7">
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-transparent">
+                                    <i class="fa-solid fa-square color-blue"></i>
+                                    <span class="color-dark-extras">Fecha Reservada</span>
+                                </button>
+                                <button class="btn btn-transparent color-light-blue">
+                                    <i class="fa-solid fa-square"></i>
+                                    <span class="color-dark-extras">Fecha Bloqueada Parcialmente</span></button>
+                                <button class="btn btn-transparent color-dark-red">
+                                    <i class="fa-solid fa-triangle-exclamation me-2"></i>
+                                    <span>No hay suficiente personal para cubrir todos los turnos del día</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-1 col-xl-2"></div>
+                        <div class="col-12 col-lg-4 col-xl-3">
+                            <div class="d-flex justify-content-between">
+                                <select class="select-gray form-select me-3" name="" id="">
+                                    <option value="">Ver todos los barcos</option>
+                                    <option v-for="(i, index) in botes" :key="index" :value="i.id"> {{ i.nombre }} </option>
+                                </select>
+                                <button class="btn bg-dark-blue color-white w-3rem me-3">
+                                    <i class="fa-solid fa-bars"></i>
+                                </button>
+                                <button class="btn bg-dark-blue color-white w-3rem">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <hr>
-            </div>
-
-            <div class="d-flex justify-content-end mt-3">
-                <button class="btn btn-blue-reserva me-5"><span class="">Nueva Reserva</span> <i class="fa-solid fa-circle-arrow-right"></i> </button>
-            </div>
-
-            <div class="row my-3 px-2" style="max-width: 100%;">
-                <div class="col-12 col-lg-7 col-xl-7">
-                    <div class="d-flex justify-content-between">
-                        <button class="btn btn-transparent">
-                            <i class="fa-solid fa-square color-blue"></i>
-                            <span class="color-dark-extras">Fecha Reservada</span>
-                        </button>
-                        <button class="btn btn-transparent color-light-blue">
-                            <i class="fa-solid fa-square"></i>
-                            <span class="color-dark-extras">Fecha Bloqueada Parcialmente</span></button>
-                        <button class="btn btn-transparent color-dark-red">
-                            <i class="fa-solid fa-triangle-exclamation me-2"></i>
-                            <span>No hay suficiente personal para cubrir todos los turnos del día</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-1 col-xl-2"></div>
-                <div class="col-12 col-lg-4 col-xl-3">
-                    <div class="d-flex justify-content-between">
-                        <select class="select-gray form-select me-3" name="" id="">
-                            <option value="">Ver todos los barcos</option>
-                            <option v-for="(i, index) in botes" :key="index" :value="i.id"> {{ i.nombre }} </option>
-                        </select>
-                        <button class="btn bg-dark-blue color-white w-3rem me-3">
-                            <i class="fa-solid fa-bars"></i>
-                        </button>
-                        <button class="btn bg-dark-blue color-white w-3rem">
-                            <i class="fa-solid fa-calendar-days"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="container-fluid table-responsive">
-                <table class="table table-td-0 table-bordered equals">
-                    <thead class="bg-dark-blue color-white">
-                        <tr>
-                            <th v-for="(i, index) in days" :key="index" > {{i}} </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td v-for="(i, index) in days" :key="index">
-                                <!-- <div class="d-flex flex-column" v-if="1 == 0"> -->
-                                <div class="d-flex flex-column" v-if="start_day(index)">
-                                    <div class="d-flex">
-                                        <button class="btn-day">{{index}}</button>
-                                        <button class="btn btn-transparent color-dark-red">
-                                            <i class="fa-solid fa-triangle-exclamation ps-2"></i>
-                                        </button>
-                                    </div>
-                                    <div class="d-flex justify-content-between in_progress ps-2">
-                                        <div>
-                                            <button class="btn btn-transparent"> <i class="fa-solid fa-square fa-xs"></i> </button>
-                                            <strong> 10:00 - 14:00 </strong>
-                                            <span>Namaré</span>
+            
+                    <div class="container-fluid table-responsive" >
+                        <table class="table table-td-0 table-bordered equals">
+                            <thead class="bg-dark-blue color-white">
+                                <tr>
+                                    <th v-for="(i, index1) in days" :key="index1" > {{i}} </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(semana, key) in calendar_vue" :key="key">
+                                    <td v-for="(i, index) in semana" :key="index" style="height: 7rem;">
+                                        <!-- {{ semana }} -->
+                                        <!-- {{show_day}} >= {{position}} -->
+                                        <div class="d-flex flex-column">
+                                            <div class="d-flex">
+                                                <button class="btn-day">1</button>
+                                                <button class="btn btn-transparent color-dark-red" v-if="i.length > 0">
+                                                    <i class="fa-solid fa-triangle-exclamation ps-2"></i>
+                                                </button>
+                                            </div>
+                                            <div class="d-flex justify-content-between in_progress ps-2 mb-1" v-for="(reserva, position) in i" :key="position">
+                                                <!-- {{reserva.id}} -->
+                                                <div>
+                                                    <button class="btn btn-transparent"> <i class="fa-solid fa-square fa-xs"></i> </button>
+                                                    <strong> {{ reserva.hora_inicio }} - {{ reserva.hora_fin }} </strong>
+                                                    <span>{{ reserva.nombre }}</span>
+                                                </div>
+                                                <button class="btn btn-transparent color-dark-blue button-ellipsis"><i class="fa-solid fa-ellipsis button-ellipsis"></i></button>
+                                                <hr class="my-1 mx-2" style="opacity: .1;">
+                                            </div>
+                                            <!-- <div class="d-flex justify-content-between not_in_progress ps-2">
+                                                <div>
+                                                    <button class="btn btn-transparent"> <i class="fa-solid fa-square fa-xs"></i> </button>
+                                                    <strong> 10:00 - 14:00 </strong>
+                                                    <span>Namaré</span>
+                                                </div>
+                                                <button class="btn btn-transparent color-dark-blue button-ellipsis"><i class="fa-solid fa-ellipsis button-ellipsis"></i></button>
+                                            </div> -->
                                         </div>
-                                        <button class="btn btn-transparent color-dark-blue button-ellipsis"><i class="fa-solid fa-ellipsis button-ellipsis"></i></button>
-                                    </div>
-                                    <hr class="my-1 mx-2" style="opacity: .1;">
-                                    <div class="d-flex justify-content-between not_in_progress ps-2">
-                                        <div>
-                                            <button class="btn btn-transparent"> <i class="fa-solid fa-square fa-xs"></i> </button>
-                                            <strong> 10:00 - 14:00 </strong>
-                                            <span>Namaré</span>
-                                        </div>
-                                        <button class="btn btn-transparent color-dark-blue button-ellipsis"><i class="fa-solid fa-ellipsis button-ellipsis"></i></button>
-                                    </div>
-                                </div>
-
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
         </div>
-
+        <!-- </template> -->
+        <script src="https://unpkg.com/vue@3"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script>
         const {
             createApp
         } = Vue
+
     
         createApp({
             data() {
@@ -116,19 +120,34 @@
                     cant_days_month: 0,
                     first_day: '',
                     position: 9999,
-                    show_day: false
+                    show_day: -1,
+                    calendar: [],
+                    calendar_vue: [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [],[],[],[]],
+                    day_vue: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],
+                    dia_num: 0
                 }
             },
             created() {
-                // this.getBarcos()
+                console.log('created')
+                this.getBarcos()
                 this.startMonth()
             },
+            updated() {
+                console.log('%c updated', 'color:red;')
+            },
             methods: {
-                getBarcos() {
+                dia(){
+                    if(this.dia_num == 31) this.dia_num = 0
+                    this.dia_num++
+                    return this.dia_num
+                },
+                async getBarcos() {
                     let url = 'https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/ReservaController.php'
-                    axios.get(url).then(res => {
+                    await axios.get(url).then(res => {
                         console.log('barcos ==> ', res.data)
                         this.botes = res.data.botes
+                        this.calendar = res.data.calendar
+                        this.map_calendar()
                     })
                 },
                 daysByMont(mes, anio) {
@@ -145,29 +164,38 @@
                     });
 
                     this.cant_days_month = this.daysByMont(month, year)
-                    console.log('position ==> ', this.position)
-                    // console.log('cant_days_month ==> ', this.cant_days_month);
-                    // console.log('first_day ==> ', this.first_day);
-                    // console.log('position ==> ', this.position);
                 },
-                start_day(index){
-                    // this.startMonth()
-                    let response = false
-                    if(this.show_day == false) {
-                        if(index >= this.position) {
-                            this.show_day = true
-                            response = true
-                        }else{
-                            response = false
-                        }
-                    }else{
-                        response = true
+                start_day(){
+                    console.log('entro ');
+                    this.show_day++
+                    if(this.show_day >= this.position) {
+                        return true
+                    }else {
+                        return false
                     }
-                    if(index == 6) {
-                        this.show_day = false
-                    }
-                    console.log('respose ==> ', this.show_day)
-                    return response
+                },
+                map_calendar(){
+                    let days = []
+                    for (let index = 0; index < this.cant_days_month; index++) days.push(index+1)
+                    days.forEach((ele, index) => {
+                        console.log('%c entro a foreach', 'color:red;');
+                        let date = new Date()
+                        let month = date.getMonth() + 1
+                        if(month < 10) month = '0' + month
+                        date = date.getFullYear() + '-' + month + '-' + ele
+                        this.calendar.forEach((row) => {
+                            if(date == row.fecha) this.calendar_vue[index].push(row)
+                        });
+                    })
+                    let semana1 = this.calendar_vue.splice(1,7)
+                    let semana2 = this.calendar_vue.splice(1,7)
+                    let semana3 = this.calendar_vue.splice(1,7)
+                    let semana4 = this.calendar_vue.splice(1,7)
+                    let semana5 = this.calendar_vue.splice(1,3)
+                    this.calendar_vue = [semana1, semana2, semana3, semana4, semana5]
+                },
+                funct(){
+                    console.log('entro a esta pagina')
                 }
             },
         }).mount('#app')

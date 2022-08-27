@@ -39,7 +39,7 @@ function plugin_reservas_admin()
     <!-- Inicio de home admin -->
 
 
-    <div id="app">
+    <!-- <div id="app"> -->
 
 
 
@@ -1707,7 +1707,7 @@ function plugin_reservas_admin()
             </div>
 
         </div>
-    </div>
+    <!-- </div> -->
 
     <!-- Fin de descripción -->
 
