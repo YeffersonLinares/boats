@@ -12,8 +12,8 @@
 
 // function incluirphp($atts){
 // include 'prueba.php';
-    require 'Reserva_mes.php';
-    // require 'home.html';
+require 'Reserva_mes.html';
+// require 'home.html';
 
 // }
 
@@ -44,1671 +44,1648 @@ function plugin_reservas_admin()
 
 
 
-        <!-- Fin de home admin -->
+    <!-- Fin de home admin -->
 
-        <!-- Inicio de dashboard admin -->
+    <!-- Inicio de dashboard admin -->
 
-        <div class="container-fluid px-md-5 d-none" id="dashboard-admin">
-            <h4 class="text-center mt-3 color-dark-blue"> <b> Dashboard </b> </h4>
-            <hr>
+    <div class="container-fluid px-md-5 d-none" id="dashboard-admin">
+        <h4 class="text-center mt-3 color-dark-blue"> <b> Dashboard </b> </h4>
+        <hr>
 
-            <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center">
-                <div class="col-12 me-4 col-lg-8">
-                    <div class="d-flex mt-4">
-                        <h3 class="me-4"> <b> Bienvenido </b> </h3>
-                        <h3 class="color-dark-blue"> <b> Usuario #12244 </b> </h3>
+        <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center">
+            <div class="col-12 me-4 col-lg-8">
+                <div class="d-flex mt-4">
+                    <h3 class="me-4"> <b> Bienvenido </b> </h3>
+                    <h3 class="color-dark-blue"> <b> Usuario #12244 </b> </h3>
+                </div>
+
+                <p class="my-2 color-gray">Te dejamos un resumen de los movimientos de tus reservas y tareas por
+                    hacer en tus
+                    embarcaciones</p>
+
+                <div class="container-fluid bg-container-gray pt-5 px-4">
+                    <div class="d-flex justify-content-between">
+                        <h3 class="color-dark-blue"><b>Reservas</b></h3>
+                        <button class="btn btn-next-extra nueva-reserva" style="border-radius: 12px;">Nueva Reserva
+                            <i class="fa-solid fa-circle-right"></i></button>
                     </div>
+                    <p class="mt-4 color-gray">Intrinsicly create backend infrastructures before best-of-breed web
+                        services.
+                        Compellingly
+                        reintermediate intuitive human capital before strategic technologies. Completely network
+                        covalent
+                        communities before fully researched “outside the box” thinking.</p>
 
-                    <p class="my-2 color-gray">Te dejamos un resumen de los movimientos de tus reservas y tareas por
-                        hacer en tus
-                        embarcaciones</p>
-
-                    <div class="container-fluid bg-container-gray pt-5 px-4">
-                        <div class="d-flex justify-content-between">
-                            <h3 class="color-dark-blue"><b>Reservas</b></h3>
-                            <button class="btn btn-next-extra nueva-reserva" style="border-radius: 12px;">Nueva Reserva
-                                <i class="fa-solid fa-circle-right"></i></button>
+                    <div class="row mt-5">
+                        <div class="col-12 col-md-8 mb-5">
+                            <button class="btn btn-transparent color-blue me-4">
+                                <i class="fa-solid fa-square"></i>
+                                <span class="color-gray">Fecha de reserva</span>
+                            </button>
+                            <button class="btn btn-transparent color-light-blue me-4">
+                                <i class="fa-solid fa-square"></i>
+                                <span class="color-gray">Fecha Bloqueada parcialmente</span>
+                            </button>
                         </div>
-                        <p class="mt-4 color-gray">Intrinsicly create backend infrastructures before best-of-breed web
-                            services.
-                            Compellingly
-                            reintermediate intuitive human capital before strategic technologies. Completely network
-                            covalent
-                            communities before fully researched “outside the box” thinking.</p>
-
-                        <div class="row mt-5">
-                            <div class="col-12 col-md-8 mb-5">
-                                <button class="btn btn-transparent color-blue me-4">
-                                    <i class="fa-solid fa-square"></i>
-                                    <span class="color-gray">Fecha de reserva</span>
-                                </button>
-                                <button class="btn btn-transparent color-light-blue me-4">
-                                    <i class="fa-solid fa-square"></i>
-                                    <span class="color-gray">Fecha Bloqueada parcialmente</span>
-                                </button>
-                            </div>
-                            <div class="col-12 col-md-4">
-                                <div class="d-flex flex-column">
-                                    <div class="d-flex justify-content-between">
-                                        <p>Porcentaje del mes ocupado</p>
-                                        <p class="color-blue">34%</p>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p>Daños de equipos</p>
-                                        <p class="color-blue">43 veces</p>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p>Stats importante</p>
-                                        <p class="color-blue">12%</p>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p>Otro Stat importante</p>
-                                        <p class="color-blue">80%</p>
-                                    </div>
+                        <div class="col-12 col-md-4">
+                            <div class="d-flex flex-column">
+                                <div class="d-flex justify-content-between">
+                                    <p>Porcentaje del mes ocupado</p>
+                                    <p class="color-blue">34%</p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p>Daños de equipos</p>
+                                    <p class="color-blue">43 veces</p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p>Stats importante</p>
+                                    <p class="color-blue">12%</p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p>Otro Stat importante</p>
+                                    <p class="color-blue">80%</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-4 mt-5">
+            </div>
+            <div class="col-12 col-lg-4 mt-5">
+                <div class="d-flex flex-column">
+                    <img src="../images/mapa.png" style="height: 16rem;">
+                    <span class="f-7 color-light-gray">Actualización cada 0,2 segundos</span>
+                </div>
+
+                <div class="container-fluid bg-container-gray pt-2">
+                    <div class="d-flex align-items-center justify-content-between my-3">
+                        <h4 class="color-dark-blue"><b>Notificaciones</b></h4>
+                        <button class="btn btn-next-extra" style="width: 14rem !important; border-radius: 12px;">
+                            <span class="d-none d-sm-inline">Nueva Notificación</span>
+                            <i class="fa-solid fa-circle-right"></i></button>
+                    </div>
+                    <div class="d-flex flex-column hr-notificacion">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <button class="btn btn-transparent me-2"><i class="fa-solid fa-triangle-exclamation color-red"></i></button>
+                                    <b>Revisión de Motor y desperfecto y...</b>
+                                </div>
+                                <b class="color-dark-blue">Urgente</b>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <button class="btn btn-transparent me-2"><i class="fa-solid fa-triangle-exclamation color-transparent"></i></button>
+                                    <span>Atención: </span>
+                                </div>
+                                <b class="color-dark-blue">ASAP</b>
+                            </div>
+                            <hr class="my-3">
+                        </div>
+                        <div class="d-flex flex-column">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <button class="btn btn-transparent me-2"><i class="fa-solid fa-triangle-exclamation color-red"></i></button>
+                                    <b>Comprar pistones para motor del …</b>
+                                </div>
+                                <b class="color-dark-blue">Urgente</b>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <button class="btn btn-transparent me-2"><i class="fa-solid fa-triangle-exclamation color-transparent"></i></button>
+                                    <span>Atención: </span>
+                                </div>
+                                <b class="color-dark-blue">ASAP</b>
+                            </div>
+                            <hr class="my-3">
+                        </div>
+                        <div class="d-flex flex-column">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <button class="btn btn-transparent me-2"><i class="fa-solid fa-triangle-exclamation color-yellow"></i></button>
+                                    <b>Comprar utensilios para paseo…</b>
+                                </div>
+                                <b class="color-dark-blue">Alerta</b>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <button class="btn btn-transparent me-2"><i class="fa-solid fa-triangle-exclamation color-transparent"></i></button>
+                                    <span>Atención: </span>
+                                </div>
+                                <b class="color-dark-blue">14/09/2022</b>
+                            </div>
+                            <hr class="my-3">
+                        </div>
+                        <div class="d-flex flex-column">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <button class="btn btn-transparent me-2"><i class="fa-solid fa-triangle-exclamation color-yellow"></i></button>
+                                    <b>Cambio de aceite en barco Naut…</b>
+                                </div>
+                                <b class="color-dark-blue">Alerta</b>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <button class="btn btn-transparent me-2"><i class="fa-solid fa-triangle-exclamation color-transparent"></i></button>
+                                    <span>Atención: </span>
+                                </div>
+                                <b class="color-dark-blue">22/09/2022</b>
+                            </div>
+                            <hr class="my-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Fin de dashboard admin -->
+
+    <!-- Inicio equipamiento de barco -->
+
+    <div class="container-fluid px-md-5 d-none" id="equipamiento-admin">
+        <div class="text-center mt-3">
+            <h6 class="color-dark-blue"> <b> Barcos </b> </h6>
+        </div>
+
+        <hr class="my-3">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <button class="btn-atras" id="atras-equipamiento">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <b> Atras </b>
+                </button>
+            </div>
+            <div>
+                <h5> <b> Ingreso de Nuevo Barco / Equipamiento </b> </h5>
+            </div>
+            <div>
+                <button class="btn-descartar"> <b> Descartar </b> <i class="fa-solid fa-trash-can"></i> </button>
+            </div>
+            <!-- <div>
+                    <button class="btn btn-transparent color-extras-gray"> <span>Octubre 2022</span> <i
+                            class="fa-solid fa-angle-right color-dark-blue fa-lg ms-3"></i> </button>
+                </div> -->
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-8 col-xl-9 mt-3">
+                <h6 class="color-dark-extras"><b> Indica el equipamiento que posee tu embarcación
+                        [nombre_de_la_barca] * </b></h6>
+                <p class="color-extras-gray f-9">Si tu embarcación consta con un equipamiento que no está en estos
+                    listados, por favor dirígete
+                    hasta
+                    la pestaña de <span class="color-dark-blue"> Extras </span> para generarlo y vuelve a esta
+                    sección a adherir el equipamiento.</p>
+
+                <div class="row">
+
+                    <div class="col-12 col-sm-6 col-md-4 mb-3">
+                        <strong>Exterior</strong>
+                        <div class="d-flex flex-column mt-3">
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio1" checked>
+                                <label class="f-9" for="exterior-radio1"> Toldo </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio2">
+                                <label class="f-9" for="exterior-radio2"> Ducha exterior </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio3">
+                                <label class="f-9" for="exterior-radio3"> Mesa comedor </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio4">
+                                <label class="f-9" for="exterior-radio4"> Sistema estéreo </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio5">
+                                <label class="f-9" for="exterior-radio5"> Cubierta de teca </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio6">
+                                <label class="f-9" for="exterior-radio6"> Salarium en proa </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio7">
+                                <label class="f-9" for="exterior-radio7"> Salarium en popa </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio8">
+                                <label class="f-9" for="exterior-radio8"> Plataforma de baño </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio9">
+                                <label class="f-9" for="exterior-radio9"> Escalera de baño </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 mb-3">
+                        <strong>Comfort</strong>
+                        <div class="d-flex flex-column mt-3">
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="comform-radio" id="comform-radio1" checked>
+                                <label class="f-9" for="comform-radio1"> Agua caliente </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="comform-radio" id="comform-radio2">
+                                <label class="f-9" for="comform-radio2"> Desalinizadora </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="comform-radio" id="comform-radio3">
+                                <label class="f-9" for="comform-radio3"> Aire acondicionado </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="comform-radio" id="comform-radio4">
+                                <label class="f-9" for="comform-radio4"> Ventiladores </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="comform-radio" id="comform-radio5">
+                                <label class="f-9" for="comform-radio5"> Calefacción </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="comform-radio" id="comform-radio6">
+                                <label class="f-9" for="comform-radio6"> WC eléctrico </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="comform-radio" id="comform-radio7">
+                                <label class="f-9" for="comform-radio7"> Ropa de cama </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="comform-radio" id="comform-radio8">
+                                <label class="f-9" for="comform-radio8"> Toallas de baño </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="comform-radio" id="comform-radio9">
+                                <label class="f-9" for="comform-radio9"> Toallas de playa </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="comform-radio" id="comform-radio10">
+                                <label class="f-9" for="comform-radio10"> Puerto USB </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="comform-radio" id="comform-radio11">
+                                <label class="f-9" for="comform-radio11"> Televisión </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 mb-3">
+                        <strong> De Navegación </strong>
+                        <div class="d-flex flex-column mt-3">
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio1" checked>
+                                <label class="f-9" for="navegation-radio1"> Anexo </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio2">
+                                <label class="f-9" for="navegation-radio2"> Ducha exterior </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio3">
+                                <label class="f-9" for="navegation-radio3"> Mesa comedor </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio4">
+                                <label class="f-9" for="navegation-radio4"> Sistema estéreo </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio5">
+                                <label class="f-9" for="navegation-radio5"> Cubierta de teca </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio6">
+                                <label class="f-9" for="navegation-radio6"> Salarium en proa </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio7">
+                                <label class="f-9" for="navegation-radio7"> Salarium en popa </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio8">
+                                <label class="f-9" for="navegation-radio8"> Plataforma de baño </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio9">
+                                <label class="f-9" for="navegation-radio9"> Escalera de baño </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 mb-3">
+                        <strong> Cocina </strong>
+                        <div class="d-flex flex-column mt-3">
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="cocina-radio" id="cocina-radio1" checked>
+                                <label class="f-9" for="cocina-radio1"> Frigorífico </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="cocina-radio" id="cocina-radio2">
+                                <label class="f-9" for="cocina-radio2"> Congelador </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="cocina-radio" id="cocina-radio3">
+                                <label class="f-9" for="cocina-radio3"> Horno/cocina </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="cocina-radio" id="cocina-radio4">
+                                <label class="f-9" for="cocina-radio4"> Parrilla/barbacoa </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="cocina-radio" id="cocina-radio5">
+                                <label class="f-9" for="cocina-radio5"> Microondas </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="cocina-radio" id="cocina-radio6">
+                                <label class="f-9" for="cocina-radio6"> Máquina de café </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="cocina-radio" id="cocina-radio7">
+                                <label class="f-9" for="cocina-radio7"> Máquina de hielo </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="cocina-radio" id="cocina-radio8">
+                                <label class="f-9" for="cocina-radio8"> Congelador </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 mb-3">
+                        <strong> Ocio </strong>
+                        <div class="d-flex flex-column mt-3">
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio1" checked>
+                                <label class="f-9" for="ocio-radio1"> Tabla de Paddle </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio2">
+                                <label class="f-9" for="ocio-radio2"> Kayak </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio3">
+                                <label class="f-9" for="ocio-radio3"> Gafas y tubos </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio4">
+                                <label class="f-9" for="ocio-radio4"> Equipos de pesca </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio5">
+                                <label class="f-9" for="ocio-radio5"> Equipos de buceo </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio6">
+                                <label class="f-9" for="ocio-radio6"> Seabob </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio7">
+                                <label class="f-9" for="ocio-radio7"> Bicicleta </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio8">
+                                <label class="f-9" for="ocio-radio8"> Patinente eléctrico</label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio9">
+                                <label class="f-9" for="ocio-radio9"> Dron </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio10">
+                                <label class="f-9" for="ocio-radio10"> Cámara </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 mb-3">
+                        <strong> Deportes Acuáticos </strong>
+                        <div class="d-flex flex-column mt-3">
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="sport-radio" id="sport-radio1" checked>
+                                <label class="f-9" for="sport-radio1"> Esquí acuático </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="sport-radio" id="sport-radio2">
+                                <label class="f-9" for="sport-radio2"> Mono Esquí </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="sport-radio" id="sport-radio3">
+                                <label class="f-9" for="sport-radio3"> Wakeboard </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="sport-radio" id="sport-radio4">
+                                <label class="f-9" for="sport-radio4"> Donut </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="sport-radio" id="sport-radio5">
+                                <label class="f-9" for="sport-radio5"> Plátano hinchable </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="sport-radio" id="sport-radio6">
+                                <label class="f-9" for="sport-radio6"> Kneeboard </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 mb-3">
+                        <strong> Energía eléctrica </strong>
+                        <div class="d-flex flex-column mt-3">
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="energy-radio" id="energy-radio1" checked>
+                                <label class="f-9" for="energy-radio1"> Generador </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="energy-radio" id="energy-radio2">
+                                <label class="f-9" for="energy-radio2"> Inversor </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="energy-radio" id="energy-radio3">
+                                <label class="f-9" for="energy-radio3"> Toma corriente (220 V) </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 mb-3">
+                        <strong> Ningún equipamiento </strong>
+                        <div class="d-flex flex-column mt-3">
+                            <div class="form-check d-flex align-items-center mb-3">
+                                <input class="me-2" type="radio" name="sin-radio" id="sin-radio3">
+                                <label class="f-9" for="sin-radio3"> Ninguno en especial </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-100 my-5">
+                    <button class="btn-siguiente-general" id="next-equipamiento"> <span> Siguiente </span> <i class="fa-solid fa-arrow-right"></i> </button>
+                </div>
+
+
+            </div>
+            <div class="col-12 col-lg-4 col-xl-3 mt-3 ps-xxl-5">
+                <div class="container bg-gray py-3">
+                    <p class="color-gray-dark">
+                        Recuerda que entre más llenes los campos, tendrás más chances en que encuentren mejor tu
+                        barca y sus atributos y dejarás en claro lo que ofreces sin tener ninguna sorpresa al
+                        momento del alquiler.
+                    </p>
+                    <p class="color-gray-dark">
+                        Ingresa todos los campos obligatorios (*) y presiona el botón
+                        siguiente para que la sección se marque como terminada.
+                    </p>
+                    <button class="btn bnt-transparent d-flex align-items-center mt-5">
+                        <i class="fa-solid fa-life-ring me-2"></i>
+                        <strong class="color-gray">
+                            ¿Necesitas Ayuda?
+                        </strong>
+                    </button>
+
+                    <hr class="mt-3 mb-2">
+
                     <div class="d-flex flex-column">
-                        <img src="../images/mapa.png" style="height: 16rem;">
-                        <span class="f-7 color-light-gray">Actualización cada 0,2 segundos</span>
+                        <div class="d-flex">
+                            <button class="btn btn-transparent f-xl-8">
+                                <i class="fa-solid fa-message color-gray-dark me-2"></i>
+                                <span class="color-blue"> Chat online</span>
+                            </button>
+                        </div>
+                        <div class="d-flex">
+                            <button class="btn btn-transparent f-xl-8">
+                                <i class="fa-solid fa-phone color-gray-dark me-2"></i>
+                                <span class="color-blue"> Por Teléfono: </span>
+                                <span class="color-gray-dark"> +34 966 655 433 </span>
+                            </button>
+                        </div>
+                        <div class="d-flex">
+                            <button class="btn btn-transparent f-xl-8">
+                                <i class="fa-solid fa-envelope color-gray-dark me-2"></i>
+                                <span class="color-blue"> E-mail: support@MBM.es </span>
+                            </button>
+                        </div>
                     </div>
 
-                    <div class="container-fluid bg-container-gray pt-2">
-                        <div class="d-flex align-items-center justify-content-between my-3">
-                            <h4 class="color-dark-blue"><b>Notificaciones</b></h4>
-                            <button class="btn btn-next-extra" style="width: 14rem !important; border-radius: 12px;">
-                                <span class="d-none d-sm-inline">Nueva Notificación</span>
-                                <i class="fa-solid fa-circle-right"></i></button>
-                        </div>
-                        <div class="d-flex flex-column hr-notificacion">
-                            <div class="d-flex flex-column">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <button class="btn btn-transparent me-2"><i class="fa-solid fa-triangle-exclamation color-red"></i></button>
-                                        <b>Revisión de Motor y desperfecto y...</b>
-                                    </div>
-                                    <b class="color-dark-blue">Urgente</b>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <button class="btn btn-transparent me-2"><i class="fa-solid fa-triangle-exclamation color-transparent"></i></button>
-                                        <span>Atención: </span>
-                                    </div>
-                                    <b class="color-dark-blue">ASAP</b>
-                                </div>
-                                <hr class="my-3">
-                            </div>
-                            <div class="d-flex flex-column">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <button class="btn btn-transparent me-2"><i class="fa-solid fa-triangle-exclamation color-red"></i></button>
-                                        <b>Comprar pistones para motor del …</b>
-                                    </div>
-                                    <b class="color-dark-blue">Urgente</b>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <button class="btn btn-transparent me-2"><i class="fa-solid fa-triangle-exclamation color-transparent"></i></button>
-                                        <span>Atención: </span>
-                                    </div>
-                                    <b class="color-dark-blue">ASAP</b>
-                                </div>
-                                <hr class="my-3">
-                            </div>
-                            <div class="d-flex flex-column">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <button class="btn btn-transparent me-2"><i class="fa-solid fa-triangle-exclamation color-yellow"></i></button>
-                                        <b>Comprar utensilios para paseo…</b>
-                                    </div>
-                                    <b class="color-dark-blue">Alerta</b>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <button class="btn btn-transparent me-2"><i class="fa-solid fa-triangle-exclamation color-transparent"></i></button>
-                                        <span>Atención: </span>
-                                    </div>
-                                    <b class="color-dark-blue">14/09/2022</b>
-                                </div>
-                                <hr class="my-3">
-                            </div>
-                            <div class="d-flex flex-column">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <button class="btn btn-transparent me-2"><i class="fa-solid fa-triangle-exclamation color-yellow"></i></button>
-                                        <b>Cambio de aceite en barco Naut…</b>
-                                    </div>
-                                    <b class="color-dark-blue">Alerta</b>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <button class="btn btn-transparent me-2"><i class="fa-solid fa-triangle-exclamation color-transparent"></i></button>
-                                        <span>Atención: </span>
-                                    </div>
-                                    <b class="color-dark-blue">22/09/2022</b>
-                                </div>
-                                <hr class="my-3">
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
-
         </div>
 
-        <!-- Fin de dashboard admin -->
+    </div>
 
-        <!-- Inicio equipamiento de barco -->
+    <!-- Fin equipamiento de barco -->
 
-        <div class="container-fluid px-md-5 d-none" id="equipamiento-admin">
-            <div class="text-center mt-3">
-                <h6 class="color-dark-blue"> <b> Barcos </b> </h6>
+    <!-- Inicio de resumen reserva barco -->
+
+    <div class="container-fluid px-md-5 d-none" id="resume-reserva-admin">
+            <script>
+                $("#home_reserva").addClass('d-none')
+                $("#resume-reserva-admin").removeClass('d-none')
+            </script>
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <button class="btn btn-transparent color-extras-gray"> <i class="fa-solid fa-angle-left color-dark-blue fa-lg me-3"></i> <span>Jueves
+                        02/09/2022</span>
+                </button>
             </div>
-
-            <hr class="my-3">
-
-            <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    <button class="btn-atras" id="atras-equipamiento">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        <b> Atras </b>
-                    </button>
-                </div>
-                <div>
-                    <h5> <b> Ingreso de Nuevo Barco / Equipamiento </b> </h5>
-                </div>
-                <div>
-                    <button class="btn-descartar"> <b> Descartar </b> <i class="fa-solid fa-trash-can"></i> </button>
-                </div>
-                <!-- <div>
+            <div>
+                <h5 class="text-center mt-3 color-dark-blue"> <b> Barco </b> </h5>
+            </div>
+            <div></div>
+            <!-- <div>
                     <button class="btn btn-transparent color-extras-gray"> <span>Octubre 2022</span> <i
                             class="fa-solid fa-angle-right color-dark-blue fa-lg ms-3"></i> </button>
                 </div> -->
+        </div>
+        <hr>
+
+        <div class="w-100 my-3">
+            <span class="color-dark-blue"> Septiembre 2022 </span>
+            <span class="color-dark-blue"> | </span>
+            <span class="color-dark-blue"> 12/12/2021 </span>
+            <span class="color-dark-extras"> | </span>
+            <span class="color-dark-extras">Barco Namaré </span>
+            <strong class="color-dark-extras">
+                11:00 a 12:00
+            </strong>
+        </div>
+        <div class="d-flex justify-content-between flex-column flex-md-row">
+            <div>
+                <button class="btn-atras" id="atras-resume"> <i class="fa-solid fa-arrow-left"></i> Atrás </button>
             </div>
-
-            <div class="row">
-                <div class="col-12 col-lg-8 col-xl-9 mt-3">
-                    <h6 class="color-dark-extras"><b> Indica el equipamiento que posee tu embarcación
-                            [nombre_de_la_barca] * </b></h6>
-                    <p class="color-extras-gray f-9">Si tu embarcación consta con un equipamiento que no está en estos
-                        listados, por favor dirígete
-                        hasta
-                        la pestaña de <span class="color-dark-blue"> Extras </span> para generarlo y vuelve a esta
-                        sección a adherir el equipamiento.</p>
-
-                    <div class="row">
-
-                        <div class="col-12 col-sm-6 col-md-4 mb-3">
-                            <strong>Exterior</strong>
-                            <div class="d-flex flex-column mt-3">
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio1" checked>
-                                    <label class="f-9" for="exterior-radio1"> Toldo </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio2">
-                                    <label class="f-9" for="exterior-radio2"> Ducha exterior </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio3">
-                                    <label class="f-9" for="exterior-radio3"> Mesa comedor </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio4">
-                                    <label class="f-9" for="exterior-radio4"> Sistema estéreo </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio5">
-                                    <label class="f-9" for="exterior-radio5"> Cubierta de teca </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio6">
-                                    <label class="f-9" for="exterior-radio6"> Salarium en proa </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio7">
-                                    <label class="f-9" for="exterior-radio7"> Salarium en popa </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio8">
-                                    <label class="f-9" for="exterior-radio8"> Plataforma de baño </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="exterior-radio" id="exterior-radio9">
-                                    <label class="f-9" for="exterior-radio9"> Escalera de baño </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 mb-3">
-                            <strong>Comfort</strong>
-                            <div class="d-flex flex-column mt-3">
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="comform-radio" id="comform-radio1" checked>
-                                    <label class="f-9" for="comform-radio1"> Agua caliente </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="comform-radio" id="comform-radio2">
-                                    <label class="f-9" for="comform-radio2"> Desalinizadora </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="comform-radio" id="comform-radio3">
-                                    <label class="f-9" for="comform-radio3"> Aire acondicionado </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="comform-radio" id="comform-radio4">
-                                    <label class="f-9" for="comform-radio4"> Ventiladores </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="comform-radio" id="comform-radio5">
-                                    <label class="f-9" for="comform-radio5"> Calefacción </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="comform-radio" id="comform-radio6">
-                                    <label class="f-9" for="comform-radio6"> WC eléctrico </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="comform-radio" id="comform-radio7">
-                                    <label class="f-9" for="comform-radio7"> Ropa de cama </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="comform-radio" id="comform-radio8">
-                                    <label class="f-9" for="comform-radio8"> Toallas de baño </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="comform-radio" id="comform-radio9">
-                                    <label class="f-9" for="comform-radio9"> Toallas de playa </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="comform-radio" id="comform-radio10">
-                                    <label class="f-9" for="comform-radio10"> Puerto USB </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="comform-radio" id="comform-radio11">
-                                    <label class="f-9" for="comform-radio11"> Televisión </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 mb-3">
-                            <strong> De Navegación </strong>
-                            <div class="d-flex flex-column mt-3">
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio1" checked>
-                                    <label class="f-9" for="navegation-radio1"> Anexo </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio2">
-                                    <label class="f-9" for="navegation-radio2"> Ducha exterior </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio3">
-                                    <label class="f-9" for="navegation-radio3"> Mesa comedor </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio4">
-                                    <label class="f-9" for="navegation-radio4"> Sistema estéreo </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio5">
-                                    <label class="f-9" for="navegation-radio5"> Cubierta de teca </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio6">
-                                    <label class="f-9" for="navegation-radio6"> Salarium en proa </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio7">
-                                    <label class="f-9" for="navegation-radio7"> Salarium en popa </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio8">
-                                    <label class="f-9" for="navegation-radio8"> Plataforma de baño </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="navegation-radio" id="navegation-radio9">
-                                    <label class="f-9" for="navegation-radio9"> Escalera de baño </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 mb-3">
-                            <strong> Cocina </strong>
-                            <div class="d-flex flex-column mt-3">
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="cocina-radio" id="cocina-radio1" checked>
-                                    <label class="f-9" for="cocina-radio1"> Frigorífico </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="cocina-radio" id="cocina-radio2">
-                                    <label class="f-9" for="cocina-radio2"> Congelador </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="cocina-radio" id="cocina-radio3">
-                                    <label class="f-9" for="cocina-radio3"> Horno/cocina </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="cocina-radio" id="cocina-radio4">
-                                    <label class="f-9" for="cocina-radio4"> Parrilla/barbacoa </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="cocina-radio" id="cocina-radio5">
-                                    <label class="f-9" for="cocina-radio5"> Microondas </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="cocina-radio" id="cocina-radio6">
-                                    <label class="f-9" for="cocina-radio6"> Máquina de café </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="cocina-radio" id="cocina-radio7">
-                                    <label class="f-9" for="cocina-radio7"> Máquina de hielo </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="cocina-radio" id="cocina-radio8">
-                                    <label class="f-9" for="cocina-radio8"> Congelador </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 mb-3">
-                            <strong> Ocio </strong>
-                            <div class="d-flex flex-column mt-3">
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio1" checked>
-                                    <label class="f-9" for="ocio-radio1"> Tabla de Paddle </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio2">
-                                    <label class="f-9" for="ocio-radio2"> Kayak </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio3">
-                                    <label class="f-9" for="ocio-radio3"> Gafas y tubos </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio4">
-                                    <label class="f-9" for="ocio-radio4"> Equipos de pesca </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio5">
-                                    <label class="f-9" for="ocio-radio5"> Equipos de buceo </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio6">
-                                    <label class="f-9" for="ocio-radio6"> Seabob </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio7">
-                                    <label class="f-9" for="ocio-radio7"> Bicicleta </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio8">
-                                    <label class="f-9" for="ocio-radio8"> Patinente eléctrico</label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio9">
-                                    <label class="f-9" for="ocio-radio9"> Dron </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="ocio-radio" id="ocio-radio10">
-                                    <label class="f-9" for="ocio-radio10"> Cámara </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 mb-3">
-                            <strong> Deportes Acuáticos </strong>
-                            <div class="d-flex flex-column mt-3">
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="sport-radio" id="sport-radio1" checked>
-                                    <label class="f-9" for="sport-radio1"> Esquí acuático </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="sport-radio" id="sport-radio2">
-                                    <label class="f-9" for="sport-radio2"> Mono Esquí </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="sport-radio" id="sport-radio3">
-                                    <label class="f-9" for="sport-radio3"> Wakeboard </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="sport-radio" id="sport-radio4">
-                                    <label class="f-9" for="sport-radio4"> Donut </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="sport-radio" id="sport-radio5">
-                                    <label class="f-9" for="sport-radio5"> Plátano hinchable </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="sport-radio" id="sport-radio6">
-                                    <label class="f-9" for="sport-radio6"> Kneeboard </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 mb-3">
-                            <strong> Energía eléctrica </strong>
-                            <div class="d-flex flex-column mt-3">
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="energy-radio" id="energy-radio1" checked>
-                                    <label class="f-9" for="energy-radio1"> Generador </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="energy-radio" id="energy-radio2">
-                                    <label class="f-9" for="energy-radio2"> Inversor </label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="energy-radio" id="energy-radio3">
-                                    <label class="f-9" for="energy-radio3"> Toma corriente (220 V) </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 mb-3">
-                            <strong> Ningún equipamiento </strong>
-                            <div class="d-flex flex-column mt-3">
-                                <div class="form-check d-flex align-items-center mb-3">
-                                    <input class="me-2" type="radio" name="sin-radio" id="sin-radio3">
-                                    <label class="f-9" for="sin-radio3"> Ninguno en especial </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="w-100 my-5">
-                        <button class="btn-siguiente-general" id="next-equipamiento"> <span> Siguiente </span> <i class="fa-solid fa-arrow-right"></i> </button>
-                    </div>
-
-
-                </div>
-                <div class="col-12 col-lg-4 col-xl-3 mt-3 ps-xxl-5">
-                    <div class="container bg-gray py-3">
-                        <p class="color-gray-dark">
-                            Recuerda que entre más llenes los campos, tendrás más chances en que encuentren mejor tu
-                            barca y sus atributos y dejarás en claro lo que ofreces sin tener ninguna sorpresa al
-                            momento del alquiler.
-                        </p>
-                        <p class="color-gray-dark">
-                            Ingresa todos los campos obligatorios (*) y presiona el botón
-                            siguiente para que la sección se marque como terminada.
-                        </p>
-                        <button class="btn bnt-transparent d-flex align-items-center mt-5">
-                            <i class="fa-solid fa-life-ring me-2"></i>
-                            <strong class="color-gray">
-                                ¿Necesitas Ayuda?
-                            </strong>
-                        </button>
-
-                        <hr class="mt-3 mb-2">
-
-                        <div class="d-flex flex-column">
-                            <div class="d-flex">
-                                <button class="btn btn-transparent f-xl-8">
-                                    <i class="fa-solid fa-message color-gray-dark me-2"></i>
-                                    <span class="color-blue"> Chat online</span>
-                                </button>
-                            </div>
-                            <div class="d-flex">
-                                <button class="btn btn-transparent f-xl-8">
-                                    <i class="fa-solid fa-phone color-gray-dark me-2"></i>
-                                    <span class="color-blue"> Por Teléfono: </span>
-                                    <span class="color-gray-dark"> +34 966 655 433 </span>
-                                </button>
-                            </div>
-                            <div class="d-flex">
-                                <button class="btn btn-transparent f-xl-8">
-                                    <i class="fa-solid fa-envelope color-gray-dark me-2"></i>
-                                    <span class="color-blue"> E-mail: support@MBM.es </span>
-                                </button>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
+            <div class="d-flex">
+                <button class="btn-cancelar-reserva me-3 px-2"> Cerrar reserva <i class="fa-solid fa-power-off color-dark-red ms-2"></i> </button>
+                <button class="btn-cancelar-reserva me-3">Cancelar reserva <i class="fa-solid fa-circle-xmark color-dark-red ms-2"></i> </button>
+                <button class="btn-guardar-mod px-4"> <span class="position-relative right-5rem"> Guardar
+                        modificaciones </span> <i class="fa-solid fa-floppy-disk position-relative left-7rem"></i>
+                </button>
             </div>
-
         </div>
 
-        <!-- Fin equipamiento de barco -->
-
-        <!-- Inicio de resumen reserva barco -->
-
-        <div class="container-fluid px-md-5 d-none" id="resume-reserva-admin">
-            <?php
-            // it go here
-            $reserva_data = [];
-            if (!empty($_GET['id'])) {
-                $id = $_GET['id'];
-                $sql = "SELECT *,  reserva.id as reserva_id
-							FROM reserva, vote
-							WHERE reserva.id = vote.id AND
-							reserva.id = $id LIMIT 1";
-                $reserva_data = $wpdb->get_results($sql);
-                # $wpdb->getResults($sql);
-                $reserva_data = $reserva_data[0];
-                # print_y($reserva_data);
-
-            ?>
-                <script>
-                    $("#home_reserva").addClass('d-none')
-                    $("#resume-reserva-admin").removeClass('d-none')
-                </script>
-            <?php
-            }
-
-            # echo $reserva_data;
-            # print_y($reserva_data?->id_user_reserva);
-            ?>
-            <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    <button class="btn btn-transparent color-extras-gray"> <i class="fa-solid fa-angle-left color-dark-blue fa-lg me-3"></i> <span>Jueves
-                            02/09/2022</span>
-                    </button>
-                </div>
-                <div>
-                    <h5 class="text-center mt-3 color-dark-blue"> <b> Barco <?php
-                                                                            $value = $reserva_data?->nombre . ' ' . $reserva_data?->hora_inicio . ' a ' . $reserva_data?->hora_fin;
-                                                                            echo $value;
-
-                                                                            ?> </b> </h5>
-                </div>
-                <div></div>
-                <!-- <div>
-                    <button class="btn btn-transparent color-extras-gray"> <span>Octubre 2022</span> <i
-                            class="fa-solid fa-angle-right color-dark-blue fa-lg ms-3"></i> </button>
-                </div> -->
-            </div>
-            <hr>
-
-            <div class="w-100 my-3">
-                <span class="color-dark-blue"> Septiembre 2022 </span>
-                <span class="color-dark-blue"> | </span>
-                <span class="color-dark-blue"> <?php echo $reserva_data?->fecha ?> </span>
-                <span class="color-dark-extras"> | </span>
-                <span class="color-dark-extras">Barco <?php echo $reserva_data?->nombre ?> </span>
-                <strong class="color-dark-extras">
-                    <?php echo $reserva_data?->hora_inicio ?> a
-                    <?php echo $reserva_data?->hora_fin ?>
-                </strong>
-            </div>
-            <div class="d-flex justify-content-between flex-column flex-md-row">
-                <div>
-                    <button class="btn-atras" id="atras-resume"> <i class="fa-solid fa-arrow-left"></i> Atrás </button>
-                </div>
-                <div class="d-flex">
-                    <button class="btn-cancelar-reserva me-3 px-2"> Cerrar reserva <i class="fa-solid fa-power-off color-dark-red ms-2"></i> </button>
-                    <button class="btn-cancelar-reserva me-3">Cancelar reserva <i class="fa-solid fa-circle-xmark color-dark-red ms-2"></i> </button>
-                    <button class="btn-guardar-mod px-4"> <span class="position-relative right-5rem"> Guardar
-                            modificaciones </span> <i class="fa-solid fa-floppy-disk position-relative left-7rem"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-lg-6 mt-3">
-                    <div class="container-fluid bg-container-gray">
-                        <h5><b>Datos de la reserva</b></h5>
-                        <div class="d-flex flex-column">
-                            <div class="py-3">
-                                <div class="p-2 bg-blue-light color-dark-extras">
-                                    <span> Bloqueada parcialmente </span>
-                                </div>
+        <div class="row">
+            <div class="col-12 col-lg-6 mt-3">
+                <div class="container-fluid bg-container-gray">
+                    <h5><b>Datos de la reserva</b></h5>
+                    <div class="d-flex flex-column">
+                        <div class="py-3">
+                            <div class="p-2 bg-blue-light color-dark-extras">
+                                <span> Bloqueada parcialmente </span>
                             </div>
-                            <div class="d-flex p-2 py-3 justify-content-between">
-                                <div class="col-4 col-md-6 col-xl-2">
-                                    <span> Barco </span>
-                                </div>
-                                <div class="col-8 col-md-6 col-xl-4">
-                                    <select class="form-select" name="" id="">
-                                        <option value=""><?php echo $reserva_data?->nombre  ?></option>
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="d-flex p-2 py-3 justify-content-between">
+                            <div class="col-4 col-md-6 col-xl-2">
+                                <span> Barco </span>
                             </div>
-                            <hr>
-                            <div class="d-flex justify-content-between p-2">
-                                <span> Fecha: </span>
-                                <div class="d-flex align-items-center">
-                                    <span class="color-dark-extras me-2">
-                                        <?php echo $reserva_data?->fecha ?>
-                                    </span>
-                                    <button class="btn btn-transparent color-dark-extras">
-                                        <i class="fa-solid fa-calendar-days"></i>
-                                    </button>
-                                </div>
+                            <div class="col-8 col-md-6 col-xl-4">
+                                <select class="form-select" name="" id="">
+                                    <option value=""><?php echo $reserva_data?->nombre  ?></option>
+                                </select>
                             </div>
-                            <div class="d-flex p-2 justify-content-between">
-                                <div class="col-2">
-                                    <span> Salida: </span>
-                                </div>
-                                <div class="col-6 col-sm-5 col-lg-3 col-xl-2">
-                                    <select class="form-select" name="" id="">
-                                        <option value="">
-                                            <?php echo $reserva_data?->hora_inicio ?>
-                                        </option>
-                                    </select>
-                                </div>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between p-2">
+                            <span> Fecha: </span>
+                            <div class="d-flex align-items-center">
+                                <span class="color-dark-extras me-2">
+                                    <?php echo $reserva_data?->fecha ?>
+                                </span>
+                                <button class="btn btn-transparent color-dark-extras">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                </button>
                             </div>
-                            <div class="d-flex p-2 justify-content-between">
-                                <div class="col-2">
-                                    <span> Regreso: </span>
-                                </div>
-                                <div class="col-6 col-sm-5 col-lg-3 col-xl-2">
-                                    <select class="form-control" name="" id="">
-                                        <option value="">(+) <?php echo $reserva_data?->hora_fin ?></option>
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="d-flex p-2 justify-content-between">
+                            <div class="col-2">
+                                <span> Salida: </span>
                             </div>
-                            <hr>
-                            <div class="d-flex justify-content-between p-2">
-                                <div class="col-2">
-                                    <span> Responsable: </span>
-                                </div>
-                                <div class="col-8 col-md-6 col-xl-4 d-flex">
-                                    <button class="btn btn-transparent color-dark-extras position-absolute left-25rem">
-                                        <i class="fa-solid fa-address-card fa-xl"></i>
-                                    </button>
-                                    <input class="form-control text-end" type="text" value="Salavarria Guillermo">
-                                </div>
+                            <div class="col-6 col-sm-5 col-lg-3 col-xl-2">
+                                <select class="form-select" name="" id="">
+                                    <option value="">
+                                        <?php echo $reserva_data?->hora_inicio ?>
+                                    </option>
+                                </select>
                             </div>
-                            <div class="d-flex p-2 justify-content-between">
-                                <div class="col-2">
-                                    <span> Titulado: </span>
-                                </div>
-                                <div class="col-8 col-md-6 col-xl-4">
-                                    <select class="form-control" name="" id="">
-                                        <option value="">Ex-marino</option>
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="d-flex p-2 justify-content-between">
+                            <div class="col-2">
+                                <span> Regreso: </span>
                             </div>
-                            <div class="d-flex p-2 justify-content-between">
-                                <div class="col-2">
-                                    <span> Teléfono: </span>
-                                </div>
-                                <div class="col-8 col-md-6 col-xl-4">
-                                    <input class="form-control" type="text" value="+543 345 2334 22">
-                                </div>
+                            <div class="col-6 col-sm-5 col-lg-3 col-xl-2">
+                                <select class="form-control" name="" id="">
+                                    <option value="">(+) <?php echo $reserva_data?->hora_fin ?></option>
+                                </select>
                             </div>
-                            <div class="d-flex p-2 justify-content-between">
-                                <div class="col-2">
-                                    <span> Email: </span>
-                                </div>
-                                <div class="col-8 col-md-6 col-xl-4">
-                                    <input class="form-control" type="text" value="Salvarriag@gmail.com">
-                                </div>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between p-2">
+                            <div class="col-2">
+                                <span> Responsable: </span>
                             </div>
-                            <div class="mb-3">
-                                <textarea class="form-control" name="" id="" cols="30" style="height: 6rem;" rows="10">Nota: Voy a estar yendo con una persona des-capacitada y necesito tener buen acceso para silla de rueda.
+                            <div class="col-8 col-md-6 col-xl-4 d-flex">
+                                <button class="btn btn-transparent color-dark-extras position-absolute left-25rem">
+                                    <i class="fa-solid fa-address-card fa-xl"></i>
+                                </button>
+                                <input class="form-control text-end" type="text" value="Salavarria Guillermo">
+                            </div>
+                        </div>
+                        <div class="d-flex p-2 justify-content-between">
+                            <div class="col-2">
+                                <span> Titulado: </span>
+                            </div>
+                            <div class="col-8 col-md-6 col-xl-4">
+                                <select class="form-control" name="" id="">
+                                    <option value="">Ex-marino</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="d-flex p-2 justify-content-between">
+                            <div class="col-2">
+                                <span> Teléfono: </span>
+                            </div>
+                            <div class="col-8 col-md-6 col-xl-4">
+                                <input class="form-control" type="text" value="+543 345 2334 22">
+                            </div>
+                        </div>
+                        <div class="d-flex p-2 justify-content-between">
+                            <div class="col-2">
+                                <span> Email: </span>
+                            </div>
+                            <div class="col-8 col-md-6 col-xl-4">
+                                <input class="form-control" type="text" value="Salvarriag@gmail.com">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" name="" id="" cols="30" style="height: 6rem;" rows="10">Nota: Voy a estar yendo con una persona des-capacitada y necesito tener buen acceso para silla de rueda.
                                 </textarea>
-                            </div>
-                            <hr>
+                        </div>
+                        <hr>
 
 
 
-                            <div class="d-flex py-4 ps-2 align-items-center">
-                                <h5 class="me-3 mt-1 color-dark-extras">Asistentes: </h5>
-                                <div class="d-flex flex-1602-column me-3">
-                                    <div class="d-flex fa-gray justify-content-between mb-3 me-1602-2">
-                                        <span class="me-2 color-extras-gray"> Adultos </span>
-                                        <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
-                                        <span class="mx-2 color-dark-extras">
-                                            <?php echo $reserva_data?->cant_adultos ?>
-                                        </span>
-                                        <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
-                                    </div>
-                                    <div class="d-flex fa-gray justify-content-between me-1602-2">
-                                        <span class="me-2 color-extras-gray"> 4 a 12 </span>
-                                        <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
-                                        <span class="mx-2 color-dark-extras"> <?php echo $reserva_data?->cant_tres_doce ?> </span>
-                                        <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
-                                    </div>
+                        <div class="d-flex py-4 ps-2 align-items-center">
+                            <h5 class="me-3 mt-1 color-dark-extras">Asistentes: </h5>
+                            <div class="d-flex flex-1602-column me-3">
+                                <div class="d-flex fa-gray justify-content-between mb-3 me-1602-2">
+                                    <span class="me-2 color-extras-gray"> Adultos </span>
+                                    <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
+                                    <span class="mx-2 color-dark-extras">
+                                        <?php echo $reserva_data?->cant_adultos ?>
+                                    </span>
+                                    <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
                                 </div>
-                                <div class="d-flex flex-1602-column">
-                                    <div class="d-flex fa-gray mb-3 justify-content-between me-1602-2">
-                                        <span class="me-2 color-extras-gray"> 1 a 3 </span>
-                                        <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
-                                        <span class="mx-2 color-dark-extras"> <?php echo $reserva_data?->cant_uno_tres ?> </span>
-                                        <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
-                                    </div>
-                                    <div class="d-flex fa-gray justify-content-between me-1602-2">
-                                        <span class="me-2 color-extras-gray"> Bebés </span>
-                                        <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
-                                        <span class="mx-2 color-dark-extras"> <?php echo $reserva_data?->cant_bebes ?> </span>
-                                        <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
-                                    </div>
+                                <div class="d-flex fa-gray justify-content-between me-1602-2">
+                                    <span class="me-2 color-extras-gray"> 4 a 12 </span>
+                                    <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
+                                    <span class="mx-2 color-dark-extras"> <?php echo $reserva_data?->cant_tres_doce ?> </span>
+                                    <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
+                            <div class="d-flex flex-1602-column">
+                                <div class="d-flex fa-gray mb-3 justify-content-between me-1602-2">
+                                    <span class="me-2 color-extras-gray"> 1 a 3 </span>
+                                    <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
+                                    <span class="mx-2 color-dark-extras"> <?php echo $reserva_data?->cant_uno_tres ?> </span>
+                                    <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
+                                </div>
+                                <div class="d-flex fa-gray justify-content-between me-1602-2">
+                                    <span class="me-2 color-extras-gray"> Bebés </span>
+                                    <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
+                                    <span class="mx-2 color-dark-extras"> <?php echo $reserva_data?->cant_bebes ?> </span>
+                                    <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
 
 
 
-                            <hr>
-                            <div class="d-flex flex-column py-4 ps-2 fa-gray">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <span>Padel Board:</span>
-                                    <div class="d-flex align-items-center">
+                        <hr>
+                        <div class="d-flex flex-column py-4 ps-2 fa-gray">
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Padel Board:</span>
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
+                                    <span class="mx-2">3</span>
+                                    <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span> Snorkel Clásicos: </span>
+                                <div class="d-flex align-items-center">
+                                    <span class="color-extras-gray"> S </span>
+                                    <div class="d-flex align-items-center mx-2">
                                         <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
                                         <span class="mx-2">3</span>
                                         <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
                                     </div>
-                                </div>
-                                <div class="d-flex justify-content-between mb-3">
-                                    <span> Snorkel Clásicos: </span>
-                                    <div class="d-flex align-items-center">
-                                        <span class="color-extras-gray"> S </span>
-                                        <div class="d-flex align-items-center mx-2">
-                                            <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
-                                            <span class="mx-2">3</span>
-                                            <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
-                                        </div>
-                                        <div class="d-flex align-items-center mx-2">
-                                            <span class="color-extras-gray me-2"> M </span>
-                                            <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
-                                            <span class="mx-2"> 2 </span>
-                                            <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
-                                        </div>
-                                        <div class="d-flex align-items-center mx-2">
-                                            <span class="color-extras-gray me-2"> L </span>
-                                            <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
-                                            <span class="mx-2"> 0 </span>
-                                            <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
-                                        </div>
+                                    <div class="d-flex align-items-center mx-2">
+                                        <span class="color-extras-gray me-2"> M </span>
+                                        <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
+                                        <span class="mx-2"> 2 </span>
+                                        <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
                                     </div>
-                                </div>
-                                <div class="d-flex justify-content-between mb-3">
-                                    <span> Snorkel Fullface: </span>
-                                    <div class="d-flex align-items-center">
-                                        <span class="color-extras-gray"> S </span>
-                                        <div class="d-flex align-items-center mx-2">
-                                            <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
-                                            <span class="mx-2">3</span>
-                                            <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
-                                        </div>
-                                        <div class="d-flex align-items-center mx-2">
-                                            <span class="color-extras-gray me-2"> M </span>
-                                            <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
-                                            <span class="mx-2"> 2 </span>
-                                            <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
-                                        </div>
-                                        <div class="d-flex align-items-center mx-2">
-                                            <span class="color-extras-gray me-2"> L </span>
-                                            <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
-                                            <span class="mx-2"> 0 </span>
-                                            <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between mb-3">
-                                    <span> Set de Aletas: </span>
-                                    <div class="d-flex align-items-center">
-                                        <span class="color-extras-gray"> S </span>
-                                        <div class="d-flex align-items-center mx-2">
-                                            <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
-                                            <span class="mx-2">3</span>
-                                            <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
-                                        </div>
-                                        <div class="d-flex align-items-center mx-2">
-                                            <span class="color-extras-gray me-2"> M </span>
-                                            <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
-                                            <span class="mx-2"> 2 </span>
-                                            <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
-                                        </div>
-                                        <div class="d-flex align-items-center mx-2">
-                                            <span class="color-extras-gray me-2"> L </span>
-                                            <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
-                                            <span class="mx-2"> 0 </span>
-                                            <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between mb-3">
-                                    <span class="color-dark-extras"> Catering Básico: </span>
-                                    <div class="d-flex align-items-center">
-                                        <span class="f-8 me-3 color-extras-gray">Cada paquete es para 3 Personas
-                                            aprox.</span>
-                                        <div class="d-flex align-items-center mx-2">
-                                            <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
-                                            <span class="mx-2"> 1 </span>
-                                            <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between mb-3">
-                                    <span class="color-dark-extras"> Catering Standard: </span>
-                                    <div class="d-flex align-items-center">
-                                        <span class="f-8 me-3 color-extras-gray"> Cada paquete es para 5 Personas aprox.
-                                        </span>
-                                        <div class="d-flex align-items-center mx-2">
-                                            <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
-                                            <span class="mx-2"> 1 </span>
-                                            <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between mb-3">
-                                    <span class="color-dark-extras"> Catering Premium: </span>
-                                    <div class="d-flex align-items-center">
-                                        <span class="f-8 me-3 color-extras-gray"> Cada paquete es para 5 Personas aprox.
-                                        </span>
-                                        <div class="d-flex align-items-center mx-2">
-                                            <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
-                                            <span class="mx-2"> 1 </span>
-                                            <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
-                                        </div>
+                                    <div class="d-flex align-items-center mx-2">
+                                        <span class="color-extras-gray me-2"> L </span>
+                                        <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
+                                        <span class="mx-2"> 0 </span>
+                                        <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
                                     </div>
                                 </div>
                             </div>
-                            <hr>
-
-                            <div class="mt-3">
-                                <div class="d-flex flex-column">
-                                    <h6 class="mb-3 color-dark-extras"> Provisiones Extra: </h6>
-                                    <span class="mb-3 f-9 color-gray-dark"> 3 Bolsas de chips medianas </span>
-                                    <span class="mb-3 f-9 color-extras-gray"> 2 Gaseosas Cocacola de 3 litros </span>
-                                    <span class="mb-3 f-9 color-extras-gray"> 3 Pastillas para el mareo (caja) </span>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span> Snorkel Fullface: </span>
+                                <div class="d-flex align-items-center">
+                                    <span class="color-extras-gray"> S </span>
+                                    <div class="d-flex align-items-center mx-2">
+                                        <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
+                                        <span class="mx-2">3</span>
+                                        <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                    <div class="d-flex align-items-center mx-2">
+                                        <span class="color-extras-gray me-2"> M </span>
+                                        <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
+                                        <span class="mx-2"> 2 </span>
+                                        <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                    <div class="d-flex align-items-center mx-2">
+                                        <span class="color-extras-gray me-2"> L </span>
+                                        <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
+                                        <span class="mx-2"> 0 </span>
+                                        <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
                                 </div>
                             </div>
-                            <hr>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span> Set de Aletas: </span>
+                                <div class="d-flex align-items-center">
+                                    <span class="color-extras-gray"> S </span>
+                                    <div class="d-flex align-items-center mx-2">
+                                        <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
+                                        <span class="mx-2">3</span>
+                                        <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                    <div class="d-flex align-items-center mx-2">
+                                        <span class="color-extras-gray me-2"> M </span>
+                                        <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
+                                        <span class="mx-2"> 2 </span>
+                                        <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                    <div class="d-flex align-items-center mx-2">
+                                        <span class="color-extras-gray me-2"> L </span>
+                                        <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
+                                        <span class="mx-2"> 0 </span>
+                                        <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="color-dark-extras"> Catering Básico: </span>
+                                <div class="d-flex align-items-center">
+                                    <span class="f-8 me-3 color-extras-gray">Cada paquete es para 3 Personas
+                                        aprox.</span>
+                                    <div class="d-flex align-items-center mx-2">
+                                        <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
+                                        <span class="mx-2"> 1 </span>
+                                        <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="color-dark-extras"> Catering Standard: </span>
+                                <div class="d-flex align-items-center">
+                                    <span class="f-8 me-3 color-extras-gray"> Cada paquete es para 5 Personas aprox.
+                                    </span>
+                                    <div class="d-flex align-items-center mx-2">
+                                        <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
+                                        <span class="mx-2"> 1 </span>
+                                        <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="color-dark-extras"> Catering Premium: </span>
+                                <div class="d-flex align-items-center">
+                                    <span class="f-8 me-3 color-extras-gray"> Cada paquete es para 5 Personas aprox.
+                                    </span>
+                                    <div class="d-flex align-items-center mx-2">
+                                        <button class="btn btn-minus-plus"><i class="fa-solid fa-minus"></i></button>
+                                        <span class="mx-2"> 1 </span>
+                                        <button class="btn btn-plus-white btn-minus-plus"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
 
-                            <section>
-                                <div class="d-flex justify-content-between mt-4 mb-3">
-                                    <span class="color-extras-gray f-8"> Botella de champagne (de preferencia Don
-                                        Perignon) del año 78 </span>
-                                    <button class="btn btn-transparent color-dark-red"> <i class="fa-solid fa-trash-can"></i> </button>
+                        <div class="mt-3">
+                            <div class="d-flex flex-column">
+                                <h6 class="mb-3 color-dark-extras"> Provisiones Extra: </h6>
+                                <span class="mb-3 f-9 color-gray-dark"> 3 Bolsas de chips medianas </span>
+                                <span class="mb-3 f-9 color-extras-gray"> 2 Gaseosas Cocacola de 3 litros </span>
+                                <span class="mb-3 f-9 color-extras-gray"> 3 Pastillas para el mareo (caja) </span>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <section>
+                            <div class="d-flex justify-content-between mt-4 mb-3">
+                                <span class="color-extras-gray f-8"> Botella de champagne (de preferencia Don
+                                    Perignon) del año 78 </span>
+                                <button class="btn btn-transparent color-dark-red"> <i class="fa-solid fa-trash-can"></i> </button>
+                            </div>
+
+                            <div class="row add-provision">
+                                <div class="col-7 col-lg-6">
+                                    <input class="form-control" type="text" placeholder="Agregar nueva provisión">
+                                </div>
+                                <div class="col-5 col-lg-3">
+                                    <input class="form-control" type="text" placeholder="Importe Neto €*">
+                                </div>
+                                <div class="col-12 col-lg-3 my-lg-0 my-3 d-flex d-lg-inline justify-content-center">
+                                    <button class="btn btn-add-provision f-8">Agregar provisión</button>
                                 </div>
 
-                                <div class="row add-provision">
-                                    <div class="col-7 col-lg-6">
-                                        <input class="form-control" type="text" placeholder="Agregar nueva provisión">
-                                    </div>
-                                    <div class="col-5 col-lg-3">
-                                        <input class="form-control" type="text" placeholder="Importe Neto €*">
-                                    </div>
-                                    <div class="col-12 col-lg-3 my-lg-0 my-3 d-flex d-lg-inline justify-content-center">
-                                        <button class="btn btn-add-provision f-8">Agregar provisión</button>
-                                    </div>
+                            </div>
+                        </section>
 
+                        <hr class="my-3">
+
+                        <div class="d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="col-2">
+                                    <span>Reserva desde: </span>
                                 </div>
-                            </section>
-
+                                <div class="col-6">
+                                    <input class="form-control text-end" type=" text" value="Empresa Nautal S.A.">
+                                </div>
+                            </div>
+                            <hr class="my-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="col-2">
+                                    <span>Tipo de Reserva: </span>
+                                </div>
+                                <div class="col-6">
+                                    <select class="form-control" name="" id="">
+                                        <option value="">Flexible</option>
+                                    </select>
+                                </div>
+                            </div>
                             <hr class="my-3">
 
-                            <div class="d-flex flex-column">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="col-2">
-                                        <span>Reserva desde: </span>
-                                    </div>
-                                    <div class="col-6">
-                                        <input class="form-control text-end" type=" text" value="Empresa Nautal S.A.">
-                                    </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="col-5">
+                                    <span>Reserva hecha/modificada: </span>
                                 </div>
-                                <hr class="my-3">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="col-2">
-                                        <span>Tipo de Reserva: </span>
-                                    </div>
-                                    <div class="col-6">
-                                        <select class="form-control" name="" id="">
-                                            <option value="">Flexible</option>
-                                        </select>
-                                    </div>
+                                <div class="col-3 text-end">
+                                    <span>14/09/2022 20:34</span>
                                 </div>
-                                <hr class="my-3">
-
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="col-5">
-                                        <span>Reserva hecha/modificada: </span>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <span>14/09/2022 20:34</span>
-                                    </div>
-                                </div>
-
                             </div>
 
                         </div>
+
                     </div>
                 </div>
-                <div class="col-12 col-lg-6 mt-3">
-                    <h5 class="mb-3"><b> Ingresos </b></h5>
-                    <div class="d-flex flex-column">
-                        <div class="d-flex justify-content-between mb-3">
-                            <span class="f-9">Barco (en concesión)</span>
-                            <span class="color-blue f-9">175 €</span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-3">
-                            <span class="f-9">Barco (en concesión)</span>
-                            <span class="color-blue f-9">175 €</span>
+            </div>
+            <div class="col-12 col-lg-6 mt-3">
+                <h5 class="mb-3"><b> Ingresos </b></h5>
+                <div class="d-flex flex-column">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="f-9">Barco (en concesión)</span>
+                        <span class="color-blue f-9">175 €</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="f-9">Barco (en concesión)</span>
+                        <span class="color-blue f-9">175 €</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="d-flex flex-column mt-3">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="f-9">Paddle Board x 3</span>
+                        <span class="color-blue f-9">175 €</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="f-9">Set Snorkel Clásico x 5</span>
+                        <span class="color-blue f-9">175 €</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="f-9">Set Snorketl Fullface x 1</span>
+                        <span class="color-blue f-9">175 €</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="f-9">Set Aletas x 3</span>
+                        <span class="color-blue f-9">175 €</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="f-9">Categering básico x 1</span>
+                        <span class="color-blue f-9">175 €</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="d-flex flex-column mt-3">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="f-9"> Extra 1 x 3 </span>
+                        <span class="color-blue f-9"> 8€ </span>
+                    </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="f-9"> Extra 2 x 2 </span>
+                        <span class="color-blue f-9"> 8€ </span>
+                    </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="f-9"> Extra 2 x 3 </span>
+                        <span class="color-blue f-9"> 8€ </span>
+                    </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="f-9"> Extra 3 x 1 </span>
+                        <span class="color-blue f-9"> 8€ </span>
+                    </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="f-9"> Extra 4 x 1 </span>
+                        <span class="color-blue f-9"> 8€ </span>
+                    </div>
+                </div>
+
+                <hr class="my-3">
+
+                <div class="d-flex flex-column">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="f-9"> Reserva Flexible </span>
+                        <span class="color-blue f-9">25€</span>
+                    </div>
+                    <div class="bg-container-gray p-2 mb-3 px-3">
+                        <div class="d-flex justify-content-between">
+                            <span class="f-9"> Total Ingresos </span>
+                            <strong class="color-dark-extras f-9">115€</strong>
                         </div>
                     </div>
-                    <hr>
-                    <div class="d-flex flex-column mt-3">
-                        <div class="d-flex justify-content-between mb-3">
-                            <span class="f-9">Paddle Board x 3</span>
-                            <span class="color-blue f-9">175 €</span>
+
+                    <h5 class="my-3"> <b> Gastos </b></h5>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="f-9"> Comisión reserva [Empresa Nautal.S.A.] </span>
+                        <span class="color-blue f-9"> 65€ </span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="f-9"> Barco en concesión dueño </span>
+                        <span class="color-blue f-9"> 40€ </span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="f-9"> Barco en concesión Gestor de comisión </span>
+                        <span class="color-blue f-9"> 40€ </span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="f-9"> Gastos por peaje extra </span>
+                        <span class="color-blue f-9"> 40€ </span>
+                    </div>
+
+                    <div class="w-100">
+                        <input class="form-control f-9" type="text" placeholder="Descripción de nuevo gasto*">
+                    </div>
+                    <div class="row add-provision mt-3">
+                        <div class="col-7 col-lg-6">
+                            <input class="form-control" type="text" placeholder="Agregar nueva provisión">
                         </div>
-                        <div class="d-flex justify-content-between mb-3">
-                            <span class="f-9">Set Snorkel Clásico x 5</span>
-                            <span class="color-blue f-9">175 €</span>
+                        <div class="col-5 col-lg-3">
+                            <input class="form-control" type="text" placeholder="Importe Neto €*">
                         </div>
-                        <div class="d-flex justify-content-between mb-3">
-                            <span class="f-9">Set Snorketl Fullface x 1</span>
-                            <span class="color-blue f-9">175 €</span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-3">
-                            <span class="f-9">Set Aletas x 3</span>
-                            <span class="color-blue f-9">175 €</span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-3">
-                            <span class="f-9">Categering básico x 1</span>
-                            <span class="color-blue f-9">175 €</span>
+                        <div class="col-12 col-lg-3 my-lg-0 my-3 d-flex d-lg-inline justify-content-center">
+                            <button type="button" class="btn btn-add-provision f-8" id="btn-img-factura"> <span class="me-2">Adjuntar Factura</span>
+                                <i class="fa-solid fa-camera fa-lg"></i>
+                            </button>
                         </div>
                     </div>
-                    <hr>
-                    <div class="d-flex flex-column mt-3">
-                        <div class="d-flex justify-content-between mb-3">
-                            <span class="f-9"> Extra 1 x 3 </span>
-                            <span class="color-blue f-9"> 8€ </span>
+
+                    <div class="d-flex justify-content-end mt-3">
+                        <button type="button" class="btn btn-add-provision position-relative right-18rem f-8"> <span class="me-2 f-8">agregar nuevo pago</span>
+                        </button>
+                    </div>
+
+                    <div class="bg-container-gray p-2 mb-3 px-3">
+                        <div class="d-flex justify-content-between">
+                            <span class="f-9"> Total Ingresos </span>
+                            <strong class="color-dark-extras f-9">115€</strong>
                         </div>
                     </div>
-                    <div class="d-flex flex-column">
-                        <div class="d-flex justify-content-between mb-3">
-                            <span class="f-9"> Extra 2 x 2 </span>
-                            <span class="color-blue f-9"> 8€ </span>
+                    <div class="bg-blue p-2 px-3">
+                        <div class="d-flex justify-content-between">
+                            <strong class="color-white f-8"> Total Gastos </strong>
+                            <strong class="color-white f-8">320€</strong>
                         </div>
                     </div>
-                    <div class="d-flex flex-column">
-                        <div class="d-flex justify-content-between mb-3">
-                            <span class="f-9"> Extra 2 x 3 </span>
-                            <span class="color-blue f-9"> 8€ </span>
+
+                    <h5 class="my-3 color-dark-extras"> <b> Abono del cliente </b> </h5>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <span class="f-8 me-4">Pago de 30% de reserva </span>
+                            <span class="f-8 color-blue me-2">Paypal</span>
+                            <button class="btn btn-transparent color-extras-gray">
+                                <i class="fa-solid fa-camera fa-lg"></i>
+                            </button>
+                        </div>
+                        <div class="d-flex">
+                            <strong class="me-2 color-dark-extras"> 125€ </strong>
+                            <button class="btn btn-transparent color-red"> <i class="fa-solid fa-trash-can"></i>
+                            </button>
                         </div>
                     </div>
-                    <div class="d-flex flex-column">
-                        <div class="d-flex justify-content-between mb-3">
-                            <span class="f-9"> Extra 3 x 1 </span>
-                            <span class="color-blue f-9"> 8€ </span>
-                        </div>
+
+                    <div class="w-100 mt-3">
+                        <input class="form-control f-9 color-extras-gray" type="text" placeholder="Descripción de nuevo pago*">
                     </div>
-                    <div class="d-flex flex-column">
-                        <div class="d-flex justify-content-between mb-3">
-                            <span class="f-9"> Extra 4 x 1 </span>
-                            <span class="color-blue f-9"> 8€ </span>
+                    <div class="row add-provision mt-3">
+                        <div class="col-7 col-lg-6">
+                            <input class="form-control" type="text" placeholder="Agregar nueva provisión">
+                        </div>
+                        <div class="col-5 col-lg-3">
+                            <input class="form-control" type="text" placeholder="Importe Neto €*">
+                        </div>
+                        <div class="col-12 col-lg-3 my-lg-0 my-3 d-flex d-lg-inline justify-content-center">
+                            <button type="button" class="btn btn-add-provision f-8" id="btn-img-factura"> <span class="me-2">Adjuntar Factura</span>
+                                <i class="fa-solid fa-camera fa-lg"></i>
+                            </button>
                         </div>
                     </div>
 
                     <hr class="my-3">
 
-                    <div class="d-flex flex-column">
-                        <div class="d-flex justify-content-between mb-3">
-                            <span class="f-9"> Reserva Flexible </span>
-                            <span class="color-blue f-9">25€</span>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex">
+                            <button class="btn btn-transparent color-yellow me-2"> <i class="fa-solid fa-triangle-exclamation"></i> </button>
+                            <span class="f-9 color-dark-extras"> Saldo para cobrar </span>
                         </div>
-                        <div class="bg-container-gray p-2 mb-3 px-3">
-                            <div class="d-flex justify-content-between">
-                                <span class="f-9"> Total Ingresos </span>
-                                <strong class="color-dark-extras f-9">115€</strong>
-                            </div>
-                        </div>
-
-                        <h5 class="my-3"> <b> Gastos </b></h5>
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="f-9"> Comisión reserva [Empresa Nautal.S.A.] </span>
-                            <span class="color-blue f-9"> 65€ </span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="f-9"> Barco en concesión dueño </span>
-                            <span class="color-blue f-9"> 40€ </span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="f-9"> Barco en concesión Gestor de comisión </span>
-                            <span class="color-blue f-9"> 40€ </span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="f-9"> Gastos por peaje extra </span>
-                            <span class="color-blue f-9"> 40€ </span>
-                        </div>
-
-                        <div class="w-100">
-                            <input class="form-control f-9" type="text" placeholder="Descripción de nuevo gasto*">
-                        </div>
-                        <div class="row add-provision mt-3">
-                            <div class="col-7 col-lg-6">
-                                <input class="form-control" type="text" placeholder="Agregar nueva provisión">
-                            </div>
-                            <div class="col-5 col-lg-3">
-                                <input class="form-control" type="text" placeholder="Importe Neto €*">
-                            </div>
-                            <div class="col-12 col-lg-3 my-lg-0 my-3 d-flex d-lg-inline justify-content-center">
-                                <button type="button" class="btn btn-add-provision f-8" id="btn-img-factura"> <span class="me-2">Adjuntar Factura</span>
-                                    <i class="fa-solid fa-camera fa-lg"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="d-flex justify-content-end mt-3">
-                            <button type="button" class="btn btn-add-provision position-relative right-18rem f-8"> <span class="me-2 f-8">agregar nuevo pago</span>
-                            </button>
-                        </div>
-
-                        <div class="bg-container-gray p-2 mb-3 px-3">
-                            <div class="d-flex justify-content-between">
-                                <span class="f-9"> Total Ingresos </span>
-                                <strong class="color-dark-extras f-9">115€</strong>
-                            </div>
-                        </div>
-                        <div class="bg-blue p-2 px-3">
-                            <div class="d-flex justify-content-between">
-                                <strong class="color-white f-8"> Total Gastos </strong>
-                                <strong class="color-white f-8">320€</strong>
-                            </div>
-                        </div>
-
-                        <h5 class="my-3 color-dark-extras"> <b> Abono del cliente </b> </h5>
-                        <div class="d-flex justify-content-between">
-                            <div class="d-flex align-items-center">
-                                <span class="f-8 me-4">Pago de 30% de reserva </span>
-                                <span class="f-8 color-blue me-2">Paypal</span>
-                                <button class="btn btn-transparent color-extras-gray">
-                                    <i class="fa-solid fa-camera fa-lg"></i>
-                                </button>
-                            </div>
-                            <div class="d-flex">
-                                <strong class="me-2 color-dark-extras"> 125€ </strong>
-                                <button class="btn btn-transparent color-red"> <i class="fa-solid fa-trash-can"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="w-100 mt-3">
-                            <input class="form-control f-9 color-extras-gray" type="text" placeholder="Descripción de nuevo pago*">
-                        </div>
-                        <div class="row add-provision mt-3">
-                            <div class="col-7 col-lg-6">
-                                <input class="form-control" type="text" placeholder="Agregar nueva provisión">
-                            </div>
-                            <div class="col-5 col-lg-3">
-                                <input class="form-control" type="text" placeholder="Importe Neto €*">
-                            </div>
-                            <div class="col-12 col-lg-3 my-lg-0 my-3 d-flex d-lg-inline justify-content-center">
-                                <button type="button" class="btn btn-add-provision f-8" id="btn-img-factura"> <span class="me-2">Adjuntar Factura</span>
-                                    <i class="fa-solid fa-camera fa-lg"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <hr class="my-3">
-
-                        <div class="d-flex justify-content-between">
-                            <div class="d-flex">
-                                <button class="btn btn-transparent color-yellow me-2"> <i class="fa-solid fa-triangle-exclamation"></i> </button>
-                                <span class="f-9 color-dark-extras"> Saldo para cobrar </span>
-                            </div>
-                            <strong class="">
-                                292€
-                            </strong>
-                        </div>
-
-                        <div class="w-100 mt-3">
-                            <div class="form-group">
-                                <label class="form-label" for=""><b> Observaciones </b></label>
-                                <textarea class="form-control" name="" id="" cols="30" rows="10" style="height: 10rem;"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="d-flex align-items-center">
-                            <button class="btn btn-transparent color-gray-dark me-2"> <i class="fa-solid fa-triangle-exclamation"></i> </button>
-                            <span class="color-dark-extras f-9">Esta observación sobre [responsable] se te advertirá
-                                cada vez que haga una reserva.</span>
-                        </div>
-
+                        <strong class="">
+                            292€
+                        </strong>
                     </div>
+
+                    <div class="w-100 mt-3">
+                        <div class="form-group">
+                            <label class="form-label" for=""><b> Observaciones </b></label>
+                            <textarea class="form-control" name="" id="" cols="30" rows="10" style="height: 10rem;"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-transparent color-gray-dark me-2"> <i class="fa-solid fa-triangle-exclamation"></i> </button>
+                        <span class="color-dark-extras f-9">Esta observación sobre [responsable] se te advertirá
+                            cada vez que haga una reserva.</span>
+                    </div>
+
                 </div>
             </div>
-
-            <div class="d-flex flex-column mt-5 ms-2">
-                <div>
-                    <button class="btn-downloads-reserva px-3 py-1 f-9">
-                        <span class="me-2">Descargar instructivo de embaración</span>
-                        <i class="fa-solid fa-file-pdf"></i>
-                    </button>
-                </div>
-                <div class="d-flex mt-3">
-                    <button class="me-3 btn-downloads-reserva px-4 py-1">
-                        <span class="me-2"> Descargar Contrato </span>
-                        <i class="fa-solid fa-file-pdf"></i>
-                    </button>
-                    <button class="btn-downloads-reserva px-4 py-1"> <span class="me-2"> Descargar Recibo </span> <i class="fa-solid fa-file-pdf"></i></button>
-                </div>
-            </div>
-
-
-            <input class="d-none" type="file" name="" id="input-img-factura" accept="image/*">
-
         </div>
 
-        <!-- Fin de resumen reserva barco -->
-
-
-        <!-- Inicio de seguro de barco -->
-
-        <div class="container-fluid px-md-5 d-none" id="seguro-admin">
-            <div class="text-center mt-3">
-                <h6 class="color-dark-blue"> <b> Barcos </b> </h6>
+        <div class="d-flex flex-column mt-5 ms-2">
+            <div>
+                <button class="btn-downloads-reserva px-3 py-1 f-9">
+                    <span class="me-2">Descargar instructivo de embaración</span>
+                    <i class="fa-solid fa-file-pdf"></i>
+                </button>
             </div>
+            <div class="d-flex mt-3">
+                <button class="me-3 btn-downloads-reserva px-4 py-1">
+                    <span class="me-2"> Descargar Contrato </span>
+                    <i class="fa-solid fa-file-pdf"></i>
+                </button>
+                <button class="btn-downloads-reserva px-4 py-1"> <span class="me-2"> Descargar Recibo </span> <i class="fa-solid fa-file-pdf"></i></button>
+            </div>
+        </div>
 
-            <hr class="my-3">
 
-            <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    <button class="btn-atras" id="atras-seguro">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        <b> Atras </b>
-                    </button>
-                </div>
-                <div>
-                    <h5> <b> Ingreso de Nuevo Barco / Seguro </b> </h5>
-                </div>
-                <div>
-                    <button class="btn-descartar"> <b> Descartar </b> <i class="fa-solid fa-trash-can"></i> </button>
-                </div>
-                <!-- <div>
+        <input class="d-none" type="file" name="" id="input-img-factura" accept="image/*">
+
+    </div>
+
+    <!-- Fin de resumen reserva barco -->
+
+
+    <!-- Inicio de seguro de barco -->
+
+    <div class="container-fluid px-md-5 d-none" id="seguro-admin">
+        <div class="text-center mt-3">
+            <h6 class="color-dark-blue"> <b> Barcos </b> </h6>
+        </div>
+
+        <hr class="my-3">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <button class="btn-atras" id="atras-seguro">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <b> Atras </b>
+                </button>
+            </div>
+            <div>
+                <h5> <b> Ingreso de Nuevo Barco / Seguro </b> </h5>
+            </div>
+            <div>
+                <button class="btn-descartar"> <b> Descartar </b> <i class="fa-solid fa-trash-can"></i> </button>
+            </div>
+            <!-- <div>
                     <button class="btn btn-transparent color-extras-gray"> <span>Octubre 2022</span> <i
                             class="fa-solid fa-angle-right color-dark-blue fa-lg ms-3"></i> </button>
                 </div> -->
-            </div>
+        </div>
 
-            <div class="row">
-                <div class="col-12 col-lg-8 col-xl-9 mt-3">
-                    <div class="d-flex flex-column">
-                        <h5 class="color-dark-extras mb-4"> <b> Seguro </b> </h5>
-                        <span class="color-dark-extras mb-4">Fianza *</span>
-                        <div class="d-flex mb-4">
-                            <input class="form-control" type="text" style="width: 15rem; padding-right: 2rem;">
-                            <button disabled class="btn btn-transparent position-relative" style="right: 1.5rem;">
-                                <i class="fa-solid fa-euro-sign"></i></button>
-                        </div>
-                        <span class="color-dark-extras mb-4">Aproximadamente 200 €</span>
-                        <strong class="color-dark-extras mb-3">Certificado de seguros *</strong>
-                        <input class="mb-3" type="file">
-                        <div class="container-fluid d-flex justify-content-center py-4 border-dotted mb-4">
-                            <h5 class="color-dark-extras"> <b> Mallorca, España </b> </h5>
-                        </div>
-                        <span class="color-dark-extras mb-3">¿Está asegurada su embarcación?*</span>
-                        <div>
-                            <select class="form-select mb-3" name="" id="" style="width: 25rem">
-                                <option value="A todo riesgo">A todo riesgo</option>
-                            </select>
-                        </div>
-                        <div class="form-check mb-5">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label ms-3 color-dark-extras" for="flexCheckDefault">
-                                Declaro que mi embarcación estará asegurada (a terceros o a todo riesgo) siempre que se
-                                alquile y que informaré a mi aseguradora sobre mi actividad de alquiler entre
-                                particulares, excepto en caso de alquiler en el muelle o conavegación.
-                            </label>
-                        </div>
+        <div class="row">
+            <div class="col-12 col-lg-8 col-xl-9 mt-3">
+                <div class="d-flex flex-column">
+                    <h5 class="color-dark-extras mb-4"> <b> Seguro </b> </h5>
+                    <span class="color-dark-extras mb-4">Fianza *</span>
+                    <div class="d-flex mb-4">
+                        <input class="form-control" type="text" style="width: 15rem; padding-right: 2rem;">
+                        <button disabled class="btn btn-transparent position-relative" style="right: 1.5rem;">
+                            <i class="fa-solid fa-euro-sign"></i></button>
+                    </div>
+                    <span class="color-dark-extras mb-4">Aproximadamente 200 €</span>
+                    <strong class="color-dark-extras mb-3">Certificado de seguros *</strong>
+                    <input class="mb-3" type="file">
+                    <div class="container-fluid d-flex justify-content-center py-4 border-dotted mb-4">
+                        <h5 class="color-dark-extras"> <b> Mallorca, España </b> </h5>
+                    </div>
+                    <span class="color-dark-extras mb-3">¿Está asegurada su embarcación?*</span>
+                    <div>
+                        <select class="form-select mb-3" name="" id="" style="width: 25rem">
+                            <option value="A todo riesgo">A todo riesgo</option>
+                        </select>
+                    </div>
+                    <div class="form-check mb-5">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label ms-3 color-dark-extras" for="flexCheckDefault">
+                            Declaro que mi embarcación estará asegurada (a terceros o a todo riesgo) siempre que se
+                            alquile y que informaré a mi aseguradora sobre mi actividad de alquiler entre
+                            particulares, excepto en caso de alquiler en el muelle o conavegación.
+                        </label>
+                    </div>
 
-                        <div class="w-100">
-                            <button class="btn-siguiente-general" id="btn-next-seguro">
-                                <span> Siguiente </span>
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                        <!-- <div class="form-check">
+                    <div class="w-100">
+                        <button class="btn-siguiente-general" id="btn-next-seguro">
+                            <span> Siguiente </span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <!-- <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
                             <label class="form-check-label" for="flexCheckChecked">
                                 Checked checkbox
                             </label>
                         </div> -->
 
-                    </div>
-                </div>
-                <div class="col-12 col-lg-4 col-xl-3 mt-3 ps-xxl-5">
-                    <div class="container bg-gray py-3">
-                        <p class="color-gray-dark">
-                            Recuerda que entre más llenes los campos, tendrás más chances en que encuentren mejor tu
-                            barca y sus atributos y dejarás en claro lo que ofreces sin tener ninguna sorpresa al
-                            momento del alquiler.
-                        </p>
-                        <p class="color-gray-dark">
-                            Ingresa todos los campos obligatorios (*) y presiona el botón
-                            siguiente para que la sección se marque como terminada.
-                        </p>
-                        <button class="btn bnt-transparent d-flex align-items-center mt-5">
-                            <i class="fa-solid fa-life-ring me-2"></i>
-                            <strong class="color-gray">
-                                ¿Necesitas Ayuda?
-                            </strong>
-                        </button>
-
-                        <hr class="mt-3 mb-2">
-
-                        <div class="d-flex flex-column">
-                            <div class="d-flex">
-                                <button class="btn btn-transparent f-xl-8">
-                                    <i class="fa-solid fa-message color-gray-dark me-2"></i>
-                                    <span class="color-blue"> Chat online</span>
-                                </button>
-                            </div>
-                            <div class="d-flex">
-                                <button class="btn btn-transparent f-xl-8">
-                                    <i class="fa-solid fa-phone color-gray-dark me-2"></i>
-                                    <span class="color-blue"> Por Teléfono: </span>
-                                    <span class="color-gray-dark"> +34 966 655 433 </span>
-                                </button>
-                            </div>
-                            <div class="d-flex">
-                                <button class="btn btn-transparent f-xl-8">
-                                    <i class="fa-solid fa-envelope color-gray-dark me-2"></i>
-                                    <span class="color-blue"> E-mail: support@MBM.es </span>
-                                </button>
-                            </div>
-                        </div>
-
-
-                    </div>
                 </div>
             </div>
+            <div class="col-12 col-lg-4 col-xl-3 mt-3 ps-xxl-5">
+                <div class="container bg-gray py-3">
+                    <p class="color-gray-dark">
+                        Recuerda que entre más llenes los campos, tendrás más chances en que encuentren mejor tu
+                        barca y sus atributos y dejarás en claro lo que ofreces sin tener ninguna sorpresa al
+                        momento del alquiler.
+                    </p>
+                    <p class="color-gray-dark">
+                        Ingresa todos los campos obligatorios (*) y presiona el botón
+                        siguiente para que la sección se marque como terminada.
+                    </p>
+                    <button class="btn bnt-transparent d-flex align-items-center mt-5">
+                        <i class="fa-solid fa-life-ring me-2"></i>
+                        <strong class="color-gray">
+                            ¿Necesitas Ayuda?
+                        </strong>
+                    </button>
 
+                    <hr class="mt-3 mb-2">
+
+                    <div class="d-flex flex-column">
+                        <div class="d-flex">
+                            <button class="btn btn-transparent f-xl-8">
+                                <i class="fa-solid fa-message color-gray-dark me-2"></i>
+                                <span class="color-blue"> Chat online</span>
+                            </button>
+                        </div>
+                        <div class="d-flex">
+                            <button class="btn btn-transparent f-xl-8">
+                                <i class="fa-solid fa-phone color-gray-dark me-2"></i>
+                                <span class="color-blue"> Por Teléfono: </span>
+                                <span class="color-gray-dark"> +34 966 655 433 </span>
+                            </button>
+                        </div>
+                        <div class="d-flex">
+                            <button class="btn btn-transparent f-xl-8">
+                                <i class="fa-solid fa-envelope color-gray-dark me-2"></i>
+                                <span class="color-blue"> E-mail: support@MBM.es </span>
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
         </div>
 
-        <!-- Fin de seguro de barco -->
+    </div>
 
-        <!-- Inicio de precios de barco -->
+    <!-- Fin de seguro de barco -->
 
-        <div class="container-fluid px-md-5 d-none mt-7" id="precio-de-barco">
-            <div class="text-center mt-3">
-                <h6 class="color-dark-blue"> <b> Barcos </b> </h6>
+    <!-- Inicio de precios de barco -->
+
+    <div class="container-fluid px-md-5 d-none mt-7" id="precio-de-barco">
+        <div class="text-center mt-3">
+            <h6 class="color-dark-blue"> <b> Barcos </b> </h6>
+        </div>
+
+        <hr class="my-3">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <button class="btn-atras" id="atras-precio">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <b> Atras </b>
+                </button>
             </div>
-
-            <hr class="my-3">
-
-            <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    <button class="btn-atras" id="atras-precio">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        <b> Atras </b>
-                    </button>
-                </div>
-                <div>
-                    <h5> <b> Ingreso de Nuevo Barco / Precios </b> </h5>
-                </div>
-                <div>
-                    <button class="btn-descartar"> <b> Descartar </b> <i class="fa-solid fa-trash-can"></i> </button>
-                </div>
-                <!-- <div>
+            <div>
+                <h5> <b> Ingreso de Nuevo Barco / Precios </b> </h5>
+            </div>
+            <div>
+                <button class="btn-descartar"> <b> Descartar </b> <i class="fa-solid fa-trash-can"></i> </button>
+            </div>
+            <!-- <div>
                     <button class="btn btn-transparent color-extras-gray"> <span>Octubre 2022</span> <i
                             class="fa-solid fa-angle-right color-dark-blue fa-lg ms-3"></i> </button>
                 </div> -->
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-lg-8 col-xl-9 mt-3">
-                    <h6 class="color-dark-extras my-4"> <b> Precio de referencia </b> </h6>
-                    <p class="color-dark-extras mb-5">
-                        Establece un precio determinado para alquilar tu barco, equivalente al precio mas barato que
-                        puedas aceptar y fuera de los periodos especiales. Luego, podrás crear periodos de precios
-                        personalizados
-                    </p>
-
-                    <div class="d-flex justify-content-between align-items-center mb-5">
-                        <strong class="color-dark-extras"> Precios y opciones * </strong>
-                        <button class="btn-new-precio px-4 py-2"> Crear nuevo periodo de precio </button>
-                    </div>
-
-                    <div class="d-flex mb-5">
-                        <span class="me-4"> Precio por día: </span>
-                        <input type="text">
-                    </div>
-
-                    <div class="mb-5">
-                        <h5> Opciones avanzados </h5>
-                    </div>
-
-                    <div class="mb-5">
-                        <h5> Parámetros de configuración </h5>
-                    </div>
-                    <div class="w-100 mt-5">
-                        <button class="btn-siguiente-general" id="btn-next-precios"> <span> Siguiente </span> <i class="fa-solid fa-arrow-right"></i> </button>
-                    </div>
-
-
-                </div>
-                <div class="col-12 col-lg-4 col-xl-3 mt-3 ps-xxl-5">
-                    <div class="container bg-gray py-3">
-                        <p class="color-gray-dark">
-                            Recuerda que entre más llenes los campos, tendrás más chances en que encuentren mejor tu
-                            barca y sus atributos y dejarás en claro lo que ofreces sin tener ninguna sorpresa al
-                            momento del alquiler.
-                        </p>
-                        <p class="color-gray-dark">
-                            Ingresa todos los campos obligatorios (*) y presiona el botón
-                            siguiente para que la sección se marque como terminada.
-                        </p>
-                        <button class="btn bnt-transparent d-flex align-items-center mt-5">
-                            <i class="fa-solid fa-life-ring me-2"></i>
-                            <strong class="color-gray">
-                                ¿Necesitas Ayuda?
-                            </strong>
-                        </button>
-
-                        <hr class="mt-3 mb-2">
-
-                        <div class="d-flex flex-column">
-                            <div class="d-flex">
-                                <button class="btn btn-transparent f-xl-8">
-                                    <i class="fa-solid fa-message color-gray-dark me-2"></i>
-                                    <span class="color-blue"> Chat online</span>
-                                </button>
-                            </div>
-                            <div class="d-flex">
-                                <button class="btn btn-transparent f-xl-8">
-                                    <i class="fa-solid fa-phone color-gray-dark me-2"></i>
-                                    <span class="color-blue"> Por Teléfono: </span>
-                                    <span class="color-gray-dark"> +34 966 655 433 </span>
-                                </button>
-                            </div>
-                            <div class="d-flex">
-                                <button class="btn btn-transparent f-xl-8">
-                                    <i class="fa-solid fa-envelope color-gray-dark me-2"></i>
-                                    <span class="color-blue"> E-mail: support@MBM.es </span>
-                                </button>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-
         </div>
 
-        <!-- Fin de precios de barco -->
+        <div class="row">
+            <div class="col-12 col-lg-8 col-xl-9 mt-3">
+                <h6 class="color-dark-extras my-4"> <b> Precio de referencia </b> </h6>
+                <p class="color-dark-extras mb-5">
+                    Establece un precio determinado para alquilar tu barco, equivalente al precio mas barato que
+                    puedas aceptar y fuera de los periodos especiales. Luego, podrás crear periodos de precios
+                    personalizados
+                </p>
 
-        <!-- Inicio reservas de barco -->
+                <div class="d-flex justify-content-between align-items-center mb-5">
+                    <strong class="color-dark-extras"> Precios y opciones * </strong>
+                    <button class="btn-new-precio px-4 py-2"> Crear nuevo periodo de precio </button>
+                </div>
+
+                <div class="d-flex mb-5">
+                    <span class="me-4"> Precio por día: </span>
+                    <input type="text">
+                </div>
+
+                <div class="mb-5">
+                    <h5> Opciones avanzados </h5>
+                </div>
+
+                <div class="mb-5">
+                    <h5> Parámetros de configuración </h5>
+                </div>
+                <div class="w-100 mt-5">
+                    <button class="btn-siguiente-general" id="btn-next-precios"> <span> Siguiente </span> <i class="fa-solid fa-arrow-right"></i> </button>
+                </div>
 
 
-        <div class="container-fluid px-md-5 d-none" id="reserva-barco">
-
-            <div class="text-center mt-3">
-                <h6 class="color-dark-blue"> <b> Barcos </b> </h6>
             </div>
-
-            <hr class="my-3">
-
-            <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    <button class="btn-atras" id="atras-reserva">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        <b> Atras </b>
+            <div class="col-12 col-lg-4 col-xl-3 mt-3 ps-xxl-5">
+                <div class="container bg-gray py-3">
+                    <p class="color-gray-dark">
+                        Recuerda que entre más llenes los campos, tendrás más chances en que encuentren mejor tu
+                        barca y sus atributos y dejarás en claro lo que ofreces sin tener ninguna sorpresa al
+                        momento del alquiler.
+                    </p>
+                    <p class="color-gray-dark">
+                        Ingresa todos los campos obligatorios (*) y presiona el botón
+                        siguiente para que la sección se marque como terminada.
+                    </p>
+                    <button class="btn bnt-transparent d-flex align-items-center mt-5">
+                        <i class="fa-solid fa-life-ring me-2"></i>
+                        <strong class="color-gray">
+                            ¿Necesitas Ayuda?
+                        </strong>
                     </button>
+
+                    <hr class="mt-3 mb-2">
+
+                    <div class="d-flex flex-column">
+                        <div class="d-flex">
+                            <button class="btn btn-transparent f-xl-8">
+                                <i class="fa-solid fa-message color-gray-dark me-2"></i>
+                                <span class="color-blue"> Chat online</span>
+                            </button>
+                        </div>
+                        <div class="d-flex">
+                            <button class="btn btn-transparent f-xl-8">
+                                <i class="fa-solid fa-phone color-gray-dark me-2"></i>
+                                <span class="color-blue"> Por Teléfono: </span>
+                                <span class="color-gray-dark"> +34 966 655 433 </span>
+                            </button>
+                        </div>
+                        <div class="d-flex">
+                            <button class="btn btn-transparent f-xl-8">
+                                <i class="fa-solid fa-envelope color-gray-dark me-2"></i>
+                                <span class="color-blue"> E-mail: support@MBM.es </span>
+                            </button>
+                        </div>
+                    </div>
+
+
                 </div>
-                <div>
-                    <h5> <b> Ingreso de Nuevo Barco / Reservas </b> </h5>
-                </div>
-                <div>
-                    <button class="btn-descartar"> <b> Descartar </b> <i class="fa-solid fa-trash-can"></i> </button>
-                </div>
-                <!-- <div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Fin de precios de barco -->
+
+    <!-- Inicio reservas de barco -->
+
+
+    <div class="container-fluid px-md-5 d-none" id="reserva-barco">
+
+        <div class="text-center mt-3">
+            <h6 class="color-dark-blue"> <b> Barcos </b> </h6>
+        </div>
+
+        <hr class="my-3">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <button class="btn-atras" id="atras-reserva">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <b> Atras </b>
+                </button>
+            </div>
+            <div>
+                <h5> <b> Ingreso de Nuevo Barco / Reservas </b> </h5>
+            </div>
+            <div>
+                <button class="btn-descartar"> <b> Descartar </b> <i class="fa-solid fa-trash-can"></i> </button>
+            </div>
+            <!-- <div>
                     <button class="btn btn-transparent color-extras-gray"> <span>Octubre 2022</span> <i
                             class="fa-solid fa-angle-right color-dark-blue fa-lg ms-3"></i> </button>
                 </div> -->
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-lg-8 col-xl-9 mt-3">
-                    <h6 class="color-dark-extras my-4"> <b> Precio de referencia </b> </h6>
-                    <p class="color-dark-extras mb-5">
-                        Establece un precio determinado para alquilar tu barco, equivalente al precio mas barato que
-                        puedas aceptar y fuera de los periodos especiales. Luego, podrás crear periodos de precios
-                        personalizados
-                    </p>
-
-                    <div class="d-flex justify-content-end">
-                        <button class="btn-new-precio px-3 py-2">Crear un nuevo periodo de precio</button>
-                    </div>
-                    <div class="container-fluid">
-                        <nav>
-                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <button class="nav-link active rounded-top-pill tab-reserva me-1" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Precios y opciones</button>
-                                <button class="nav-link rounded-top-pill tab-reserva me-1" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Opciones avanzados</button>
-                                <button class="nav-link rounded-top-pill tab-reserva me-1" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Parámetros de
-                                    configuración</button>
-                            </div>
-                        </nav>
-                        <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active border border-light-gray" id="nav-home" role="tabpanel" style="height: 27rem;" aria-labelledby="nav-home-tab">
-                                ...
-                            </div>
-                            <div class="tab-pane fade border-light-gray" id="nav-profile" role="tabpanel" style="height: 27rem;" aria-labelledby="nav-profile-tab">
-                                ...
-                            </div>
-                            <div class="tab-pane fade border-light-gray" id="nav-contact" role="tabpanel" style="height: 27rem;" aria-labelledby="nav-contact-tab">
-                                ...
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="mt-5 ms-4">
-                        <button class="btn-siguiente-general" id="btn-next-reserva">
-                            <span> Siguiente </span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                    </div>
-
-                </div>
-                <div class="col-12 col-lg-4 col-xl-3 mt-3 ps-xxl-5">
-                    <div class="container bg-gray py-3">
-                        <p class="color-gray-dark">
-                            Recuerda que entre más llenes los campos, tendrás más chances en que encuentren mejor tu
-                            barca y sus atributos y dejarás en claro lo que ofreces sin tener ninguna sorpresa al
-                            momento del alquiler.
-                        </p>
-                        <p class="color-gray-dark">
-                            Ingresa todos los campos obligatorios (*) y presiona el botón
-                            siguiente para que la sección se marque como terminada.
-                        </p>
-                        <button class="btn bnt-transparent d-flex align-items-center mt-5">
-                            <i class="fa-solid fa-life-ring me-2"></i>
-                            <strong class="color-gray">
-                                ¿Necesitas Ayuda?
-                            </strong>
-                        </button>
-
-                        <hr class="mt-3 mb-2">
-
-                        <div class="d-flex flex-column">
-                            <div class="d-flex">
-                                <button class="btn btn-transparent f-xl-8">
-                                    <i class="fa-solid fa-message color-gray-dark me-2"></i>
-                                    <span class="color-blue"> Chat online</span>
-                                </button>
-                            </div>
-                            <div class="d-flex">
-                                <button class="btn btn-transparent f-xl-8">
-                                    <i class="fa-solid fa-phone color-gray-dark me-2"></i>
-                                    <span class="color-blue"> Por Teléfono: </span>
-                                    <span class="color-gray-dark"> +34 966 655 433 </span>
-                                </button>
-                            </div>
-                            <div class="d-flex">
-                                <button class="btn btn-transparent f-xl-8">
-                                    <i class="fa-solid fa-envelope color-gray-dark me-2"></i>
-                                    <span class="color-blue"> E-mail: support@MBM.es </span>
-                                </button>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-
         </div>
 
-        <!-- Fin reservas de barco -->
+        <div class="row">
+            <div class="col-12 col-lg-8 col-xl-9 mt-3">
+                <h6 class="color-dark-extras my-4"> <b> Precio de referencia </b> </h6>
+                <p class="color-dark-extras mb-5">
+                    Establece un precio determinado para alquilar tu barco, equivalente al precio mas barato que
+                    puedas aceptar y fuera de los periodos especiales. Luego, podrás crear periodos de precios
+                    personalizados
+                </p>
 
-        <!-- Inicio de descripción -->
+                <div class="d-flex justify-content-end">
+                    <button class="btn-new-precio px-3 py-2">Crear un nuevo periodo de precio</button>
+                </div>
+                <div class="container-fluid">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active rounded-top-pill tab-reserva me-1" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Precios y opciones</button>
+                            <button class="nav-link rounded-top-pill tab-reserva me-1" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Opciones avanzados</button>
+                            <button class="nav-link rounded-top-pill tab-reserva me-1" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Parámetros de
+                                configuración</button>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active border border-light-gray" id="nav-home" role="tabpanel" style="height: 27rem;" aria-labelledby="nav-home-tab">
+                            ...
+                        </div>
+                        <div class="tab-pane fade border-light-gray" id="nav-profile" role="tabpanel" style="height: 27rem;" aria-labelledby="nav-profile-tab">
+                            ...
+                        </div>
+                        <div class="tab-pane fade border-light-gray" id="nav-contact" role="tabpanel" style="height: 27rem;" aria-labelledby="nav-contact-tab">
+                            ...
+                        </div>
+                    </div>
+                </div>
 
-        <div class="container-fluid px-md-5 d-none" id="descripcion-barco-admin">
-            <div class="text-center mt-3">
-                <h6 class="color-dark-blue"> <b> Barcos </b> </h6>
-            </div>
 
-            <hr class="my-3">
-
-            <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    <button class="btn-atras" id="atras-descripcion">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        <b> Atras </b>
+                <div class="mt-5 ms-4">
+                    <button class="btn-siguiente-general" id="btn-next-reserva">
+                        <span> Siguiente </span>
+                        <i class="fa-solid fa-arrow-right"></i>
                     </button>
                 </div>
-                <div>
-                    <h5> <b> Ingreso de Nuevo Barco / Descripción </b> </h5>
+
+            </div>
+            <div class="col-12 col-lg-4 col-xl-3 mt-3 ps-xxl-5">
+                <div class="container bg-gray py-3">
+                    <p class="color-gray-dark">
+                        Recuerda que entre más llenes los campos, tendrás más chances en que encuentren mejor tu
+                        barca y sus atributos y dejarás en claro lo que ofreces sin tener ninguna sorpresa al
+                        momento del alquiler.
+                    </p>
+                    <p class="color-gray-dark">
+                        Ingresa todos los campos obligatorios (*) y presiona el botón
+                        siguiente para que la sección se marque como terminada.
+                    </p>
+                    <button class="btn bnt-transparent d-flex align-items-center mt-5">
+                        <i class="fa-solid fa-life-ring me-2"></i>
+                        <strong class="color-gray">
+                            ¿Necesitas Ayuda?
+                        </strong>
+                    </button>
+
+                    <hr class="mt-3 mb-2">
+
+                    <div class="d-flex flex-column">
+                        <div class="d-flex">
+                            <button class="btn btn-transparent f-xl-8">
+                                <i class="fa-solid fa-message color-gray-dark me-2"></i>
+                                <span class="color-blue"> Chat online</span>
+                            </button>
+                        </div>
+                        <div class="d-flex">
+                            <button class="btn btn-transparent f-xl-8">
+                                <i class="fa-solid fa-phone color-gray-dark me-2"></i>
+                                <span class="color-blue"> Por Teléfono: </span>
+                                <span class="color-gray-dark"> +34 966 655 433 </span>
+                            </button>
+                        </div>
+                        <div class="d-flex">
+                            <button class="btn btn-transparent f-xl-8">
+                                <i class="fa-solid fa-envelope color-gray-dark me-2"></i>
+                                <span class="color-blue"> E-mail: support@MBM.es </span>
+                            </button>
+                        </div>
+                    </div>
+
+
                 </div>
-                <div>
-                    <button class="btn-descartar"> <b> Descartar </b> <i class="fa-solid fa-trash-can"></i> </button>
-                </div>
-                <!-- <div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Fin reservas de barco -->
+
+    <!-- Inicio de descripción -->
+
+    <div class="container-fluid px-md-5 d-none" id="descripcion-barco-admin">
+        <div class="text-center mt-3">
+            <h6 class="color-dark-blue"> <b> Barcos </b> </h6>
+        </div>
+
+        <hr class="my-3">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <button class="btn-atras" id="atras-descripcion">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <b> Atras </b>
+                </button>
+            </div>
+            <div>
+                <h5> <b> Ingreso de Nuevo Barco / Descripción </b> </h5>
+            </div>
+            <div>
+                <button class="btn-descartar"> <b> Descartar </b> <i class="fa-solid fa-trash-can"></i> </button>
+            </div>
+            <!-- <div>
                     <button class="btn btn-transparent color-extras-gray"> <span>Octubre 2022</span> <i
                             class="fa-solid fa-angle-right color-dark-blue fa-lg ms-3"></i> </button>
                 </div> -->
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-lg-8 col-xl-9 mt-3">
-                    <h6 class="color-dark-extras my-4"> <b> Tipo de barco </b> </h6>
-                    <h4> <b> [Nombre_del_barco_99] </b> </h4>
-                    <h6> <b> Descripción * </b> </h6>
-
-                    <div class="form-group mb-3">
-                        <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
-                    </div>
-
-                    <p class="color-extras-gray f-9">
-                        Habla de tu barco, capacidad a bordo, equipamiento, seguridad. La historia del barco, el uso que
-                        le das (excursiones en familia, regates, etc). Habla de ti! Porque obtuviste este barco. En qué
-                        puerto se encuentra. Alguna anécdota particular. Por qué con esta embarcación es la óptima para
-                        pasar un rato ameno.
-                    </p>
-
-                    <hr class="my-3" style="height: 2px;">
-
-                    <h5 class="color-dark-extras"> <b> Aspectos Técnicos </b> </h5>
-
-                    <div class="row">
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-4">
-                            <label class="f-9" for="">Capacidad a bordo autorizada *</label>
-                            <input class="form-control" type="text">
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-4">
-                            <label class="f-9" for="">Capacidad a bordo recomendada *</label>
-                            <input class="form-control" type="text">
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-4">
-                            <label class="f-9" for="">Número de cabinas *</label>
-                            <input class="form-control" type="text">
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-4">
-                            <label class="f-9" for="">Número de camas *</label>
-                            <input class="form-control" type="text">
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-4">
-                            <label class="f-9" for="">Número de baños *</label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 col-xl-8 d-flex justify-content-between flex-column flex-lg-row" id="screen-computer">
-                            <div>
-                                <label class="f-8" for="">Eslora (largo de la embarcación) *</label>
-                                <input class="form-control w-xxl-80" type="text">
-                                <span class="float-end position-relative f-9 position-medida">m</span>
-                            </div>
-                            <div>
-                                <section class="d-flex">
-                                    <div>
-                                        <label class="f-9" for=""> Combustible *</label>
-                                        <input class="form-control" type="text">
-                                        <span class="float-end position-relative f-9" style="bottom: 1.7rem; right: .5rem;">L/h</span>
-                                    </div>
-                                    <div class="ms-3">
-                                        <label class="f-9" for=""> Velocidad de crucero </label>
-                                        <input class="form-control" type="text">
-                                        <span class="float-end position-relative f-9" style="bottom: 1.7rem; right: .5rem;">Kn</span>
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                            <label class="f-9" for=""> Año de la embarcación *</label>
-                            <input class="form-control" type="text">
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                            <label class="f-9" for=""> Renovación </label>
-                            <input class="form-control" type="text">
-                        </div>
-                    </div>
-
-                    <div class="my-5 ms-4">
-                        <button class="btn-siguiente-general" id="next-resume-reserva-admin">
-                            <span> Siguiente </span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                    </div>
-
-                </div>
-                <div class="col-12 col-lg-4 col-xl-3 mt-3 ps-xxl-5">
-                    <div class="container bg-gray py-3">
-                        <p class="color-gray-dark">
-                            Recuerda que entre más llenes los campos, tendrás más chances en que encuentren mejor tu
-                            barca y sus atributos y dejarás en claro lo que ofreces sin tener ninguna sorpresa al
-                            momento del alquiler.
-                        </p>
-                        <p class="color-gray-dark">
-                            Ingresa todos los campos obligatorios (*) y presiona el botón
-                            siguiente para que la sección se marque como terminada.
-                        </p>
-                        <button class="btn bnt-transparent d-flex align-items-center mt-5">
-                            <i class="fa-solid fa-life-ring me-2"></i>
-                            <strong class="color-gray">
-                                ¿Necesitas Ayuda?
-                            </strong>
-                        </button>
-
-                        <hr class="mt-3 mb-2">
-
-                        <div class="d-flex flex-column">
-                            <div class="d-flex">
-                                <button class="btn btn-transparent f-xl-8">
-                                    <i class="fa-solid fa-message color-gray-dark me-2"></i>
-                                    <span class="color-blue"> Chat online</span>
-                                </button>
-                            </div>
-                            <div class="d-flex">
-                                <button class="btn btn-transparent f-xl-8">
-                                    <i class="fa-solid fa-phone color-gray-dark me-2"></i>
-                                    <span class="color-blue"> Por Teléfono: </span>
-                                    <span class="color-gray-dark"> +34 966 655 433 </span>
-                                </button>
-                            </div>
-                            <div class="d-flex">
-                                <button class="btn btn-transparent f-xl-8">
-                                    <i class="fa-solid fa-envelope color-gray-dark me-2"></i>
-                                    <span class="color-blue"> E-mail: support@MBM.es </span>
-                                </button>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-
         </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-8 col-xl-9 mt-3">
+                <h6 class="color-dark-extras my-4"> <b> Tipo de barco </b> </h6>
+                <h4> <b> [Nombre_del_barco_99] </b> </h4>
+                <h6> <b> Descripción * </b> </h6>
+
+                <div class="form-group mb-3">
+                    <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+                </div>
+
+                <p class="color-extras-gray f-9">
+                    Habla de tu barco, capacidad a bordo, equipamiento, seguridad. La historia del barco, el uso que
+                    le das (excursiones en familia, regates, etc). Habla de ti! Porque obtuviste este barco. En qué
+                    puerto se encuentra. Alguna anécdota particular. Por qué con esta embarcación es la óptima para
+                    pasar un rato ameno.
+                </p>
+
+                <hr class="my-3" style="height: 2px;">
+
+                <h5 class="color-dark-extras"> <b> Aspectos Técnicos </b> </h5>
+
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-4">
+                        <label class="f-9" for="">Capacidad a bordo autorizada *</label>
+                        <input class="form-control" type="text">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-4">
+                        <label class="f-9" for="">Capacidad a bordo recomendada *</label>
+                        <input class="form-control" type="text">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-4">
+                        <label class="f-9" for="">Número de cabinas *</label>
+                        <input class="form-control" type="text">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-4">
+                        <label class="f-9" for="">Número de camas *</label>
+                        <input class="form-control" type="text">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-4">
+                        <label class="f-9" for="">Número de baños *</label>
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-xl-8 d-flex justify-content-between flex-column flex-lg-row" id="screen-computer">
+                        <div>
+                            <label class="f-8" for="">Eslora (largo de la embarcación) *</label>
+                            <input class="form-control w-xxl-80" type="text">
+                            <span class="float-end position-relative f-9 position-medida">m</span>
+                        </div>
+                        <div>
+                            <section class="d-flex">
+                                <div>
+                                    <label class="f-9" for=""> Combustible *</label>
+                                    <input class="form-control" type="text">
+                                    <span class="float-end position-relative f-9" style="bottom: 1.7rem; right: .5rem;">L/h</span>
+                                </div>
+                                <div class="ms-3">
+                                    <label class="f-9" for=""> Velocidad de crucero </label>
+                                    <input class="form-control" type="text">
+                                    <span class="float-end position-relative f-9" style="bottom: 1.7rem; right: .5rem;">Kn</span>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                        <label class="f-9" for=""> Año de la embarcación *</label>
+                        <input class="form-control" type="text">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                        <label class="f-9" for=""> Renovación </label>
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+
+                <div class="my-5 ms-4">
+                    <button class="btn-siguiente-general" id="next-resume-reserva-admin">
+                        <span> Siguiente </span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+            </div>
+            <div class="col-12 col-lg-4 col-xl-3 mt-3 ps-xxl-5">
+                <div class="container bg-gray py-3">
+                    <p class="color-gray-dark">
+                        Recuerda que entre más llenes los campos, tendrás más chances en que encuentren mejor tu
+                        barca y sus atributos y dejarás en claro lo que ofreces sin tener ninguna sorpresa al
+                        momento del alquiler.
+                    </p>
+                    <p class="color-gray-dark">
+                        Ingresa todos los campos obligatorios (*) y presiona el botón
+                        siguiente para que la sección se marque como terminada.
+                    </p>
+                    <button class="btn bnt-transparent d-flex align-items-center mt-5">
+                        <i class="fa-solid fa-life-ring me-2"></i>
+                        <strong class="color-gray">
+                            ¿Necesitas Ayuda?
+                        </strong>
+                    </button>
+
+                    <hr class="mt-3 mb-2">
+
+                    <div class="d-flex flex-column">
+                        <div class="d-flex">
+                            <button class="btn btn-transparent f-xl-8">
+                                <i class="fa-solid fa-message color-gray-dark me-2"></i>
+                                <span class="color-blue"> Chat online</span>
+                            </button>
+                        </div>
+                        <div class="d-flex">
+                            <button class="btn btn-transparent f-xl-8">
+                                <i class="fa-solid fa-phone color-gray-dark me-2"></i>
+                                <span class="color-blue"> Por Teléfono: </span>
+                                <span class="color-gray-dark"> +34 966 655 433 </span>
+                            </button>
+                        </div>
+                        <div class="d-flex">
+                            <button class="btn btn-transparent f-xl-8">
+                                <i class="fa-solid fa-envelope color-gray-dark me-2"></i>
+                                <span class="color-blue"> E-mail: support@MBM.es </span>
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
     <!-- </div> -->
 
+    <script defer>
+        $('#app1').addClass('d-none')
+        $('#resume-reserva-admin').removeClass('d-none')
+    </script>
     <!-- Fin de descripción -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
@@ -2822,6 +2799,7 @@ function plugin_reservas_admin()
         .recorrido-bote .recorrido-bote-td {
             border-bottom-width: 5px;
             border-bottom-color: #31A6FB;
+            cursor: pointer;
         }
 
         .button-ellipsis {

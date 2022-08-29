@@ -21,7 +21,8 @@ function getBarcos($wpdb)
         WHERE 
         vote.id = reserva.id_vote AND
         reserva.fecha >= '2022-08-01' AND 
-        reserva.fecha <= '2022-08-31'";
+        reserva.fecha <= '2022-08-31'
+        ORDER BY reserva.fecha";
     $data = mysqli_query($wpdb, $sql);
     $calendar = map_calendar(mysqli_fetch_all($data));
     // $calendar = mysqli_fetch_array($data);
