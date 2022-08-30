@@ -1682,10 +1682,10 @@ function plugin_reservas_admin()
     </div>
     <!-- </div> -->
 
-    <script defer>
+    <!-- <script defer>
         $('#app1').addClass('d-none')
         $('#resume-reserva-admin').removeClass('d-none')
-    </script>
+    </script> -->
     <!-- Fin de descripción -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>

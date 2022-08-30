@@ -315,9 +315,11 @@
                     <div class="mt-3">
                         <div class="d-flex flex-column">
                             <h6 class="mb-3 color-dark-extras"> Provisiones Extra: </h6>
-                            <span class="mb-3 f-9 color-gray-dark"> 3 Bolsas de chips medianas </span>
-                            <span class="mb-3 f-9 color-extras-gray"> 2 Gaseosas Cocacola de 3 litros </span>
-                            <span class="mb-3 f-9 color-extras-gray"> 3 Pastillas para el mareo (caja) </span>
+                            <span class="mb-3 f-9 color-gray-dark" v-for="(i, index) in reserva.extras" :key="index"> 
+                                {{ i.quantity}} {{ i.name}}
+                            </span>
+                            <!-- <span class="mb-3 f-9 color-extras-gray"> 2 Gaseosas Cocacola de 3 litros </span>
+                            <span class="mb-3 f-9 color-extras-gray"> 3 Pastillas para el mareo (caja) </span> -->
                         </div>
                     </div>
                     <hr>
@@ -610,7 +612,7 @@
             return {
                 count: 0,
                 message: 'Hello Vue!',
-                reserva: {},
+                reserva: {extras: []},
             }
         },
         mounted() {
@@ -621,6 +623,10 @@
                 let url = 'https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/ReservaAdminController.php'
                 axios.get(url).then(res => {
                     this.reserva = res.data
+                    this.reserva.extras = [
+                        { quantity: 2, name: 'Guantes' },
+                        { quantity: 3, name: 'Salvavidas' },
+                    ]
                     console.log('this.reserva ==> ', this.reserva);
                 })
             }
