@@ -12,7 +12,7 @@
 
 // function incluirphp($atts){
 // include 'prueba.php';
-require 'Reserva_mes.html';
+// require 'Reserva_mes.html';
 // require 'home.html';
 
 // }
