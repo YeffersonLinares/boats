@@ -621,7 +621,8 @@
         methods: {
             getResults() {
                 let url = 'https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/ReservaAdminController.php'
-                axios.get(url).then(res => {
+                // let url = 'https://192.168.5.115/boats/public/api/reserva_detalle'
+                axios.post(url).then(res => {
                     this.reserva = res.data
                     this.reserva.extras = [
                         { quantity: 2, name: 'Guantes' },

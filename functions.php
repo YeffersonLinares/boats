@@ -1944,7 +1944,6 @@ function plugin_reservas_admin()
 
         .btns-hour button:disabled {
             background-color: #F5F5F5;
-            /* border: 1px solid #B5B5B5; */
             color: #FFF;
         }
 
@@ -2112,7 +2111,6 @@ function plugin_reservas_admin()
         }
 
         .author {
-            /* font-weight: bold; */
             color: #B5B5B5;
         }
 
@@ -2257,7 +2255,6 @@ function plugin_reservas_admin()
             height: 25px;
             background-color: white;
             border-radius: 25px;
-            /* border: 1px solid #ddd; */
             border: 1px solid var(--blue-primary);
             position: absolute;
             top: -15px;
