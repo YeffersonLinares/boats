@@ -30,6 +30,7 @@ function plugin_reservas_admin()
 
 ?>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -4294,7 +4295,7 @@ function plugin_reservas_usuario()
         })
     </script>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script>
         //-------------------------------------------------------------------------
         // Tabla reserva
@@ -4381,13 +4382,17 @@ function plugin_reservas_usuario()
         })
         var hour_start = 0
         var type_screen = 0;
-        $('body').on('change', '#fecha_asignada', function() {
+        $('body').on('change', '#fecha_asignada', function() {7
+            // alert('llego')
             fecha_inicio_viaje = $(this).val()
             if (type_screen == 0) {
                 $('.colocarBotones').removeClass('d-none')
             } else if (type_screen == 1) {
                 $('.buttons-defect').removeClass('d-none')
             }
+            // axios.post('https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/validar_fecha.php?fecha='+fecha_inicio_viaje).then(res => {
+            //     alert('llego')
+            // })
         })
 
         $('body').on('change', '#date_selected_for_date', function() {
@@ -4444,6 +4449,7 @@ function plugin_reservas_usuario()
             $('#seleecion_hora').removeClass('d-none')
         })
 
+        var hora_inicio_axios = '';
         $('body').on('click', '.seleccion_hora_vieje', function() {
             $(this).attr('id', 'from-here')
             let array = $('.seleccion_hora_vieje')
@@ -4463,6 +4469,7 @@ function plugin_reservas_usuario()
                 }
             }
             horaInicio_viaje = $(this).attr('hora');
+            hora_inicio_axios = horaInicio_viaje
             minutos = $(this).attr('minutos');
             horaInicio_viaje = horaInicio_viaje.split(':')
             final = $(this).attr('final');
@@ -4489,7 +4496,13 @@ function plugin_reservas_usuario()
         $('body').on('click', '.seleccion_hora_vieje_final', function() {
 
             horafinal_viaje = $(this).attr('hora');
+            let hora_axios = horafinal_viaje
             horafinal_viaje = $(this).attr('id', 'until-here');
+
+            axios.post('https://192.168.5.115/boats/public/api/validar_horas', {hora_inicio: hora_inicio_axios, hora_fin: hora_axios, fecha_inicio_viaje: fecha_inicio_viaje}).then(res => {
+                alert(res.data.response)
+                // alert('llego')
+            })
             let array = $('.seleccion_hora_vieje_final')
             let progress = false
             for (i = 0; i < array.length; i++) {
