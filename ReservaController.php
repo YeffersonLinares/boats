@@ -5,34 +5,38 @@ mysqli_select_db($wpdb, 'nygboat2');
 
 function getBarcos($wpdb)
 {
-    $sql = "SELECT id,nombre FROM vote WHERE estado=1";
+    try {
+        $sql = "SELECT id,nombre FROM vote WHERE estado=1";
 
-    $data = mysqli_query($wpdb, $sql);
-    $botes = map(mysqli_fetch_all($data));
+        $data = mysqli_query($wpdb, $sql);
+        $botes = map(mysqli_fetch_all($data));
 
-    // $sql = "SELECT *
-    //     FROM reserva,vote 
-    //     WHERE 
-    //     vote.id = reserva.id_vote AND
-    //     reserva.fecha >= '2022-08-01' AND 
-    //     reserva.fecha <= '2022-08-31'";
-    $sql = "SELECT reserva.id, reserva.hora_inicio, reserva.hora_fin, vote.id, vote.nombre, reserva.fecha
-        FROM reserva,vote 
-        WHERE 
-        vote.id = reserva.id_vote AND
-        reserva.fecha >= '2022-08-01' AND 
-        reserva.fecha <= '2022-08-31'
-        ORDER BY reserva.fecha";
-    $data = mysqli_query($wpdb, $sql);
-    $calendar = map_calendar(mysqli_fetch_all($data));
-    // $calendar = mysqli_fetch_array($data);
+        $sql = "SELECT reserva.id, reserva.hora_inicio, reserva.hora_fin, vote.id, vote.nombre, reserva.fecha
+            FROM reserva,vote 
+            WHERE 
+            vote.id = reserva.id_vote AND
+            reserva.fecha >= '2022-09-01' AND 
+            reserva.fecha <= '2022-09-30'
+            ORDER BY reserva.fecha";
+        $data = mysqli_query($wpdb, $sql);
+        // return json_encode(1);
+        $calendar = map_calendar(mysqli_fetch_all($data));
+        // $calendar = mysqli_fetch_array($data);
 
-    $data = [
-        'botes' => $botes,
-        'calendar' => $calendar
-    ];
+        $data = [
+            'botes' => $botes,
+            'calendar' => $calendar
+        ];
 
-    return json_encode($data, true);
+        return json_encode($data, true);
+    } catch (\Throwable $th) {
+        $data = [
+            'file' => $th->getFile(),
+            'line' => $th->getLine(),
+            'message' => $th->getMessage(),
+        ];
+        return json_encode($data, true);
+    }
 }
 
 function map($data)

@@ -3,12 +3,15 @@
 $wpdb = mysqli_connect('localhost', 'root', 'KWsTepfFe3yWch3b8qHx');
 mysqli_select_db($wpdb, 'nygboat2');
 
-function reservas($wpdb)
+$reserva_id = $_GET['reserva_id'];
+
+function reservas($wpdb, $reserva_id)
 {
     $sql = "SELECT *
         FROM reserva, vote, user_reserva
         WHERE reserva.id_vote = vote.id AND
-        user_reserva.id = reserva.id_user_reserva
+        user_reserva.id = reserva.id_user_reserva AND
+        reserva.id = $reserva_id
         LIMIT 1";
     $data = mysqli_query($wpdb, $sql);
     $reservas = mysqli_fetch_array($data);
@@ -17,7 +20,7 @@ function reservas($wpdb)
     return json_encode($reservas);
 }
 
-echo reservas($wpdb);
+echo reservas($wpdb, $reserva_id);
 
 function map($data)
 {

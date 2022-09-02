@@ -75,8 +75,9 @@
                         </tr>
                         <tr v-for="(i, index) in table.reservas" :key="index" class="recorrido-bote">
                             <td>{{ i.nombre }}</td>
-                            <td v-for="(hour, key) in i.horas" :key="key" v-bind:class="[hour == 1 || hour == 2 || hour == 3 ? 'recorrido-bote-td' : '']">
-                                        <button class="btn btn-transparent color-dark-blue button-ellipsis btn-ellipsis-script" v-if="hour == 3">
+                            <td v-for="(hour, key) in i.horas" :key="key" v-bind:class="[hour == 1 || hour == 2 || hour == 3 ? 'recorrido-bote-td' : '']" 
+                                @click="redirect_details(i, hour)">
+                                        <button  class="btn btn-transparent color-dark-blue button-ellipsis btn-ellipsis-script" v-if="hour == 3">
                                             <i class="fa-solid fa-ellipsis button-ellipsis"></i></button>
                                         <button v-if="hour == 3" class="btn btn-transparent color-dark-blue"><i class="fa-solid fa-flag-checkered"></i>  </button>
                                         <button v-else-if="hour == 1 || hour == 2" class="btn btn-transparent color-dark-blue">
@@ -108,11 +109,13 @@
                 message: 'Hello Vue!',
                 table: {horas_array: [], reservas: []},
                 filter: {date: ''},
-                days: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
+                days: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                id_reserva: null
             }
         },
         mounted() {
             this.getResults()
+            this.id_reserva = this.getParameterByName('id_reserva')
         },
         methods: {
             getResults() {
@@ -123,13 +126,19 @@
                     this.table.horas_array = res.data.horas_array
                     this.table.reservas = res.data.reservas
                 })
-            }
+            },
+            redirect_details(i, hour) {
+                console.log('entro')
+                if(hour == 1 || hour == 2 || hour == 3) {
+                    window.location.href = "https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/ResumeReservaAdmin.html?reserva_id="+i.reserva_id
+                }
+            },
         },
     }).mount('#app')
 </script>
 
-<script>
+<!-- <script>
     $('body').on('click', '.recorrido-bote-td', function(){
         window.location.href = 'https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/ResumeReservaAdmin.html'
     })
-</script>
+</script> -->

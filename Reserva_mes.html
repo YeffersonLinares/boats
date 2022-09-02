@@ -1,105 +1,124 @@
-<!-- <template> -->
-<div id="app1">
-                    <div class="px-md-5">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <button class="btn btn-transparent color-extras-gray"> <i
-                                        class="fa-solid fa-angle-left color-dark-blue fa-lg me-3"></i> <span>Julio 2022</span>
-                                </button>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body> -->
+    <div id="app1">
+                        <div class="px-md-5">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <button class="btn btn-transparent color-extras-gray"> <i
+                                            class="fa-solid fa-angle-left color-dark-blue fa-lg me-3"></i> <span>Julio 2022</span>
+                                    </button>
+                                </div>
+                                <div>
+                                    <h4 class="text-center mt-3 color-dark-blue"> <b> Agosto 2022 </b> </h4>
+                                </div>
+                                <div>
+                                    <button class="btn btn-transparent color-extras-gray"> <span>Septiembre 2022</span> <i
+                                            class="fa-solid fa-angle-right color-dark-blue fa-lg ms-3"></i> </button>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="text-center mt-3 color-dark-blue"> <b> Agosto 2022 </b> </h4>
-                            </div>
-                            <div>
-                                <button class="btn btn-transparent color-extras-gray"> <span>Septiembre 2022</span> <i
-                                        class="fa-solid fa-angle-right color-dark-blue fa-lg ms-3"></i> </button>
-                            </div>
+                            <hr>
                         </div>
-                        <hr>
-                    </div>
-        
-                    <div class="d-flex justify-content-end mt-3">
-                        <button class="btn btn-blue-reserva me-5"><span class="">Nueva Reserva</span> <i class="fa-solid fa-circle-arrow-right"></i> </button>
-                    </div>
-        
-                    <div class="row my-3 px-2" style="max-width: 100%;">
-                        <div class="col-12 col-lg-7 col-xl-7">
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-transparent">
-                                    <i class="fa-solid fa-square color-blue"></i>
-                                    <span class="color-dark-extras">Fecha Reservada</span>
-                                </button>
-                                <button class="btn btn-transparent color-light-blue">
-                                    <i class="fa-solid fa-square"></i>
-                                    <span class="color-dark-extras">Fecha Bloqueada Parcialmente</span></button>
-                                <button class="btn btn-transparent color-dark-red">
-                                    <i class="fa-solid fa-triangle-exclamation me-2"></i>
-                                    <span>No hay suficiente personal para cubrir todos los turnos del día</span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-1 col-xl-2"></div>
-                        <div class="col-12 col-lg-4 col-xl-3">
-                            <div class="d-flex justify-content-between">
-                                <select class="select-gray form-select me-3" name="" id="">
-                                    <option value="">Ver todos los barcos</option>
-                                    <option v-for="(i, index) in botes" :key="index" :value="i.id"> {{ i.nombre }} </option>
-                                </select>
-                                <button class="btn bg-dark-blue color-white w-3rem me-3">
-                                    <i class="fa-solid fa-bars"></i>
-                                </button>
-                                <button class="btn bg-dark-blue color-white w-3rem">
-                                    <i class="fa-solid fa-calendar-days"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
             
-                    <div class="container-fluid table-responsive" >
-                        <table class="table table-td-0 table-bordered equals">
-                            <thead class="bg-dark-blue color-white">
-                                <tr>
-                                    <th v-for="(i, index1) in days" :key="index1" > {{i}} </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="(semana, key) in calendar_vue" :key="key">
-                                    <td v-for="(i, index) in semana" :key="index" style="height: 7rem;">
-                                        <!-- {{ semana }} -->
-                                        <!-- {{show_day}} >= {{position}} -->
-                                        <div class="d-flex flex-column">
-                                            <div class="d-flex">
-                                                <button class="btn-day">1</button>
-                                                <button class="btn btn-transparent color-dark-red" v-if="i.length > 0">
-                                                    <i class="fa-solid fa-triangle-exclamation ps-2"></i>
-                                                </button>
-                                            </div>
-                                            <div class="d-flex justify-content-between in_progress ps-2 mb-1" v-for="(reserva, position) in i" :key="position">
-                                                <!-- {{reserva.id}} -->
-                                                <div>
-                                                    <button class="btn btn-transparent"> <i class="fa-solid fa-square fa-xs"></i> </button>
-                                                    <strong> {{ reserva.hora_inicio }} - {{ reserva.hora_fin }} </strong>
-                                                    <span>{{ reserva.nombre }}</span>
+                        <div class="d-flex justify-content-end mt-3">
+                            <button class="btn btn-blue-reserva me-5"><span class="">Nueva Reserva</span> <i class="fa-solid fa-circle-arrow-right"></i> </button>
+                        </div>
+            
+                        <div class="row my-3 px-2" style="max-width: 100%;">
+                            <div class="col-12 col-lg-7 col-xl-7">
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-transparent">
+                                        <i class="fa-solid fa-square color-blue"></i>
+                                        <span class="color-dark-extras">Fecha Reservada</span>
+                                    </button>
+                                    <button class="btn btn-transparent color-light-blue">
+                                        <i class="fa-solid fa-square"></i>
+                                        <span class="color-dark-extras">Fecha Bloqueada Parcialmente</span></button>
+                                    <button class="btn btn-transparent color-dark-red">
+                                        <i class="fa-solid fa-triangle-exclamation me-2"></i>
+                                        <span>No hay suficiente personal para cubrir todos los turnos del día</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-1 col-xl-2"></div>
+                            <div class="col-12 col-lg-4 col-xl-3">
+                                <div class="d-flex justify-content-between">
+                                    <select class="select-gray form-select me-3" name="" id="">
+                                        <option value="">Ver todos los barcos</option>
+                                        <option v-for="(i, index) in botes" :key="index" :value="i.id"> {{ i.nombre }} </option>
+                                    </select>
+                                    <button class="btn bg-dark-blue color-white w-3rem me-3">
+                                        <i class="fa-solid fa-bars"></i>
+                                    </button>
+                                    <button class="btn bg-dark-blue color-white w-3rem">
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="container-fluid table-responsive" >
+                            <table class="table table-td-0 table-bordered equals">
+                                <thead class="bg-dark-blue color-white">
+                                    <tr>
+                                        <th v-for="(i, index1) in days" :key="index1" > {{i}} </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(semana, key) in calendar_vue" :key="key">
+                                        <td v-for="(i, index) in semana" :key="index" style="height: 7rem;">
+                                            <!-- {{ semana }} -->
+                                            <!-- {{show_day}} >= {{position}} -->
+                                            <div class="d-flex flex-column">
+                                                <div class="d-flex">
+                                                    <button class="btn-day">1</button>
+                                                    <button class="btn btn-transparent color-dark-red" v-if="i.length > 0">
+                                                        <i class="fa-solid fa-triangle-exclamation ps-2"></i>
+                                                    </button>
                                                 </div>
-                                                <a class="btn btn-transparent color-dark-blue button-ellipsis" href="https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/home.html"><i class="fa-solid fa-ellipsis button-ellipsis"></i></a>
-                                                <hr class="my-1 mx-2" style="opacity: .1;">
-                                            </div>
-                                            <!-- <div class="d-flex justify-content-between not_in_progress ps-2">
-                                                <div>
-                                                    <button class="btn btn-transparent"> <i class="fa-solid fa-square fa-xs"></i> </button>
-                                                    <strong> 10:00 - 14:00 </strong>
-                                                    <span>Namaré</span>
+                                                <div class="d-flex justify-content-between in_progress ps-2 mb-1" v-for="(reserva, position) in i" :key="position">
+                                                    <!-- {{reserva.id}} -->
+                                                    <div>
+                                                        <button class="btn btn-transparent"> <i class="fa-solid fa-square fa-xs"></i> </button>
+                                                        <strong> {{ reserva.hora_inicio }} - {{ reserva.hora_fin }} </strong>
+                                                        <span>{{ reserva.nombre }}</span>
+                                                    </div>
+                                                    <a  href="#"></a>
+                                                    <button @click="redirect(reserva)" class="btn btn-transparent color-dark-blue button-ellipsis"><i class="fa-solid fa-ellipsis button-ellipsis"></i></button>
+                                                    <hr class="my-1 mx-2" style="opacity: .1;">
                                                 </div>
-                                                <button class="btn btn-transparent color-dark-blue button-ellipsis"><i class="fa-solid fa-ellipsis button-ellipsis"></i></button>
-                                            </div> -->
-                                        </div>
-        
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-        </div>
+                                                <!-- <div class="d-flex justify-content-between not_in_progress ps-2">
+                                                    <div>
+                                                        <button class="btn btn-transparent"> <i class="fa-solid fa-square fa-xs"></i> </button>
+                                                        <strong> 10:00 - 14:00 </strong>
+                                                        <span>Namaré</span>
+                                                    </div>
+                                                    <button class="btn btn-transparent color-dark-blue button-ellipsis"><i class="fa-solid fa-ellipsis button-ellipsis"></i></button>
+                                                </div> -->
+                                            </div>
+            
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+    </div>
+<!-- </body>
+</html> -->
+
+<!-- <template> -->
         <!-- </template> -->
         <script src="https://unpkg.com/vue@3"></script>
         <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script> -->
@@ -142,6 +161,7 @@
                     return this.dia_num
                 },
                 async getBarcos() {
+                    // let url = 'https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/ReservaController.php'
                     let url = 'https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/ReservaController.php'
                     await axios.get(url).then(res => {
                         console.log('barcos ==> ', res.data)
@@ -194,8 +214,9 @@
                     let semana5 = this.calendar_vue.splice(1,3)
                     this.calendar_vue = [semana1, semana2, semana3, semana4, semana5]
                 },
-                funct(){
-                    console.log('entro a esta pagina')
+                redirect(reserva){
+                    window.location.href = "https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/home.html?id_reserva="+reserva.id
+                    console.log('reserva ==> ', reserva)
                 }
             },
         }).mount('#app1')

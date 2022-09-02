@@ -12,7 +12,7 @@
 
 // function incluirphp($atts){
 // include 'prueba.php';
-// require 'Reserva_mes.html';
+require 'Reserva_mes.html';
 // require 'home.html';
 
 // }
@@ -571,10 +571,10 @@ function plugin_reservas_admin()
     <!-- Inicio de resumen reserva barco -->
 
     <div class="container-fluid px-md-5 d-none" id="resume-reserva-admin">
-            <script>
+            <!-- <script>
                 $("#home_reserva").addClass('d-none')
                 $("#resume-reserva-admin").removeClass('d-none')
-            </script>
+            </script> -->
         <div class="d-flex justify-content-between align-items-center">
             <div>
                 <button class="btn btn-transparent color-extras-gray"> <i class="fa-solid fa-angle-left color-dark-blue fa-lg me-3"></i> <span>Jueves
@@ -3124,7 +3124,7 @@ function plugin_reservas_usuario()
 
 
 
-                <button class="btn btn-blue seguir_registro">Seleccionar <i class="fas fa-arrow-alt-circle-right"></i></button>
+                <button class="btn btn-blue seguir_registro d-none" id="seleccionar_horario_button">Seleccionar <i class="fas fa-arrow-alt-circle-right"></i></button>
 
             </div>
             <div class="col-12 col-lg-3 d-flex flex-column align-items-between border">
@@ -4498,9 +4498,14 @@ function plugin_reservas_usuario()
             horafinal_viaje = $(this).attr('hora');
             let hora_axios = horafinal_viaje
             horafinal_viaje = $(this).attr('id', 'until-here');
-
-            axios.post('https://192.168.5.115/boats/public/api/validar_horas', {hora_inicio: hora_inicio_axios, hora_fin: hora_axios, fecha_inicio_viaje: fecha_inicio_viaje}).then(res => {
-                alert(res.data.response)
+            // alert(id_vote)
+            axios.post('https://192.168.5.115/boats/public/api/validar_horas', {hora_inicio: hora_inicio_axios, hora_fin: hora_axios, fecha_inicio_viaje: fecha_inicio_viaje, id_vote: id_vote}).then(res => {
+                if(res.data.desocupado != true) {
+                    $('#seleccionar_horario_button').addClass('d-none')
+                    alert('Este barco está ocupado en este horario')
+                } else {
+                    $('#seleccionar_horario_button').removeClass('d-none')
+                }
                 // alert('llego')
             })
             let array = $('.seleccion_hora_vieje_final')
