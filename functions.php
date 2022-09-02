@@ -4491,7 +4491,8 @@ function plugin_reservas_usuario()
             horafinal_viaje = $(this).attr('id', 'until-here');
             // alert(id_vote)
             // axios.post('https://192.168.5.115/boats/public/api/validar_horas', {hora_inicio: hora_inicio_axios, hora_fin: hora_axios, fecha_inicio_viaje: fecha_inicio_viaje, id_vote: id_vote}).then(res => {
-            axios.post('https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/validar_horas.php', {
+            axios.post('https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/validar_horas.php?fecha_inicio_viaje='+fecha_inicio_viaje
+            +'&id_vote='+id_vote, {
                 hora_inicio: hora_inicio_axios,
                 hora_fin: hora_axios,
                 fecha_inicio_viaje: fecha_inicio_viaje,

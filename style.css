@@ -173,8 +173,8 @@ button {
 }
 
 .size-card {
-    width: 19rem;
-    height: 28rem;
+    width: auto;
+    height: auto;
     border-radius: 14px;
 }
 
@@ -233,7 +233,7 @@ button {
 }
 
 .size-img-grid {
-    width: 19rem !important;
+    width: 18rem !important;
     height: 14rem !important;
     border-top-left-radius: 14px !important;
     border-top-right-radius: 14px !important;
@@ -596,6 +596,12 @@ i {
     position: relative;
     top: -2rem;
     left: 4rem;
+}
+
+@media(min-width: 1200px) and (max-width: 1399px) {
+    .size-img-grid {
+        width: 15.8rem !important;
+    }
 }
 
 @media (min-device-width: 320px) and (max-device-width: 700px) {
