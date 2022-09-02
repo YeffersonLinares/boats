@@ -110,12 +110,12 @@
                 table: {horas_array: [], reservas: []},
                 filter: {date: ''},
                 days: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-                id_reserva: null
+                fecha: null
             }
         },
         mounted() {
+            this.fecha = this.getParameterByName('fecha')
             this.getResults()
-            this.id_reserva = this.getParameterByName('id_reserva')
         },
         methods: {
             getResults() {
@@ -127,8 +127,13 @@
                     this.table.reservas = res.data.reservas
                 })
             },
+            getParameterByName(name) {
+                name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+                var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+                return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+            },
             redirect_details(i, hour) {
-                console.log('entro')
                 if(hour == 1 || hour == 2 || hour == 3) {
                     window.location.href = "https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/ResumeReservaAdmin.html?reserva_id="+i.reserva_id
                 }
@@ -136,9 +141,3 @@
         },
     }).mount('#app')
 </script>
-
-<!-- <script>
-    $('body').on('click', '.recorrido-bote-td', function(){
-        window.location.href = 'https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/ResumeReservaAdmin.html'
-    })
-</script> -->

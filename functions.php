@@ -12,7 +12,7 @@
 
 // function incluirphp($atts){
 // include 'prueba.php';
-require 'Reserva_mes.html';
+// require 'Reserva_mes.html';
 // require 'home.html';
 
 // }
@@ -571,7 +571,7 @@ function plugin_reservas_admin()
     <!-- Inicio de resumen reserva barco -->
 
     <div class="container-fluid px-md-5 d-none" id="resume-reserva-admin">
-            <!-- <script>
+        <!-- <script>
                 $("#home_reserva").addClass('d-none')
                 $("#resume-reserva-admin").removeClass('d-none')
             </script> -->
@@ -2282,16 +2282,6 @@ function plugin_reservas_admin()
 
         .checkboxFechas {
             margin: 1rem 0.5rem;
-        }
-
-        .container-btn {
-            border: 1px solid #e5e5e5;
-            padding: 0.2rem 6rem;
-            border-radius: 8px;
-            margin: 1rem 1.5rem;
-            cursor: pointer;
-            background-color: #f5f5f5;
-            color: #e5e5e5;
         }
 
         .size-img-resume {
@@ -4295,7 +4285,7 @@ function plugin_reservas_usuario()
         })
     </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script>
         //-------------------------------------------------------------------------
         // Tabla reserva
@@ -4382,7 +4372,8 @@ function plugin_reservas_usuario()
         })
         var hour_start = 0
         var type_screen = 0;
-        $('body').on('change', '#fecha_asignada', function() {7
+        $('body').on('change', '#fecha_asignada', function() {
+            7
             // alert('llego')
             fecha_inicio_viaje = $(this).val()
             if (type_screen == 0) {
@@ -4499,8 +4490,14 @@ function plugin_reservas_usuario()
             let hora_axios = horafinal_viaje
             horafinal_viaje = $(this).attr('id', 'until-here');
             // alert(id_vote)
-            axios.post('https://192.168.5.115/boats/public/api/validar_horas', {hora_inicio: hora_inicio_axios, hora_fin: hora_axios, fecha_inicio_viaje: fecha_inicio_viaje, id_vote: id_vote}).then(res => {
-                if(res.data.desocupado != true) {
+            // axios.post('https://192.168.5.115/boats/public/api/validar_horas', {hora_inicio: hora_inicio_axios, hora_fin: hora_axios, fecha_inicio_viaje: fecha_inicio_viaje, id_vote: id_vote}).then(res => {
+            axios.post('https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/validar_horas.php', {
+                hora_inicio: hora_inicio_axios,
+                hora_fin: hora_axios,
+                fecha_inicio_viaje: fecha_inicio_viaje,
+                id_vote: id_vote
+            }).then(res => {
+                if (res.data.desocupado != true) {
                     $('#seleccionar_horario_button').addClass('d-none')
                     alert('Este barco está ocupado en este horario')
                 } else {
@@ -4941,48 +4938,48 @@ function plugin_reservas_estilo()
 
         .center-li-icon-barco {
             position: relative;
-            right: 1.65rem;
-            bottom: .7rem;
+            right: 1.67rem;
+            bottom: .8rem;
             color: #FFF;
             cursor: pointer;
         }
 
         .center-li-icon-horario {
             position: relative;
-            right: 1.8rem;
-            bottom: .7rem;
+            right: 1.9rem;
+            bottom: .8rem;
             color: #FFF;
             cursor: pointer;
         }
 
         .center-li-icon-fecha {
             position: relative;
-            right: 1.55rem;
-            bottom: .7rem;
+            right: 1.65rem;
+            bottom: .8rem;
             color: #FFF;
             cursor: pointer;
         }
 
         .center-li-icon-responsable {
             position: relative;
-            right: 2.86rem;
-            bottom: .69rem;
+            right: 3.05rem;
+            bottom: .75rem;
             color: #FFF;
             cursor: pointer;
         }
 
         .center-li-icon-asistencia {
             position: relative;
-            right: 2.4rem;
-            bottom: .69rem;
+            right: 2.6rem;
+            bottom: .8rem;
             color: #FFF;
             cursor: pointer;
         }
 
         .center-li-icon-pago {
             position: relative;
-            right: 1.5rem;
-            bottom: .69rem;
+            right: 1.55rem;
+            bottom: .76rem;
             color: #FFF;
             cursor: pointer;
         }
@@ -5561,7 +5558,6 @@ function plugin_reservas_estilo()
 
         .container-btn {
             border: 1px solid #e5e5e5;
-            padding: 0.2rem 1rem;
             border-radius: 8px;
             margin: .5rem .5rem;
             cursor: pointer;

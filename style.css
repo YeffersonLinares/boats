@@ -467,8 +467,8 @@ hr {
 
 .container-btn {
     border: 1px solid #e5e5e5;
-    padding: 0.2rem 6rem;
     border-radius: 8px;
+    padding: 0.23em 1.6rem;
     margin: 1rem 1.5rem;
     cursor: pointer;
     background-color: #f5f5f5;

@@ -7,6 +7,7 @@ if (empty($date)) {
 // $wpdb = mysqli_connect('localhost', 'root', 'KWsTepfFe3yWch3b8qHx', 'nygboat2');
 $wpdb = mysqli_connect('localhost', 'root', 'KWsTepfFe3yWch3b8qHx');
 mysqli_select_db($wpdb, 'nygboat2');
+// $fecha = $_GET['fecha'];
 
 function index($wpdb, $date)
 {
