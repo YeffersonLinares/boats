@@ -78,7 +78,7 @@
                                 </thead>
                                 <tbody>
                                     <tr v-for="(semana, key) in calendar_vue" :key="key">
-                                        <td v-for="(i, index) in semana" :key="index" style="height: 7rem;">
+                                        <td v-for="(i, index) in semana" :key="index" style="height: 7rem;" v-bind:class="[i.length > 0] ? 'cursor-pointer' : ''">
                                             <!-- {{ semana }} -->
                                             <!-- {{show_day}} >= {{position}} -->
                                             <div class="d-flex flex-column">
@@ -90,13 +90,13 @@
                                                 </div>
                                                 <div class="d-flex justify-content-between in_progress ps-2 mb-1" v-for="(reserva, position) in i" :key="position">
                                                     <!-- {{reserva.id}} -->
-                                                    <div>
+                                                    <div @click="redirect(i)">
                                                         <button class="btn btn-transparent"> <i class="fa-solid fa-square fa-xs"></i> </button>
                                                         <strong> {{ reserva.hora_inicio }} - {{ reserva.hora_fin }} </strong>
                                                         <span>{{ reserva.nombre }}</span>
                                                     </div>
                                                     <a  href="#"></a>
-                                                    <button @click="redirect(reserva)" class="btn btn-transparent color-dark-blue button-ellipsis"><i class="fa-solid fa-ellipsis button-ellipsis"></i></button>
+                                                    <button class="btn btn-transparent color-dark-blue button-ellipsis" @click="details(reserva)"><i class="fa-solid fa-ellipsis button-ellipsis"></i></button>
                                                     <hr class="my-1 mx-2" style="opacity: .1;">
                                                 </div>
                                                 <!-- <div class="d-flex justify-content-between not_in_progress ps-2">
@@ -214,9 +214,16 @@
                     let semana5 = this.calendar_vue.splice(1,3)
                     this.calendar_vue = [semana1, semana2, semana3, semana4, semana5]
                 },
-                redirect(reserva){
-                    window.location.href = "https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/home.html"
-                    console.log('reserva ==> ', reserva)
+                redirect(reserva, type){
+                    console.log('reserva ==> ', reserva);
+                    if(reserva.length > 0) {
+                        window.location.href = "https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/home.html"
+
+                    }
+                },
+                details(reserva, type) {
+                    window.location.href = "https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/ResumeReservaAdmin.html?reserva_id=" + reserva.id
+                    console.log('reserva_detail ==> ', reserva);
                 },
                 new_booking() {
                     window.location.href = 'https://rutaapp.com/boats/reserva/'
@@ -224,3 +231,9 @@
             },
         }).mount('#app1')
     </script>
+
+    <style>
+        .cursor-pointer {
+            cursor: pointer;
+        }
+    </style>

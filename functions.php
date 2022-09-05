@@ -12,7 +12,10 @@
 
 // function incluirphp($atts){
 // include 'prueba.php';
-require 'Reserva_mes.html';
+$reserva = $_SERVER["REQUEST_URI"];
+if($reserva == '/boats/reservas_admin/') {
+    require 'Reserva_mes.html';
+}
 // require 'home.html';
 
 // }
