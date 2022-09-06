@@ -5,6 +5,8 @@ mysqli_select_db($wpdb, 'nygboat2');
 
 $fecha = $_GET['fecha_inicio_viaje'];
 $id_vote = $_GET['id_vote'];
+$hora_inicio = $_GET['hora_inicio'];
+$hora_fin = $_GET['hora_fin'];
 
 function validar_horas($wpdb, $fecha, $id_vote)
 {
@@ -21,9 +23,6 @@ function validar_horas($wpdb, $fecha, $id_vote)
             'message' => $th->getMessage(),
         ];
     }
-
-    // $response = true;
-
 }
 
 function map($data)
@@ -41,28 +40,22 @@ function map($data)
     return $array;
 }
 
-function response($reservas)
+function response($reservas, $hora_inicio, $hora_fin)
 {
     $response = true;
-    $ad = null;
     foreach ($reservas as $value) :
-        $ad = $value['hora_inicio'];
-        $ad2 = $value['hora_fin'];
-        // if ($value['hora_inicio'] <='10:30' && $value['hora_fin'] >='10:30') {
-        if ($value['hora_inicio'] <= '07:30:00' && $value['hora_fin'] >='07:30:00') {
+        if ($value['hora_inicio'] <= $hora_inicio && $value['hora_fin'] >= $hora_inicio) :
             $response = false;
-        }
-        if ($value['hora_inicio'] <= '08:30:00' && $value['hora_fin'] >= '08:30:00') {
+        endif;
+        if ($value['hora_inicio'] <= $hora_fin && $value['hora_fin'] >= $hora_fin) :
             $response = false;
-        }
+        endif;
     endforeach;
     $data = [
         'desocupado' => $response,
-        '$ad' => $ad,
-        'ad2' => $ad2,
     ];
+
     return json_encode($data);
 }
 
-// echo validar_horas($wpdb, $fecha, $id_vote);
-echo response(validar_horas($wpdb, $fecha, $id_vote));
+echo response(validar_horas($wpdb, $fecha, $id_vote), $hora_inicio, $hora_fin);

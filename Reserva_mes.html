@@ -215,10 +215,8 @@
                     this.calendar_vue = [semana1, semana2, semana3, semana4, semana5]
                 },
                 redirect(reserva, type){
-                    console.log('reserva ==> ', reserva);
                     if(reserva.length > 0) {
-                        window.location.href = "https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/home.html"
-
+                        window.location.href = "https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/home.html?fecha=" + reserva[0].fecha
                     }
                 },
                 details(reserva, type) {

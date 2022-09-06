@@ -4500,7 +4500,7 @@ function plugin_reservas_usuario()
             //     id_vote: id_vote
             // }).then(res => {
                 axios.post('https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/validar_horas.php?fecha_inicio_viaje='+fecha_inicio_viaje
-                +'&id_vote='+id_vote).then(res => {
+                +'&id_vote='+id_vote + '&hora_fin='+hora_axios+'&hora_inicio='+hora_inicio_axios).then(res => {
 
                 // , {
                 if (res.data.desocupado != true) {
