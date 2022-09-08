@@ -3,16 +3,10 @@
 $wpdb = mysqli_connect('localhost', 'root', 'KWsTepfFe3yWch3b8qHx');
 mysqli_select_db($wpdb, 'nygboat2');
 
-$month = $_GET['month'];
-$year = $_GET['year'];
-
-function getBarcos($wpdb, $date)
+function getBarcos($wpdb)
 {
-    // return $date;
     try {
-        if($date == '-'){
-            $date = date('Y-m');
-        }
+        $date = date('Y-m');
         $sql = "SELECT id,nombre FROM vote WHERE estado=1";
 
         $data = mysqli_query($wpdb, $sql);
@@ -75,5 +69,4 @@ function map_calendar($data)
     return $array;
 }
 
-$date = $year . '-' . $month;
-echo getBarcos($wpdb, $date);
+echo getBarcos($wpdb);

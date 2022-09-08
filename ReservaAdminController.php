@@ -16,7 +16,6 @@ function reservas($wpdb, $reserva_id)
     $data = mysqli_query($wpdb, $sql);
     $reservas = mysqli_fetch_array($data);
 
-    // $reservas = map(mysqli_fetch_all($data));
     return json_encode($reservas);
 }
 
