@@ -3149,13 +3149,13 @@ function plugin_reservas_usuario()
                         <div class="col-md-6 mb-4">
                             <div class="form-group">
                                 <label class="f-9">Nombre/s*:</label>
-                                <input type="text" name="nombre" id="nombre" class="form-control">
+                                <input type="text" name="nombre" id="nombre" class="form-control" maxlength="40">
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="form-group">
                                 <label class="f-9">Apellido/s*:</label>
-                                <input type="text" name="apellido" id="apellido" class="form-control">
+                                <input type="text" name="apellido" id="apellido" class="form-control" maxlength="40">
                             </div>
                         </div>
                     </div>
@@ -3163,7 +3163,7 @@ function plugin_reservas_usuario()
                         <div class="col-md-12 mb-4">
                             <div class="form-group">
                                 <label class="f-9">Dirección/Ciudad*:</label>
-                                <input type="text" name="nombre" id="ciudad" class="form-control">
+                                <input type="text" name="nombre" id="ciudad" class="form-control" maxlength="40">
                             </div>
                         </div>
                     </div>
@@ -3172,13 +3172,13 @@ function plugin_reservas_usuario()
                         <div class="col-md-4 mb-4">
                             <div class="form-group">
                                 <label class="f-9">Telefono*:</label>
-                                <input type="text" name="telefono" id="telefono" class="form-control">
+                                <input type="text" name="telefono" id="telefono" class="form-control" maxlength="20">
                             </div>
                         </div>
                         <div class="col-md-4 mb-4">
                             <div class="form-group">
                                 <label class="f-9">Email*:</label>
-                                <input type="text" name="email" id="email" class="form-control">
+                                <input type="text" name="email" id="email" class="form-control" maxlength="40">
                             </div>
                         </div>
                     </div>
