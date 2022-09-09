@@ -45,6 +45,26 @@ button {
     border-color: #B5B5B5;
 }
 
+table .color-white {
+    color: #FFF !important;
+}
+
+.fc-daygrid-day{
+    cursor: pointer;    
+}
+
+.fc-daygrid-day-top {
+    opacity: 1;
+    justify-content: start;
+}
+
+.fc-daygrid-day-number {
+    justify-content: start !important;
+    background: #1D6CAF;
+    color: white;
+    cursor: pointer;
+}
+
 .color-white {
     color: #FFF !important;
 }
