@@ -3777,11 +3777,11 @@ function plugin_reservas_usuario()
                     </div>
                     <div class="col-12 col-sm-6 col-md-3 border-right-dotted d-flex flex-column">
                         <span>FECHA:</span>
-                        <b>26 septiembre 2021</b>
+                        <b class="fecha_end_reserva">26 septiembre 2021</b>
                     </div>
                     <div class="col-12 col-sm-6 col-md-3 border-right-dotted d-flex flex-column">
                         <span>EMAIL:</span>
-                        <b>CORREO@CORREO</b>
+                        <b id="correo_end_responsable">CORREO@CORREO</b>
                     </div>
                     <div class="col-12 col-sm-6 col-md-3 border-right-dotted d-flex flex-column">
                         <span>TOTAL:</span>
@@ -3797,7 +3797,7 @@ function plugin_reservas_usuario()
                     <p>Realiza tu pago directamente e nuestra cuenta bancaria. Por favor, usa el número del
                         pedido como
                         referencia de pago,
-                        por ejemplo: "Asunto: Reserva 20/JUNIO/2022" N° de la reserva". Tu pedido no se
+                        por ejemplo: "Asunto: Reserva <span class="fecha_end_reserva"> 20/JUNIO/2022 </span>" N° de la reserva". Tu pedido no se
                         procesará hasta
                         que se haya
                         recibido el importe de nuestra cuenta. La fecha en el calendario de reservas será
@@ -4756,6 +4756,10 @@ function plugin_reservas_usuario()
                 alert('Para continuar debes aceptar terminos y condiciones')
                 return
             }
+            let email_resposable_end = $('#email').val()
+            let fecha_asignada = $('#fecha_asignada').val()
+            $('#correo_end_responsable').text(email_resposable_end)
+            $('.fecha_end_reserva').text(fecha_asignada)
             guardarTodo()
             $('#pagos').addClass('d-none')
             $('#resume').removeClass('d-none')
