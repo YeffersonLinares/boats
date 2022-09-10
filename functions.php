@@ -3064,7 +3064,13 @@ function plugin_reservas_usuario()
                 </div>
 
                 <div class="w-100 text-center my-5">
-                    <input type="date" name="fecha_asignada" id="fecha_asignada">
+                    <div class="row">
+                        <div class="col-12 col-md-4"></div>
+                        <div class="col-12 col-md-4">
+                            <input type="date" class="form-control" name="fecha_asignada" id="fecha_asignada">
+                        </div>
+                        <div class="col-12 col-md-4"></div>
+                    </div>
                 </div>
                 <div class="d-flex justify-content-center w-100 colocarBotones d-none">
 

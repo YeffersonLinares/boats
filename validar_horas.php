@@ -50,6 +50,9 @@ function response($reservas, $hora_inicio, $hora_fin)
         if ($value['hora_inicio'] <= $hora_fin && $value['hora_fin'] >= $hora_fin) :
             $response = false;
         endif;
+        if ($hora_inicio <= $value['hora_inicio'] && $hora_fin >= $value['hora_fin']) :
+            $response = false;
+        endif;
     endforeach;
     $data = [
         'desocupado' => $response,
