@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
 
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.39/vue.cjs.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
@@ -81,7 +81,8 @@
             },
             barcos: [],
             getBarcos(){
-                axios.post('https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/getBarcos.php').then(res => {
+                let url = window.location.origin + '/boats/wp-content/themes/twentytwentytwo/getBarcos.php'
+                axios.post(url).then(res => {
                     this.barcos = res.data
                 })
             },
@@ -94,15 +95,17 @@
                 this.open = ! this.open
             },
             calendario(){
+                let url_events = window.location.origin + '/boats/wp-content/themes/twentytwentytwo/ReservaController.php?vote_id=' + filtro_vote_id
                 var calendarEl = document.getElementById('calendar');
                 var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
                 editable: false,
                 eventLimit: true,
                 locale: 'es',
-                events: 'https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/ReservaController.php?vote_id='+filtro_vote_id,
+                events: url_events,
                 dateClick: function(info) {
-                    window.location.href = 'https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/home.html?fecha=' + info.dateStr
+                    let url = window.location.origin + '/boats/wp-content/themes/twentytwentytwo/home.html?fecha=' + info.dateStr
+                    window.location.href = url
                     }
                     });
                     calendar.render();

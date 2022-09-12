@@ -13,7 +13,7 @@
 // function incluirphp($atts){
 // include 'prueba.php';
 $reserva = $_SERVER["REQUEST_URI"];
-if($reserva == '/boats/reservas_admin/') {
+if ($reserva == '/boats/reservas_admin/') {
     require 'Reserva_mes.html';
 }
 // require 'home.html';
@@ -1592,9 +1592,6 @@ function plugin_reservas_usuario()
             } else if (type_screen == 1) {
                 $('.buttons-defect').removeClass('d-none')
             }
-            // axios.post('https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/validar_fecha.php?fecha='+fecha_inicio_viaje).then(res => {
-            //     alert('llego')
-            // })
         })
 
         $('body').on('change', '#date_selected_for_date', function() {
@@ -1700,17 +1697,8 @@ function plugin_reservas_usuario()
             horafinal_viaje = $(this).attr('hora');
             let hora_axios = horafinal_viaje
             horafinal_viaje = $(this).attr('id', 'until-here');
-            // alert(id_vote)
-            // axios.post('https://192.168.5.115/boats/public/api/validar_horas', {
-            //     hora_inicio: hora_inicio_axios,
-            //     hora_fin: hora_axios,
-            //     fecha_inicio_viaje: fecha_inicio_viaje,
-            //     id_vote: id_vote
-            // }).then(res => {
-                axios.post('https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/validar_horas.php?fecha_inicio_viaje='+fecha_inicio_viaje
-                +'&id_vote='+id_vote + '&hora_fin='+hora_axios+'&hora_inicio='+hora_inicio_axios).then(res => {
-
-                // , {
+            let url = window.location.origin + '/boats/wp-content/themes/twentytwentytwo/validar_horas.php?fecha_inicio_viaje=' + fecha_inicio_viaje + '&id_vote=' + id_vote + '&hora_fin=' + hora_axios + '&hora_inicio=' + hora_inicio_axios
+            axios.post(url).then(res => {
                 if (res.data.desocupado != true) {
                     $('#seleccionar_horario_button').addClass('d-none')
                     alert('Este barco está ocupado en este horario')
@@ -2101,6 +2089,5 @@ function plugin_reservas_usuario()
     </script>
 
 <?php
-plugin_reservas_estilo();
+    plugin_reservas_estilo();
 }
-

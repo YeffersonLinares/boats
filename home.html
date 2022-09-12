@@ -169,7 +169,8 @@
         },
         methods: {
             async getResults() {
-                let url = 'https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/logica.php'
+                
+                let url = window.location.origin + '/boats/wp-content/themes/twentytwentytwo/logica.php'
                 url += '?date='+this.filter.date
                 await axios.get(url).then(res => {
                     this.table.horas_array = res.data.horas_array
@@ -184,7 +185,7 @@
             },
             redirect_details(i, hour) {
                 if(hour == 1 || hour == 2 || hour == 3) {
-                    window.location.href = "https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/ResumeReservaAdmin.html?reserva_id="+i.reserva_id
+                    window.location.href = window.location.origin + "/boats/wp-content/themes/twentytwentytwo/ResumeReservaAdmin.html?reserva_id="+i.reserva_id
                 }
             },
         },

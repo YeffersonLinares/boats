@@ -1,8 +1,7 @@
 <?php
 
 include_once "reserva.php";
-include_once "Clientes.php";
-include_once "Empresa.php";
+include_once "Clientes.php"; 
 
 /**
  * Twenty Twenty-Two functions and definitions
