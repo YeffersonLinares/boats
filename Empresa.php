@@ -1,265 +1,409 @@
-<div class="container-fluid px-md-5">
-    <div class="text-center mt-3">
-        <h6 class="color-dark-blue"> <b> Empresa </b> </h6>
-    </div>
-
-    <hr class="my-3">
-
-    <div class="d-flex justify-content-between w-100 mb-5">
-        <h5> <strong> Bienvenido Admin #12244 a la sección de Empresa </strong> </h5>
-        <button class="btn-info-empresa"> <strong> Info Empresa & Adherir Personal </strong> </button>
-    </div>
-
-    <div class="d-flex align-items-center">
-        <span class="me-3"> Ver mes en curso | Ver Temporada | Ver desde </span>
-        <input class="form-control me-3 color-blue" style="width: auto;" type="date">
-        <span class="me-3"> al </span>
-        <input class="form-control me-3 color-blue" style="width: auto;" type="date">
-        <button class="btn-info-empresa"> <strong> Ver Resumen </strong> </button>
-    </div>
-
-    <div class="d-flex mt-3">
-        <h4 class="me-3"> <strong class="color-gray-dark"> Resumen de: </strong> </h4>
-        <h4 class="me-3"> <strong class="color-dark-blue"> 10/04/2022 </strong> </h4>
-        <h4 class="me-3"> <strong class="color-gray-dark"> al: </strong> </h4>
-        <h4 class="me-3"> <strong class="color-dark-blue"> 10/07/2022 </strong> </h4>
-    </div>
-    <hr>
-
-    <div class="mt-4">
-        <div class="row">
-            <div class="col-lg-7">
-                <div class="container-fluid table-responsive">
-                    <h4> <strong class="color-dark-blue"> Ingresos </strong> </h4>
-                    <table class="table table-bordered table-striped color-gray">
-                        <thead>
-                            <th> Revendedores </th>
-                            <th> Alquileres </th>
-                            <th> Pagado </th>
-                            <th> Ingreso </th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td> Click & Boat </td>
-                                <td> 8 </td>
-                                <td> Click & Boat </td>
-                                <td> 352€ </td>
-                            </tr>
-                            <tr>
-                                <td> Click & Boat </td>
-                                <td> 8 </td>
-                                <td> Click & Boat </td>
-                                <td> 352€ </td>
-                            </tr>
-                            <tr>
-                                <td> Click & Boat </td>
-                                <td> 8 </td>
-                                <td> Click & Boat </td>
-                                <td> 352€ </td>
-                            </tr>
-                            <tr>
-                                <td> Click & Boat </td>
-                                <td> 8 </td>
-                                <td> Click & Boat </td>
-                                <td> 352€ </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="container-fluid table-responsive">
-                    <h4> <strong class="color-dark-blue"> Gastos </strong> </h4>
-                    <table class="table table-bordered table-striped color-gray mt-3">
-                        <thead>
-                            <th> Revendedores </th>
-                            <th> Alquileres </th>
-                            <th> Pagado </th>
-                            <th> Gastos </th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td> Click & Boat </td>
-                                <td> 8 </td>
-                                <td> Click & Boat </td>
-                                <td> 352€ </td>
-                            </tr>
-                            <tr>
-                                <td> Click & Boat </td>
-                                <td> 8 </td>
-                                <td> Click & Boat </td>
-                                <td> 352€ </td>
-                            </tr>
-                            <tr>
-                                <td> Click & Boat </td>
-                                <td> 8 </td>
-                                <td> Click & Boat </td>
-                                <td> 352€ </td>
-                            </tr>
-                            <tr>
-                                <td> Click & Boat </td>
-                                <td> 8 </td>
-                                <td> Click & Boat </td>
-                                <td> 352€ </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+<div id="app" x-data="app">
+    <template x-if="pantalla == 1">
+        <div class="container-fluid px-md-5">
+            <div class="text-center mt-3">
+                <h6 class="color-dark-blue"> <b> Empresa </b> </h6>
             </div>
-            <div class="col-lg-5 bg-gray pt-4">
-                <div class="container-fluid table-responsive">
-                    <h4> <strong class="color-dark-blue"> Proveedores de Embarcaciones </strong> </h4>
-                    <table class="table table-bordered table-striped color-gray">
-                        <thead>
-                            <th> Alquileres </th>
-                            <th> Barcos </th>
-                            <th> Ingreso </th>
-                            <th> Beneficio </th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td> Propios </td>
-                                <td> 30 </td>
-                                <td> 6.660€ </td>
-                                <td> 6.660€ </td>
-                            </tr>
-                            <tr>
-                                <td> Propios </td>
-                                <td> 30 </td>
-                                <td> 6.660€ </td>
-                                <td> 6.660€ </td>
-                            </tr>
-                            <tr>
-                                <td> Propios </td>
-                                <td> 30 </td>
-                                <td> 6.660€ </td>
-                                <td> 6.660€ </td>
-                            </tr>
-                            <tr>
-                                <td> <strong> Total </strong> </td>
-                                <td> <strong> 90 </strong> </td>
-                                <td> <strong> €19.240 </strong> </td>
-                                <td> <strong> 7.700€ </strong> </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <button class="button-dark-blue p-2 f-9 d-flex align-items-center ms-4 my-3">
-                    <span class="me-2"> Ver Detalle de Proveedores </span>
-                    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-                </button>
-
-                <div class="container-fluid table-responsive">
-                    <h4> <strong class="color-dark-blue"> Pautas Publicitarias </strong> </h4>
-                    <table class="table table-bordered table-striped color-gray">
-                        <thead>
-                            <th> Inversión </th>
-                            <th> Impresos </th>
-                            <th> Pautas en medios </th>
-                            <th> Otros </th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Propios</td>
-                                <td>30</td>
-                                <td>6.600€</td>
-                                <td>6.600€</td>
-                            </tr>
-                            <tr>
-                                <td>Propios</td>
-                                <td>30</td>
-                                <td>6.600€</td>
-                                <td>6.600€</td>
-                            </tr>
-                            <tr>
-                                <td>Propios</td>
-                                <td>30</td>
-                                <td>6.600€</td>
-                                <td>6.600€</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="container-fluid table-responsive">
-                    <div class="w-100">
-                        <h4> <strong class="color-dark-blue"> Estadísticas de ganancias de </strong> </h4>
-                        <h6> 10/04/2022 al 10/07/2022 </h6>
-                        <div class="border" style="width: 100%; height: 10rem;">
-
+        
+            <hr class="my-3">
+        
+            <div class="d-flex justify-content-between w-100 mb-5">
+                <h5> <strong> Bienvenido Admin #12244 a la sección de Empresa </strong> </h5>
+                <button class="btn-info-empresa"> <strong> Info Empresa & Adherir Personal </strong> </button>
+            </div>
+        
+            <div class="d-flex align-items-center">
+                <span class="me-3"> Ver mes en curso | Ver Temporada | Ver desde </span>
+                <input class="form-control me-3 color-blue" style="width: auto;" type="date">
+                <span class="me-3"> al </span>
+                <input class="form-control me-3 color-blue" style="width: auto;" type="date">
+                <button class="btn-info-empresa"> <strong> Ver Resumen </strong> </button>
+            </div>
+        
+            <div class="d-flex mt-3">
+                <h4 class="me-3"> <strong class="color-gray-dark"> Resumen de: </strong> </h4>
+                <h4 class="me-3"> <strong class="color-dark-blue"> 10/04/2022 </strong> </h4>
+                <h4 class="me-3"> <strong class="color-gray-dark"> al: </strong> </h4>
+                <h4 class="me-3"> <strong class="color-dark-blue"> 10/07/2022 </strong> </h4>
+            </div>
+            <hr>
+        
+            <div class="mt-4">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="container-fluid table-responsive">
+                            <h4> <strong class="color-dark-blue"> Ingresos </strong> </h4>
+                            <table class="table table-striped color-gray">
+                                <thead>
+                                    <th> Revendedores </th>
+                                    <th> Alquileres </th>
+                                    <th> Pagado </th>
+                                    <th> Ingreso </th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> Click & Boat </td>
+                                        <td> 8 </td>
+                                        <td> Click & Boat </td>
+                                        <td> 352€ </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Click & Boat </td>
+                                        <td> 8 </td>
+                                        <td> Click & Boat </td>
+                                        <td> 352€ </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Click & Boat </td>
+                                        <td> 8 </td>
+                                        <td> Click & Boat </td>
+                                        <td> 352€ </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Click & Boat </td>
+                                        <td> 8 </td>
+                                        <td> Click & Boat </td>
+                                        <td> 352€ </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+        
+                        <div class="container-fluid table-responsive">
+                            <h4> <strong class="color-dark-blue"> Gastos </strong> </h4>
+                            <table class="table table-striped color-gray mt-3">
+                                <thead>
+                                    <th> Revendedores </th>
+                                    <th> Alquileres </th>
+                                    <th> Pagado </th>
+                                    <th> Gastos </th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> Click & Boat </td>
+                                        <td> 8 </td>
+                                        <td> Click & Boat </td>
+                                        <td> 352€ </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Click & Boat </td>
+                                        <td> 8 </td>
+                                        <td> Click & Boat </td>
+                                        <td> 352€ </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Click & Boat </td>
+                                        <td> 8 </td>
+                                        <td> Click & Boat </td>
+                                        <td> 352€ </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Click & Boat </td>
+                                        <td> 8 </td>
+                                        <td> Click & Boat </td>
+                                        <td> 352€ </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 bg-gray pt-4">
+                        <div class="container-fluid table-responsive">
+                            <h4> <strong class="color-dark-blue"> Proveedores de Embarcaciones </strong> </h4>
+                            <table class="table table-striped color-gray">
+                                <thead>
+                                    <th> Alquileres </th>
+                                    <th> Barcos </th>
+                                    <th> Ingreso </th>
+                                    <th> Beneficio </th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> Propios </td>
+                                        <td> 30 </td>
+                                        <td> 6.660€ </td>
+                                        <td> 6.660€ </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Propios </td>
+                                        <td> 30 </td>
+                                        <td> 6.660€ </td>
+                                        <td> 6.660€ </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Propios </td>
+                                        <td> 30 </td>
+                                        <td> 6.660€ </td>
+                                        <td> 6.660€ </td>
+                                    </tr>
+                                    <tr>
+                                        <td> <strong> Total </strong> </td>
+                                        <td> <strong> 90 </strong> </td>
+                                        <td> <strong> €19.240 </strong> </td>
+                                        <td> <strong> 7.700€ </strong> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <button class="button-dark-blue p-2 f-9 d-flex align-items-center ms-4 my-3" @click="change_pantalla(2)">
+                            <span class="me-2"> Ver Detalle de Proveedores </span>
+                            <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                        </button>
+        
+                        <div class="container-fluid table-responsive">
+                            <h4> <strong class="color-dark-blue"> Pautas Publicitarias </strong> </h4>
+                            <table class="table table-striped color-gray">
+                                <thead>
+                                    <th> Inversión </th>
+                                    <th> Impresos </th>
+                                    <th> Pautas en medios </th>
+                                    <th> Otros </th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Propios</td>
+                                        <td>30</td>
+                                        <td>6.600€</td>
+                                        <td>6.600€</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Propios</td>
+                                        <td>30</td>
+                                        <td>6.600€</td>
+                                        <td>6.600€</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Propios</td>
+                                        <td>30</td>
+                                        <td>6.600€</td>
+                                        <td>6.600€</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="container-fluid table-responsive">
+                            <div class="w-100">
+                                <h4> <strong class="color-dark-blue"> Estadísticas de ganancias de </strong> </h4>
+                                <h6> 10/04/2022 al 10/07/2022 </h6>
+                                <div class="border" style="width: 100%; height: 10rem;">
+        
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        
+            <div class="container-fluid table-responsive">
+                <h4> <strong class="color-dark-blue"> Resumen de Saldos </strong> </h4>
+                <table class="table table-bordered table-striped color-gray">
+                    <thead>
+                        <th></th>
+                        <th> Efectivo </th>
+                        <th> Transferencia </th>
+                        <th> Bizum </th>
+                        <th> Tarjeta </th>
+                        <th> Paypal </th>
+                        <th> Proveedores </th>
+                        <th> Publicidades </th>
+                        <th> Otros </th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ingresos</td>
+                            <td>500</td>
+                            <td>280</td>
+                            <td>100</td>
+                            <td>-171</td>
+                            <td>-279</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Gastos</td>
+                            <td>500</td>
+                            <td>280</td>
+                            <td>100</td>
+                            <td>-171</td>
+                            <td>-279</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td> <strong> Total </strong> </td>
+                            <td>500</td>
+                            <td>280</td>
+                            <td>100</td>
+                            <td>-171</td>
+                            <td>-279</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-flex align-items-end">
+                    <div class="me-4">
+                        <strong class="color-gray"> Ingreso promedio: </strong>
+                        <strong class="color-blue"> 95€ </strong>
+                    </div>
+                    <div>
+                        <strong class="color-gray"> Días Seleccionados: </strong>
+                        <strong class="color-blue"> 35 </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button class="btn-declaracion">
+                    <span class="me-2"> Generar Declaración de Resumen </span>
+                    <i class="fa-solid fa-file-pdf"></i>
+                </button>
+            </div>
         </div>
-    </div>
+    </template>
 
-    <div class="container-fluid table-responsive">
-        <h4> <strong class="color-dark-blue"> Resumen de Saldos </strong> </h4>
-        <table class="table table-bordered table-striped color-gray">
-            <thead>
-                <th></th>
-                <th> Efectivo </th>
-                <th> Transferencia </th>
-                <th> Bizum </th>
-                <th> Tarjeta </th>
-                <th> Paypal </th>
-                <th> Proveedores </th>
-                <th> Publicidades </th>
-                <th> Otros </th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Ingresos</td>
-                    <td>500</td>
-                    <td>280</td>
-                    <td>100</td>
-                    <td>-171</td>
-                    <td>-279</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>Gastos</td>
-                    <td>500</td>
-                    <td>280</td>
-                    <td>100</td>
-                    <td>-171</td>
-                    <td>-279</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td> <strong> Total </strong> </td>
-                    <td>500</td>
-                    <td>280</td>
-                    <td>100</td>
-                    <td>-171</td>
-                    <td>-279</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="d-flex align-items-end">
-            <div class="me-4">
-                <strong class="color-gray"> Ingreso promedio: </strong>
-                <strong class="color-blue"> 95€ </strong>
+    <template x-if="pantalla == 2">
+        <div class="container-fluid px-md-5 table-border-none">
+                <div class="text-center mt-3">
+                    <h6 class="color-dark-blue"> <b> Empresa </b> </h6>
+                </div>
+    
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <button class="btn-atras" @click="change_pantalla(1)">Atrás</button>
+                    <h4><strong> Proveedores de Embarcaciones </strong></h4>
+                    <div></div>
+                </div>
+    
+                <div class="d-flex mt-5">
+                    <h4 class="me-3"> <strong class="color-gray-dark"> Resumen de: </strong> </h4>
+                    <h4 class="me-3"> <strong class="color-dark-blue"> 10/04/2022 </strong> </h4>
+                    <h4 class="me-3"> <strong class="color-gray-dark"> al: </strong> </h4>
+                    <h4 class="me-3"> <strong class="color-dark-blue"> 10/07/2022 </strong> </h4>
+                </div>
+    
+                <hr class="my-3">
+    
+                <div class="container-fluid table-responsive">
+                    <table class="table table-striped color-dark-extras">
+                        <thead>
+                            <th> Barco </th>
+                            <th> Fecha </th>
+                            <th> Vendedor </th>
+                            <th> Ingreso </th>
+                            <th> Pago al Revendedor </th>
+                            <th> Pagos Extra </th>
+                            <th> Ingresos Extra </th>
+                            <th> Ingreso por Gestión </th>
+                            <th> Pagar al Dueño del barco </th>
+                            <th> Beneficio </th>
+                            <th> Método </th>
+                            <th style="border-right: 0 !important;"> Estado </th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> Calla 450 </td>
+                                <td> 12/05 </td>
+                                <td> 175€ </td>
+                                <td> 175€ </td>
+                                <td> 35€ </td>
+                                <td> 15€ </td>
+                                <td> 15€ </td>
+                                <td> 35€ </td>
+                                <td> <span class="color-dark-blue"> 90€ </span> </td>
+                                <td> <span class="color-blue"> 100€ </span> </td>
+                                <td> Transferencia </td>
+                                <td style="border-right: 0 !important;"> <span class="color-red"> Pendiente </span> </td>
+                            </tr>
+                            <tr>
+                                <td> <strong> Total </strong> </td>
+                                <td></td>
+                                <td></td>
+                                <td> <strong> 175€ </strong> </td>
+                                <td> <strong> 35€ </strong> </td>
+                                <td> <strong> 15€ </strong> </td>
+                                <td> <strong> 15€ </strong> </td>
+                                <td> <strong> 35€ </strong> </td>
+                                <td> <strong class="color-dark-blue"> 90€ </strong> </td>
+                                <td> <strong> <span class="color-blue"> 100€ </span>  </strong> </td>
+                                <td></td>
+                                <td style="border-right: 0 !important;"> <span class="color-green"> Pagado </span> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+    
+                <hr class="my-3">
+    
+                <h4 class="ms-3"> <strong class="color-dark-blue"> Pagos Pendientes </strong> </h4>
+                <div class="container-fluid table-responsive">
+                    <table class="table table-striped color-dark-extras w-70">
+                        <thead>
+                            <th> Estado </th>
+                            <th> Efectivo </th>
+                            <th> Tarjetas </th>
+                            <th> Transferencia </th>
+                            <th> Paypal </th>
+                            <th style="border-right: 0 !important;"> Total </th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <span class="color-dark-red"> Pendiente de pago </span> </td>
+                                <td> 300€ </td>
+                                <td> 200€ </td>
+                                <td> 550€ </td>
+                                <td> 550€ </td>
+                                <td style="border-right: 0 !important;"> <strong class="color-dark-red"> 550€ </strong> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+    
+                <hr class="my-3">
+    
+                <h4 class="ms-3"> <strong class="color-dark-blue"> Beneficios </strong> </h4>
+                <div class="container-fluid table-responsive">
+                    <table class="table table-striped color-dark-extras w-70">
+                        <thead>
+                            <th> Estado </th>
+                            <th> Efectivo </th>
+                            <th> Tarjetas </th>
+                            <th> Transferencia </th>
+                            <th> Paypal </th>
+                            <th style="border-right: 0 !important;"> Total </th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <strong class="color-blue"> Beneficio </strong> </td>
+                                <td> 300€ </td>
+                                <td> 200€ </td>
+                                <td> 550€ </td>
+                                <td> 550€ </td>
+                                <td style="border-right: 0 !important;"> <strong class="color-blue"> 550€ </strong> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+    
+                <hr class="my-3">
+    
             </div>
-            <div>
-                <strong class="color-gray"> Días Seleccionados: </strong>
-                <strong class="color-blue"> 35 </strong>
-            </div>
-        </div>
-    </div>
-    <div class="d-flex justify-content-center">
-        <button class="btn-declaracion">
-            <span class="me-2"> Generar Declaración de Resumen </span>
-            <i class="fa-solid fa-file-pdf"></i>
-        </button>
-    </div>
+    </template>
 </div>
+
+<script>
+    function app() {
+        return {
+            hello: 'Hello bussines',
+            pantalla: 1,
+            change_pantalla(pantalla) {
+                this.pantalla = pantalla
+                console.log('this.pantalla ==> ', this.pantalla);
+            }
+        }
+    }
+</script>
 
 <style>
     .btn-info-empresa {
@@ -286,4 +430,29 @@
         display: flex;
         align-items: center;
     }
+
+    .table-border-none td, .table-border-none th{
+        border-right: 1px solid #D8D8D8;
+        text-align: center;
+    }
+
+    tbody, td, tfoot, th, thead, tr {
+        border-style: none;
+    }
+
+    .table-border-none hr {
+        opacity: .2;
+    }
+
+    .w-70 {
+       width: 70%;
+    }
+    .color-green {
+    color: #00C13B;
+}
+
+.bg-green {
+    background-color: #00C13B;
+}
+
 </style>
