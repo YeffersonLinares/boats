@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="style.css">
 <div id="app" x-data="app">
     <template x-if="pantalla == 1">
         <div class="container-fluid px-md-5">
@@ -9,7 +10,12 @@
         
             <div class="d-flex justify-content-between w-100 mb-5">
                 <h5> <strong> Bienvenido Admin #12244 a la sección de Empresa </strong> </h5>
-                <button class="btn-info-empresa"> <strong> Info Empresa & Adherir Personal </strong> </button>
+                <button class="btn-info-empresa" data-bs-toggle="modal" data-bs-target="#modal_detalles_empresa">
+                    <strong> Info Empresa & Adherir Personal </strong> 
+                </button>
+                <button>
+                    <strong> Revendedores </strong> 
+                </button>
             </div>
         
             <div class="d-flex align-items-center">
@@ -390,6 +396,170 @@
     
             </div>
     </template>
+
+    <div class="modal fade" id="modal_detalles_empresa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="container-fluid border">
+                        <h4 class="color-dark-blue"> <b> Información de empresa </b> </h4>
+                        <div class="row p-4">
+                            <div class="col-12 col-lg-5">
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <span>Nombre de la empresa/Razón social</span>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <span>Responsable de la empresa</span>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <span>Teléfono</span>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <span>Email</span>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <span>Logo de la empresa</span>
+                                        <input class="form-control" type="file">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <span>Zona horaria</span>
+                                        <select class="form-select">
+                                            <option value="">GTM+1 España - Egipto</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-7">
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <strong>Staff:</strong>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column mb-3">
+                                    <div class="d-flex justify-content-between border-bottom pb-3 mt-3">
+                                        <div class="d-flex">
+                                            <span class="me-4"> Carlos Martiv Pavon Cian </span>
+                                            <div>
+                                                <strong class="me-3"> Formato de Cobro </strong>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <button class="btn-icon-red"> <i class="fa-solid fa-trash-can"></i> </button>
+                                            <button class="btn-icon-gray"> <i class="fa-solid fa-pen-to-square"></i> </button>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between border-bottom pb-3 mt-3">
+                                        <div class="d-flex">
+                                            <span class="me-4"> Carlos Martiv Pavon Cian </span>
+                                            <div>
+                                                <strong class="me-3"> Formato de Cobro </strong>
+                                                <button class="btn-icon-gray"><i class="fa-solid fa-phone"></i></button>
+                                                <button class="btn-icon-gray"><i class="fa-solid fa-envelope"></i></button>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <button class="btn-icon-red"> <i class="fa-solid fa-trash-can"></i> </button>
+                                            <button class="btn-icon-gray"> <i class="fa-solid fa-pen-to-square"></i> </button>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between border-bottom pb-3 mt-3">
+                                        <div class="d-flex">
+                                            <span class="me-4"> Carlos Martiv Pavon Cian </span>
+                                            <div>
+                                                <strong class="me-3"> Formato de Cobro </strong>
+                                                <button class="btn-icon-gray"><i class="fa-solid fa-phone"></i></button>
+                                                <button class="btn-icon-gray"><i class="fa-solid fa-envelope"></i></button>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <button class="btn-icon-red"> <i class="fa-solid fa-trash-can"></i> </button>
+                                            <button class="btn-icon-gray"> <i class="fa-solid fa-pen-to-square"></i> </button>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between border-bottom pb-3 mt-3">
+                                        <div class="d-flex">
+                                            <span class="me-4"> Carlos Martiv Pavon Cian </span>
+                                            <div>
+                                                <strong class="me-3"> Formato de Cobro </strong>
+                                                <button class="btn-icon-gray"><i class="fa-solid fa-phone"></i></button>
+                                                <button class="btn-icon-gray"><i class="fa-solid fa-envelope"></i></button>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <button class="btn-icon-red"> <i class="fa-solid fa-trash-can"></i> </button>
+                                            <button class="btn-icon-gray"> <i class="fa-solid fa-pen-to-square"></i> </button>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <h5> <strong> Adherir Staff </strong> </h5>
+                                <div class="bg-gray p-2 p-md-3">
+                                    <div class="row px-3">
+                                        <div class="col-12 mb-3">
+                                            <label for="">Nombre de persona</label>
+                                            <input class="form-control" type="text">
+                                        </div>
+                                        <div class="col-12 px-2 mb-3">
+                                            <label for="">Cargo</label>
+                                            <input class="form-control" type="text">
+                                        </div>
+                                        <div class="col-md-6 px-2 mb-3">
+                                            <label for="">Email</label>
+                                            <input class="form-control" type="text">
+                                        </div>
+                                        <div class="col-md-6 px-2 mb-3">
+                                            <label for="">Teléfono</label>
+                                            <input class="form-control" type="text">
+                                        </div>
+                                        <div class="col-md-6 px-2 mb-3">
+                                            <label for="">Usuario</label>
+                                            <input class="form-control" type="text">
+                                        </div>
+                                        <div class="col-md-6 px-2 mb-3">
+                                            <label for="">Contraseña</label>
+                                            <input class="form-control" type="password">
+                                        </div>
+                                        <div class="col-12 mb-4">
+                                              <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                  Enviar un email a las persona notificando su usuario y contraseña?
+                                                </label>
+                                              </div>
+                                        </div>
+                                        <div class="col-12 mb-3">
+                                            <button class="btn-general-gray"> Adherir Personal </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-3">
+                                <button class="btn-blue-general"><span class="me-2"> Guardar </span> <i class="fa-solid fa-floppy-disk"></i> </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
 </div>
 
 <script>

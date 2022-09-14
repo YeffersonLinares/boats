@@ -42,7 +42,9 @@
         <div class="col-lg-2 d-flex flex-column">
             <button class="button-inicio mb-3" @click="link('https://rutaapp.com/boats/reserva/')">Nueva Reserva <i class="fa-solid fa-ship"></i></button>
             <button class="button-inicio mb-3" @click="redirect('/boats/reservas_admin/')">Ingresar Pago o Gasto <i class="fa-regular fa-credit-card"></i></button>
-            <button class="button-inicio mb-3">Nueva Tarea <i class="fa-solid fa-triangle-exclamation"></i></button>
+            <button class="button-inicio mb-3"  data-bs-toggle="modal" data-bs-target="#modal_nueva_tarea">
+                Nueva Tarea <i class="fa-solid fa-triangle-exclamation"></i>
+            </button>
             <hr class="mt-4 mb-3">
             <button class="button-inicio blue-inicio mb-3">Ver clima actual <i class="fa-solid fa-cloud-sun"></i></button>
         </div>
@@ -152,6 +154,129 @@
             </ul>
         </div>
     </div>
+    <div class="modal fade" id="modal_nueva_tarea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="container-fluid mt-3">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="color-gray">Tareas Registradas</h5>
+                            <div class="d-flex color-gray">
+                                <span>Ordenar Por: </span>
+                                <select class="form-select">
+                                    <option value="">Tareas para embarcación</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="container-fluid mt-4 table-responsive">
+                            <table class="table" style="vertical-align: middle">
+                                <tr>
+                                    <td>
+                                        <button class="btn-icon-red"> <i class="fa-solid fa-triangle-exclamation fa-lg"></i> </button>
+                                    </td>
+                                    <td class="color-gray f-9" style="width: 56%;">
+                                        <strong> Namaré 300 </strong>
+                                        <span> Namaré 300.- Revisión de Motor y desperfecto y reparación de vela de proa, ademas llamar a Roberto para adecuación de las demás herramientas </span>
+                                    </td>
+                                    <td>
+                                        <span class="color-gray f-9"> Atención:  </span>
+                                        <strong class="color-dark-blue"> Urgente </strong>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex justify-content-between">
+                                            <button class="btn-icon-red"> <i class="fa-solid fa-trash-can"></i> </button>
+                                            <button class="btn-icon-gray"> <i class="fa-solid fa-pen-to-square"></i> </button>
+                                            <button class="btn-icon-gray"> <i class="fa-solid fa-check"></i> </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <h5 class="color-dark-blue"> <strong> Creación de Tareas </strong> </h5>
+                            <div class="container-fluid bg-gray p-3">
+                                <h5 class="color-gray">Detalle de la tarea</h5>
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                    <label for="floatingTextarea2">Comments</label>
+                                </div>
+                                <div class="row mb-3 color-gray">
+                                    <div class="col-lg-3">
+                                        <label for=""> Tarea asignada para </label>
+                                        <select class="form-select">
+                                            <option value="">Una embarcación</option>
+                                            <option value="">Un miembro del staff</option>
+                                            <option value="">Tarea en general</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label for=""> &NonBreakingSpace; </label>
+                                        <select class="form-select">
+                                            <option value="">Namaré 300</option>
+                                            <option value="">Singapur 200</option>
+                                            <option value="">Cala XD</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label for=""> Atención: </label>
+                                        <select class="form-select">
+                                            <option value="">Urgente</option>
+                                            <option value="">Proximamente</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 color-gray">
+                                        <label for=""> Fecha para tarea: </label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="row align-items-center color-gray">
+                                    <div class="col-4">
+                                        <label class="form-label" for=""> Agregar Gastos a la Tarea </label>
+                                        <input class="form-control" type="text" placeholder="Descripción de nuevo gasto*">
+                                    </div>
+                                    <div class="col-2">
+                                        <label for="">&NonBreakingSpace;</label>
+                                        <select class="form-select">
+                                            <option value="">Medio de pago</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-2">
+                                        <label class="form-label" for="">&NonBreakingSpace;</label>
+                                        <input class="form-control" type="text" placeholder="Importe Neto €*">
+                                    </div>
+                                    <div class="col-2">
+                                        <label class="form-label" for="">&NonBreakingSpace;</label>
+                                        <button class="btn-general-gray f-9">Adjuntar factura <i class="fa-solid fa-camera"></i> </button> 
+                                    </div>
+                                    <div class="col-2">
+                                        <label class="form-label" for="">&NonBreakingSpace;</label>
+                                        <button class="btn-general-gray f-9">Agregar Nuevo Gasto</button>
+                                    </div>
+                                    <hr class="my-3">
+                                    <div class="col-12 d-flex justify-content-between">
+                                        <div> <span> Gastos por peaje extra </span> </div>
+                                        <div class="d-flex">
+                                            <span class="me-2 color-blue"> 10€ </span>
+                                            <button class="btn-icon-red"> <i class="fa-solid fa-trash-can"></i> </button> 
+                                        </div>
+                                    </div>
+                                    <hr class="my-3">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-3">
+                                <button class="btn-blue-dark-general"> Guardar Tarea </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
     <script>
         function inicio() {
             return {
