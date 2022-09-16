@@ -87,70 +87,24 @@
 
             <span class="title-inicio text-blue">Tareas Pendientes</span>
             <ul class="list-group">
-                <li class="list-group-item blue-inicio" aria-current="true">Jueves 02 de Septiembre</li>
-                <li class="list-group-item">
-                    <div class="d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                            <b class="ms-2"> Revisión de Motor y desperfecto y…</b>
-                        </div>
-                        <span>Urgente</span>
+                <template x-for="(i,index) in tareas">
+                    <div>
+                        <li class="list-group-item blue-inicio" aria-current="true" x-text="i.key"></li>
+                        <template x-for="(item, llave) in i.value">
+                            <div> 
+                                <li class="list-group-item">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <button class="btn-icon-red"> <i class="fa-solid fa-triangle-exclamation"></i> </button>
+                                            <b class="ms-2" x-text="item.comentarios"> </b>
+                                        </div>
+                                        <span x-text="item.tipo_atencion"></span>
+                                    </div>
+                                </li>
+                            </div>
+                        </template>
                     </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                            <b class="ms-2"> Revisión de Motor y desperfecto y…</b>
-                        </div>
-                        <span>Urgente</span>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                            <b class="ms-2"> Revisión de Motor y desperfecto y…</b>
-                        </div>
-                        <span>Urgente</span>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                            <b class="ms-2"> Revisión de Motor y desperfecto y…</b>
-                        </div>
-                        <span>Urgente</span>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                            <b class="ms-2"> Revisión de Motor y desperfecto y…</b>
-                        </div>
-                        <span>Urgente</span>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                            <b class="ms-2"> Revisión de Motor y desperfecto y…</b>
-                        </div>
-                        <span>Urgente</span>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <i class="fa-solid fa-triangle-exclamation "></i>
-                            <b class="ms-2"> Revisión de Motor y desperfecto y…</b>
-                        </div>
-                        <span>Urgente</span>
-                    </div>
-                </li>
+                </template>
             </ul>
         </div>
     </div>
@@ -290,13 +244,14 @@
                     tipo_atencion: '',
                     fecha: ''
                 },
+                tareas: [],
                 reservas: [],
                 link(data) {
-                    console.log("data", data);
                     window.location.href = data
                 },
                 init() {
                     this.get_reservas()
+                    this.get_tareas()
                 },
                 get_reservas() {
                     let url = window.location.origin + "/boats/wp-content/themes/twentytwentytwo/ReservasInicioController.php"
@@ -310,7 +265,6 @@
                             })
                         }
                         this.reservas = array
-                        console.log('this.reservas ==> ', this.reservas);
                     })
                 },
                 redirect(uri) {
@@ -336,6 +290,28 @@
                             alert(res.data.msg)
                             for (const key in this.form) this.form[key] = ''
                         }
+                    })
+                },
+                get_tareas() {
+                    let url = window.location.origin + "/boats/wp-content/themes/twentytwentytwo/getTareasController.php"
+                    axios.get(url).then(res => {
+                        let data = res.data.tareas
+                        let array = []
+                        for (const key in data) {
+                            array.push({
+                                key: key,
+                                value: data[key]
+                            })
+                        }
+                        this.tareas = array
+                        console.log('this.tareas ==> ', this.tareas);
+                        // for (let index = 0; index < this.tareas.length; index++) {
+                        //     const element = array[index];
+                            
+                        // }
+                        // this.tareas.forEach(item => {
+                        //     console.log('item ==> ', this.item);
+                        // });
                     })
                 }
             }
