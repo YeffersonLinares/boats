@@ -1,31 +1,6 @@
 <?php
 
-/**
- * Twenty Twenty-Two functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package WordPress
- * @subpackage Twenty_Twenty_Two
- * @since Twenty Twenty-Two 1.0
- */
 
-// function incluirphp($atts){
-// include 'prueba.php';
-$reserva = $_SERVER["REQUEST_URI"];
-if ($reserva == '/boats/reservas_admin/') {
-    require 'Reserva_mes.html';
-}
-// require 'home.html';
-
-// }
-
-
-
-
-///////////////////////////////////////////////
-///////////Usuario///////////////////
-///////////////////////////////////////////////
 add_shortcode('reservas_usuario', 'plugin_reservas_usuario');
 
 function plugin_reservas_usuario()
@@ -477,7 +452,7 @@ function plugin_reservas_usuario()
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input type="file" name="archivo" id="archivo" class="form-control d-none" accept="image/*">
+                                <input type="file" name="archivo" id="archivo" class="d-none" accept="image/*">
                             </div>
                         </div>
                     </div>
@@ -1825,6 +1800,7 @@ function plugin_reservas_usuario()
         }
 
         function guardarTodo() {
+            let formulario = new FormData()
             let fecha_reserva = ''
             send_form.id_vote = id_vote
             send_form.fecha_inicio_viaje = fecha_inicio_viaje
@@ -1834,12 +1810,16 @@ function plugin_reservas_usuario()
             send_form.cant_tres_doce = cant_tres_doce
             send_form.cant_uno_tres = cant_uno_tres
             send_form.cant_bebes = cant_bebes
+            send_form.image = $('#archivo')[0].files[0]
 
-            $.post('', {
-                form: send_form
-            }).done(function(msg) {
-                msg = msg.split('///////////////////////////');
-                console.log('message ==> ', msg[1]);
+            if(send_form.horaInicio_viaje) send_form.horaInicio_viaje = (send_form.horaInicio_viaje+'').replaceAll(',', ':')
+            for (const key in send_form) {
+                formulario.append(key, send_form[key])
+            }
+
+            let url = window.location.origin + '/boats/wp-content/themes/twentytwentytwo/StoreReservaController.php'
+            axios.post(url, formulario).then(res => {
+                console.log('res.data ==> ', res.data);
             })
         }
 
