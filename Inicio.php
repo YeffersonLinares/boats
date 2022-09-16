@@ -42,7 +42,7 @@
         <div class="col-lg-2 d-flex flex-column">
             <button class="button-inicio mb-3" @click="link('https://rutaapp.com/boats/reserva/')">Nueva Reserva <i class="fa-solid fa-ship"></i></button>
             <button class="button-inicio mb-3" @click="redirect('/boats/reservas_admin/')">Ingresar Pago o Gasto <i class="fa-regular fa-credit-card"></i></button>
-            <button class="button-inicio mb-3"  data-bs-toggle="modal" data-bs-target="#modal_nueva_tarea">
+            <button class="button-inicio mb-3" data-bs-toggle="modal" data-bs-target="#modal_nueva_tarea">
                 Nueva Tarea <i class="fa-solid fa-triangle-exclamation"></i>
             </button>
             <hr class="mt-4 mb-3">
@@ -59,21 +59,21 @@
             <div class="mt-3">
                 <template x-for="(i,index) in reservas" :key="index">
                     <ul class="list-group">
-                            <!-- <li class="list-group-item blue-inicio" aria-current="true">Jueves 02 de Septiembre</li> -->
-                            <li class="list-group-item blue-inicio" aria-current="true" x-text="i.key"></li>
-                            <template x-for="(item, llave) in i.value" :key="llave">
-                                <li class="list-group-item" @click="detalles_reserva(item.reserva_id)">
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <div class="cuadradito "></div>
-                                            <b class="ms-2"x-text="item.hora_fin + ' - ' + item.hora_fin"> </b>
-                                        </div>
-                                        <span x-text="item.nombre"></span>
-                                        <span class="blue-claro-inicio text-start">Navegando</span>
-                                        <span>100€/220€</span>
+                        <!-- <li class="list-group-item blue-inicio" aria-current="true">Jueves 02 de Septiembre</li> -->
+                        <li class="list-group-item blue-inicio" aria-current="true" x-text="i.key"></li>
+                        <template x-for="(item, llave) in i.value" :key="llave">
+                            <li class="list-group-item" @click="detalles_reserva(item.reserva_id)">
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <div class="cuadradito "></div>
+                                        <b class="ms-2" x-text="item.hora_fin + ' - ' + item.hora_fin"> </b>
                                     </div>
-                                </li>
-                            </template>
+                                    <span x-text="item.nombre"></span>
+                                    <span class="blue-claro-inicio text-start">Navegando</span>
+                                    <span>100€/220€</span>
+                                </div>
+                            </li>
+                        </template>
                     </ul>
                 </template>
             </div>
@@ -155,8 +155,8 @@
         </div>
     </div>
     <div class="modal fade" id="modal_nueva_tarea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-              <div class="modal-content">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
                 <div class="modal-body">
                     <div class="d-flex justify-content-end">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -182,7 +182,7 @@
                                         <span> Namaré 300.- Revisión de Motor y desperfecto y reparación de vela de proa, ademas llamar a Roberto para adecuación de las demás herramientas </span>
                                     </td>
                                     <td>
-                                        <span class="color-gray f-9"> Atención:  </span>
+                                        <span class="color-gray f-9"> Atención: </span>
                                         <strong class="color-dark-blue"> Urgente </strong>
                                     </td>
                                     <td>
@@ -200,36 +200,40 @@
                             <div class="container-fluid bg-gray p-3">
                                 <h5 class="color-gray">Detalle de la tarea</h5>
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                    <textarea x-model="form.comentarios" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                                     <label for="floatingTextarea2">Comments</label>
                                 </div>
                                 <div class="row mb-3 color-gray">
                                     <div class="col-lg-3">
                                         <label for=""> Tarea asignada para </label>
-                                        <select class="form-select">
-                                            <option value="">Una embarcación</option>
-                                            <option value="">Un miembro del staff</option>
-                                            <option value="">Tarea en general</option>
+                                        <select class="form-select" x-model="form.asignada_para">
+                                            <option value="">Seleccione</option>
+                                            <option value="Una embarcación">Una embarcación</option>
+                                            <option value="Un miembro del staff">Un miembro del staff</option>
+                                            <option value="Tarea en general">Tarea en general</option>
                                         </select>
+                                        <!-- <span x-text="form.asignada_para"></span> -->
                                     </div>
                                     <div class="col-lg-3">
                                         <label for=""> &NonBreakingSpace; </label>
-                                        <select class="form-select">
-                                            <option value="">Namaré 300</option>
-                                            <option value="">Singapur 200</option>
-                                            <option value="">Cala XD</option>
+                                        <select class="form-select" x-model="form.vote_id">
+                                            <option value="">Seleccione</option>
+                                            <option value="Namaré 300">Namaré 300</option>
+                                            <option value="Singapur 200">Singapur 200</option>
+                                            <option value="Cala XD">Cala XD</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-3">
                                         <label for=""> Atención: </label>
-                                        <select class="form-select">
-                                            <option value="">Urgente</option>
-                                            <option value="">Proximamente</option>
+                                        <select class="form-select" x-model="form.tipo_atencion">
+                                            <option value="">Seleccione</option>
+                                            <option value="Urgente">Urgente</option>
+                                            <option value="Proximamente">Proximamente</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-3 color-gray">
                                         <label for=""> Fecha para tarea: </label>
-                                        <input class="form-control" type="text">
+                                        <input class="form-control" type="date" x-model="form.fecha">
                                     </div>
                                 </div>
                                 <div class="row align-items-center color-gray">
@@ -249,7 +253,7 @@
                                     </div>
                                     <div class="col-2">
                                         <label class="form-label" for="">&NonBreakingSpace;</label>
-                                        <button class="btn-general-gray f-9">Adjuntar factura <i class="fa-solid fa-camera"></i> </button> 
+                                        <button class="btn-general-gray f-9">Adjuntar factura <i class="fa-solid fa-camera"></i> </button>
                                     </div>
                                     <div class="col-2">
                                         <label class="form-label" for="">&NonBreakingSpace;</label>
@@ -260,27 +264,32 @@
                                         <div> <span> Gastos por peaje extra </span> </div>
                                         <div class="d-flex">
                                             <span class="me-2 color-blue"> 10€ </span>
-                                            <button class="btn-icon-red"> <i class="fa-solid fa-trash-can"></i> </button> 
+                                            <button class="btn-icon-red"> <i class="fa-solid fa-trash-can"></i> </button>
                                         </div>
                                     </div>
                                     <hr class="my-3">
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center mt-3">
-                                <button class="btn-blue-dark-general"> Guardar Tarea </button>
+                                <button class="btn-blue-dark-general" @click="store_tarea()"> Guardar Tarea </button>
                             </div>
                         </div>
                     </div>
                 </div>
-              </div>
             </div>
         </div>
-
-
+    </div>
+</section>
     <script>
         function inicio() {
             return {
-                message: 'Hello alpine!',
+                form: {
+                    comentarios: '',
+                    asignada_para: '',
+                    vote_id: '',
+                    tipo_atencion: '',
+                    fecha: ''
+                },
                 reservas: [],
                 link(data) {
                     console.log("data", data);
@@ -295,24 +304,43 @@
                         let data = res.data
                         let array = []
                         for (const key in data) {
-                            array.push({key: key, value: data[key]})
+                            array.push({
+                                key: key,
+                                value: data[key]
+                            })
                         }
                         this.reservas = array
                         console.log('this.reservas ==> ', this.reservas);
                     })
                 },
-                redirect(uri){
+                redirect(uri) {
                     let url = window.location.origin + uri
                     window.location.href = url
                 },
                 detalles_reserva(reserva_id) {
-                    let url = window.location.origin + '/boats/wp-content/themes/twentytwentytwo/ResumeReservaAdmin.html?reserva_id='+reserva_id
+                    let url = window.location.origin + '/boats/wp-content/themes/twentytwentytwo/ResumeReservaAdmin.html?reserva_id=' + reserva_id
                     window.location.href = url
+                },
+                store_tarea() {
+                    for (const key in this.form) this.form[key] = this.form[key].replaceAll(' ', '_')
+
+                    let url = window.location.origin + '/boats/wp-content/themes/twentytwentytwo/StoreTareaController.php?comentarios=' + this.form.comentarios +
+                    '&asignada_para=' + this.form.asignada_para +
+                    '&vote_id=' + this.form.vote_id + 
+                    '&tipo_atencion=' + this.form.tipo_atencion +
+                    '&fecha=' + this.form.fecha
+
+                    // url += '&url='+url
+                    axios.get(url).then(res => {
+                        if( res.data.status == 200 ){
+                            alert(res.data.msg)
+                            for (const key in this.form) this.form[key] = ''
+                        }
+                    })
                 }
             }
         }
     </script>
-</section>
 
 <style>
     .list-group-item {
