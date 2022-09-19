@@ -1,0 +1,93 @@
+<template x-if="pantalla=='BarcosReservaUsuario'">
+    <div x-data="BarcosReservaUsuario()" x-init="getBotes()">
+        <div class="container-fluid mt-7">
+            <div class="row flex-lg-nyg-column-reverse">
+                <div class="col-12 col-lg-9">
+                    <div class="d-flex flex-column align-items-between">
+                        <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3 g-4">
+                            <template x-for="(i,index) in botes" :key="index">
+                                <div> 
+                                    <div class="col d-flex justify-content-center">
+                                        <div class="card size-card">
+                                            <button data-vote='<?php echo json_encode($vote) ?>' data-registros='<?php echo json_encode($registros33) ?>' class="btn btn-transparent icon-gray position-absolute end-0 text-white details_barco"><i class="fas fa-search-plus fa-lg m-2"></i></button>
+                                            <div class="">
+                                                <button class="btn btn-direction position-absolute top-25"><i class="fas fa-chevron-left"></i></button>
+                                                <button class="btn btn-direction position-absolute top-25 end-0"><i class="fas fa-chevron-right"></i></button>
+                                                <img src=".<?php echo $vote->principal ?>" class="card-img-top size-img-grid" alt="...">
+                                            </div>
+    
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b class="color-gray" x-text="i.nombre"></b></h5>
+                                                <hr>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex align-items-center p-2">
+                                                        <button class="btn btn-transparent icon-gray"><i class="fas fa-user"></i></button>
+                                                        <span class="position-relative top-20 mx-2 color-gray" style="font-size: .8rem;">Sin
+                                                            titulación</span>
+                                                    </div>
+                                                    <div>
+                                                        <button class="btn btn-transparent icon-gray"><i class="fas fa-users fa-xs"></i><span class="mx-2">6</span> </button>
+                                                        <button class="btn btn-transparent icon-gray"><i class="fas fa-arrow-left fa-xs"></i>
+                                                            <i class="fas fa-arrow-right fa-xs"></i></button>
+                                                        <span class="icon-gray" style="font-size: .8rem">4,9mts</span>
+                                                    </div>
+                                                </div>
+                                                <hr>
+    
+                                                <div class="d-flex justify-content-between align-items-center mt-2">
+    
+    
+                                                    <div class="d-flex flex-column mr-3">
+                                                        <?php
+                                                        foreach ($registros33 as $rr) {
+                                                        ?>
+                                                            <strong class="color-gray f-8"><?php echo $rr->horas ?>hs <?php echo $rr->valor ?>€</strong>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </div>
+    
+                                                    <div>
+                                                        <button class="btn btn-blue barco-to-asis" detalle='<?php echo json_encode($registros22) ?>' valores='<?php echo json_encode($registros33) ?>' data-valor="<?php echo $vote->valor ?>" imagen=".<?php echo $vote->principal ?>" id="<?php echo $vote->id ?>" nombre="<?php echo $vote->nombre ?>">Seleccionar <i class="fas fa-arrow-alt-circle-right"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+ 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3 mb-3">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                        <a class="navbar-brand" href="#"></a>
+                        <button class="navbar-toggler btn-toggle-nyg" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-list"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="d-flex flex-column align-items-between border mt-2 w-100">
+                                <div class="contenido"></div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    function BarcosReservaUsuario() {
+        return {
+            botes: [],
+            getBotes(){
+                axios.get(this.base_url+"/BoatsLaravel/public/reserva/barco_detalles").then(resp =>{
+                    this.botes = resp.data.data;
+                    console.log("this.botes",this.botes);
+                })
+            }
+        }
+    }
+</script>
