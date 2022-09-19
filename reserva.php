@@ -55,6 +55,7 @@ function plugin_reservas_usuario()
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
     <!-- Inicio Pantalla uno -->
     <div class="container">
@@ -1473,6 +1474,7 @@ function plugin_reservas_usuario()
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script>
+        var val_horas;
         //-------------------------------------------------------------------------
         // Tabla reserva
         //-------------------------------------------------------------------------
@@ -1507,6 +1509,7 @@ function plugin_reservas_usuario()
 
         id_reserva = ''
         id_extra = ''
+        val_horas = null
 
         contenido = "";
         $('body').on('click', '#por_barco', function() {
@@ -1529,11 +1532,14 @@ function plugin_reservas_usuario()
         $('body').on('click', '.barco-to-asis', function() {
             imagen = $(this).attr('imagen');
             nombre = $(this).attr('nombre');
+            console.log($(this));
             valor_hora = $(this).data('valor')
 
             // console.log('valor ==> ', valor);
             detalle = JSON.parse($(this).attr('detalle'));
             valores = JSON.parse($(this).attr('valores'));
+            val_horas = valores[0]
+            console.log('val_horas ==> ', val_horas);
 
             id_vote = $(this).attr('id')
 
@@ -1615,6 +1621,29 @@ function plugin_reservas_usuario()
 </div>`
             $('.contenido').append(contenido)
             $('.incluirBotonesHorario').html(botonHora);
+            setTimeout(() => {
+                console.log('inició');
+                let hora = '2022-07-07 ' + ((horaIni + '').replaceAll(',', ':'))
+                console.log('val_horas ==> ', val_horas);
+                let mome = moment(hora).add(parseInt(val_horas?.horas), 'hours').format('HH:mm');
+                console.log('mome ==>', mome);
+                var botones = $('.seleccion_hora_vieje_final')
+    
+                for (var i = 0; i < botones.length; i++) {
+                    var hora_boton = botones[i].getAttribute('hora')
+                    if(hora_boton.split(':')[0] < 10) {
+                        hora_boton = '0' + hora_boton
+                    }
+                    console.log('hora_boton ==> ', hora_boton);
+                    console.log('mome ==> ', mome);
+                    if(hora_boton == mome) {
+                        console.log('llego');
+                        botones[i].click()
+                    }
+                }
+            }, 1000);
+
+            
 
             var horario = $(this).attr('horario');
             var texto = $(this).attr('texto');
@@ -1812,7 +1841,7 @@ function plugin_reservas_usuario()
             send_form.cant_bebes = cant_bebes
             send_form.image = $('#archivo')[0].files[0]
 
-            if(send_form.horaInicio_viaje) send_form.horaInicio_viaje = (send_form.horaInicio_viaje+'').replaceAll(',', ':')
+            if (send_form.horaInicio_viaje) send_form.horaInicio_viaje = (send_form.horaInicio_viaje + '').replaceAll(',', ':')
             for (const key in send_form) {
                 formulario.append(key, send_form[key])
             }
