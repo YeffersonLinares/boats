@@ -68,16 +68,12 @@
     </div> -->
 
     <?php
-    $_SESSION["token"] = md5(uniqid(mt_rand(), true));
-    ?>
-
-    <input type="text" id="token" name="_token" value="<?php echo $_SESSION["token"]; ?>">
-    <?php
 
     include_once "reserva.php";
     include_once "BarcosReservaUsuario.html";
     include_once "ReservaUsuarioFecha.html";
     include_once "ReservaUsuarioResponsable.html";
+    include_once "ReservaUsuarioAsistencia.html";
     // include_once "Clientes.php";
 
     /**
@@ -5008,7 +5004,7 @@
             //         headers
             //     })
             // },
-            pantalla: 'ReservaUsuarioResponsable',
+            pantalla: 'reserva_usuario',
             base_url: 'https://192.168.5.115:443',
             // headers: { Authorization: `Bearer ${token}` }
             headers: { Authorization: `Bearer 6TQzUrFu82YrwiCwG4ZUcb1IEmLpOZN0wbDwJ284` },
@@ -5018,7 +5014,7 @@
                 // Tabla reserva
                 //-------------------------------------------------------------------------
 
-                id_vote: '',
+                id_vote: 1,
                 fecha_inicio_viaje: '',
                 horaInicio_viaje: '',
                 horafinal_viaje: '',
@@ -5051,6 +5047,7 @@
                 id_extra: '',
                 _token: ''
             },
+            cant_personas: 0,
             init() {
                 // this.crsf()
             },

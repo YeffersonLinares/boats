@@ -1,6 +1,7 @@
 <template x-if="pantalla=='BarcosReservaUsuario'">
     <div x-data="BarcosReservaUsuario()" x-init="getBotes()">
         <div class="container-fluid mt-7">
+            <button @click="pantalla='ReservaUsuarioAsistencia'">Catherine</button>
             <div class="row flex-lg-nyg-column-reverse">
                 <div class="col-12 col-lg-9">
                     <div class="d-flex flex-column align-items-between">
@@ -83,6 +84,9 @@
                     this.botes = resp.data.data;
                     console.log("this.botes",this.botes);
                 })
+            },
+            init(){
+                this.cant_personas = 10
             }
         }
     }

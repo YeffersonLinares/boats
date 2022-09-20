@@ -1,6 +1,7 @@
 <template x-if="pantalla=='reserva_usuario'">
     <div x-data="reserva_usuario()">
 
+    <button @click="pantalla='BarcosReservaUsuario'"></button>
         <div class="container">
             <div class="container-fluid">
 
