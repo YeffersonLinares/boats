@@ -11,6 +11,7 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 
@@ -66,12 +67,17 @@
         </div>
     </div> -->
 
+    <?php
+    $_SESSION["token"] = md5(uniqid(mt_rand(), true));
+    ?>
 
-
+    <input type="text" id="token" name="_token" value="<?php echo $_SESSION["token"]; ?>">
     <?php
 
     include_once "reserva.php";
     include_once "BarcosReservaUsuario.html";
+    include_once "ReservaUsuarioFecha.html";
+    include_once "ReservaUsuarioResponsable.html";
     // include_once "Clientes.php";
 
     /**
@@ -4996,8 +5002,69 @@
 <script>
     function app_alpine() {
         return {
-            pantalla: 'BarcosReservaUsuario',
-            base_url: 'https://192.168.5.115:443'
+            // headers: {
+            //     Authorization: `Bearer ${token}`;
+            //     axios.get(URLConstants.USER_URL, {
+            //         headers
+            //     })
+            // },
+            pantalla: 'ReservaUsuarioResponsable',
+            base_url: 'https://192.168.5.115:443',
+            // headers: { Authorization: `Bearer ${token}` }
+            headers: { Authorization: `Bearer 6TQzUrFu82YrwiCwG4ZUcb1IEmLpOZN0wbDwJ284` },
+
+            form_reserva: {
+                //-------------------------------------------------------------------------
+                // Tabla reserva
+                //-------------------------------------------------------------------------
+
+                id_vote: '',
+                fecha_inicio_viaje: '',
+                horaInicio_viaje: '',
+                horafinal_viaje: '',
+                cant_adultos: '',
+                cant_tres_doce: '',
+                cant_uno_tres: '',
+                cant_bebes: '',
+
+                //-------------------------------------------------------------------------
+                // User reserva
+                //-------------------------------------------------------------------------
+
+                nombre: '',
+                apellido: '',
+                direccion: '',
+                telefono: '',
+                email: '',
+                num_dni: '',
+                image: '',
+                alert_email: '',
+                alert_whatsapp: '',
+                tipo_doc: '',
+                tutilado: '',
+
+                //-------------------------------------------------------------------------
+                // Tabla extras reserva
+                //-------------------------------------------------------------------------
+
+                id_reserva: '',
+                id_extra: '',
+                _token: ''
+            },
+            init() {
+                // this.crsf()
+            },
+            crsf(){
+                let url = this.base_url + '/BoatsLaravel/public/reserva/token'
+                console.log('url ==> ', url);
+                axios.post(url, { headers: ['autorize:' + this.header] }).then(res => {
+                // axios.get(url).then(res => {
+                    this.form_reserva._token = res.data
+                    // this.form_reserva._token = '6TQzUrFu82YrwiCwG4ZUcb1IEmLpOZN0wbDwJ284'
+                    console.log('this.form_reserva._token ==> ', this.form_reserva._token);
+                })
+            }
+
         }
     }
 </script>

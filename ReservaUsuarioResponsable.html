@@ -1,0 +1,199 @@
+<template x-if="pantalla=='ReservaUsuarioResponsable'">
+    <div x-data="ReservaUsuarioResponsable()">
+        <div class="container mt-7">
+            <div class="row flex-lg-nyg-column-reverse">
+                <div class="col-12 col-lg-9 container">
+                    <div class="w-100 text-center my-5">
+                        <h4 style="font-weight: bold"> <strong> Responsable de embarcación </strong> </h4>
+                    </div>
+                    <form id="form_responsable">
+    
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group">
+                                    <label class="f-9">Nombre/s*:</label>
+                                    <input class="form-control" maxlength="40" x-model="form_reserva.nombre">
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="form-group">
+                                    <label class="f-9">Apellido/s*:</label>
+                                    <input class="form-control" maxlength="40" x-model="form_reserva.apellido">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-4">
+                                <div class="form-group">
+                                    <label class="f-9">Dirección/Ciudad*:</label>
+                                    <input class="form-control" maxlength="40" x-model="form_reserva.direccion">
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="form-group">
+                                    <label class="f-9">Telefono*:</label>
+                                    <input class="form-control" maxlength="20" x-model="form_reserva.telefono">
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="form-group">
+                                    <label class="f-9">Email*:</label>
+                                    <input class="form-control" maxlength="40" x-model="form_reserva.email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="form-group">
+                                    <label class="f-9">Dispone de titulación requerida:</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group d-flex">
+                                    <input type="radio" name="titulacion" checked value="titulado" id="no_tengo" class="me-1" 
+                                    x-model="form_reserva.titulado">
+                                    <label for="no_tengo" class="f-8"> No tengo titulo </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group d-flex">
+                                    <input type="radio" name="titulacion" value="no_titulado" id="si_tengo" class="me-1" 
+                                    x-model="form_reserva.titulado">
+                                    <label for="si_tengo" class="f-8"> Si tengo titulo </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="f-9">Tipo de doc.:</label>
+                                    <select class="form-select" x-model="form_reserva.tipo_doc">
+                                        <option value='DNI'>DNI</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="f-9">Número ID:</label>
+                                    <input type="text" name="numeroId" id="numeroId" class="form-control" x-model="form_reserva.num_dni">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+    
+                            <button type="button" class="btn btn-transparent d-flex d-none shadow-none" id="btn-preview">
+                                <img class="my-4 ms-3" id="blah" alt="Tu imagen" style="width: 24rem; height: 14rem;" />
+                            </button>
+    
+                            <div class="btn btn-transparent col-12 col-md-12 col-lg-6 col-xl-3 my-4 text-start" id="preview-archivo" style="width:20rem;">
+                                <div class="container" id="image-driver">
+                                    <!-- <button class="btn btn-transparent"> -->
+                                    <label class="form-label f-9" for="">Foto de documento*:</label>
+                                    <div class="container rounded d-flex flex-column justify-content-start align-items-center border-dotted p-4">
+                                        <button type="button" class="btn btn-transparent icon-gray"><i class="fas fa-address-card font-32"></i></button>
+                                        <span class="color-gray f-9">Cuelga tu imagen aquí o</span>
+                                        <span class="color-blue f-9"><b>Descarga desde tu dispositivo</b></span>
+                                        <span class="icon-gray f-8">Máximo 1234 x 1234 px</span>
+                                    </div>
+    
+                                    <!-- </button> -->
+                                </div>
+    
+                            </div>
+    
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="file" name="archivo" id="archivo" class="d-none" accept="image/*">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <div class="form-group d-flex">
+                                    <input class="me-3" type="checkbox" name="aleta_email" id="aleta_email" x-model="form_reserva.alert_email" class="">
+                                    <label class="f-9" for="aleta_email">Deseo recibir una alerta en mi email llegando el dia de la reserva</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-md-12">
+                                <div class="form-group d-flex">
+                                    <input type="checkbox" name="aleta_whatsapp" id="aleta_whatsapp" x-model="form_reserva.alert_whatsapp" class="me-3">
+                                    <label class="f-9" for="aleta_whatsapp">Deseo recibir una alerta en mi whatsApp llegando el dia de la reserva</label>
+                                </div>
+                            </div>
+                        </div>
+    
+                    </form>
+    
+                    <button class="btn btn-blue seguir_asistente" @click="val_store()">Siguiente <i class="fas fa-arrow-alt-circle-right"></i></button>
+    
+                </div>
+                <div class="col-12 col-lg-3">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                        <button class="navbar-toggler btn-toggle-nyg" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-list"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="d-flex flex-column align-items-between border mt-2 w-100">
+                                <div class="contenido"></div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    function ReservaUsuarioResponsable() {
+        return {
+            init() {
+                // alert('llego a usuario')
+            },
+            val_store() {
+                this.form_reserva.image = $('#blah').attr('src');
+                let url = this.base_url + '/BoatsLaravel/public/reserva/val_store_user_reserva'
+                axios.post(url, this.form_reserva).then(res => {
+                    console.log('res.data ==> ', res.data);
+                }).catch(errors => {
+                    var error = Object.values(errors.response.data.errors)[0][0];
+                    Swal.fire('Error', error, 'error')
+                    console.log('error ==> ', error);
+                })
+            }
+        }
+    }
+</script>
+
+<script>
+    $('body').on('click', '#preview-archivo', function() {
+        $('#archivo').trigger('click')
+    })
+
+    $('body').on('click', '#btn-preview', function() {
+        $('#archivo').trigger('click')
+    })
+
+    function readImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#blah').attr('src', e.target.result); // Renderizamos la imagen
+                console.log('this.form_reserva.image ==> ', this.form_reserva.image);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $('body').on('change', '#archivo', function() {
+        readImage(this);
+        $('#blah').removeClass('d-none')
+        $('#preview-archivo').addClass('d-none')
+        $('#btn-preview').removeClass('d-none')
+    })
+</script>

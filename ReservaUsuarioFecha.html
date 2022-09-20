@@ -1,0 +1,64 @@
+<template x-if="pantalla=='ReservaUsuarioFecha'">
+    <div x-data="ReservaUsuarioFecha()">
+        <div class="container mt-7">
+            <div class="row flex-lg-nyg-column-reverse">
+                <div class="col-12 col-lg-9 mb-4">
+                    <div class="w-100 text-center my-5">
+                        <h3>¿Qué fechas deseas?</h3>
+                    </div>
+    
+                    <div class="w-100 text-center my-5">
+                        <div class="row">
+                            <div class="col-12 col-md-4"></div>
+                            <div class="col-12 col-md-4">
+                                <input type="date" class="form-control" @change="zona_horaria()">
+                            </div>
+                            <div class="col-12 col-md-4"></div>
+                        </div>
+                    </div>
+                    <template x-if="true">
+                        <div class="buttons-defect">
+                            <div class="d-flex justify-content-center w-100">
+                                <div class="container-btn zone_hour">
+                                    Por la mañana
+                                </div>
+                                <div class="container-btn zone_hour">
+                                    Por la tarde
+                                </div>
+                                <div class="container-btn zone_hour">
+                                    Todo el día
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+    
+                </div>
+                <div class="col-12 col-lg-3 d-flex flex-column align-items-between border">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                        <button class="navbar-toggler btn-toggle-nyg" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-list"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="d-flex flex-column align-items-between border mt-2 w-100">
+                                <div class="contenido"></div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    function ReservaUsuarioFecha() {
+        return {
+            botes: [],
+            zona_horaria() {
+                // axios.get(this.base_url+"/BoatsLaravel/public/reserva/barco_detalles").then(resp =>{
+                //     this.botes = resp.data.data;
+                // })
+            }
+        }
+    }
+</script>
