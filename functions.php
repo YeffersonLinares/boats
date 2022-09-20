@@ -18,7 +18,7 @@
 
 <div x-data="app_alpine()">
 
-    <div class="timeline d-flex fixed-top bg-white pt-5">
+    <!-- <div class="timeline d-flex fixed-top bg-white pt-5">
         <div class="events">
             <ol>
                 <ul>
@@ -63,7 +63,7 @@
                 </ul>
             </ol>
         </div>
-    </div>
+    </div> -->
 
 
 

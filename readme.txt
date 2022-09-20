@@ -1,0 +1,1 @@
+/var/www/rutaapp.com/public/boats/wp-content/themes/twentytwentytwo

@@ -9,11 +9,11 @@
                                 <div> 
                                     <div class="col d-flex justify-content-center">
                                         <div class="card size-card">
-                                            <button data-vote='<?php echo json_encode($vote) ?>' data-registros='<?php echo json_encode($registros33) ?>' class="btn btn-transparent icon-gray position-absolute end-0 text-white details_barco"><i class="fas fa-search-plus fa-lg m-2"></i></button>
-                                            <div class="">
+                                            <button class="btn btn-transparent icon-gray position-absolute end-0 text-white details_barco"><i class="fas fa-search-plus fa-lg m-2"></i></button>
+                                            <div>
                                                 <button class="btn btn-direction position-absolute top-25"><i class="fas fa-chevron-left"></i></button>
                                                 <button class="btn btn-direction position-absolute top-25 end-0"><i class="fas fa-chevron-right"></i></button>
-                                                <img src=".<?php echo $vote->principal ?>" class="card-img-top size-img-grid" alt="...">
+                                                <img :src="i.imagen1" class="card-img-top size-img-grid" alt="...">
                                             </div>
     
                                             <div class="card-body">
@@ -36,19 +36,16 @@
     
                                                 <div class="d-flex justify-content-between align-items-center mt-2">
     
-    
                                                     <div class="d-flex flex-column mr-3">
-                                                        <?php
-                                                        foreach ($registros33 as $rr) {
-                                                        ?>
-                                                            <strong class="color-gray f-8"><?php echo $rr->horas ?>hs <?php echo $rr->valor ?>€</strong>
-                                                        <?php
-                                                        }
-                                                        ?>
+                                                        <template x-for="(item,position) in i.bote_valores">
+                                                            <div>
+                                                                <strong class="color-gray f-8" x-text="item.horas + 'hs ' + item.valor + '€'"></strong>
+                                                            </div>
+                                                        </template>
                                                     </div>
     
                                                     <div>
-                                                        <button class="btn btn-blue barco-to-asis" detalle='<?php echo json_encode($registros22) ?>' valores='<?php echo json_encode($registros33) ?>' data-valor="<?php echo $vote->valor ?>" imagen=".<?php echo $vote->principal ?>" id="<?php echo $vote->id ?>" nombre="<?php echo $vote->nombre ?>">Seleccionar <i class="fas fa-arrow-alt-circle-right"></i></button>
+                                                        <button class="btn btn-blue barco-to-asis">Seleccionar <i class="fas fa-arrow-alt-circle-right"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
