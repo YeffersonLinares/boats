@@ -253,7 +253,7 @@ table .color-white {
 }
 
 .size-img-grid {
-    width: 18rem !important;
+    width: auto;
     height: 14rem !important;
     border-top-left-radius: 14px !important;
     border-top-right-radius: 14px !important;
@@ -312,6 +312,7 @@ table .color-white {
 
 hr {
     margin: 0;
+    opacity: .1 !important;
 }
 
 .bg-gray {
@@ -620,7 +621,7 @@ i {
 
 @media(min-width: 1200px) and (max-width: 1399px) {
     .size-img-grid {
-        width: 15.8rem !important;
+        width: 100%;
     }
 }
 
@@ -1058,4 +1059,8 @@ i {
     border: 0;
     border-radius: 10px;
     padding: .5rem 1.3rem .5rem 1.3rem;
+}
+
+.mt-7 {
+    margin-top: 7rem;
 }
