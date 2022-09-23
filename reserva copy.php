@@ -503,7 +503,7 @@ function plugin_reservas_usuario()
     <div class="container d-none mt-7" id="extras">
         <div class="mt-5 mb-3">
             <div class="d-flex justify-content-between">
-                <div class="icon-gray btn-atras-extras" id="btn-atras" name="btn-atras">
+                <div class="icon-gray btn-atras-extras" name="btn-atras">
                     <i class="fa-solid fa-circle-arrow-left"></i> Atrás
                 </div>
                 <div>

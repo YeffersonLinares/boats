@@ -8,8 +8,8 @@
                             Personas a asistir:
                         </span>
                         <button class="btn">
-                            <b class="color-blue">1</b>
-                            <b class="color-gray-dark">/6</b>
+                            <b class="color-blue" x-text="total_personas"></b>
+                            <b class="color-gray-dark" x-text="'/' + cant_personas"></b>
                         </button>
                     </div>
                     <hr>
@@ -17,58 +17,70 @@
                         <div class="d-flex flex-column align-items-center col-6 col-sm-3">
                             <h6 class="f-9 mt-3">Adultos</h6>
                             <div class="d-flex align-items-center">
-                                <button class="btn btn-transparent minus-action-asistentes" data-total="total_adultos" data-span="span_adultos"><i class="fas fa-minus-circle fa-lg"></i></button>
-                                <span id="span_adultos" class="mx-2">0</span>
-                                <button class="btn btn-transparent plus-action-asistentes" data-total="total_adultos" data-span="span_adultos"><i class="fas fa-plus-circle fa-lg"></i></button>
+                                <button class="btn btn-transparent" @click="less_persons(1)"><i
+                                        class="fas fa-minus-circle fa-lg"></i></button>
+                                <span class="mx-2" x-text="form_reserva.cant_adultos">0</span>
+                                <button class="btn btn-transparent" @click="plus_persons(1)"><i
+                                        class="fas fa-plus-circle fa-lg"></i></button>
                             </div>
                         </div>
                         <div class="d-flex flex-column align-items-center col-6 col-sm-3">
                             <h6 class="f-9 mt-3">Menores (3 a 12 años)</h6>
                             <div class="d-flex align-items-center">
-                                <button class="btn btn-transparent minus-action-asistentes" data-total="total_3_12" data-span="span_3_12"><i class="fas fa-minus-circle fa-lg"></i></button>
-                                <span id="span_3_12" class="mx-2">0</span>
-                                <button class="btn btn-transparent plus-action-asistentes" data-total="total_3_12" data-span="span_3_12"><i class="fas fa-plus-circle fa-lg"></i></button>
+                                <button class="btn btn-transparent" @click="less_persons(2)"><i
+                                        class="fas fa-minus-circle fa-lg"></i></button>
+                                <span class="mx-2" x-text="form_reserva.cant_tres_doce">0</span>
+                                <button class="btn btn-transparent" @click="plus_persons(2)"><i
+                                        class="fas fa-plus-circle fa-lg"></i></button>
                             </div>
                         </div>
                         <div class="d-flex flex-column align-items-center col-6 col-sm-3">
                             <h6 class="f-9 mt-3">Niños (1 a 3 años)</h6>
                             <div class="d-flex align-items-center">
-                                <button class="btn btn-transparent minus-action-asistentes" data-total="total_1_3" data-span="span_1_3"><i class="fas fa-minus-circle fa-lg"></i></button>
-                                <span id="span_1_3" class="mx-2">0</span>
-                                <button class="btn btn-transparent plus-action-asistentes" data-total="total_1_3" data-span="span_1_3"><i class="fas fa-plus-circle fa-lg"></i></button>
+                                <button class="btn btn-transparent" @click="less_persons(3)"><i
+                                        class="fas fa-minus-circle fa-lg"></i></button>
+                                <span class="mx-2" x-text="form_reserva.cant_uno_tres">0</span>
+                                <button class="btn btn-transparent" @click="plus_persons(3)"><i
+                                        class="fas fa-plus-circle fa-lg"></i></button>
                             </div>
                         </div>
                         <div class="d-flex flex-column align-items-center col-6 col-sm-3">
                             <h6 class="f-9 mt-3">Bebés</h6>
                             <div class="d-flex align-items-center">
-                                <button class="btn btn-transparent minus-action-asistentes" data-total="total_bebes" data-span="total_bebes"><i class="fas fa-minus-circle fa-lg"></i></button>
-                                <span id="total_bebes" class="mx-2">0</span>
-                                <button class="btn btn-transparent plus-action-asistentes" data-total="total_bebes" data-span="total_bebes"><i class="fas fa-plus-circle fa-lg"></i></button>
+                                <button class="btn btn-transparent" @click="less_persons(5)"><i
+                                        class="fas fa-minus-circle fa-lg"></i></button>
+                                <span class="mx-2" x-text="form_reserva.cant_bebes">0</span>
+                                <button class="btn btn-transparent" @click="plus_persons(5)"><i
+                                        class="fas fa-plus-circle fa-lg"></i></button>
                             </div>
                         </div>
                     </div>
-    
+
                     <div class="container mt-5">
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label class="form-label" for="">Comentarios</label>
-                                    <textarea name="" id="" cols="30" rows="10" class="form-control h-6r"></textarea>
+                                    <label class="form-label">Comentarios</label>
+                                    <textarea cols="30" rows="10" class="form-control h-6r"></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
-    
-    
+
+
                     <div class="container mt-3">
                         <div class="d-flex">
-                            <button class="btn btn-next-extra" id="asis-to-extras"><span>Siguiente</span> <i class="fas fa-arrow-alt-circle-right f-12 position-relative" style="top: 0.1rem;"></i></button>
+                            <button class="btn btn-next-extra" @click="next_asistencia()"><span>Siguiente</span> <i
+                                    class="fas fa-arrow-alt-circle-right f-12 position-relative"
+                                    style="top: 0.1rem;"></i></button>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-lg-3">
                     <nav class="navbar navbar-expand-lg navbar-light bg-white">
-                        <button class="navbar-toggler btn-toggle-nyg" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler btn-toggle-nyg" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
                             <i class="fas fa-list"></i>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -87,12 +99,75 @@
     function ReservaUsuarioAsistencia() {
         return {
             botes: [],
+            total_personas: 0,
             init() {
-                alert(this.cant_personas)
+                // alert(this.cant_personas)
                 let url = this.base_url + '/BoatsLaravel/public/reserva/barco_detalles'
-                axios.post(url, {id: this.form_reserva.id_vote}).then(res => {
+                axios.post(url, { id: this.form_reserva.id_vote }).then(res => {
 
                 })
+            },
+            less_persons(who) {
+                if (this.total_personas > 0) {
+                    switch (who) {
+                        case 1:
+                            if (this.form_reserva.cant_adultos > 0) {
+                                this.total_personas--
+                                this.form_reserva.cant_adultos--
+                            }
+                            break;
+                        case 2:
+                            if (this.form_reserva.cant_tres_doce > 0) {
+                                this.total_personas--
+                                this.form_reserva.cant_tres_doce--
+                            }
+                            break;
+                        case 3:
+                            if (this.form_reserva.cant_uno_tres > 0) {
+                                this.total_personas--
+                                this.form_reserva.cant_uno_tres--
+                            }
+                            break;
+                        case 4:
+                            if (this.form_reserva.cant_bebes > 0) {
+                                this.total_personas--
+                                this.form_reserva.cant_bebes--
+                            }
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+            },
+            plus_persons(who) {
+                if (this.total_personas < this.cant_personas) {
+                    this.total_personas++
+                    switch (who) {
+                        case 1:
+                            this.form_reserva.cant_adultos++
+                            break;
+                        case 2:
+                            this.form_reserva.cant_tres_doce++
+                            break;
+                        case 3:
+                            this.form_reserva.cant_uno_tres++
+                            break;
+                        case 4:
+                            this.form_reserva.cant_bebes++
+                            break;
+
+                        default:
+                            break;
+                    }
+                } else {
+                    Swal.fire('', 'El bote solo tiene capacidad para ' + this.cant_personas + ' personas', 'error')
+                }
+            },
+            next_asistencia() {
+                if(this.form_reserva.cant_adultos == 0 ) {
+                    Swal.fire('', 'Debe ir por lo menos un adulto', 'error')
+                }
             }
         }
     }

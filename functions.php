@@ -74,6 +74,8 @@
     include_once "ReservaUsuarioFecha.html";
     include_once "ReservaUsuarioResponsable.html";
     include_once "ReservaUsuarioAsistencia.html";
+    include_once "ReservaUsuarioExtra.html";
+    include_once "ReservaUsuarioPagos.html";
     // include_once "Clientes.php";
 
     /**
@@ -5004,8 +5006,9 @@
             //         headers
             //     })
             // },
-            pantalla: 'reserva_usuario',
-            base_url: 'https://192.168.5.115:443',
+            pantalla: 'ReservaUsuarioPagos',
+            base_url: 'https://192.168.0.12:443',
+            // base_url: 'https://192.168.5.115:443',
             // headers: { Authorization: `Bearer ${token}` }
             headers: { Authorization: `Bearer 6TQzUrFu82YrwiCwG4ZUcb1IEmLpOZN0wbDwJ284` },
 
@@ -5018,10 +5021,15 @@
                 fecha_inicio_viaje: '',
                 horaInicio_viaje: '',
                 horafinal_viaje: '',
-                cant_adultos: '',
-                cant_tres_doce: '',
-                cant_uno_tres: '',
-                cant_bebes: '',
+                cant_adultos: 0,
+                cant_tres_doce: 0,
+                cant_uno_tres: 0,
+                cant_bebes: 0,
+
+                fianza: '',
+                reserva_flex: '',
+                total_factura: '',
+                medio_pago: '',
 
                 //-------------------------------------------------------------------------
                 // User reserva
@@ -5047,7 +5055,7 @@
                 id_extra: '',
                 _token: ''
             },
-            cant_personas: 0,
+            cant_personas: 4,
             init() {
                 // this.crsf()
             },

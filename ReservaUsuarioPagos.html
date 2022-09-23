@@ -1,0 +1,261 @@
+<template x-if="pantalla=='ReservaUsuarioPagos'">
+    <div x-data="ReservaUsuarioPagos()">
+        <div class="container mt-7">
+            <div class="mt-5 mb-3">
+                <!-- <div> -->
+                <h3 class="text-center title-principal-css"><b>Pagos</b></h3>
+                <!-- </div> -->
+                <div>
+                    <div class="icon-gray btn-atras-pagos">
+                        <i class="fa-solid fa-circle-arrow-left"></i> Atrás
+                    </div>
+                </div>
+            </div>
+
+            <div class="row flex-lg-nyg-column-reverse">
+                <div class="col-12 col-lg-9">
+                    <div class="container-fluid mb-4">
+                        <div class="card bg-gray border-0">
+                            <!-- <div class="card-header">
+                                  Quote
+                                </div> -->
+                            <div class="card-body p-4">
+                                <p style="font-size: 1.7rem;">Fianza*</p>
+                                <b>
+                                    <strong>
+                                        A modo de fianza (garantía) se solicitarán (150€) extra, el cual se reintegrará
+                                        1 a 3 días luego de finalizado el viaje.
+                                    </strong>
+                                </b>
+                                <p> ¿Desea que los contabilicemos ahora o en efectivo el día de la
+                                    reserva?</p>
+                                <!-- <blockquote class="blockquote mb-0"> -->
+                                <!-- <p>A well-known quote, contained in a blockquote element.</p> -->
+                                <!-- <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source
+                                                Title</cite></footer> -->
+                                <!-- </blockquote> -->
+                                <div class="d-flex">
+                                    <div class="form-check" style="margin-right: 5rem;">
+                                        <input x-data="form_reserva.fianza" class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault1" checked>
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            El día de la reserva
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input x-data="form_reserva.fianza" class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2">
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            Pagar ahora
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="container-fluid mb-4">
+                        <div class="card bg-gray border-0">
+                            <div class="card-body p-4">
+                                <p style="font-size: 1.7rem;">Reserva Flex*</p>
+                                <b><strong>
+                                        Se avisa con una antelación de 48hs o más. Podrá cambiar o cancelar la
+                                        reserva
+                                        sin
+                                        coste
+                                        extra
+                                    </strong>
+                                </b>
+                                <p> ¿Desea activar la reserva flexible?</p>
+                                <div class="d-flex">
+                                    <div class="form-check" style="margin-right: 5rem;">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault1"
+                                            id="flexRadioDefault3" checked x-data="form_reserva.reserva_flex">
+                                        <label class="form-check-label" for="flexRadioDefault3">
+                                            No gracias, sé que no ocurrirá ningún imprevisto
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault1"
+                                            id="flexRadioDefault4" x-data="form_reserva.reserva_flex">
+                                        <label class="form-check-label" for="flexRadioDefault4">
+                                            Si, deseo poder cambiar la fecha o cancelar la reserva
+                                        </label>
+                                        <label class="color-blue"><b>(25€)</b></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="container-fluid mb-4">
+                        <div class="card bg-gray border-0">
+                            <div class="card-body p-4">
+                                <!-- <p style="font-size: 1.7rem;">Reserva Flex*</p>
+                                    <b><strong>
+                                            Se avisa con una antelación de 48hs o más. Podrá cambiar o cancelar la reserva sin coste
+                                            extra
+                                        </strong>
+                                    </b>
+                                    <p> ¿Desea activar la reserva flexible?</p> -->
+                                <div class="d-flex">
+                                    <div class="form-check" style="margin-right: 5rem;">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault2"
+                                            id="flexRadioDefault5" checked x-data="form_reserva.total_factura">
+                                        <label class="form-check-label" for="flexRadioDefault5">
+                                            Deseo pagar un mínimo para reservar
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault2"
+                                            id="flexRadioDefault6" x-data="form_reserva.total_factura">
+                                        <label class="form-check-label" for="flexRadioDefault6">
+                                            Deseo pagar el 100% de la reserva
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center mb-3">
+                        <button class="btn btn-embarcacion mx-3">Contrato de embarcación <i
+                                class="fas fa-file-pdf"></i></button>
+                        <button class="btn btn-instuctivo mx-3">Instructivo de esta embarcación <i
+                                class="fas fa-file-pdf"></i></button>
+                    </div>
+                    <div class="d-flex justify-content-center mb-5">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="check_terminos" true-value="1"
+                                false-value="">
+                            <label class="form-check-label" for="check_terminos">
+                                He leido y Acepto el contrato de LoremIpsum dolor sit met
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid mb-5">
+                        <div class="d-flex flex-column align-items-center justify-content-center p-5"
+                            style="background-color: #FCF8E3;">
+                            <p>¡En hora Buena! estas casi listo toda tu reserva. Dale una Checkeada al resumen de lo que
+                                elegiste en la columna derecha y si todo está bien, elige el medio de pago en el
+                                siguiente bloque y todo listo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-center">Medios de Pago</h3>
+
+                    <div class="container-fluid mb-4">
+                        <div class="d-flex flex-column height-paypal bg-gray p-4">
+                            <div class="d-flex mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault6"
+                                        id="flexRadioDefault8" x-data="form_reserva.medio_pago">
+                                    <label class="form-check-label" for="flexRadioDefault8">
+                                        <b>Paypal</b>
+                                    </label>
+                                </div>
+                                <img src="<?php echo imagen(3) ?>" class="img-paypal mx-3" alt="">
+                            </div>
+                            <div class="">
+                                <p> Pagar con Paypal, puedes pagar con tu tarjeta de crédito si no tienes una cuenta de
+                                    Paypal. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid mb-4">
+                        <div class="d-flex flex-column height-pagos bg-gray p-4">
+                            <div class="d-flex mb-2">
+                                <div class="form-check mr-4">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault6"
+                                        id="flexRadioDefault9" x-data="form_reserva.medio_pago">
+                                    <label class="form-check-label" for="flexRadioDefault9">
+                                        <b>Bizum</b>
+                                    </label>
+                                </div>
+                                <p>Paga directamente con tu móvil utilizando Bizum</p>
+                            </div>
+                            <div class="">
+                                <p>Puedes realizar el pago a nuestro móvil (+34) 657 147397. Para agilizar la
+                                    reserva,
+                                    nos
+                                    puedes enviar un mensaje con el comprobante del pago al número de reserva a
+                                    nuestro
+                                    WhatsApp.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid mb-4">
+                        <div class="d-flex flex-column height-pagos bg-gray p-4">
+                            <div class="d-flex mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault6"
+                                        id="flexRadioDefault10" x-data="form_reserva.medio_pago">
+                                    <label class="form-check-label" for="flexRadioDefault10">
+                                        <b>Transferencia Bancaria</b>
+                                    </label>
+                                </div>
+                                <!-- <img src="./images/Paypal.png" class="img-paypal mx-3" alt=""> -->
+                            </div>
+                            <div class="">
+                                <p>En el asunto deber indicar tu nombre completo y número de reserva. Envíanos el
+                                    comprobante de
+                                    la transferencia/depósito a nuestro móvil (+34) 657 147397.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid mb-4">
+                        <div class="d-flex flex-column height-paypal bg-gray p-4">
+                            <div class="d-flex mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault6"
+                                        id="flexRadioDefault11" x-data="form_reserva.medio_pago">
+                                    <label class="form-check-label" for="flexRadioDefault11">
+                                        <b>Cupón de descuento</b>
+                                    </label>
+                                </div>
+                                <!-- <input type="text"> -->
+                                <button
+                                    class="btn position-relative start-35 button-enviar-cupon rounded">Enviar</button>
+                            </div>
+                            <div class="">
+                                <!-- <p>Pagar con Paypal, puedes pagar con tu tarjeta de crédito si no tienes una cuenta de Paypal.
+                                    </p> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center mb-5">
+                        <button class="btn btn-navegar">
+                            <span class="mr-2">¡A Navegar!</span>
+                            <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                        <button class="navbar-toggler btn-toggle-nyg" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-list"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="d-flex flex-column align-items-between border mt-2 w-100">
+                                <div class="contenido"></div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    function ReservaUsuarioPagos() {
+
+    }
+</script>
