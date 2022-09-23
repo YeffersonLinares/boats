@@ -76,6 +76,7 @@
     include_once "ReservaUsuarioAsistencia.html";
     include_once "ReservaUsuarioExtra.html";
     include_once "ReservaUsuarioPagos.html";
+    include_once "ReservaUsuarioFinal.html";
     // include_once "Clientes.php";
 
     /**
@@ -5006,7 +5007,7 @@
             //         headers
             //     })
             // },
-            pantalla: 'ReservaUsuarioPagos',
+            pantalla: 'ReservaUsuarioFinal',
             base_url: 'https://192.168.0.12:443',
             // base_url: 'https://192.168.5.115:443',
             // headers: { Authorization: `Bearer ${token}` }
@@ -5016,7 +5017,7 @@
                 //-------------------------------------------------------------------------
                 // Tabla reserva
                 //-------------------------------------------------------------------------
-
+                id: 1,
                 id_vote: 1,
                 fecha_inicio_viaje: '',
                 horaInicio_viaje: '',

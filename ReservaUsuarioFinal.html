@@ -1,0 +1,181 @@
+<template x-if="pantalla=='ReservaUsuarioFinal'">
+    <div x-data="ReservaUsuarioFinal()">
+        <div class="container mt-7">
+            <div class="mt-5 mb-3">
+                <div>
+                    <h3 class="text-center title-principal-css">A continuación tu reserva</h3>
+                </div>
+                <div>
+                    <div class="icon-gray btn-atras-resume" id="btn-atras" name="btn-atras">
+                        <i class="fa-solid fa-circle-arrow-left fa-lg"></i> Atrás
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <h4 class="color-oranged">Gracias. Tu pedido ha sido recibido</h4>
+                    <div class="row mb-4">
+                        <div class="col-12 col-sm-6 col-md-3 border-right-dotted d-flex flex-column">
+                            <span>NÚMERO DEL PEDIDO:</span>
+                            <b x-text="reserva_final.id"></b>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-3 border-right-dotted d-flex flex-column">
+                            <span>FECHA:</span>
+                            <b class="fecha_end_reserva" x-text="reserva_final.fecha"></b>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-3 border-right-dotted d-flex flex-column">
+                            <span>EMAIL:</span>
+                            <b id="correo_end_responsable" x-text="reserva_final?.user_reserva?.email">CORREO@CORREO</b>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-3 border-right-dotted d-flex flex-column">
+                            <span>TOTAL:</span>
+                            <b>175,00€</b>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h6>MÉTODO DE PAGO</h6>
+                        <h6><b>Transferencia bancaria directa</b></h6>
+                    </div>
+                    <div class="">
+                        <p>Realiza tu pago directamente e nuestra cuenta bancaria. Por favor, usa el número del
+                            pedido como
+                            referencia de pago,
+                            por ejemplo: "Asunto: Reserva <span class="fecha_end_reserva" x-text="reserva_final.fecha"> </span>" N° de
+                            la reserva". Tu pedido no se
+                            procesará hasta
+                            que se haya
+                            recibido el importe de nuestra cuenta. La fecha en el calendario de reservas será
+                            bloqueada
+                            hasta las 19 horas
+                            del día de mañana, de no ser abonado quedará libre automáticamente, consulta los
+                            <a class="color-oranged" href="#">términos y condiciones</a> para más información.
+                        </p>
+                    </div>
+                    <!-- <h2><b>CUENTA EXPANSIÓN</b></h2>
+            <div class="container">
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <img src="./images/barco_2.jpg" alt="" srcset="">
+                    <div class="container table-responsive mt-5">
+                        <table class="table">
+                            <tr>
+                                <td style="width: 0%;">
+                                    <button class="btn btn-transparent color-blue"> <i class="fas fa-ship fa-lg"></i> </button>
+                                </td>
+                                <td style="width: 0%;">Barco</td>
+                                <td style="width: 0%;">Namaré</td>
+                                <td class="d-flex justify-content-end color-blue" style="width: 75%;">
+                                    <b>41€</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button class="btn btn-transparent color-blue"> <i class="fas fa-calendar-alt fa-lg"></i>
+                                    </button>
+                                </td>
+                                <td>Fecha</td>
+                                <td>Namaré</td>
+                                <td class="d-flex justify-content-end color-blue" style="width: 75%;">
+                                    <b>41€</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button class="btn btn-transparent color-blue"> <i class="fas fa-clock fa-lg"></i>
+                                    </button>
+                                </td>
+                                <td>Salida</td>
+                                <td>Namaré</td>
+                                <td class="d-flex justify-content-end color-blue" style="width: 75%;">
+                                    <b>41€</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button class="btn btn-transparent color-blue"> <i class="fas fa-dharmachakra fa-lg"></i>
+                                    </button>
+                                </td>
+                                <td>Responsable</td>
+                                <td>Namaré</td>
+                                <td class="d-flex justify-content-end color-blue" style="width: 75%;">
+                                    <b>41€</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button class="btn btn-transparent color-blue"> <i class="fas fa-users fa-lg"></i>
+                                    </button>
+                                </td>
+                                <td>Asistentes</td>
+                                <td>Namaré</td>
+                                <td class="d-flex justify-content-end color-blue" style="width: 75%;">
+                                    <b>41€</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button class="btn btn-transparent color-blue"> <i class="fas fa-briefcase fa-lg"></i>
+                                    </button>
+                                </td>
+                                <td>Extras</td>
+                                <td>Namaré</td>
+                                <td class="d-flex justify-content-end color-blue" style="width: 75%;">
+                                    <b>41€</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button class="btn btn-transparent color-blue"> <i class="fas fa-credit-card fa-lg"></i>
+                                    </button>
+                                </td>
+                                <td>Pago</td>
+                                <td>Namaré</td>
+                                <td class="d-flex justify-content-end color-blue" style="width: 75%;">
+                                    <b>41€</b>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div> -->
+
+                    <!-- <div class="container-fluid"> -->
+                    <div class="row mb-5 justify-content-evenly">
+                        <button class="btn btn-resume col-12 col-md-6 col-lg-6 col-xl-2 mb-3 mx-1"> <span
+                                class="f-7">Descargar Recibo</span> <i class="fas fa-file-pdf"></i></button>
+                        <button class="btn btn-resume col-12 col-md-6 col-lg-6 col-xl-2 mb-3 mx-1"> <span
+                                class="f-7">Compartir esta Reserva</span> <i class="fas fa-file-pdf"></i></button>
+                        <button class="btn btn-resume col-12 col-md-6 col-lg-6 col-xl-2 mb-3 mx-1"> <span
+                                class="f-7">Descargar el contrato</span> <i class="fas fa-share-alt"></i></button>
+                        <button class="btn btn-instuctivo-pdf col-12 col-md-6 col-lg-4 col-xl-4 mb-3 mx-1"> <span
+                                class="f-7">Descargar Instructivo de esta embarcación</span> <i
+                                class="fas fa-file-pdf"></i></button>
+                    </div>
+
+                    <div class="text-center mb-4">
+                        <h2>
+                            <strong>Gracias por preferir a MBM - Disfruta tu paseo!</strong>
+                        </h2>
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <div class="col-12 col-lg-4 contenido">
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    function ReservaUsuarioFinal() {
+        return {
+            reserva_final: {},
+            init() {
+                let url = this.base_url + '/BoatsLaravel/public/reserva/resume_reserva_final'
+                axios.post(url, {id: this.form_reserva.id}).then(res => {
+                    this.reserva_final = res.data
+                })
+            }
+        }
+    }
+</script>
