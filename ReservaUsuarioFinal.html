@@ -25,11 +25,11 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-3 border-right-dotted d-flex flex-column">
                             <span>EMAIL:</span>
-                            <b id="correo_end_responsable" x-text="reserva_final?.user_reserva?.email">CORREO@CORREO</b>
+                            <b id="correo_end_responsable" x-text="reserva_final?.user_reserva?.email"></b>
                         </div>
                         <div class="col-12 col-sm-6 col-md-3 border-right-dotted d-flex flex-column">
                             <span>TOTAL:</span>
-                            <b>175,00€</b>
+                            <b x-text="reserva_final.total ? reserva_final.total + '€' : ''">175,00€</b>
                         </div>
                     </div>
 
@@ -52,7 +52,7 @@
                             <a class="color-oranged" href="#">términos y condiciones</a> para más información.
                         </p>
                     </div>
-                    <!-- <h2><b>CUENTA EXPANSIÓN</b></h2>
+                    <h2><b>CUENTA EXPANSIÓN</b></h2>
             <div class="container">
                 <div class="d-flex flex-column justify-content-center align-items-center">
                     <img src="./images/barco_2.jpg" alt="" srcset="">
@@ -63,8 +63,10 @@
                                     <button class="btn btn-transparent color-blue"> <i class="fas fa-ship fa-lg"></i> </button>
                                 </td>
                                 <td style="width: 0%;">Barco</td>
-                                <td style="width: 0%;">Namaré</td>
-                                <td class="d-flex justify-content-end color-blue" style="width: 75%;">
+                                <td style="width: 30%;">
+                                    <strong x-text="reserva_final?.bote?.nombre"></strong>
+                                </td>
+                                <td class="text-end color-blue" style="width: 75%;">
                                     <b>41€</b>
                                 </td>
                             </tr>
@@ -74,8 +76,10 @@
                                     </button>
                                 </td>
                                 <td>Fecha</td>
-                                <td>Namaré</td>
-                                <td class="d-flex justify-content-end color-blue" style="width: 75%;">
+                                <td>
+                                    <strong x-text="reserva_final.fecha"></strong>
+                                </td>
+                                <td class="text-end color-blue" style="width: 75%;">
                                     <b>41€</b>
                                 </td>
                             </tr>
@@ -85,8 +89,10 @@
                                     </button>
                                 </td>
                                 <td>Salida</td>
-                                <td>Namaré</td>
-                                <td class="d-flex justify-content-end color-blue" style="width: 75%;">
+                                <td>
+                                    <strong x-text="reserva_final.hora_inicio"></strong>
+                                </td>
+                                <td class="text-end color-blue" style="width: 75%;">
                                     <b>41€</b>
                                 </td>
                             </tr>
@@ -96,8 +102,10 @@
                                     </button>
                                 </td>
                                 <td>Responsable</td>
-                                <td>Namaré</td>
-                                <td class="d-flex justify-content-end color-blue" style="width: 75%;">
+                                <td>
+                                    <strong x-text="reserva_final?.user_reserva?.nombre"></strong>
+                                </td>
+                                <td class="text-end color-blue" style="width: 75%;">
                                     <b>41€</b>
                                 </td>
                             </tr>
@@ -107,8 +115,10 @@
                                     </button>
                                 </td>
                                 <td>Asistentes</td>
-                                <td>Namaré</td>
-                                <td class="d-flex justify-content-end color-blue" style="width: 75%;">
+                                <td>
+                                    <strong x-text="asistentes()"></strong>
+                                </td>
+                                <td class="text-end color-blue" style="width: 75%;">
                                     <b>41€</b>
                                 </td>
                             </tr>
@@ -118,8 +128,10 @@
                                     </button>
                                 </td>
                                 <td>Extras</td>
-                                <td>Namaré</td>
-                                <td class="d-flex justify-content-end color-blue" style="width: 75%;">
+                                <td>
+                                    <strong x-text="extras_text()"></strong>
+                                </td>
+                                <td class="text-end color-blue" style="width: 75%;">
                                     <b>41€</b>
                                 </td>
                             </tr>
@@ -130,14 +142,14 @@
                                 </td>
                                 <td>Pago</td>
                                 <td>Namaré</td>
-                                <td class="d-flex justify-content-end color-blue" style="width: 75%;">
+                                <td class="text-end color-blue" style="width: 75%;">
                                     <b>41€</b>
                                 </td>
                             </tr>
                         </table>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
                     <!-- <div class="container-fluid"> -->
                     <div class="row mb-5 justify-content-evenly">
@@ -151,11 +163,10 @@
                                 class="f-7">Descargar Instructivo de esta embarcación</span> <i
                                 class="fas fa-file-pdf"></i></button>
                     </div>
-
                     <div class="text-center mb-4">
-                        <h2>
+                        <h5>
                             <strong>Gracias por preferir a MBM - Disfruta tu paseo!</strong>
-                        </h2>
+                        </h5>
                     </div>
                     <!-- </div> -->
                 </div>
@@ -175,6 +186,27 @@
                 axios.post(url, {id: this.form_reserva.id}).then(res => {
                     this.reserva_final = res.data
                 })
+            },
+            asistentes() {
+                if(this.reserva_final.cant_adultos)  {
+                    let suma = parseInt(this.reserva_final.cant_bebes) + parseInt(this.reserva_final.cant_tres_doce) 
+                    + parseInt(this.reserva_final.cant_uno_tres)
+    
+                    let msg = this.reserva_final.cant_adultos + ' Personas + ' + suma + ' niños'
+                    return msg
+                }else {
+                    return ''
+                }
+            },
+            extras_text() {
+                let message = ''
+                if(this.reserva_final.detallesextras) {
+                    this.reserva_final.detallesextras.forEach(item => {
+                        message += 2 + ' ' + item?.extra?.nombre + ' '
+                        console.log('item ==> ', item);
+                    })
+                    return message
+                }
             }
         }
     }

@@ -18,31 +18,16 @@
                 <div class="container-fluid">
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <?php
-                            $registros2 = $wpdb->get_results("SELECT * FROM `extra` where estado=1 group by tipo ");
-                            $i = 0;
-                            foreach ($registros2 as $tipos) {
-                            ?>
-                            <template x-for="(i,index) in extras" :key="index">
-                                <button class="nav-link <?php echo ($i == 0 ? 'active' : '') ?>" x-bind:class="indice_avance()"
-                                    id="tabla_<?php echo $tipos->id ?>_tab" data-bs-toggle="tab"
-                                    data-bs-target="#nav-<?php echo $tipos->id ?>-home" type="button" role="tab"
-                                    aria-controls="nav-<?php echo $tipos->id ?>-home"
-                                    aria-selected="<?php echo ($i == 0 ? 'true' : 'false') ?>">
+                            <template x-for="(i,index) in extras_type" :key="index">
+                                <button class="nav-link" x-bind:class="index == 0 ? 'active' : ''"
+                                    :id="'tabla_'+ index +'_tab'" data-bs-toggle="tab"
+                                    :data-bs-target="'#nav-' + index + '-home'" type="button" role="tab"
+                                    :aria-controls="'nav-' + index +'-home'"
+                                    :aria-selected="index == 0 ? 'true' : 'false'">
+                                    <span x-text="i"></span>
                                     <?php echo $tipos->tipo ?>
                                 </button>
                             </template>
-                            <!-- <button class="nav-link <?php echo ($i == 0 ? 'active' : '') ?>"
-                                id="tabla_<?php echo $tipos->id ?>_tab" data-bs-toggle="tab"
-                                data-bs-target="#nav-<?php echo $tipos->id ?>-home" type="button" role="tab"
-                                aria-controls="nav-<?php echo $tipos->id ?>-home"
-                                aria-selected="<?php echo ($i == 0 ? 'true' : 'false') ?>">
-                                <?php echo $tipos->tipo ?>
-                            </button> -->
-                            <?php
-                                $i++;
-                            }
-                            ?>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
@@ -52,83 +37,87 @@
                         $i = 0;
                         foreach ($registros2 as $tipos) {
                         ?>
-                        <div class="tab-pane fade show <?php echo ($i == 0 ? 'active' : '') ?>"
-                            id="nav-<?php echo $tipos->id ?>-home" role="tabpanel"
-                            aria-labelledby="tabla_<?php echo $tipos->id ?>_tab">
-                            <div class="row row-cols-1 row-cols-md-3 g-4 p-3">
-                                <?php
-                                    $registros4 = $wpdb->get_results("SELECT * FROM `extra` where tipo='" . $tipos->tipo . "'");
-                                    $h = 0;
-                                    foreach ($registros4 as $indextipo => $tipos) {
-    
-                                    ?>
-                                <div class="col mb-5">
-                                    <div class="card">
-                                        <button class="btn btn-transparent position-absolute end-0 text-white"><i
-                                                class="fas fa-search-plus fa-xl"></i></button>
+                        <template x-for="(i,index) in extras" :key="index">
+                            <div class="tab-pane fade show" x-bind:class="index == 0 ? 'active' : ''"
+                                :id="'nav-' + index + '-home'" role="tabpanel"
+                                :aria-labelledby="'tabla_' + index + '_tab'">
+                                <div class="row row-cols-1 row-cols-md-3 g-4 p-3">
+                                    <template x-for="(item, key) in i" :key="key">
                                         <div>
-                                            <button class="btn btn-direction position-absolute top-25"><i
-                                                    class="fas fa-chevron-left"></i></button>
-                                            <button class="btn btn-direction position-absolute top-25 end-0"><i
-                                                    class="fas fa-chevron-right"></i></button>
-                                            <img src=".<?php echo $tipos->principal ?>" class="card-img-top" alt="...">
-                                        </div>
-                                        <div class="card-body extras-price">
-                                            <h5 class="card-title">
-                                                <?php echo $tipos->nombre ?>
-                                            </h5>
-                                            <p>
-                                                <?php echo $tipos->descripcion ?>
-                                            </p>
                                             <?php
-                                                    $registros5 = $wpdb->get_results("SELECT * FROM `extra_detalle` where estado=1 and id_extra='" . $tipos->id . "'");
-                                                    foreach ($registros5 as $index => $deta) {
-                                                    ?>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div class="d-flex align-items-center">
-                                                    <button class="btn btn-minus minus-action shadow-none"
-                                                        data-total="<?php echo 'total' . $tipos->id ?>"
-                                                        data-valor="<?php echo $deta->valor; ?>"
-                                                        data-span="<?php echo strval('span' . $deta->id . '-' . $index) ?>"><i
-                                                            class="fas fa-minus-circle fa-lg"></i></button>
-                                                    <span class="span-quantity"
-                                                        id="<?php echo 'span' . $deta->id . '-' . $index ?>">0</span>
-                                                    <button class="btn btn-minus plus-action shadow-none"
-                                                        data-total="<?php echo 'total' . $tipos->id ?>"
-                                                        data-valor="<?php echo $deta->valor; ?>"
-                                                        data-span="<?php echo strval('span' . $deta->id . '-' . $index) ?>"><i
-                                                            class="fas fa-plus-circle fa-lg"></i></button>
-                                                    <span class="f-9 span-descrip"
-                                                        id="<?php echo 'desc' . $deta->id ?>">
-                                                        <?php echo $deta->descripcion; ?>
-                                                    </span>
-                                                </div>
-                                                <div>
-                                                    <span class="span-price">
-                                                        <?php echo $deta->valor; ?>
-                                                    </span> €
+                                                $registros4 = $wpdb->get_results("SELECT * FROM `extra` where tipo='" . $tipos->tipo . "'");
+                                                $h = 0;
+                                                foreach ($registros4 as $indextipo => $tipos) {
+                
+                                                ?>
+                                            <div class="col mb-5">
+                                                <div class="card">
+                                                    <button class="btn btn-transparent position-absolute end-0 text-white"><i
+                                                            class="fas fa-search-plus fa-xl"></i></button>
+                                                    <div>
+                                                        <button class="btn btn-direction position-absolute top-25"><i
+                                                                class="fas fa-chevron-left"></i></button>
+                                                        <button class="btn btn-direction position-absolute top-25 end-0"><i
+                                                                class="fas fa-chevron-right"></i></button>
+                                                        <img :src="(base_image + item.principal).replace('./', '/')" class="card-img-top" alt="...">
+                                                    </div>
+                                                    <div class="card-body extras-price">
+                                                        <h5 class="card-title" x-text="item.nombre">
+                                                        </h5>
+                                                        <p x-text="item.descripcion">
+                                                        </p>
+                                                        <?php
+                                                                $registros5 = $wpdb->get_results("SELECT * FROM `extra_detalle` where estado=1 and id_extra='" . $tipos->id . "'");
+                                                                foreach ($registros5 as $index => $deta) {
+                                                                ?>
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <div class="d-flex align-items-center">
+                                                                <button class="btn btn-minus minus-action shadow-none"
+                                                                    data-total="<?php echo 'total' . $tipos->id ?>"
+                                                                    data-valor="<?php echo $deta->valor; ?>"
+                                                                    data-span="<?php echo strval('span' . $deta->id . '-' . $index) ?>"><i
+                                                                        class="fas fa-minus-circle fa-lg"></i></button>
+                                                                <span class="span-quantity"
+                                                                    id="<?php echo 'span' . $deta->id . '-' . $index ?>">0</span>
+                                                                <button class="btn btn-minus plus-action shadow-none"
+                                                                    data-total="<?php echo 'total' . $tipos->id ?>"
+                                                                    data-valor="<?php echo $deta->valor; ?>"
+                                                                    data-span="<?php echo strval('span' . $deta->id . '-' . $index) ?>"><i
+                                                                        class="fas fa-plus-circle fa-lg"></i></button>
+                                                                <span class="f-9 span-descrip"
+                                                                    id="<?php echo 'desc' . $deta->id ?>">
+                                                                    <?php echo $deta->descripcion; ?>
+                                                                </span>
+                                                            </div>
+                                                            <div>
+                                                                <span class="span-price">
+                                                                    <?php echo $deta->valor; ?>
+                                                                </span> €
+                                                            </div>
+                                                        </div>
+                                                        <?php
+                                                                }
+                                                                ?>
+            
+                                                        <div class="d-flex justify-content-end">
+                                                            <span class="color-blue"><b
+                                                                    id="<?php echo 'total' . $tipos->id ?>">0</b></span> <b
+                                                                class="color-blue">€</b>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <?php
-                                                    }
-                                                    ?>
-
-                                            <div class="d-flex justify-content-end">
-                                                <span class="color-blue"><b
-                                                        id="<?php echo 'total' . $tipos->id ?>">0</b></span> <b
-                                                    class="color-blue">€</b>
-                                            </div>
+                                                    $h++;
+                                                }
+                                                ?>
                                         </div>
-                                    </div>
+                                    </template>
                                 </div>
-                                <?php
-                                        $h++;
-                                    }
-                                    ?>
+    
+    
                             </div>
-
-
-                        </div>
+                        </template>
                         <?php
                             $i++;
                         }
@@ -168,15 +157,18 @@
             init() {
               this.getExtras()  
             },
+            base_image: window.location.origin + '/boats',
             ind_avance: -1,
             extras: [],
+            extras_type: [],
             getExtras() {
                 let url = this.base_url + '/BoatsLaravel/public/reserva/extras_por_barco'
                 axios.post(url, {id: this.form_reserva.id_vote}).then(res => {
                     this.extras = res.data
-                    let extras = this.extras
-                    // console.log('this.extras_values ==> ', Object.values(extras));
-                    console.log('this.extras_keys ==> ', Object.keys(this.extras));
+                    for (const key in this.extras) this.extras_type[key] = this.extras[key]
+                    this.extras_type = Object.keys(this.extras_type)
+                    this.extras = Object.values(this.extras)
+                    console.log('this.extras ==> ', Object.values(this.extras));
                 })
             },
             indice_avance() {
