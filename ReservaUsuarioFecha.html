@@ -26,14 +26,14 @@
                     <template x-if="true">
                         <div class="buttons-defect">
                             <div class="d-flex justify-content-center w-100">
-                                <div class="container-btn zone_hour">
-                                    Por la mañana
+                                <div class="container-btn zone_hour d-none" id="por_la_maniana">
+                                    <strong class="color-gray-dark"> Por la mañana </strong>
                                 </div>
-                                <div class="container-btn zone_hour">
-                                    Por la tarde
+                                <div class="container-btn zone_hour d-none" id="por_la_tarde">
+                                    <strong class="color-gray-dark"> Por la tarde </strong>
                                 </div>
-                                <div class="container-btn zone_hour">
-                                    Todo el día
+                                <div class="container-btn zone_hour d-none" id="por_la_dia">
+                                    <strong class="color-gray-dark"> Todo el día </strong>
                                 </div>
                             </div>
                         </div>
@@ -63,6 +63,7 @@
     function ReservaUsuarioFecha() {
         return {
             botes: [],
+            fecha_zona: '',
             zona_horaria() {
                 // axios.get(this.base_url+"/BoatsLaravel/public/reserva/barco_detalles").then(resp =>{
                 //     this.botes = resp.data.data;
@@ -77,9 +78,16 @@
                     this.datepicker(res.data.response)
                 })
             },
+            validar_zona_horaria() {
+                let url = this.base_url + '/BoatsLaravel/public/reserva/validar_zona_horaria'
+                axios.post(url, {id: this.form_reserva.id_vote, fecha: this.fecha_zona}).then(res => {
+                    console.log('res.data ==> ', res.data);
+                })
+            },
             datepicker(disabled_dates) {
-                // var disabled_dates = ["2022-09-30", "2022-10-01", "2022-09-16", "2022-09-23"]
-                $(document).ready(function () {
+                    let params = {id: this.form_reserva.id_vote, fecha: this.fecha_zona}
+                    let base_url = this.base_url
+                    let response = null
                     $("#fechaInicio").datepicker({
                         changeMonth: true,
                         changeYear: true,
@@ -99,9 +107,25 @@
                             var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
                             return [disabled_dates.indexOf(string) == -1]
                         },
-                    });
-                });
-            }
+                    }).change(function() {
+                        params.fecha = $('#fechaInicio').val()
+                        console.log('params ==> ', params);
+                        let url = base_url + '/BoatsLaravel/public/reserva/validar_zona_horaria'
+                        console.log('url ==> ', url);
+                        axios.post(url, params ).then(res => {
+                            response = res.data
+                            if(res.data.maniana == 1) $('#por_la_maniana').removeClass('d-none')
+                            else $('#por_la_maniana').addClass('d-none')
+
+                            if(res.data.tarde == 1) $('#por_la_tarde').removeClass('d-none')
+                            else $('#por_la_tarde').addClass('d-none')
+                            
+                            if(res.data.todo_dia == 1) $('#por_la_dia').removeClass('d-none')
+                            else $('#por_la_dia').addClass('d-none')
+                            console.log('response ==> ', response);
+                        })
+                    })
+            },
         }
     }
 </script>
