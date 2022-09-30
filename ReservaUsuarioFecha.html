@@ -6,12 +6,18 @@
                     <div class="w-100 text-center my-5">
                         <h3>¿Qué fechas deseas?</h3>
                     </div>
-    
+
                     <div class="w-100 text-center my-5">
                         <div class="row">
                             <div class="col-12 col-md-4"></div>
                             <div class="col-12 col-md-4">
-                                <input data-provide="datepicker" type="date" id="datepicker" @change="zona_horaria()">
+                                <!-- <div class="form-group col-md-4 mt-5"> -->
+                                <div>
+                                    <label for="fechaInicio">Fecha</label>
+                                    <input type="text" id="fechaInicio">
+                                </div>
+                                <!-- </div> -->
+                                <!-- <input data-provide="datepicker" type="date" id="datepicker" @change="zona_horaria()"> -->
                                 <!-- <input type="date" class="form-control" id="datereservafecha" @change="zona_horaria()"> -->
                             </div>
                             <div class="col-12 col-md-4"></div>
@@ -32,11 +38,13 @@
                             </div>
                         </div>
                     </template>
-    
+
                 </div>
                 <div class="col-12 col-lg-3 d-flex flex-column align-items-between border">
                     <nav class="navbar navbar-expand-lg navbar-light bg-white">
-                        <button class="navbar-toggler btn-toggle-nyg" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler btn-toggle-nyg" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
                             <i class="fas fa-list"></i>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -59,6 +67,40 @@
                 // axios.get(this.base_url+"/BoatsLaravel/public/reserva/barco_detalles").then(resp =>{
                 //     this.botes = resp.data.data;
                 // })
+            },
+            init() {
+                this.disabledDates()
+            },
+            disabledDates() {
+                let url = this.base_url + '/BoatsLaravel/public/reserva/validar_fechas'
+                axios.post(url, { id: this.form_reserva.id_vote }).then(res => {
+                    this.datepicker(res.data.response)
+                })
+            },
+            datepicker(disabled_dates) {
+                // var disabled_dates = ["2022-09-30", "2022-10-01", "2022-09-16", "2022-09-23"]
+                $(document).ready(function () {
+                    $("#fechaInicio").datepicker({
+                        changeMonth: true,
+                        changeYear: true,
+                        autoclose: false,
+                        firstDay: 1,
+                        minDate: new Date(),
+                        yearRange: '2005:' + String((new Date()).getFullYear() + 1),
+                        format: "dd/mm/yyyy",
+                        monthNames: ['Enero', 'Febrero', 'Marzo',
+                            'Abril', 'Mayo', 'Junio',
+                            'Julio', 'Agosto', 'Septiembre',
+                            'Octubre', 'Noviembre', 'Diciembre'],
+                        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
+                            'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                        dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+                        beforeShowDay: function (date) {
+                            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                            return [disabled_dates.indexOf(string) == -1]
+                        },
+                    });
+                });
             }
         }
     }

@@ -14,7 +14,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<!-- datepicker -->
 
+<link href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
+<link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet"/>
+
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 
 
@@ -5009,7 +5016,8 @@
             //     })
             // },
             pantalla: 'ReservaUsuarioFecha',
-            base_url: 'https://192.168.5.115:443',
+            base_url: 'https://192.168.0.18:443',
+            // base_url: 'https://192.168.5.115:443',
             // base_url: 'https://192.168.5.115:443',
             // headers: { Authorization: `Bearer ${token}` }
             headers: { Authorization: `Bearer 6TQzUrFu82YrwiCwG4ZUcb1IEmLpOZN0wbDwJ284` },
