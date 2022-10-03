@@ -1,0 +1,95 @@
+<template x-if="pantalla=='ReservaUsuarioHoras'">
+    <div class="container mt-7" x-data="ReservaUsuarioHoras()">
+        <div class="row flex-lg-nyg-column-reverse">
+            <div class="col-12 col-lg-9">
+                <div class="w-100 text-center my-5">
+                    <h5>La disponibilidad horaria de esta embarcación 
+                        <span class="texto_seleccion" role="button" x-text="'Por la ' + form_reserva.zona_horaria"> </span> 
+                    </h5>
+                </div>
+
+                <div class="mb-2">
+                    <strong class="color-dark-extras">Salida:</strong>
+                </div>
+                <div class="row btns-hour">
+                    <template x-for="(i,index) in horas" :key="index">
+                        <div class="col-6 col-sm-3 col-md-3 col-lg-2 d-flex justify-content-center">
+                            <button type="button" class="btn" x-text="i" x-bind:class="active[index] == 1 ? 'active' : ''" 
+                            @click="add_active(index)"></button>
+                        </div>
+                    </template>
+                </div>
+                <div class="mb-2">
+                    <strong class="color-dark-extras">Regreso:</strong>
+                </div>
+                <div class="row btns-hour">
+                    <template x-for="(i,index) in regreso" :key="index">
+                        <div class="col-6 col-sm-3 col-md-3 col-lg-2 d-flex justify-content-center" x-bind:class="i.active != 1 ? 'flex-column' : ''">
+                            <template x-if="i.active != 1">
+                                <strong class="color-blue text-end pe-5">
+                                    +15€
+                                </strong>
+                            </template>
+                            <button type="button" class="btn" x-text="i.hora" x-bind:class="i.active == 1 ? 'active mt-4_5' : ''">
+                            </button>
+                        </div>
+                    </template>
+                </div>
+
+                <button class="btn btn-blue seguir_registro mt-4" x-bind:disabled="regreso.length == 0">Seleccionar <i class="fas fa-arrow-alt-circle-right"></i></button>
+
+            </div>
+            <div class="col-12 col-lg-3 d-flex flex-column align-items-between border">
+                <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                    <button class="navbar-toggler btn-toggle-nyg" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-list"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="d-flex flex-column align-items-between border mt-2 w-100">
+                            <div class="contenido"></div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    function ReservaUsuarioHoras() {
+        return {
+            horas: [],
+            active: [],
+            regreso: [],
+            init() {
+                this.getHoras()    
+            },
+            getHoras() {
+                this.loading = true
+                this.active = []
+                let url = this.base_url + '/BoatsLaravel/public/reserva/traer_horas'
+                axios.post(url, {id: this.form_reserva.id_vote, zona_horaria: this.form_reserva.zona_horaria}).then(res => {
+                    this.horas = res.data
+                    this.horas.forEach(hora => {
+                        this.active.push(0)
+                    });
+                    this.loading = false
+                })
+            },
+            add_active(index) {
+                this.form_reserva.horaInicio_viaje = this.horas[index]
+                this.horas.forEach((hora, position) => {
+                    if(index <= position) {
+                        this.active[position] = 1
+                    }else {
+                        this.active[position] = 0
+                    }
+                });
+                let url = this.base_url + '/BoatsLaravel/public/reserva/get_hora_regreso'
+                axios.post(url, {hora_salida: this.form_reserva.horaInicio_viaje, zona_horaria: this.form_reserva.zona_horaria}).then(res => {
+                    this.regreso = res.data
+                })
+            }
+        }
+    }
+</script>

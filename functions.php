@@ -16,8 +16,8 @@
 
 <!-- datepicker -->
 
-<link href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
-<link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet"/>
+<link href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+<link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet" />
 
 <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -40,7 +40,7 @@
                         <a href="#1" class="selected">
                             <span class="span-time-line"> Barco </span>
                         </a>
-                        <i class="fas fa-ship fa-xs center-li-icon-barco"></i> 
+                        <i class="fas fa-ship fa-xs center-li-icon-barco"></i>
                     </li>
                     <li id="timeline_fecha" data-bandera="2">
                         <a href="#2" class="selected"> <span class="span-time-line"> Fecha </span> </a>
@@ -75,6 +75,12 @@
         </div>
     </div>
 
+    <div class="spinner" x-show="loading">
+        <div class="caja_img">
+            <img src="https://www.eltiempo.com/files/article_main/files/crop/uploads/2022/08/06/62ef1d80a6c12.r_1659856219327.0-18-1574-804.jpeg" width="100px">
+        </div>
+    </div>
+
     <?php
 
     include_once "reserva.php";
@@ -85,6 +91,7 @@
     include_once "ReservaUsuarioExtra.html";
     include_once "ReservaUsuarioPagos.html";
     include_once "ReservaUsuarioFinal.html";
+    include_once "ReservaUsuarioHoras.html";
     // include_once "Clientes.php";
 
     /**
@@ -5009,18 +5016,14 @@
 <script>
     function app_alpine() {
         return {
-            // headers: {
-            //     Authorization: `Bearer ${token}`;
-            //     axios.get(URLConstants.USER_URL, {
-            //         headers
-            //     })
-            // },
-            pantalla: 'ReservaUsuarioFecha',
+            // pantalla: 'ReservaUsuarioHoras',
+            pantalla: 'ReservaUsuarioHoras',
+            loading: false,
             // base_url: 'https://192.168.0.18:443',
             base_url: 'https://192.168.5.115:443',
-            // base_url: 'https://192.168.5.115:443',
-            // headers: { Authorization: `Bearer ${token}` }
-            headers: { Authorization: `Bearer 6TQzUrFu82YrwiCwG4ZUcb1IEmLpOZN0wbDwJ284` },
+            headers: {
+                Authorization: `Bearer 6TQzUrFu82YrwiCwG4ZUcb1IEmLpOZN0wbDwJ284`
+            },
 
             form_reserva: {
                 //-------------------------------------------------------------------------
@@ -5040,6 +5043,7 @@
                 reserva_flex: '',
                 total_factura: '',
                 medio_pago: '',
+                zona_horaria: 'maniana',
 
                 //-------------------------------------------------------------------------
                 // User reserva
@@ -5069,11 +5073,13 @@
             init() {
                 // this.crsf()
             },
-            crsf(){
+            crsf() {
                 let url = this.base_url + '/BoatsLaravel/public/reserva/token'
                 console.log('url ==> ', url);
-                axios.post(url, { headers: ['autorize:' + this.header] }).then(res => {
-                // axios.get(url).then(res => {
+                axios.post(url, {
+                    headers: ['autorize:' + this.header]
+                }).then(res => {
+                    // axios.get(url).then(res => {
                     this.form_reserva._token = res.data
                     // this.form_reserva._token = '6TQzUrFu82YrwiCwG4ZUcb1IEmLpOZN0wbDwJ284'
                     console.log('this.form_reserva._token ==> ', this.form_reserva._token);
@@ -5083,3 +5089,28 @@
         }
     }
 </script>
+
+<style>
+    .spinner{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        top: 0;
+        left: 0;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 999999;
+        opacity: .75;
+    }
+    .caja_img{
+        width: 25%;
+        height: 100px;
+        background-color: #fff;
+        text-align: center;
+
+
+    }
+
+</style>
