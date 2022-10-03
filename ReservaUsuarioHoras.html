@@ -36,7 +36,10 @@
                     </template>
                 </div>
 
-                <button class="btn btn-blue seguir_registro mt-4" x-bind:disabled="regreso.length == 0">Seleccionar <i class="fas fa-arrow-alt-circle-right"></i></button>
+                <button class="btn btn-blue mt-4" x-bind:disabled="regreso.length == 0" @click="siguiente_pantalla()">
+                    <span> Seleccionar </span> 
+                    <i class="fas fa-arrow-alt-circle-right"></i>
+                </button>
 
             </div>
             <div class="col-12 col-lg-3 d-flex flex-column align-items-between border">
@@ -85,10 +88,20 @@
                         this.active[position] = 0
                     }
                 });
+                let permiso = true
                 let url = this.base_url + '/BoatsLaravel/public/reserva/get_hora_regreso'
                 axios.post(url, {hora_salida: this.form_reserva.horaInicio_viaje, zona_horaria: this.form_reserva.zona_horaria}).then(res => {
                     this.regreso = res.data
+                    this.regreso.forEach((row, index) => {
+                        if(row.active == 0 && permiso == true) {
+                            this.form_reserva.horafinal_viaje = this.regreso[index - 1]
+                            permiso = false
+                        }
+                    });
                 })
+            },
+            siguiente_pantalla() {
+                this.pantalla = 'ReservaUsuarioResponsable'
             }
         }
     }

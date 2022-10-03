@@ -9,9 +9,7 @@
                     <h3>¿Qué tipo de reserva deseas?</h3>
                 </div>
                 <div class="container d-flex justify-content-between flex-column flex-md-row">
-                    <!-- <button class="w-50"> -->
-                    <!-- <button class="btn btn-transparent"> -->
-                    <div class="card w-card" id="por_barco">
+                    <div class="card w-card" role="button" @click="por_barco()">
                         <div class="card-body">
                             <img src="<?php echo imagen(1) ?>" alt="">
                             <h4 class="card-title">Reserva Por Barco</h4>
@@ -22,10 +20,7 @@
                             <a href="#" class="card-link"><b>Comenzar la reserva</b> <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <!-- </button> -->
-                    <!-- </button>
-                    <button class="btn btn-transparent w-50"> -->
-                    <div class="card w-card" id="por_fechas">
+                    <div class="card w-card" role="button">
                         <div class="card-body">
                             <img src="<?php echo imagen(2) ?>" alt="">
                             <h4 class="card-title">Reserva Por Fecha</h4>
@@ -34,7 +29,6 @@
                             <a href="#" class="card-link"><b>Comenzar la reserva</b> <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <!-- </button> -->
                 </div>
             </div>
         </div>
@@ -44,7 +38,9 @@
 <script>
     function reserva_usuario() {
         return {
-
+            por_barco() {
+                this.pantalla = 'BarcosReservaUsuario'
+            }
         }
     }
 </script>

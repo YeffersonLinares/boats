@@ -89,8 +89,10 @@
                 </div>
 
                 <div class="d-flex justify-content-center mb-4">
-                    <button class="btn btn-next-extra" id="extras-siguiente">Siguiente <i
-                            class="fas fa-arrow-circle-right fa-lg"></i></button>
+                    <button class="btn btn-next-extra" @click="getExtras_to_form_reserva()">
+                        <span> Siguiente </span>
+                        <i class="fas fa-arrow-circle-right fa-lg"></i>
+                    </button>
                 </div>
             </div>
             <div class="col-12 col-lg-3">
@@ -155,6 +157,10 @@
                     });
                     item.total = total
                 }
+            },
+            getExtras_to_form_reserva() {
+                this.form_reserva.extras = this.extras
+                this.pantalla = 'ReservaUsuarioPagos'
             }
         }
     }

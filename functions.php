@@ -86,12 +86,12 @@
     include_once "reserva.php";
     include_once "BarcosReservaUsuario.html";
     include_once "ReservaUsuarioFecha.html";
+    include_once "ReservaUsuarioHoras.html";
     include_once "ReservaUsuarioResponsable.html";
     include_once "ReservaUsuarioAsistencia.html";
     include_once "ReservaUsuarioExtra.html";
     include_once "ReservaUsuarioPagos.html";
     include_once "ReservaUsuarioFinal.html";
-    include_once "ReservaUsuarioHoras.html";
     // include_once "Clientes.php";
 
     /**
@@ -5017,7 +5017,8 @@
     function app_alpine() {
         return {
             // pantalla: 'ReservaUsuarioHoras',
-            pantalla: 'ReservaUsuarioHoras',
+            // pantalla: 'ReservaUsuarioPagos',
+            pantalla: 'reserva_usuario',
             loading: false,
             // base_url: 'https://192.168.0.18:443',
             base_url: 'https://192.168.5.115:443',
@@ -5067,7 +5068,8 @@
 
                 id_reserva: '',
                 id_extra: '',
-                _token: ''
+                _token: '',
+                extras: []
             },
             cant_personas: 4,
             init() {

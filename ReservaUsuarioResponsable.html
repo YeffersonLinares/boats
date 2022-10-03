@@ -129,7 +129,10 @@
     
                     </form>
     
-                    <button class="btn btn-blue seguir_asistente" @click="val_store()">Siguiente <i class="fas fa-arrow-alt-circle-right"></i></button>
+                    <button class="btn btn-blue" @click="val_store()">
+                        <span> Siguiente </span>
+                        <i class="fas fa-arrow-alt-circle-right"></i>
+                    </button>
     
                 </div>
                 <div class="col-12 col-lg-3">
@@ -159,11 +162,10 @@
                 this.form_reserva.image = $('#blah').attr('src');
                 let url = this.base_url + '/BoatsLaravel/public/reserva/val_store_user_reserva'
                 axios.post(url, this.form_reserva).then(res => {
-                    console.log('res.data ==> ', res.data);
+                    this.pantalla = 'ReservaUsuarioAsistencia'
                 }).catch(errors => {
                     var error = Object.values(errors.response.data.errors)[0][0];
                     Swal.fire('Error', error, 'error')
-                    console.log('error ==> ', error);
                 })
             }
         }

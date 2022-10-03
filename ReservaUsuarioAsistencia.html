@@ -167,6 +167,8 @@
             next_asistencia() {
                 if(this.form_reserva.cant_adultos == 0 ) {
                     Swal.fire('', 'Debe ir por lo menos un adulto', 'error')
+                }else {
+                    this.pantalla = 'ReservaUsuarioExtra'
                 }
             }
         }

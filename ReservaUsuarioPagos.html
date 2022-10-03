@@ -1,4 +1,4 @@
-<template x-if="pantalla=='ReservaUsuarioPagos'">
+<template x-if="pantalla == 'ReservaUsuarioPagos'">
     <div x-data="ReservaUsuarioPagos()">
         <div class="container mt-7">
             <div class="mt-5 mb-3">
@@ -229,7 +229,7 @@
                     </div>
 
                     <div class="d-flex justify-content-center mb-5">
-                        <button class="btn btn-navegar">
+                        <button class="btn btn-navegar" @click="finalizar_reserva()">
                             <span class="mr-2">¡A Navegar!</span>
                             <i class="fas fa-arrow-alt-circle-right fa-lg"></i>
                         </button>
@@ -256,6 +256,10 @@
 
 <script>
     function ReservaUsuarioPagos() {
-
+        return {
+            // finalizar_reserva() {
+            //     this.pantalla = 'ReservaUsuarioFinal'
+            // }
+        }
     }
 </script>

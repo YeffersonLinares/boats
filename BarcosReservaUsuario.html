@@ -1,7 +1,6 @@
 <template x-if="pantalla=='BarcosReservaUsuario'">
     <div x-data="BarcosReservaUsuario()" x-init="getBotes()">
         <div class="container-fluid mt-7">
-            <button @click="pantalla='ReservaUsuarioAsistencia'">Catherine</button>
             <div class="row flex-lg-nyg-column-reverse">
                 <div class="col-12 col-lg-9">
                     <div class="d-flex flex-column align-items-between">
@@ -26,7 +25,7 @@
                                                         <span class="position-relative top-20 mx-2 color-gray" style="font-size: .8rem;" x-text="i.requiere"></span>
                                                     </div>
                                                     <div>
-                                                        <button class="btn btn-transparent icon-gray"><i class="fas fa-users fa-xs"></i><span class="mx-2">6</span> </button>
+                                                        <button class="btn btn-transparent icon-gray"><i class="fas fa-users fa-xs"></i><span class="mx-2" x-text="i.pasajero"></span> </button>
                                                         <button class="btn btn-transparent icon-gray"><i class="fas fa-arrow-left fa-xs"></i>
                                                             <i class="fas fa-arrow-right fa-xs"></i></button>
                                                         <span class="icon-gray" style="font-size: .8rem">4,9mts</span>
@@ -45,7 +44,7 @@
                                                     </div>
     
                                                     <div>
-                                                        <button class="btn btn-blue barco-to-asis">Seleccionar <i class="fas fa-arrow-alt-circle-right"></i></button>
+                                                        <button class="btn btn-blue" @click="siguente_pantalla(i)">Seleccionar <i class="fas fa-arrow-alt-circle-right"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -82,11 +81,15 @@
             getBotes(){
                 axios.get(this.base_url+"/BoatsLaravel/public/reserva/barco_detalles").then(resp =>{
                     this.botes = resp.data.data;
-                    console.log("this.botes",this.botes);
                 })
             },
             init(){
                 this.cant_personas = 10
+            },
+            siguente_pantalla(i) {
+                this.form_reserva.id_vote = i.id
+                this.cant_personas = i.pasajero
+                this.pantalla = 'ReservaUsuarioFecha'
             }
         }
     }
