@@ -30,7 +30,8 @@
                                     +15€
                                 </strong>
                             </template>
-                            <button type="button" class="btn" x-text="i.hora" x-bind:class="i.active == 1 ? 'active mt-4_5' : ''">
+                            <button type="button" class="btn" x-text="i.hora" 
+                            x-bind:class="is_active(i)" @click="horas_extra(i, index)">
                             </button>
                         </div>
                     </template>
@@ -64,6 +65,7 @@
             horas: [],
             active: [],
             regreso: [],
+            hora_temporal: '',
             init() {
                 this.getHoras()    
             },
@@ -81,6 +83,7 @@
             },
             add_active(index) {
                 this.form_reserva.horaInicio_viaje = this.horas[index]
+                this.precio_horas_extra = 0
                 this.horas.forEach((hora, position) => {
                     if(index <= position) {
                         this.active[position] = 1
@@ -94,7 +97,8 @@
                     this.regreso = res.data
                     this.regreso.forEach((row, index) => {
                         if(row.active == 0 && permiso == true) {
-                            this.form_reserva.horafinal_viaje = this.regreso[index - 1]
+                            this.form_reserva.horafinal_viaje = this.regreso[index - 1].hora
+                            this.hora_temporal = this.regreso[index - 1].hora
                             permiso = false
                         }
                     });
@@ -102,6 +106,36 @@
             },
             siguiente_pantalla() {
                 this.pantalla = 'ReservaUsuarioResponsable'
+            },
+            horas_extra(i, index) {
+                let contador = 0
+                this.precio_horas_extra = 0
+                this.regreso.forEach((row, position) => {
+                    if(position <= index) {
+                        if(row.active == 0) {
+                            row.active = 2
+                        }
+                        if(row.active == 2) {
+                            contador++
+                            this.precio_horas_extra += 15
+                            this.form_reserva.horafinal_viaje = i.hora
+                        }
+                    }else {
+                        if(row.active == 2) {
+                            row.active = 0
+                        }
+                    }
+                })
+
+                if(contador == 0) {
+                    this.form_reserva.horafinal_viaje = this.hora_temporal
+                }
+            },
+            is_active(i) {
+                if(i.active == 1) {
+                    return 'active mt-4_5'
+                }else if(i.active == 2) return 'active'
+                else return ''
             }
         }
     }

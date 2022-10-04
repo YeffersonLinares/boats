@@ -5016,9 +5016,9 @@
 <script>
     function app_alpine() {
         return {
-            // pantalla: 'ReservaUsuarioHoras',
+            pantalla: 'ReservaUsuarioHoras',
             // pantalla: 'ReservaUsuarioPagos',
-            pantalla: 'reserva_usuario',
+            // pantalla: 'reserva_usuario',
             loading: false,
             // base_url: 'https://192.168.0.18:443',
             base_url: 'https://192.168.5.115:443',
@@ -5072,6 +5072,7 @@
                 extras: []
             },
             cant_personas: 4,
+            precio_horas_extra: 0,
             init() {
                 // this.crsf()
             },
