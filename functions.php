@@ -28,7 +28,7 @@
 
 <div x-data="app_alpine()">
 
-    <div class="timeline d-flex fixed-top bg-white pt-5">
+    <!-- <div class="timeline d-flex fixed-top bg-white pt-5">
         <div class="events">
             <ol>
                 <ul>
@@ -73,7 +73,7 @@
                 </ul>
             </ol>
         </div>
-    </div>
+    </div> -->
 
     <div class="spinner" x-show="loading">
         <div class="caja_img">
@@ -5016,7 +5016,7 @@
 <script>
     function app_alpine() {
         return {
-            pantalla: 'ReservaUsuarioHoras',
+            pantalla: 'ReservaUsuarioFecha',
             // pantalla: 'ReservaUsuarioPagos',
             // pantalla: 'reserva_usuario',
             loading: false,
@@ -5073,6 +5073,7 @@
             },
             cant_personas: 4,
             precio_horas_extra: 0,
+            auxiliares: {tipo_reserva: 'fecha'},
             init() {
                 // this.crsf()
             },

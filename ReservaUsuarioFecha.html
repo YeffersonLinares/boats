@@ -69,10 +69,14 @@
                 this.disabledDates()
             },
             disabledDates() {
-                let url = this.base_url + '/BoatsLaravel/public/reserva/validar_fechas'
-                axios.post(url, { id: this.form_reserva.id_vote }).then(res => {
-                    this.datepicker(res.data.response)
-                })
+                if(this.auxiliares.tipo_reserva == 'fecha') {
+                    this.datepicker([])
+                }else {
+                    let url = this.base_url + '/BoatsLaravel/public/reserva/validar_fechas'
+                    axios.post(url, { id: this.form_reserva.id_vote }).then(res => {
+                        this.datepicker(res.data.response)
+                    })
+                }
             },
             validar_zona_horaria() {
                 let url = this.base_url + '/BoatsLaravel/public/reserva/validar_zona_horaria'
@@ -103,25 +107,25 @@
                             return [disabled_dates.indexOf(string) == -1]
                         },
                     }).change(() => {
-                        this.form_reserva.fecha_inicio_viaje = $('#fechaInicio').val()
-                        params.fecha = $('#fechaInicio').val()
-                        let url = base_url + '/BoatsLaravel/public/reserva/validar_zona_horaria'
-                        axios.post(url, params ).then(res => {
-                            response = res.data
-                            if(res.data.maniana == 1) $('#por_la_maniana').removeClass('d-none')
-                            else $('#por_la_maniana').addClass('d-none')
-
-                            if(res.data.tarde == 1) $('#por_la_tarde').removeClass('d-none')
-                            else $('#por_la_tarde').addClass('d-none')
-                            
-                            if(res.data.todo_dia == 1) $('#por_la_dia').removeClass('d-none')
-                            else $('#por_la_dia').addClass('d-none')
-                        })
+                            this.form_reserva.fecha_inicio_viaje = $('#fechaInicio').val()
+                            params.fecha = $('#fechaInicio').val()
+                            let url = base_url + '/BoatsLaravel/public/reserva/validar_zona_horaria'
+                            axios.post(url, params ).then(res => {
+                                response = res.data
+                                if(res.data.maniana == 1) $('#por_la_maniana').removeClass('d-none')
+                                else $('#por_la_maniana').addClass('d-none')
+    
+                                if(res.data.tarde == 1) $('#por_la_tarde').removeClass('d-none')
+                                else $('#por_la_tarde').addClass('d-none')
+                                
+                                if(res.data.todo_dia == 1) $('#por_la_dia').removeClass('d-none')
+                                else $('#por_la_dia').addClass('d-none')
+                            })
                     })
             },
             seleccionar_zona_horaria(zona_horaria) {
                 this.form_reserva.zona_horaria = zona_horaria
-                this.pantalla = 'ReservaUsuarioHoras'
+                    this.pantalla = 'ReservaUsuarioHoras'
             }
         }
     }
