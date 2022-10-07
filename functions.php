@@ -5016,12 +5016,12 @@
 <script>
     function app_alpine() {
         return {
-            pantalla: 'ReservaUsuarioFecha',
+            pantalla: 'BarcosReservaUsuario',
             // pantalla: 'ReservaUsuarioPagos',
             // pantalla: 'reserva_usuario',
             loading: false,
-            // base_url: 'https://192.168.0.18:443',
-            base_url: 'https://192.168.5.115:443',
+            base_url: 'https://192.168.0.18:443',
+            // base_url: 'https://192.168.5.115:443',
             headers: {
                 Authorization: `Bearer 6TQzUrFu82YrwiCwG4ZUcb1IEmLpOZN0wbDwJ284`
             },
@@ -5032,7 +5032,7 @@
                 //-------------------------------------------------------------------------
                 id: 1,
                 id_vote: 1,
-                fecha_inicio_viaje: '',
+                fecha_inicio_viaje: '10/13/2022',
                 horaInicio_viaje: '',
                 horafinal_viaje: '',
                 cant_adultos: 0,

@@ -90,7 +90,11 @@
             siguente_pantalla(i) {
                 this.form_reserva.id_vote = i.id
                 this.cant_personas = i.pasajero
-                this.pantalla = 'ReservaUsuarioFecha'
+                if(this.auxiliares.tipo_reserva == 'fecha') {
+                    this.pantalla = 'ReservaUsuarioHoras'
+                }else {
+                    this.pantalla = 'ReservaUsuarioFecha'
+                }
             }
         }
     }
