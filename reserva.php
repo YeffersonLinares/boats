@@ -20,7 +20,7 @@
                             <a href="#" class="card-link"><b>Comenzar la reserva</b> <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="card w-card" role="button">
+                    <div class="card w-card" role="button" @click="por_fecha()">
                         <div class="card-body">
                             <img src="<?php echo imagen(2) ?>" alt="">
                             <h4 class="card-title">Reserva Por Fecha</h4>
@@ -40,6 +40,10 @@
         return {
             por_barco() {
                 this.pantalla = 'BarcosReservaUsuario'
+                this.auxiliares.tipo_reserva = ''
+            },por_fecha(){
+                this.auxiliares.tipo_reserva = 'fecha'
+                this.pantalla = 'ReservaUsuarioFecha'
             }
         }
     }

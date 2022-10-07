@@ -28,7 +28,7 @@
 
 <div x-data="app_alpine()">
 
-    <!-- <div class="timeline d-flex fixed-top bg-white pt-5">
+    <div class="timeline d-flex fixed-top bg-white pt-5">
         <div class="events">
             <ol>
                 <ul>
@@ -73,7 +73,7 @@
                 </ul>
             </ol>
         </div>
-    </div> -->
+    </div>
 
     <div class="spinner" x-show="loading">
         <div class="caja_img">
@@ -5016,12 +5016,11 @@
 <script>
     function app_alpine() {
         return {
-            pantalla: 'BarcosReservaUsuario',
             // pantalla: 'ReservaUsuarioPagos',
-            // pantalla: 'reserva_usuario',
+            pantalla: 'reserva_usuario',
             loading: false,
-            base_url: 'https://192.168.0.18:443',
-            // base_url: 'https://192.168.5.115:443',
+            // base_url: 'https://192.168.0.18:443',
+            base_url: 'https://192.168.5.112:443',
             headers: {
                 Authorization: `Bearer 6TQzUrFu82YrwiCwG4ZUcb1IEmLpOZN0wbDwJ284`
             },
@@ -5030,9 +5029,9 @@
                 //-------------------------------------------------------------------------
                 // Tabla reserva
                 //-------------------------------------------------------------------------
-                id: 1,
-                id_vote: 1,
-                fecha_inicio_viaje: '10/13/2022',
+                id: '',
+                id_vote: '',
+                fecha_inicio_viaje: '',
                 horaInicio_viaje: '',
                 horafinal_viaje: '',
                 cant_adultos: 0,
@@ -5044,7 +5043,7 @@
                 reserva_flex: '',
                 total_factura: '',
                 medio_pago: '',
-                zona_horaria: 'maniana',
+                zona_horaria: '',
 
                 //-------------------------------------------------------------------------
                 // User reserva
@@ -5071,31 +5070,17 @@
                 _token: '',
                 extras: []
             },
-            cant_personas: 4,
+            cant_personas: 0,
             precio_horas_extra: 0,
-            auxiliares: {tipo_reserva: 'fecha'},
-            init() {
-                // this.crsf()
+            auxiliares: {
+                tipo_reserva: ''
             },
-            crsf() {
-                let url = this.base_url + '/BoatsLaravel/public/reserva/token'
-                console.log('url ==> ', url);
-                axios.post(url, {
-                    headers: ['autorize:' + this.header]
-                }).then(res => {
-                    // axios.get(url).then(res => {
-                    this.form_reserva._token = res.data
-                    // this.form_reserva._token = '6TQzUrFu82YrwiCwG4ZUcb1IEmLpOZN0wbDwJ284'
-                    console.log('this.form_reserva._token ==> ', this.form_reserva._token);
-                })
-            }
-
         }
     }
 </script>
 
 <style>
-    .spinner{
+    .spinner {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -5108,7 +5093,8 @@
         z-index: 999999;
         opacity: .75;
     }
-    .caja_img{
+
+    .caja_img {
         width: 25%;
         height: 100px;
         background-color: #fff;
@@ -5116,5 +5102,4 @@
 
 
     }
-
 </style>

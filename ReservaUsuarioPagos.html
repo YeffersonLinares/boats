@@ -36,14 +36,14 @@
                                 <!-- </blockquote> -->
                                 <div class="d-flex">
                                     <div class="form-check" style="margin-right: 5rem;">
-                                        <input x-data="form_reserva.fianza" class="form-check-input" type="radio" name="flexRadioDefault"
+                                        <input x-model="form_reserva.fianza" class="form-check-input" type="radio" name="flexRadioDefault"
                                             id="flexRadioDefault1" checked>
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             El día de la reserva
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input x-data="form_reserva.fianza" class="form-check-input" type="radio" name="flexRadioDefault"
+                                        <input x-model="form_reserva.fianza" class="form-check-input" type="radio" name="flexRadioDefault"
                                             id="flexRadioDefault2">
                                         <label class="form-check-label" for="flexRadioDefault2">
                                             Pagar ahora
@@ -70,14 +70,14 @@
                                 <div class="d-flex">
                                     <div class="form-check" style="margin-right: 5rem;">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault1"
-                                            id="flexRadioDefault3" checked x-data="form_reserva.reserva_flex">
+                                            id="flexRadioDefault3" checked x-model="form_reserva.reserva_flex">
                                         <label class="form-check-label" for="flexRadioDefault3">
                                             No gracias, sé que no ocurrirá ningún imprevisto
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault1"
-                                            id="flexRadioDefault4" x-data="form_reserva.reserva_flex">
+                                            id="flexRadioDefault4" x-model="form_reserva.reserva_flex">
                                         <label class="form-check-label" for="flexRadioDefault4">
                                             Si, deseo poder cambiar la fecha o cancelar la reserva
                                         </label>
@@ -101,14 +101,14 @@
                                 <div class="d-flex">
                                     <div class="form-check" style="margin-right: 5rem;">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault2"
-                                            id="flexRadioDefault5" checked x-data="form_reserva.total_factura">
+                                            id="flexRadioDefault5" checked x-model="form_reserva.total_factura">
                                         <label class="form-check-label" for="flexRadioDefault5">
                                             Deseo pagar un mínimo para reservar
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault2"
-                                            id="flexRadioDefault6" x-data="form_reserva.total_factura">
+                                            id="flexRadioDefault6" x-model="form_reserva.total_factura">
                                         <label class="form-check-label" for="flexRadioDefault6">
                                             Deseo pagar el 100% de la reserva
                                         </label>
@@ -152,7 +152,7 @@
                             <div class="d-flex mb-2">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault6"
-                                        id="flexRadioDefault8" x-data="form_reserva.medio_pago">
+                                        id="flexRadioDefault8" x-model="form_reserva.medio_pago">
                                     <label class="form-check-label" for="flexRadioDefault8">
                                         <b>Paypal</b>
                                     </label>
@@ -170,7 +170,7 @@
                             <div class="d-flex mb-2">
                                 <div class="form-check mr-4">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault6"
-                                        id="flexRadioDefault9" x-data="form_reserva.medio_pago">
+                                        id="flexRadioDefault9" x-model="form_reserva.medio_pago">
                                     <label class="form-check-label" for="flexRadioDefault9">
                                         <b>Bizum</b>
                                     </label>
@@ -192,7 +192,7 @@
                             <div class="d-flex mb-2">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault6"
-                                        id="flexRadioDefault10" x-data="form_reserva.medio_pago">
+                                        id="flexRadioDefault10" x-model="form_reserva.medio_pago">
                                     <label class="form-check-label" for="flexRadioDefault10">
                                         <b>Transferencia Bancaria</b>
                                     </label>
@@ -212,7 +212,7 @@
                             <div class="d-flex mb-2">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault6"
-                                        id="flexRadioDefault11" x-data="form_reserva.medio_pago">
+                                        id="flexRadioDefault11" x-model="form_reserva.medio_pago">
                                     <label class="form-check-label" for="flexRadioDefault11">
                                         <b>Cupón de descuento</b>
                                     </label>
@@ -257,9 +257,13 @@
 <script>
     function ReservaUsuarioPagos() {
         return {
-            // finalizar_reserva() {
-            //     this.pantalla = 'ReservaUsuarioFinal'
-            // }
+            finalizar_reserva() {
+                let url = this.base_url + '/BoatsLaravel/public/reserva/store-reserva'
+                axios.post(url, {form_reserva: this.form_reserva, precio_horas_extra: this.precio_horas_extra}).then(res => {
+                    this.form_reserva.id = res.data.id
+                    this.pantalla = 'ReservaUsuarioFinal'
+                })
+            }
         }
     }
 </script>
