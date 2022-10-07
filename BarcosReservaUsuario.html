@@ -25,7 +25,7 @@
                                                         <span class="position-relative top-20 mx-2 color-gray" style="font-size: .8rem;" x-text="i.requiere"></span>
                                                     </div>
                                                     <div>
-                                                        <button class="btn btn-transparent icon-gray"><i class="fas fa-users fa-xs"></i><span class="mx-2" x-text="i.pasajero"></span> </button>
+                                                        <button class="btn btn-transparent icon-gray"><i class="fas fa-users fa-xs"></i><span class="mx-2" x-text="i.cant_pasajeros"></span> </button>
                                                         <button class="btn btn-transparent icon-gray"><i class="fas fa-arrow-left fa-xs"></i>
                                                             <i class="fas fa-arrow-right fa-xs"></i></button>
                                                         <span class="icon-gray" style="font-size: .8rem">4,9mts</span>
@@ -89,7 +89,7 @@
             },
             siguente_pantalla(i) {
                 this.form_reserva.id_vote = i.id
-                this.cant_personas = i.pasajero
+                this.cant_personas = i.cant_pasajeros
                 if(this.auxiliares.tipo_reserva == 'fecha') {
                     this.pantalla = 'ReservaUsuarioHoras'
                 }else {
