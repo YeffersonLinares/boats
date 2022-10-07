@@ -36,11 +36,14 @@
                                                 <div class="d-flex justify-content-between align-items-center mt-2">
     
                                                     <div class="d-flex flex-column mr-3">
-                                                        <template x-for="(item,position) in i.bote_valores">
+                                                        <!-- <template x-for="(item,position) in i.bote_valores"> -->
                                                             <div>
-                                                                <strong class="color-gray f-8" x-text="item.horas + 'hs ' + item.valor + '€'"></strong>
+                                                                <strong class="color-gray f-8" x-text="'4hs ' + i.valor_cuatro_horas + '€'"></strong>
                                                             </div>
-                                                        </template>
+                                                            <div>
+                                                                <strong class="color-gray f-8" x-text="'8hs ' + i.valor_ocho_horas + '€'"></strong>
+                                                            </div>
+                                                        <!-- </template> -->
                                                     </div>
     
                                                     <div>
@@ -83,9 +86,6 @@
                 axios.post(url, {fecha: this.form_reserva.fecha_inicio_viaje, zona_horaria: this.form_reserva.zona_horaria}).then(resp =>{
                     this.botes = resp.data.data;
                 })
-            },
-            init(){
-                this.cant_personas = 10
             },
             siguente_pantalla(i) {
                 this.form_reserva.id_vote = i.id
