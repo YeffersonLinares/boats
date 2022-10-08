@@ -84,14 +84,39 @@
     <?php
 
     include_once "reserva.php";
-    include_once "BarcosReservaUsuario.html";
-    include_once "ReservaUsuarioFecha.html";
-    include_once "ReservaUsuarioHoras.html";
-    include_once "ReservaUsuarioResponsable.html";
-    include_once "ReservaUsuarioAsistencia.html";
-    include_once "ReservaUsuarioExtra.html";
-    include_once "ReservaUsuarioPagos.html";
-    include_once "ReservaUsuarioFinal.html";
+    ?>
+    <template x-if="pantalla!='reserva_usuario'">
+        <div class="row flex-lg-nyg-column-reverse mt-7">
+            <div class="col-12 col-lg-9 px-lg-5">
+                <?php
+                include_once "BarcosReservaUsuario.html";
+                include_once "ReservaUsuarioFecha.html";
+                include_once "ReservaUsuarioHoras.html";
+                include_once "ReservaUsuarioResponsable.html";
+                include_once "ReservaUsuarioAsistencia.html";
+                include_once "ReservaUsuarioExtra.html";
+                include_once "ReservaUsuarioPagos.html";
+                include_once "ReservaUsuarioFinal.html";
+                ?>
+            </div>
+            <div class="col-12 col-lg-3 mb-3">
+                <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                    <a class="navbar-brand" href="#"></a>
+                    <button class="navbar-toggler btn-toggle-nyg" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-list"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="d-flex flex-column align-items-between border mt-2 w-100">
+                            <div class="contenido">
+                                asdasasd
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </template>
+    <?php
     // include_once "Clientes.php";
 
     /**

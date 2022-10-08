@@ -1,61 +1,46 @@
 <template x-if="pantalla=='ReservaUsuarioHoras'">
-    <div class="container mt-7" x-data="ReservaUsuarioHoras()">
-        <div class="row flex-lg-nyg-column-reverse">
-            <div class="col-12 col-lg-9">
-                <div class="w-100 text-center my-5">
-                    <h5>La disponibilidad horaria de esta embarcación 
-                        <span class="texto_seleccion" role="button" x-text="'Por la ' + form_reserva.zona_horaria"> </span> 
-                    </h5>
-                </div>
-
-                <div class="mb-2">
-                    <strong class="color-dark-extras">Salida:</strong>
-                </div>
-                <div class="row btns-hour">
-                    <template x-for="(i,index) in horas" :key="index">
-                        <div class="col-6 col-sm-3 col-md-3 col-lg-2 d-flex justify-content-center">
-                            <button type="button" class="btn" x-text="i" x-bind:class="active[index] == 1 ? 'active' : ''" 
-                            @click="add_active(index)"></button>
-                        </div>
-                    </template>
-                </div>
-                <div class="mb-2">
-                    <strong class="color-dark-extras">Regreso:</strong>
-                </div>
-                <div class="row btns-hour">
-                    <template x-for="(i,index) in regreso" :key="index">
-                        <div class="col-6 col-sm-3 col-md-3 col-lg-2 d-flex justify-content-center" x-bind:class="i.active != 1 ? 'flex-column' : ''">
-                            <template x-if="i.active != 1">
-                                <strong class="color-blue text-end pe-5">
-                                    +15€
-                                </strong>
-                            </template>
-                            <button type="button" class="btn" x-text="i.hora" 
-                            x-bind:class="is_active(i)" @click="horas_extra(i, index)">
-                            </button>
-                        </div>
-                    </template>
-                </div>
-
-                <button class="btn btn-blue mt-4" x-bind:disabled="regreso.length == 0" @click="siguiente_pantalla()">
-                    <span> Seleccionar </span> 
-                    <i class="fas fa-arrow-alt-circle-right"></i>
-                </button>
-
-            </div>
-            <div class="col-12 col-lg-3 d-flex flex-column align-items-between border">
-                <nav class="navbar navbar-expand-lg navbar-light bg-white">
-                    <button class="navbar-toggler btn-toggle-nyg" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-list"></i>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <div class="d-flex flex-column align-items-between border mt-2 w-100">
-                            <div class="contenido"></div>
-                        </div>
-                    </div>
-                </nav>
-            </div>
+    <div class="container" x-data="ReservaUsuarioHoras()">
+        <div class="w-100 text-center my-5">
+            <h5>La disponibilidad horaria de esta embarcación
+                <span class="texto_seleccion" role="button" x-text="'Por la ' + form_reserva.zona_horaria"> </span>
+            </h5>
         </div>
+
+        <div class="mb-2">
+            <strong class="color-dark-extras">Salida:</strong>
+        </div>
+        <div class="row btns-hour">
+            <template x-for="(i,index) in horas" :key="index">
+                <div class="col-6 col-sm-3 col-md-3 col-lg-2 d-flex justify-content-center">
+                    <button type="button" class="btn" x-text="i" x-bind:class="active[index] == 1 ? 'active' : ''"
+                        @click="add_active(index)"></button>
+                </div>
+            </template>
+        </div>
+        <div class="mb-2">
+            <strong class="color-dark-extras">Regreso:</strong>
+        </div>
+        <div class="row btns-hour">
+            <template x-for="(i,index) in regreso" :key="index">
+                <div class="col-6 col-sm-3 col-md-3 col-lg-2 d-flex justify-content-center"
+                    x-bind:class="i.active != 1 ? 'flex-column' : ''">
+                    <template x-if="i.active != 1">
+                        <strong class="color-blue text-end pe-5">
+                            +15€
+                        </strong>
+                    </template>
+                    <button type="button" class="btn" x-text="i.hora" x-bind:class="is_active(i)"
+                        @click="horas_extra(i, index)">
+                    </button>
+                </div>
+            </template>
+        </div>
+
+        <button class="btn btn-blue mt-4" x-bind:disabled="regreso.length == 0" @click="siguiente_pantalla()">
+            <span> Seleccionar </span>
+            <i class="fas fa-arrow-alt-circle-right"></i>
+        </button>
+
     </div>
 </template>
 
@@ -67,13 +52,13 @@
             regreso: [],
             hora_temporal: '',
             init() {
-                this.getHoras()    
+                this.getHoras()
             },
             getHoras() {
                 this.loading = true
                 this.active = []
                 let url = this.base_url + '/BoatsLaravel/public/reserva/traer_horas'
-                axios.post(url, {id: this.form_reserva.id_vote, zona_horaria: this.form_reserva.zona_horaria}).then(res => {
+                axios.post(url, { id: this.form_reserva.id_vote, zona_horaria: this.form_reserva.zona_horaria }).then(res => {
                     this.horas = res.data
                     this.horas.forEach(hora => {
                         this.active.push(0)
@@ -85,18 +70,18 @@
                 this.form_reserva.horaInicio_viaje = this.horas[index]
                 this.precio_horas_extra = 0
                 this.horas.forEach((hora, position) => {
-                    if(index <= position) {
+                    if (index <= position) {
                         this.active[position] = 1
-                    }else {
+                    } else {
                         this.active[position] = 0
                     }
                 });
                 let permiso = true
                 let url = this.base_url + '/BoatsLaravel/public/reserva/get_hora_regreso'
-                axios.post(url, {hora_salida: this.form_reserva.horaInicio_viaje, zona_horaria: this.form_reserva.zona_horaria}).then(res => {
+                axios.post(url, { hora_salida: this.form_reserva.horaInicio_viaje, zona_horaria: this.form_reserva.zona_horaria }).then(res => {
                     this.regreso = res.data
                     this.regreso.forEach((row, index) => {
-                        if(row.active == 0 && permiso == true) {
+                        if (row.active == 0 && permiso == true) {
                             this.form_reserva.horafinal_viaje = this.regreso[index - 1].hora
                             this.hora_temporal = this.regreso[index - 1].hora
                             permiso = false
@@ -111,30 +96,30 @@
                 let contador = 0
                 this.precio_horas_extra = 0
                 this.regreso.forEach((row, position) => {
-                    if(position <= index) {
-                        if(row.active == 0) {
+                    if (position <= index) {
+                        if (row.active == 0) {
                             row.active = 2
                         }
-                        if(row.active == 2) {
+                        if (row.active == 2) {
                             contador++
                             this.precio_horas_extra += 15
                             this.form_reserva.horafinal_viaje = i.hora
                         }
-                    }else {
-                        if(row.active == 2) {
+                    } else {
+                        if (row.active == 2) {
                             row.active = 0
                         }
                     }
                 })
 
-                if(contador == 0) {
+                if (contador == 0) {
                     this.form_reserva.horafinal_viaje = this.hora_temporal
                 }
             },
             is_active(i) {
-                if(i.active == 1) {
+                if (i.active == 1) {
                     return 'active mt-4_5'
-                }else if(i.active == 2) return 'active'
+                } else if (i.active == 2) return 'active'
                 else return ''
             }
         }

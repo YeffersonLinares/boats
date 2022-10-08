@@ -1,5 +1,5 @@
 <template x-if="pantalla == 'ReservaUsuarioExtra'">
-    <div class="container mt-7" x-data="ReservaUsuarioExtra()">
+    <div class="container" x-data="ReservaUsuarioExtra()">
         <div class="mt-5 mb-3">
             <div class="d-flex justify-content-between">
                 <div class="icon-gray btn-atras-extras">
@@ -13,102 +13,83 @@
             <div>
             </div>
         </div>
-        <div class="row flex-lg-nyg-column-reverse">
-            <div class="col-12 col-lg-9">
-                <div class="container-fluid">
-                    <nav>
-                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <template x-for="(i,index) in extras_type" :key="index">
-                                <button class="nav-link" x-bind:class="index == 0 ? 'active' : ''"
-                                    :id="'tabla_'+ index +'_tab'" data-bs-toggle="tab"
-                                    :data-bs-target="'#nav-' + index + '-home'" type="button" role="tab"
-                                    :aria-controls="'nav-' + index +'-home'"
-                                    :aria-selected="index == 0 ? 'true' : 'false'">
-                                    <span x-text="i"></span>
-                                    <?php echo $tipos->tipo ?>
-                                </button>
-                            </template>
-                        </div>
-                    </nav>
-                    <div class="tab-content" id="nav-tabContent">
-                        <template x-for="(i,index) in extras" :key="index">
-                            <div class="tab-pane fade show" x-bind:class="index == 0 ? 'active' : ''"
-                                :id="'nav-' + index + '-home'" role="tabpanel"
-                                :aria-labelledby="'tabla_' + index + '_tab'">
-                                <div class="row row-cols-1 row-cols-md-3 g-4 p-3">
-                                    <template x-for="(item, key) in i" :key="key">
-                                        <div class="col mb-5">
-                                                <div class="card">
-                                                    <button class="btn btn-transparent position-absolute end-0 text-white"><i
-                                                            class="fas fa-search-plus fa-xl"></i></button>
-                                                    <div>
-                                                        <button class="btn btn-direction position-absolute top-25"><i
-                                                                class="fas fa-chevron-left"></i></button>
-                                                        <button class="btn btn-direction position-absolute top-25 end-0"><i
-                                                                class="fas fa-chevron-right"></i></button>
-                                                        <img :src="(base_image + item.principal).replace('./', '/')" class="card-img-top">
+        <div class="container-fluid">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <template x-for="(i,index) in extras_type" :key="index">
+                        <button class="nav-link" x-bind:class="index == 0 ? 'active' : ''" :id="'tabla_'+ index +'_tab'"
+                            data-bs-toggle="tab" :data-bs-target="'#nav-' + index + '-home'" type="button" role="tab"
+                            :aria-controls="'nav-' + index +'-home'" :aria-selected="index == 0 ? 'true' : 'false'">
+                            <span x-text="i"></span>
+                            <?php echo $tipos->tipo ?>
+                        </button>
+                    </template>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <template x-for="(i,index) in extras" :key="index">
+                    <div class="tab-pane fade show" x-bind:class="index == 0 ? 'active' : ''"
+                        :id="'nav-' + index + '-home'" role="tabpanel" :aria-labelledby="'tabla_' + index + '_tab'">
+                        <div class="row row-cols-1 row-cols-md-3 g-4 p-3">
+                            <template x-for="(item, key) in i" :key="key">
+                                <div class="col mb-5">
+                                    <div class="card">
+                                        <button class="btn btn-transparent position-absolute end-0 text-white"><i
+                                                class="fas fa-search-plus fa-xl"></i></button>
+                                        <div>
+                                            <button class="btn btn-direction position-absolute top-25"><i
+                                                    class="fas fa-chevron-left"></i></button>
+                                            <button class="btn btn-direction position-absolute top-25 end-0"><i
+                                                    class="fas fa-chevron-right"></i></button>
+                                            <img :src="(base_image + item.principal).replace('./', '/')"
+                                                class="card-img-top">
+                                        </div>
+                                        <div class="card-body extras-price">
+                                            <h5 class="card-title" x-text="item.nombre">
+                                            </h5>
+                                            <p x-text="item.descripcion">
+                                            </p>
+                                            <template x-for="(detalle,posicion) in item.detalles">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <button class="btn btn-minus"
+                                                            @click="indice_retroceso(detalle,item)">
+                                                            <i class="fas fa-minus-circle fa-lg"></i></button>
+                                                        <span class="span-quantity" x-text="detalle.count"></span>
+                                                        <button class="btn btn-minus">
+                                                            <i class="fas fa-plus-circle fa-lg"
+                                                                @click="indice_avance(detalle, item)"></i></button>
+                                                        <span class="f-9 span-descrip" x-text="detalle.descripcion">
+                                                        </span>
                                                     </div>
-                                                    <div class="card-body extras-price">
-                                                        <h5 class="card-title" x-text="item.nombre">
-                                                        </h5>
-                                                        <p x-text="item.descripcion">
-                                                        </p>
-                                                        <template x-for="(detalle,posicion) in item.detalles">
-                                                            <div class="d-flex justify-content-between align-items-center">
-                                                                <div class="d-flex align-items-center">
-                                                                    <button class="btn btn-minus" @click="indice_retroceso(detalle,item)">
-                                                                        <i class="fas fa-minus-circle fa-lg"></i></button>
-                                                                    <span class="span-quantity" x-text="detalle.count"></span>
-                                                                    <button class="btn btn-minus">
-                                                                        <i class="fas fa-plus-circle fa-lg" @click="indice_avance(detalle, item)"></i></button>
-                                                                    <span class="f-9 span-descrip" x-text="detalle.descripcion">
-                                                                    </span>
-                                                                </div>
-                                                                <div>
-                                                                    <span class="span-price" x-text="detalle.valor + ' €'">
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </template>
-            
-                                                        <div class="d-flex justify-content-end color-blue">
-                                                            <span class="color-blue">
-                                                                <b x-text="item.total + '€'"></b>
-                                                            </span> 
-                                                        </div>
+                                                    <div>
+                                                        <span class="span-price" x-text="detalle.valor + ' €'">
+                                                        </span>
                                                     </div>
                                                 </div>
-                                        </div>
-                                    </template>
-                                </div>
-    
-    
-                            </div>
-                        </template>
-                    </div>
-                </div>
+                                            </template>
 
-                <div class="d-flex justify-content-center mb-4">
-                    <button class="btn btn-next-extra" @click="getExtras_to_form_reserva()">
-                        <span> Siguiente </span>
-                        <i class="fas fa-arrow-circle-right fa-lg"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3">
-                <nav class="navbar navbar-expand-lg navbar-light bg-white">
-                    <button class="navbar-toggler btn-toggle-nyg" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-list"></i>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <div class="d-flex flex-column align-items-between border mt-2 w-100">
-                            <div class="contenido"></div>
+                                            <div class="d-flex justify-content-end color-blue">
+                                                <span class="color-blue">
+                                                    <b x-text="item.total + '€'"></b>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
                         </div>
+
+
                     </div>
-                </nav>
+                </template>
             </div>
+        </div>
+        <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-next-extra" @click="getExtras_to_form_reserva()">
+                <span> Siguiente </span>
+                <i class="fas fa-arrow-circle-right fa-lg"></i>
+            </button>
         </div>
     </div>
 </template>
@@ -117,7 +98,7 @@
     function ReservaUsuarioExtra() {
         return {
             init() {
-              this.getExtras()  
+                this.getExtras()
             },
             base_image: window.location.origin + '/boats',
             ind_avance: -1,
@@ -125,7 +106,7 @@
             extras_type: [],
             getExtras() {
                 let url = this.base_url + '/BoatsLaravel/public/reserva/extras_por_barco'
-                axios.post(url, {id: this.form_reserva.id_vote}).then(res => {
+                axios.post(url, { id: this.form_reserva.id_vote }).then(res => {
                     this.extras = res.data
                     for (const key in this.extras) this.extras_type[key] = this.extras[key]
                     this.extras_type = Object.keys(this.extras_type)
@@ -149,7 +130,7 @@
                 item.total = total
             },
             indice_retroceso(detalle, item) {
-                if(detalle.count > 0) {
+                if (detalle.count > 0) {
                     detalle.count--
                     let total = 0
                     item.detalles.forEach(element => {

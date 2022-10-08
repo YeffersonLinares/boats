@@ -1,54 +1,36 @@
 <template x-if="pantalla=='ReservaUsuarioFecha'">
     <div x-data="ReservaUsuarioFecha()">
-        <div class="container mt-7">
-            <div class="row flex-lg-nyg-column-reverse">
-                <div class="col-12 col-lg-9 mb-4">
-                    <div class="w-100 text-center my-5">
-                        <h3>¿Qué fechas deseas?</h3>
-                    </div>
+        <div class="container">
+            <div class="w-100 text-center my-5">
+                <h3>¿Qué fechas deseas?</h3>
+            </div>
 
-                    <div class="w-100 text-center my-5">
-                        <div class="row">
-                            <div class="col-12 col-md-4"></div>
-                            <div class="col-12 col-md-4">
-                                <div>
-                                    <label for="fechaInicio">Fecha</label>
-                                    <input type="text" id="fechaInicio">
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-4"></div>
+            <div class="w-100 text-center my-5">
+                <div class="row">
+                    <div class="col-12 col-md-4"></div>
+                    <div class="col-12 col-md-4">
+                        <div>
+                            <label for="fechaInicio">Fecha</label>
+                            <input type="text" id="fechaInicio">
                         </div>
                     </div>
-                    <template x-if="true">
-                        <div class="buttons-defect">
-                            <div class="d-flex justify-content-center w-100">
-                                <div class="container-btn zone_hour d-none" id="por_la_maniana" @click="seleccionar_zona_horaria('maniana')">
-                                    <strong class="color-gray-dark"> Por la mañana </strong>
-                                </div>
-                                <div class="container-btn zone_hour d-none" id="por_la_tarde" @click="seleccionar_zona_horaria('tarde')">
-                                    <strong class="color-gray-dark"> Por la tarde </strong>
-                                </div>
-                                <div class="container-btn zone_hour d-none" id="por_la_dia" @click="seleccionar_zona_horaria('todo_dia')">
-                                    <strong class="color-gray-dark"> Todo el día </strong>
-                                </div>
-                            </div>
-                        </div>
-                    </template>
-
+                    <div class="col-12 col-md-4"></div>
                 </div>
-                <div class="col-12 col-lg-3 d-flex flex-column align-items-between border">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-                        <button class="navbar-toggler btn-toggle-nyg" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <i class="fas fa-list"></i>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <div class="d-flex flex-column align-items-between border mt-2 w-100">
-                                <div class="contenido"></div>
-                            </div>
-                        </div>
-                    </nav>
+            </div>
+            <div class="buttons-defect">
+                <div class="d-flex justify-content-center w-100">
+                    <div class="container-btn zone_hour d-none" id="por_la_maniana"
+                        @click="seleccionar_zona_horaria('maniana')">
+                        <strong class="color-gray-dark"> Por la mañana </strong>
+                    </div>
+                    <div class="container-btn zone_hour d-none" id="por_la_tarde"
+                        @click="seleccionar_zona_horaria('tarde')">
+                        <strong class="color-gray-dark"> Por la tarde </strong>
+                    </div>
+                    <div class="container-btn zone_hour d-none" id="por_la_dia"
+                        @click="seleccionar_zona_horaria('todo_dia')">
+                        <strong class="color-gray-dark"> Todo el día </strong>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,9 +51,9 @@
                 this.disabledDates()
             },
             disabledDates() {
-                if(this.auxiliares.tipo_reserva == 'fecha') {
+                if (this.auxiliares.tipo_reserva == 'fecha') {
                     this.datepicker([])
-                }else {
+                } else {
                     let url = this.base_url + '/BoatsLaravel/public/reserva/validar_fechas'
                     axios.post(url, { id: this.form_reserva.id_vote }).then(res => {
                         this.datepicker(res.data.response)
@@ -80,52 +62,56 @@
             },
             validar_zona_horaria() {
                 let url = this.base_url + '/BoatsLaravel/public/reserva/validar_zona_horaria'
-                axios.post(url, {id: this.form_reserva.id_vote, fecha: this.fecha_zona}).then(res => {
+                axios.post(url, { id: this.form_reserva.id_vote, fecha: this.fecha_zona }).then(res => {
                 })
             },
             datepicker(disabled_dates) {
-                    let params = {id: this.form_reserva.id_vote, fecha: this.fecha_zona}
-                    let base_url = this.base_url
-                    let response = null
-                    $("#fechaInicio").datepicker({
-                        changeMonth: true,
-                        changeYear: true,
-                        autoclose: false,
-                        firstDay: 1,
-                        minDate: new Date(),
-                        yearRange: '2005:' + String((new Date()).getFullYear() + 1),
-                        format: "dd/mm/yyyy",
-                        monthNames: ['Enero', 'Febrero', 'Marzo',
-                            'Abril', 'Mayo', 'Junio',
-                            'Julio', 'Agosto', 'Septiembre',
-                            'Octubre', 'Noviembre', 'Diciembre'],
-                        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
-                            'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-                        dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
-                        beforeShowDay: function (date) {
-                            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                            return [disabled_dates.indexOf(string) == -1]
-                        },
-                    }).change(() => {
-                            this.form_reserva.fecha_inicio_viaje = $('#fechaInicio').val()
-                            params.fecha = $('#fechaInicio').val()
-                            let url = base_url + '/BoatsLaravel/public/reserva/validar_zona_horaria'
-                            axios.post(url, params ).then(res => {
-                                response = res.data
-                                if(res.data.maniana == 1) $('#por_la_maniana').removeClass('d-none')
-                                else $('#por_la_maniana').addClass('d-none')
-    
-                                if(res.data.tarde == 1) $('#por_la_tarde').removeClass('d-none')
-                                else $('#por_la_tarde').addClass('d-none')
-                                
-                                if(res.data.todo_dia == 1) $('#por_la_dia').removeClass('d-none')
-                                else $('#por_la_dia').addClass('d-none')
-                            })
+                let params = { id: this.form_reserva.id_vote, fecha: this.fecha_zona }
+                let base_url = this.base_url
+                let response = null
+                $("#fechaInicio").datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    autoclose: false,
+                    firstDay: 1,
+                    minDate: new Date(),
+                    yearRange: '2005:' + String((new Date()).getFullYear() + 1),
+                    format: "dd/mm/yyyy",
+                    monthNames: ['Enero', 'Febrero', 'Marzo',
+                        'Abril', 'Mayo', 'Junio',
+                        'Julio', 'Agosto', 'Septiembre',
+                        'Octubre', 'Noviembre', 'Diciembre'],
+                    monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
+                        'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                    dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+                    beforeShowDay: function (date) {
+                        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                        return [disabled_dates.indexOf(string) == -1]
+                    },
+                }).change(() => {
+                    this.form_reserva.fecha_inicio_viaje = $('#fechaInicio').val()
+                    params.fecha = $('#fechaInicio').val()
+                    let url = base_url + '/BoatsLaravel/public/reserva/validar_zona_horaria'
+                    axios.post(url, params).then(res => {
+                        response = res.data
+                        if (res.data.maniana == 1) $('#por_la_maniana').removeClass('d-none')
+                        else $('#por_la_maniana').addClass('d-none')
+
+                        if (res.data.tarde == 1) $('#por_la_tarde').removeClass('d-none')
+                        else $('#por_la_tarde').addClass('d-none')
+
+                        if (res.data.todo_dia == 1) $('#por_la_dia').removeClass('d-none')
+                        else $('#por_la_dia').addClass('d-none')
                     })
+                })
             },
             seleccionar_zona_horaria(zona_horaria) {
                 this.form_reserva.zona_horaria = zona_horaria
+                if (this.auxiliares.tipo_reserva == 'fecha') {
+                    this.pantalla = 'BarcosReservaUsuario'
+                } else {
                     this.pantalla = 'ReservaUsuarioHoras'
+                }
             }
         }
     }
