@@ -85,6 +85,7 @@
             },
             siguente_pantalla(i) {
                 this.form_reserva.id_vote = i.id
+                this.form_resumen.nombre_bote = i.nombre
                 this.cant_personas = i.cant_pasajeros
                 if (this.auxiliares.tipo_reserva == 'fecha') {
                     this.pantalla = 'ReservaUsuarioHoras'

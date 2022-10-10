@@ -91,6 +91,7 @@
                 }).change(() => {
                     this.form_reserva.fecha_inicio_viaje = $('#fechaInicio').val()
                     params.fecha = $('#fechaInicio').val()
+                    this.form_resumen.fecha = $('#fechaInicio').val()
                     let url = base_url + '/BoatsLaravel/public/reserva/validar_zona_horaria'
                     axios.post(url, params).then(res => {
                         response = res.data

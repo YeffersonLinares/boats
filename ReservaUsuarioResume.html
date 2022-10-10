@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <a class="navbar-brand" href="#"></a>
-    <button class="navbar-toggler btn-toggle-nyg" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler btn-toggle-nyg" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
         <i class="fas fa-list"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -9,22 +11,28 @@
                 <label for="">Resumen</label>
                 <div class="border">
                     <div>
-                        <img src="/boats/uploads/vote/2022_06_29-23_37_34_20200610_124247-scaled-(2).jpg" style="width: 100%; height: 10rem;" alt="">
+                        <img src="/boats/uploads/vote/2022_06_29-23_37_34_20200610_124247-scaled-(2).jpg"
+                            style="width: 100%; height: 10rem;" alt="">
                     </div>
-                    <div class="d-flex justify-content-between m-1 mt-2">
-                        <div class="d-flex">
-                            <button class="ico-circle"> <i class="fas fa-ship"></i> </button>
-                            <label class="color-dark-extras"> <b> Namaré </b> </label>
+                    <template x-if="form_resumen.nombre_bote">
+                        <div class="d-flex justify-content-between m-1 mt-2">
+                            <div class="d-flex">
+                                <button class="ico-circle"> <i class="fas fa-ship"></i> </button>
+                                <label class="color-dark-extras"> <b x-text="form_resumen.nombre_bote"> Namaré </b>
+                                </label>
+                            </div>
+                            <label class="label-txt-blu">175,00€</label>
                         </div>
-                        <label class="label-txt-blu">175,00€</label>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2 m-1">
-                        <div class="d-flex">
-                            <button class="ico-circle"> <i class="fas fa-calendar-alt"></i> </button>
-                            <label class="color-dark-extras"> <b> Fecha: </b> </label>
+                    </template>
+                    <template x-if="form_resumen.fecha">
+                        <div class="d-flex justify-content-between mt-2 m-1">
+                            <div class="d-flex">
+                                <button class="ico-circle"> <i class="fas fa-calendar-alt"></i> </button>
+                                <label class="color-dark-extras"> <b> Fecha: </b> </label>
+                            </div>
+                            <label class="label-txt" x-text="form_resumen.fecha"></label>
                         </div>
-                        <label class="label-txt">14/09/2022</label>
-                    </div>
+                    </template>
                     <div class="d-flex justify-content-between mt-2 m-1">
                         <div class="d-flex">
                             <div>
@@ -51,7 +59,7 @@
                             <button class="ico-circle"> <i class="fa-solid fa-user"></i> </button>
                             <label class="color-dark-extras"><b> Responsable </b></label>
                         </div>
-                        <label class="label-txt">Salavarria</label>
+                        <label class="label-txt" x-text="form_reserva.nombre"></label>
                     </div>
                     <div class="d-flex justify-content-between mt-2 m-1">
                         <div class="d-flex">
@@ -63,8 +71,8 @@
                             </div>
                         </div>
                         <div class="d-flex flex-column align-items-end">
-                            <label class="label-txt">5 adultos</label>
-                            <label class="label-txt">2 niños</label>
+                            <label class="label-txt" x-text="form_reserva.cant_adultos + ' adultos'"></label>
+                            <label class="label-txt" x-text="'2 niños' "></label>
                         </div>
                     </div>
 

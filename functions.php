@@ -1704,13 +1704,6 @@
 
         <!-- Fin de descripción -->
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-        </script>
-
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <!-- Inicio links adelante -->
-
         <script>
             $('body').on('click', '.btn-ellipsis-script', function() {
                 let id = $(this).data('id')
@@ -1868,62 +1861,6 @@
 
     // Add block patterns
     require get_template_directory() . '/inc/block-patterns.php';
-
-
-    function subir_archivo($archivo, $carpeta, $retornarName = null)
-    {
-        $tumb = '';
-        $target_path = '';
-        if (!empty($_FILES[$archivo]['name'])) {
-            $extencion = substr($_FILES[$archivo]['name'], -4, 4);
-
-            $tumb = limpiarCaracteresString(date('Y_m_d H_i_s') . "_" . $_FILES[$archivo]['name']);
-
-            $tumb = str_replace(' ', '_', $tumb);
-            if (strpos($carpeta, 'uploads'))
-                $targetPath = $carpeta;
-            else
-                $targetPath = "./uploads/" . $carpeta;
-            if (!file_exists($targetPath)) {
-                mkdir($targetPath, 0777, true);
-            }
-            $target_path = $targetPath . '/' . $tumb;
-            if (move_uploaded_file($_FILES[$archivo]['tmp_name'], $target_path)) {
-            }
-        }
-        if ($retornarName != null) {
-            return $tumb;
-        } else
-            return $target_path;
-    }
-
-    function sinTildes($cadena)
-    {
-        $originales = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿ??';
-        $modificadas = 'aaaaaaaceeeeiiiidnoooooouuuuybsaaaaaaaceeeeiiiidnoooooouuuyybyRr';
-        $cadena = utf8_decode($cadena);
-        $cadena = strtr($cadena, utf8_decode($originales), $modificadas);
-        $cadena = strtolower($cadena);
-        return utf8_encode($cadena);
-    }
-
-    function limpiarCaracteresString($string)
-    {
-        $no_permitidas = array("á", "é", "í", "ó", "ú", "Á", "É", "Í", "Ó", "Ú", "ñ", "À", "Ã", "Ì", "Ò", "Ù", "Ã™", "Ã ", "Ã¨", "Ã¬", "Ã²", "Ã¹", "ç", "Ç", "Ã¢", "ê", "Ã®", "Ã´", "Ã»", "Ã‚", "ÃŠ", "ÃŽ", "Ã”", "Ã›", "ü", "Ã¶", "Ã–", "Ã¯", "Ã¤", "«", "Ò", "Ã?", "Ã„", "Ã‹");
-        $permitidas = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U", "n", "N", "A", "E", "I", "O", "U", "a", "e", "i", "o", "u", "c", "C", "a", "e", "i", "o", "u", "A", "E", "I", "O", "U", "u", "o", "O", "i", "a", "e", "U", "I", "A", "E");
-        $string = htmlentities($string);
-        $string = preg_replace('/\&(.)[^;]*;/', '\\1', $string);
-        $string = str_replace(' ', '-', $string);
-        $string = str_replace($no_permitidas, $permitidas, $string);
-        return sinTildes($string);
-    }
-
-    function print_y($array)
-    {
-        echo "<pre>";
-        print_r($array);
-        echo "</pre>";
-    }
 
 
     add_shortcode('plugin_create_boat', 'plugin_create_b');
@@ -2939,6 +2876,8 @@
 
 </div>
 
+<!-- Inicio Alpine -->
+
 <script>
     function app_alpine() {
         return {
@@ -2995,6 +2934,10 @@
                 id_extra: '',
                 _token: '',
                 extras: []
+            },
+            form_resumen: {
+                nombre_bote: '',
+                fecha: '',
             },
             cant_personas: 0,
             precio_horas_extra: 0,
