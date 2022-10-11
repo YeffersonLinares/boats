@@ -90,6 +90,8 @@
                 })
             },
             siguiente_pantalla() {
+                this.form_resumen.hora_inicio = this.form_reserva.horaInicio_viaje
+                this.form_resumen.hora_fin = this.form_reserva.horafinal_viaje
                 this.pantalla = 'ReservaUsuarioResponsable'
             },
             horas_extra(i, index) {

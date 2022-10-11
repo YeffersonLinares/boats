@@ -2936,8 +2936,12 @@
                 extras: []
             },
             form_resumen: {
+                image_bote: '',
                 nombre_bote: '',
                 fecha: '',
+                hora_inicio: '',
+                hora_fin: ''
+
             },
             cant_personas: 0,
             precio_horas_extra: 0,

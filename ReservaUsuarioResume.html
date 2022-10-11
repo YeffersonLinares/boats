@@ -10,10 +10,13 @@
             <div class="">
                 <label for="">Resumen</label>
                 <div class="border">
-                    <div>
-                        <img src="/boats/uploads/vote/2022_06_29-23_37_34_20200610_124247-scaled-(2).jpg"
-                            style="width: 100%; height: 10rem;" alt="">
-                    </div>
+                    <template x-if="form_resumen.image_bote">
+                        <div>
+                            <img :src="form_resumen.image_bote" style="width: 100%; height: 10rem;" alt="">
+                            <!-- <img src="/boats/uploads/vote/2022_06_29-23_37_34_20200610_124247-scaled-(2).jpg"
+                                style="width: 100%; height: 10rem;" alt=""> -->
+                        </div>
+                    </template>
                     <template x-if="form_resumen.nombre_bote">
                         <div class="d-flex justify-content-between m-1 mt-2">
                             <div class="d-flex">
@@ -33,34 +36,40 @@
                             <label class="label-txt" x-text="form_resumen.fecha"></label>
                         </div>
                     </template>
-                    <div class="d-flex justify-content-between mt-2 m-1">
-                        <div class="d-flex">
-                            <div>
-                                <button class="ico-circle"> <i class="fa-solid fa-clock"></i> </button>
+                    <template x-if="form_resumen.hora_inicio">
+                        <div class="d-flex justify-content-between mt-2 m-1">
+                            <div class="d-flex">
+                                <div>
+                                    <button class="ico-circle"> <i class="fa-solid fa-clock"></i> </button>
+                                </div>
+                                <div class="d-flex flex-column labels-regreso">
+                                    <label class="color-dark-extras"><b> Salida: </b></label>
+                                    <label class="color-dark-extras"><b> Regreso: </b></label>
+                                </div>
                             </div>
-                            <div class="d-flex flex-column labels-regreso">
-                                <label class="color-dark-extras"><b> Salida: </b></label>
-                                <label class="color-dark-extras"><b> Regreso: </b></label>
+                            <div class="d-flex flex-column align-items-end">
+                                <label class="label-txt" x-text="form_resumen.hora_inicio"></label>
+                                <label class="label-txt" x-text="'(+) ' + form_resumen.hora_fin"></label>
                             </div>
                         </div>
-                        <div class="d-flex flex-column align-items-end">
-                            <label class="label-txt">09h30</label>
-                            <label class="label-txt">(+) 15h30</label>
+                    </template>
+                    <template x-if="form_resumen.hora_inicio">
+                        <div class="d-flex justify-content-end">
+                            <label class="label-txt-blu">+75€</label>
                         </div>
-                    </div>
-                    <div class="d-flex justify-content-end">
-                        <label class="label-txt-blu">+75€</label>
-                    </div>
+                    </template>
 
                     <hr>
 
-                    <div class="d-flex justify-content-between m-1 mt-2">
-                        <div class="d-flex">
-                            <button class="ico-circle"> <i class="fa-solid fa-user"></i> </button>
-                            <label class="color-dark-extras"><b> Responsable </b></label>
+                    <template x-if="form_reserva.nombre">
+                        <div class="d-flex justify-content-between m-1 mt-2">
+                            <div class="d-flex">
+                                <button class="ico-circle"> <i class="fa-solid fa-user"></i> </button>
+                                <label class="color-dark-extras"><b> Responsable </b></label>
+                            </div>
+                            <label class="label-txt" x-text="form_reserva.nombre"></label>
                         </div>
-                        <label class="label-txt" x-text="form_reserva.nombre"></label>
-                    </div>
+                    </template>
                     <div class="d-flex justify-content-between mt-2 m-1">
                         <div class="d-flex">
                             <div>
