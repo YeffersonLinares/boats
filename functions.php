@@ -2940,7 +2940,10 @@
                 nombre_bote: '',
                 fecha: '',
                 hora_inicio: '',
-                hora_fin: ''
+                hora_fin: '',
+                cant_ninios: '',
+                cant_adultos: '',
+                responsable: '',
 
             },
             cant_personas: 0,

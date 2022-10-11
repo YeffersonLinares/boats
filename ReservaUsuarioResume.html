@@ -61,29 +61,31 @@
 
                     <hr>
 
-                    <template x-if="form_reserva.nombre">
+                    <template x-if="form_resumen.responsable">
                         <div class="d-flex justify-content-between m-1 mt-2">
                             <div class="d-flex">
                                 <button class="ico-circle"> <i class="fa-solid fa-user"></i> </button>
                                 <label class="color-dark-extras"><b> Responsable </b></label>
                             </div>
-                            <label class="label-txt" x-text="form_reserva.nombre"></label>
+                            <label class="label-txt" x-text="form_resumen.responsable"></label>
                         </div>
                     </template>
-                    <div class="d-flex justify-content-between mt-2 m-1">
-                        <div class="d-flex">
-                            <div>
-                                <button class="ico-circle"> <i class="fa-solid fa-users"></i> </button>
+                    <template x-if="form_resumen.cant_ninios">
+                        <div class="d-flex justify-content-between mt-2 m-1">
+                            <div class="d-flex">
+                                <div>
+                                    <button class="ico-circle"> <i class="fa-solid fa-users"></i> </button>
+                                </div>
+                                <div class="d-flex flex-column labels-regreso">
+                                    <label class="color-dark-extras"><b> Asistentes </b></label>
+                                </div>
                             </div>
-                            <div class="d-flex flex-column labels-regreso">
-                                <label class="color-dark-extras"><b> Asistentes </b></label>
+                            <div class="d-flex flex-column align-items-end">
+                                <label class="label-txt" x-text="form_resumen.cant_adultos + ' adultos'"></label>
+                                <label class="label-txt" x-text="form_resumen.cant_ninios + ' niños' "></label>
                             </div>
                         </div>
-                        <div class="d-flex flex-column align-items-end">
-                            <label class="label-txt" x-text="form_reserva.cant_adultos + ' adultos'"></label>
-                            <label class="label-txt" x-text="'2 niños' "></label>
-                        </div>
-                    </div>
+                    </template>
 
                     <hr>
 
