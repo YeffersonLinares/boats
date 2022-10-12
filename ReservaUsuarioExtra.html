@@ -140,22 +140,20 @@
                 }
             },
             getExtras_to_form_reserva() {
+                this.form_resumen.extras = []
                 this.form_reserva.extras = this.extras
                 this.form_reserva.extras.forEach(tipo_extras => {
                     tipo_extras.forEach(extra => {
-                        console.log('extra ==> ', extra.count);
+                        extra.detalles.forEach(detalle => {
+                            if (detalle.count > 0) {
+                                var valor = detalle.count * detalle.valor
+                                this.form_resumen.total = parseInt(this.form_resumen.total) + valor
+                                this.form_resumen.extras.push({ nombre: extra.nombre, cantidad: detalle.count, precio: valor, descripcion: detalle.descripcion })
+                            }
+                        });
                     })
                 })
-                // foreach($form_reserva['extras'] as $tipo_extras) :
-                // foreach($tipo_extras as $extra) {
-                //     foreach($extra['detalles'] as $value) {
-                //         if ($value['count'] > 0) {
-                //             $valor_extras += $value['valor'] * $value['count'];
-                //             array_push($extras, ['id_extra_detalle' => $value['id'], 'cantidad' => $value['count']]);
-                //         }
-                //     }
-                // }
-                // endforeach;
+                console.log('form_resumen.extras ==> ', this.form_resumen.extras);
                 this.pantalla = 'ReservaUsuarioPagos'
             }
         }

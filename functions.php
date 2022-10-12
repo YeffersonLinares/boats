@@ -19,7 +19,6 @@
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 <div x-data="app_alpine()">
-    <?php include_once 'ReservaUsuarioTimeline.html' ?>
 
     <div class="spinner" x-show="loading">
         <div class="caja_img">
@@ -27,7 +26,12 @@
         </div>
     </div>
 
-    <?php include_once "reserva.php"; ?>
+    <?php
+        if ($_SERVER["REQUEST_URI"] == '/boats/reserva/') {
+            include_once "reserva.php";
+            include_once 'ReservaUsuarioTimeline.html';
+        }
+    ?>
     <template x-if="pantalla!='reserva_usuario'">
         <div class="row flex-lg-nyg-column-reverse mt-7">
             <div class="col-12 col-lg-9 px-lg-5">
@@ -2886,10 +2890,6 @@
             loading: false,
             // base_url: 'https://192.168.0.18:443',
             base_url: 'https://192.168.5.112:443',
-            headers: {
-                Authorization: `Bearer 6TQzUrFu82YrwiCwG4ZUcb1IEmLpOZN0wbDwJ284`
-            },
-
             form_reserva: {
                 //-------------------------------------------------------------------------
                 // Tabla reserva
@@ -2944,6 +2944,9 @@
                 cant_ninios: '',
                 cant_adultos: '',
                 responsable: '',
+                valor_extras: 0,
+                extras: [],
+                total: 0
 
             },
             cant_personas: 0,

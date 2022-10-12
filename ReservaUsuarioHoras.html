@@ -25,8 +25,8 @@
                 <div class="col-6 col-sm-3 col-md-3 col-lg-2 d-flex justify-content-center"
                     x-bind:class="i.active != 1 ? 'flex-column' : ''">
                     <template x-if="i.active != 1">
-                        <strong class="color-blue text-end pe-5">
-                            +15€
+                        <strong class="color-blue text-end pe-5" x-text="'+'+valor_hora_extra+'€'">
+                        <!-- +15€ -->
                         </strong>
                     </template>
                     <button type="button" class="btn" x-text="i.hora" x-bind:class="is_active(i)"
@@ -51,6 +51,7 @@
             active: [],
             regreso: [],
             hora_temporal: '',
+            valor_hora_extra: '',
             init() {
                 this.getHoras()
             },
@@ -59,7 +60,9 @@
                 this.active = []
                 let url = this.base_url + '/BoatsLaravel/public/reserva/traer_horas'
                 axios.post(url, { id: this.form_reserva.id_vote, zona_horaria: this.form_reserva.zona_horaria }).then(res => {
-                    this.horas = res.data
+                    this.horas = res.data.hours
+                    this.valor_hora_extra = res.data.valor_hora_extra
+                    this.form_resumen.total = parseInt(this.form_resumen.total) + parseInt(res.data.precio_bote)
                     this.horas.forEach(hora => {
                         this.active.push(0)
                     });
@@ -79,7 +82,7 @@
                 let permiso = true
                 let url = this.base_url + '/BoatsLaravel/public/reserva/get_hora_regreso'
                 axios.post(url, { hora_salida: this.form_reserva.horaInicio_viaje, zona_horaria: this.form_reserva.zona_horaria }).then(res => {
-                    this.regreso = res.data
+                    this.regreso = res.data.hours
                     this.regreso.forEach((row, index) => {
                         if (row.active == 0 && permiso == true) {
                             this.form_reserva.horafinal_viaje = this.regreso[index - 1].hora
@@ -92,6 +95,8 @@
             siguiente_pantalla() {
                 this.form_resumen.hora_inicio = this.form_reserva.horaInicio_viaje
                 this.form_resumen.hora_fin = this.form_reserva.horafinal_viaje
+                this.form_resumen.valor_extras = this.precio_horas_extra
+                this.form_resumen.total = parseInt(this.form_resumen.total) + this.precio_horas_extra
                 this.pantalla = 'ReservaUsuarioResponsable'
             },
             horas_extra(i, index) {
@@ -104,7 +109,7 @@
                         }
                         if (row.active == 2) {
                             contador++
-                            this.precio_horas_extra += 15
+                            this.precio_horas_extra += this.valor_hora_extra
                             this.form_reserva.horafinal_viaje = i.hora
                         }
                     } else {
