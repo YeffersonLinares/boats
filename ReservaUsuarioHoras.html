@@ -61,6 +61,7 @@
                 let url = this.base_url + '/BoatsLaravel/public/reserva/traer_horas'
                 axios.post(url, { id: this.form_reserva.id_vote, zona_horaria: this.form_reserva.zona_horaria }).then(res => {
                     this.horas = res.data.hours
+                    this.form_resumen.precio_bote = res.data.precio_bote
                     this.valor_hora_extra = res.data.valor_hora_extra
                     this.form_resumen.total = parseInt(this.form_resumen.total) + parseInt(res.data.precio_bote)
                     this.horas.forEach(hora => {

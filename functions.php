@@ -2946,7 +2946,8 @@
                 responsable: '',
                 valor_extras: 0,
                 extras: [],
-                total: 0
+                total: 0,
+                precio_bote: '',
 
             },
             cant_personas: 0,

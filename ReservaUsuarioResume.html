@@ -24,7 +24,9 @@
                                 <label class="color-dark-extras"> <b x-text="form_resumen.nombre_bote"> Namaré </b>
                                 </label>
                             </div>
-                            <label class="label-txt-blu">175,00€</label>
+                            <template x-if="form_resumen.precio_bote">
+                                <label class="label-txt-blu" x-text="form_resumen.precio_bote + '€'"></label>
+                            </template>
                         </div>
                     </template>
                     <template x-if="form_resumen.fecha">
