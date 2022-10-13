@@ -180,9 +180,11 @@
         return {
             reserva_final: {},
             init() {
+                this.loading = true
                 let url = this.base_url + '/BoatsLaravel/public/reserva/resume_reserva_final'
                 axios.post(url, { id: this.form_reserva.id }).then(res => {
                     this.reserva_final = res.data
+                    this.loading = false
                 })
             },
             asistentes() {

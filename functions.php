@@ -22,15 +22,20 @@
 
     <div class="spinner" x-show="loading">
         <div class="caja_img">
-            <img src="https://www.eltiempo.com/files/article_main/files/crop/uploads/2022/08/06/62ef1d80a6c12.r_1659856219327.0-18-1574-804.jpeg" width="100px">
+            <div class="lds-facebook">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <!-- <img src="https://www.eltiempo.com/files/article_main/files/crop/uploads/2022/08/06/62ef1d80a6c12.r_1659856219327.0-18-1574-804.jpeg" width="100px"> -->
         </div>
     </div>
 
     <?php
-        if ($_SERVER["REQUEST_URI"] == '/boats/reserva/') {
-            include_once "reserva.php";
-            include_once 'ReservaUsuarioTimeline.html';
-        }
+    // if ($_SERVER["REQUEST_URI"] == '/boats/reserva/') {
+    include_once "reserva.php";
+    include_once 'ReservaUsuarioTimeline.html';
+    // }
     ?>
     <template x-if="pantalla!='reserva_usuario'">
         <div class="row flex-lg-nyg-column-reverse mt-7">
@@ -2977,9 +2982,51 @@
     .caja_img {
         width: 25%;
         height: 100px;
-        background-color: #fff;
+        /* background-color: #fff; */
         text-align: center;
+    }
 
+    .lds-facebook {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+    }
 
+    .lds-facebook div {
+        display: inline-block;
+        position: absolute;
+        left: 8px;
+        width: 16px;
+        background: #fff;
+        animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    }
+
+    .lds-facebook div:nth-child(1) {
+        left: 8px;
+        animation-delay: -0.24s;
+    }
+
+    .lds-facebook div:nth-child(2) {
+        left: 32px;
+        animation-delay: -0.12s;
+    }
+
+    .lds-facebook div:nth-child(3) {
+        left: 56px;
+        animation-delay: 0;
+    }
+
+    @keyframes lds-facebook {
+        0% {
+            top: 8px;
+            height: 64px;
+        }
+
+        50%,
+        100% {
+            top: 24px;
+            height: 32px;
+        }
     }
 </style>

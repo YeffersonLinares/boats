@@ -21,7 +21,6 @@
                             data-bs-toggle="tab" :data-bs-target="'#nav-' + index + '-home'" type="button" role="tab"
                             :aria-controls="'nav-' + index +'-home'" :aria-selected="index == 0 ? 'true' : 'false'">
                             <span x-text="i"></span>
-                            <?php echo $tipos->tipo ?>
                         </button>
                     </template>
                 </div>
@@ -105,6 +104,7 @@
             extras: [],
             extras_type: [],
             getExtras() {
+                this.loading = true
                 let url = this.base_url + '/BoatsLaravel/public/reserva/extras_por_barco'
                 axios.post(url, { id: this.form_reserva.id_vote }).then(res => {
                     this.extras = res.data
@@ -119,6 +119,7 @@
                             });
                         })
                     });
+                    this.loading = false
                 })
             },
             indice_avance(detalle, item) {

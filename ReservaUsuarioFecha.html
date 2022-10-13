@@ -51,12 +51,15 @@
                 this.disabledDates()
             },
             disabledDates() {
+                this.loading = true
                 if (this.auxiliares.tipo_reserva == 'fecha') {
                     this.datepicker([])
+                    this.loading = false
                 } else {
                     let url = this.base_url + '/BoatsLaravel/public/reserva/validar_fechas'
                     axios.post(url, { id: this.form_reserva.id_vote }).then(res => {
                         this.datepicker(res.data.response)
+                        this.loading = false
                     })
                 }
             },
@@ -66,6 +69,7 @@
                 })
             },
             datepicker(disabled_dates) {
+                this.loading = true
                 let params = { id: this.form_reserva.id_vote, fecha: this.fecha_zona }
                 let base_url = this.base_url
                 let response = null
@@ -89,6 +93,7 @@
                         return [disabled_dates.indexOf(string) == -1]
                     },
                 }).change(() => {
+                    this.loading = true
                     this.form_reserva.fecha_inicio_viaje = $('#fechaInicio').val()
                     params.fecha = $('#fechaInicio').val()
                     this.form_resumen.fecha = $('#fechaInicio').val()
@@ -103,7 +108,9 @@
 
                         if (res.data.todo_dia == 1) $('#por_la_dia').removeClass('d-none')
                         else $('#por_la_dia').addClass('d-none')
+                        this.loading = false
                     })
+
                 })
             },
             seleccionar_zona_horaria(zona_horaria) {

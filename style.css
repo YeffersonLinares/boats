@@ -1272,7 +1272,7 @@ i {
 }
 
 .mt-7 {
-    margin-top: 7rem;
+    margin-top: 7rem !important;
 }
 
 .btns-hour button:hover{

@@ -1,5 +1,5 @@
 <template x-if="pantalla=='BarcosReservaUsuario'">
-    <div x-data="BarcosReservaUsuario()" x-init="getBotes()">
+    <div x-data="BarcosReservaUsuario()">
         <div class="container-fluid">
             <div class="d-flex flex-column align-items-between">
                 <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3 g-4">
@@ -77,10 +77,15 @@
     function BarcosReservaUsuario() {
         return {
             botes: [],
+            init() {
+                this.getBotes()
+            },
             getBotes() {
+                this.loading = true
                 let url = this.base_url + "/BoatsLaravel/public/reserva/barco_detalles"
                 axios.post(url, { fecha: this.form_reserva.fecha_inicio_viaje, zona_horaria: this.form_reserva.zona_horaria }).then(resp => {
                     this.botes = resp.data.data;
+                    this.loading = false
                 })
             },
             siguente_pantalla(i) {
