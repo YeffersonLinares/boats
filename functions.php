@@ -32,10 +32,10 @@
     </div>
 
     <?php
-    // if ($_SERVER["REQUEST_URI"] == '/boats/reserva/') {
+    if ($_SERVER["REQUEST_URI"] == '/boats/reserva/' || $_SERVER["REQUEST_URI"] == '/boats/wordpress/') {
     include_once "reserva.php";
     include_once 'ReservaUsuarioTimeline.html';
-    // }
+    }
     ?>
     <template x-if="pantalla!='reserva_usuario'">
         <div class="row flex-lg-nyg-column-reverse mt-7">
@@ -2890,10 +2890,10 @@
 <script>
     function app_alpine() {
         return {
-            // pantalla: 'ReservaUsuarioPagos',
             pantalla: 'reserva_usuario',
+            // pantalla: 'ReservaUsuarioPagos',
             loading: false,
-            // base_url: 'https://192.168.0.18:443',
+            // base_url: 'https://botelaravel.rutaapp.com/',
             base_url: 'https://192.168.5.112:443',
             form_reserva: {
                 //-------------------------------------------------------------------------

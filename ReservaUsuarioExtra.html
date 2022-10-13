@@ -1,12 +1,15 @@
 <template x-if="pantalla == 'ReservaUsuarioExtra'">
     <div class="container" x-data="ReservaUsuarioExtra()">
         <div class="mt-5 mb-3">
-            <div class="d-flex justify-content-between">
-                <div class="icon-gray btn-atras-extras">
-                    <i class="fa-solid fa-circle-arrow-left"></i> Atrás
+            <div class="d-flex justify-content-between mb-3">
+                <div>
+                    <button class="btn-atras" @click="regresar_pantalla()">
+                        <i class="fa-solid fa-circle-arrow-left"></i>
+                        <strong>Atrás</strong>
+                    </button>
                 </div>
                 <div>
-                    <h3 class="text-center title-principal-css">Extras</h3>
+                    <h5> Extras </h5>
                 </div>
                 <div></div>
             </div>
@@ -104,6 +107,8 @@
             extras: [],
             extras_type: [],
             getExtras() {
+                this.form_reserva.extras = []
+                this.form_resumen.extras = []
                 this.loading = true
                 let url = this.base_url + '/BoatsLaravel/public/reserva/extras_por_barco'
                 axios.post(url, { id: this.form_reserva.id_vote }).then(res => {
@@ -156,6 +161,9 @@
                 })
                 console.log('form_resumen.extras ==> ', this.form_resumen.extras);
                 this.pantalla = 'ReservaUsuarioPagos'
+            },
+            regresar_pantalla() {
+                this.pantalla = 'ReservaUsuarioAsistencia'
             }
         }
     }

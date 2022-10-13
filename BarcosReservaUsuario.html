@@ -1,6 +1,18 @@
 <template x-if="pantalla=='BarcosReservaUsuario'">
     <div x-data="BarcosReservaUsuario()">
         <div class="container-fluid">
+            <div class="d-flex justify-content-between mb-3">
+                <div>
+                    <button class="btn-atras" @click="regresar_pantalla()">
+                        <i class="fa-solid fa-circle-arrow-left"></i>
+                        <strong>Atrás</strong>
+                    </button>
+                </div>
+                <div>
+                    <h5>Elige el barco que te guste</h5>
+                </div>
+                <div></div>
+            </div>
             <div class="d-flex flex-column align-items-between">
                 <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3 g-4">
                     <template x-for="(i,index) in botes" :key="index">
@@ -97,6 +109,13 @@
                     this.pantalla = 'ReservaUsuarioHoras'
                 } else {
                     this.pantalla = 'ReservaUsuarioFecha'
+                }
+            },
+            regresar_pantalla() {
+                if (this.auxiliares.tipo_reserva == 'fecha') {
+                    this.pantalla = 'ReservaUsuarioFecha'
+                } else {
+                    this.pantalla = 'reserva_usuario'
                 }
             }
         }

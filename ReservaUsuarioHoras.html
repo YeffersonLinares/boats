@@ -1,9 +1,18 @@
 <template x-if="pantalla=='ReservaUsuarioHoras'">
     <div class="container" x-data="ReservaUsuarioHoras()">
-        <div class="w-100 text-center my-5">
-            <h5>La disponibilidad horaria de esta embarcación
-                <span class="texto_seleccion" role="button" x-text="'Por la ' + form_reserva.zona_horaria"> </span>
-            </h5>
+        <div class="d-flex justify-content-between mb-3">
+            <div>
+                <button class="btn-atras" @click="regresar_pantalla()">
+                    <i class="fa-solid fa-circle-arrow-left"></i>
+                    <strong>Atrás</strong>
+                </button>
+            </div>
+            <div>
+                <h5>La disponibilidad horaria de esta embarcación
+                    <span class="texto_seleccion" role="button" x-text="'Por la ' + form_reserva.zona_horaria"> </span>
+                </h5>
+            </div>
+            <div></div>
         </div>
 
         <div class="mb-2">
@@ -129,6 +138,13 @@
                     return 'active mt-4_5'
                 } else if (i.active == 2) return 'active'
                 else return ''
+            },
+            regresar_pantalla() {
+                if (this.auxiliares.tipo_reserva == 'fecha') {
+                    this.pantalla = 'BarcosReservaUsuario'
+                } else {
+                    this.pantalla = 'ReservaUsuarioFecha'
+                }
             }
         }
     }

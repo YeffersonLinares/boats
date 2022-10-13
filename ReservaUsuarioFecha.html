@@ -1,8 +1,18 @@
 <template x-if="pantalla=='ReservaUsuarioFecha'">
     <div x-data="ReservaUsuarioFecha()">
         <div class="container">
-            <div class="w-100 text-center my-5">
-                <h3>¿Qué fechas deseas?</h3>
+
+            <div class="d-flex justify-content-between mb-3">
+                <div>
+                    <button class="btn-atras" @click="regresar_pantalla()">
+                        <i class="fa-solid fa-circle-arrow-left"></i>
+                        <strong>Atrás</strong>
+                    </button>
+                </div>
+                <div>
+                    <h5>¿Qué fecha deseas?</h5>
+                </div>
+                <div></div>
             </div>
 
             <div class="w-100 text-center my-5">
@@ -119,6 +129,13 @@
                     this.pantalla = 'BarcosReservaUsuario'
                 } else {
                     this.pantalla = 'ReservaUsuarioHoras'
+                }
+            },
+            regresar_pantalla() {
+                if (this.auxiliares.tipo_reserva == 'fecha') {
+                    this.pantalla = 'reserva_usuario'
+                } else {
+                    this.pantalla = 'BarcosReservaUsuario'
                 }
             }
         }

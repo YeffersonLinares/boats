@@ -1,8 +1,17 @@
 <template x-if="pantalla=='ReservaUsuarioResponsable'">
     <div x-data="ReservaUsuarioResponsable()">
         <div class="container">
-            <div class="w-100 text-center my-5">
-                <h4 style="font-weight: bold"> <strong> Responsable de embarcación </strong> </h4>
+            <div class="d-flex justify-content-between mb-3">
+                <div>
+                    <button class="btn-atras" @click="regresar_pantalla()">
+                        <i class="fa-solid fa-circle-arrow-left"></i>
+                        <strong>Atrás</strong>
+                    </button>
+                </div>
+                <div>
+                    <h5> Responsable de embarcación </h5>
+                </div>
+                <div></div>
             </div>
             <div class="row">
                 <div class="col-md-6 mb-4">
@@ -155,6 +164,9 @@
                     var error = Object.values(errors.response.data.errors)[0][0];
                     Swal.fire('Error', error, 'error')
                 })
+            },
+            regresar_pantalla() {
+                this.pantalla = 'ReservaUsuarioHoras'
             }
         }
     }

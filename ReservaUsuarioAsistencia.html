@@ -1,9 +1,21 @@
 <template x-if="pantalla=='ReservaUsuarioAsistencia'">
     <div x-data="ReservaUsuarioAsistencia()">
         <div class="container">
+            <div class="d-flex justify-content-between mb-3">
+                <div>
+                    <button class="btn-atras" @click="regresar_pantalla()">
+                        <i class="fa-solid fa-circle-arrow-left"></i>
+                        <strong>Atrás</strong>
+                    </button>
+                </div>
+                <div>
+                    <h5> Personas a asistirán </h5>
+                </div>
+                <div></div>
+            </div>
             <div class="d-flex justify-content-end btn-asistieron">
                 <span>
-                    Personas a asistir:
+                    Personas a asistirán:
                 </span>
                 <button class="btn">
                     <b class="color-blue" x-text="total_personas"></b>
@@ -151,6 +163,9 @@
                     this.form_resumen.cant_ninios = this.form_reserva.cant_tres_doce + this.form_reserva.cant_uno_tres + this.form_reserva.cant_bebes
                     this.pantalla = 'ReservaUsuarioExtra'
                 }
+            },
+            regresar_pantalla() {
+                this.pantalla = 'ReservaUsuarioResponsable'
             }
         }
     }
