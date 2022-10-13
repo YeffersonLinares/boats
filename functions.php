@@ -2891,7 +2891,7 @@
     function app_alpine() {
         return {
             pantalla: 'reserva_usuario',
-            // pantalla: 'ReservaUsuarioPagos',
+            // pantalla: 'ReservaUsuarioFinal',
             loading: false,
             // base_url: 'https://botelaravel.rutaapp.com/',
             base_url: 'https://192.168.5.112:443',
