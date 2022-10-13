@@ -1,159 +1,183 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <a class="navbar-brand" href="#"></a>
-    <button class="navbar-toggler btn-toggle-nyg" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <i class="fas fa-list"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="d-flex flex-column align-items-between border mt-2 w-100">
-            <div class="">
-                <label for="">Resumen</label>
-                <div class="border">
-                    <template x-if="form_resumen.image_bote">
-                        <div>
-                            <img :src="form_resumen.image_bote" style="width: 100%; height: 10rem;" alt="">
-                            <!-- <img src="/boats/uploads/vote/2022_06_29-23_37_34_20200610_124247-scaled-(2).jpg"
-                                style="width: 100%; height: 10rem;" alt=""> -->
-                        </div>
-                    </template>
-                    <template x-if="form_resumen.nombre_bote">
-                        <div class="d-flex justify-content-between m-1 mt-2">
-                            <div class="d-flex">
-                                <button class="ico-circle"> <i class="fas fa-ship"></i> </button>
-                                <label class="color-dark-extras"> <b x-text="form_resumen.nombre_bote"> Namaré </b>
-                                </label>
-                            </div>
-                            <template x-if="form_resumen.precio_bote">
-                                <label class="label-txt-blu" x-text="form_resumen.precio_bote + '€'"></label>
+<template x-if="pantalla!='ReservaUsuarioFinal'">
+    <div x-data="ReservaUsuarioResume()">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler btn-toggle-nyg" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-list"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="d-flex flex-column align-items-between border mt-2 w-100">
+                    <div class="">
+                        <label for="">Resumen</label>
+                        <div class="border">
+                            <template x-if="form_resumen.image_bote">
+                                <div>
+                                    <img :src="form_resumen.image_bote" style="width: 100%; height: 10rem;" alt="">
+                                </div>
                             </template>
-                        </div>
-                    </template>
-                    <template x-if="form_resumen.fecha">
-                        <div class="d-flex justify-content-between mt-2 m-1">
-                            <div class="d-flex">
-                                <button class="ico-circle"> <i class="fas fa-calendar-alt"></i> </button>
-                                <label class="color-dark-extras"> <b> Fecha: </b> </label>
-                            </div>
-                            <label class="label-txt" x-text="form_resumen.fecha"></label>
-                        </div>
-                    </template>
-                    <template x-if="form_resumen.hora_inicio">
-                        <div class="d-flex justify-content-between mt-2 m-1">
-                            <div class="d-flex">
-                                <div>
-                                    <button class="ico-circle"> <i class="fa-solid fa-clock"></i> </button>
-                                </div>
-                                <div class="d-flex flex-column labels-regreso">
-                                    <label class="color-dark-extras"><b> Salida: </b></label>
-                                    <label class="color-dark-extras"><b> Regreso: </b></label>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-column align-items-end">
-                                <label class="label-txt" x-text="form_resumen.hora_inicio"></label>
-                                <label class="label-txt" x-text="'(+) ' + form_resumen.hora_fin"></label>
-                            </div>
-                        </div>
-                    </template>
-                    <template x-if="form_resumen.hora_inicio">
-                        <div class="d-flex justify-content-end">
-                            <label class="label-txt-blu" x-text="'+' + form_resumen.valor_extras + '€'">+75€</label>
-                        </div>
-                    </template>
-
-                    <hr>
-
-                    <template x-if="form_resumen.responsable">
-                        <div class="d-flex justify-content-between m-1 mt-2">
-                            <div class="d-flex">
-                                <button class="ico-circle"> <i class="fa-solid fa-user"></i> </button>
-                                <label class="color-dark-extras"><b> Responsable </b></label>
-                            </div>
-                            <label class="label-txt" x-text="form_resumen.responsable"></label>
-                        </div>
-                    </template>
-                    <template x-if="form_resumen.cant_adultos">
-                        <div class="d-flex justify-content-between mt-2 m-1">
-                            <div class="d-flex">
-                                <div>
-                                    <button class="ico-circle"> <i class="fa-solid fa-users"></i> </button>
-                                </div>
-                                <div class="d-flex flex-column labels-regreso">
-                                    <label class="color-dark-extras"><b> Asistentes </b></label>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-column align-items-end">
-                                <label class="label-txt" x-text="form_resumen.cant_adultos + ' adultos'"></label>
-                                <label class="label-txt" x-text="form_resumen.cant_ninios + ' niños' "></label>
-                            </div>
-                        </div>
-                    </template>
-
-                    <hr>
-
-                    <template x-if="form_resumen.extras.length > 0">
-                        <div class="d-flex justify-content-between mt-2 m-1">
-                            <div class="d-flex">
-                                <div>
-                                    <button class="ico-circle"> <i class="fa-solid fa-vest"></i> </button>
-                                </div>
-                                <div class="d-flex flex-column labels-regreso">
-                                    <template x-for="i in form_resumen.extras">
-                                        <div>
-                                            <label class="color-dark-extras m-0"
-                                                x-text="i.nombre + ' ' + i.descripcion + ' x ' + i.cantidad"></label>
-                                        </div>
-                                        <!-- <label class="color-dark-extras m-0">Set clásico de chaleoos x 5</label> -->
+                            <template x-if="form_resumen.nombre_bote">
+                                <div class="d-flex justify-content-between m-1 mt-2">
+                                    <div class="d-flex">
+                                        <button class="ico-circle"> <i class="fas fa-ship"></i> </button>
+                                        <label class="color-dark-extras"> <b x-text="form_resumen.nombre_bote"> Namaré
+                                            </b>
+                                        </label>
+                                    </div>
+                                    <template x-if="form_resumen.precio_bote">
+                                        <label class="label-txt-blu" x-text="form_resumen.precio_bote + '€'"></label>
                                     </template>
                                 </div>
+                            </template>
+                            <template x-if="form_resumen.fecha">
+                                <div class="d-flex justify-content-between mt-2 m-1">
+                                    <div class="d-flex">
+                                        <button class="ico-circle"> <i class="fas fa-calendar-alt"></i> </button>
+                                        <label class="color-dark-extras"> <b> Fecha: </b> </label>
+                                    </div>
+                                    <label class="label-txt" x-text="form_resumen.fecha"></label>
+                                </div>
+                            </template>
+                            <template x-if="form_resumen.hora_inicio">
+                                <div class="d-flex justify-content-between mt-2 m-1">
+                                    <div class="d-flex">
+                                        <div>
+                                            <button class="ico-circle"> <i class="fa-solid fa-clock"></i> </button>
+                                        </div>
+                                        <div class="d-flex flex-column labels-regreso">
+                                            <label class="color-dark-extras"><b> Salida: </b></label>
+                                            <label class="color-dark-extras"><b> Regreso: </b></label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column align-items-end">
+                                        <label class="label-txt" x-text="form_resumen.hora_inicio"></label>
+                                        <label class="label-txt" x-text="'(+) ' + form_resumen.hora_fin"></label>
+                                    </div>
+                                </div>
+                            </template>
+                            <template x-if="form_resumen.hora_inicio">
+                                <div class="d-flex justify-content-end">
+                                    <label class="label-txt-blu"
+                                        x-text="'+' + form_resumen.valor_extras + '€'">+75€</label>
+                                </div>
+                            </template>
+
+                            <hr>
+
+                            <template x-if="form_resumen.responsable">
+                                <div class="d-flex justify-content-between m-1 mt-2">
+                                    <div class="d-flex">
+                                        <button class="ico-circle"> <i class="fa-solid fa-user"></i> </button>
+                                        <label class="color-dark-extras"><b> Responsable </b></label>
+                                    </div>
+                                    <label class="label-txt" x-text="form_resumen.responsable"></label>
+                                </div>
+                            </template>
+                            <template x-if="form_resumen.cant_adultos">
+                                <div class="d-flex justify-content-between mt-2 m-1">
+                                    <div class="d-flex">
+                                        <div>
+                                            <button class="ico-circle"> <i class="fa-solid fa-users"></i> </button>
+                                        </div>
+                                        <div class="d-flex flex-column labels-regreso">
+                                            <label class="color-dark-extras"><b> Asistentes </b></label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column align-items-end">
+                                        <label class="label-txt"
+                                            x-text="form_resumen.cant_adultos + ' adultos'"></label>
+                                        <label class="label-txt" x-text="form_resumen.cant_ninios + ' niños' "></label>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <hr>
+
+                            <template x-if="form_resumen.extras.length > 0">
+                                <div class="d-flex justify-content-between mt-2 m-1">
+                                    <div class="d-flex">
+                                        <div>
+                                            <button class="ico-circle"> <i class="fa-solid fa-vest"></i> </button>
+                                        </div>
+                                        <div class="d-flex flex-column labels-regreso">
+                                            <template x-for="i in form_resumen.extras">
+                                                <div>
+                                                    <label class="color-dark-extras m-0"
+                                                        x-text="i.nombre + ' ' + i.descripcion + ' x ' + i.cantidad"></label>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column align-items-end">
+                                        <template x-for="i in form_resumen.extras">
+                                            <label class="label-txt m-0" x-text="i.precio + '€'"></label>
+                                        </template>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <hr>
+
+                            <!-- <div class="d-flex justify-content-between m-1 mt-2">
+                            <div class="d-flex">
+                                <button class="ico-circle"> <i class="fa-solid fa-credit-card"></i> </button>
+                                <label class="color-dark-extras"> Reserva flexible </label>
                             </div>
-                            <div class="d-flex flex-column align-items-end">
-                                <template x-for="i in form_resumen.extras">
-                                    <label class="label-txt m-0" x-text="i.precio + '€'"></label>
-                                </template>
-                                <!-- <label class="label-txt m-0">45€</label> -->
-                            </div>
+                            <label class="label-txt-blu f-9 mt-1">25€</label>
+                        </div> -->
+
+                            <hr>
+
+                            <table class="w-100">
+                                <thead class="bg-blue color-white">
+                                    <tr>
+                                        <th class="ps-2 p-1">Total:</th>
+                                        <th class="text-end pe-2 p-1" x-text="form_resumen.total + '€'"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <button class="btn color-dark-blue f-8">
+                                                <i class="fa-solid fa-floppy-disk"></i>
+                                                Guardar Borrador
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button class="btn color-dark-red f-8" @click="cancelar_todo()">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                                Cancelar Todo
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                    </template>
-
-                    <hr>
-
-                    <!-- <div class="d-flex justify-content-between m-1 mt-2">
-                        <div class="d-flex">
-                            <button class="ico-circle"> <i class="fa-solid fa-credit-card"></i> </button>
-                            <label class="color-dark-extras"> Reserva flexible </label>
-                        </div>
-                        <label class="label-txt-blu f-9 mt-1">25€</label>
-                    </div> -->
-
-                    <hr>
-
-                    <table class="w-100">
-                        <thead class="bg-blue color-white">
-                            <tr>
-                                <th class="ps-2 p-1">Total:</th>
-                                <th class="text-end pe-2 p-1" x-text="form_resumen.total + '€'"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <button class="btn color-dark-blue f-8">
-                                        <i class="fa-solid fa-floppy-disk"></i>
-                                        Guardar Borrador
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn color-dark-red f-8">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                        Cancelar Todo
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    </div>
                 </div>
             </div>
-        </div>
+        </nav>
     </div>
-</nav>
+</template>
+<script>
+    function ReservaUsuarioResume() {
+        return {
+            cancelar_todo() {
+                for (const key in this.form_reserva) this.form_reserva[key] = ''
+                this.form_reserva.cant_adultos = 0
+                this.form_reserva.cant_tres_doce = 0
+                this.form_reserva.cant_uno_tres = 0
+                this.form_reserva.cant_bebes = 0
+                this.form_reserva.extras = []
+
+                for (const key in this.form_resumen) this.form_resumen[key] = ''
+                this.form_resumen.valor_extras = 0
+                this.form_resumen.total = 0
+                this.form_resumen.extras = []
+
+                this.pantalla = 'reserva_usuario'
+            }
+        }
+    }
+</script>

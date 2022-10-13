@@ -53,7 +53,7 @@
             botes: [],
             fecha_zona: '',
             zona_horaria() {
-                // axios.get(this.base_url+"/BoatsLaravel/public/reserva/barco_detalles").then(resp =>{
+                // axios.get(this.base_url+"/reserva/barco_detalles").then(resp =>{
                 //     this.botes = resp.data.data;
                 // })
             },
@@ -66,7 +66,7 @@
                     this.datepicker([])
                     this.loading = false
                 } else {
-                    let url = this.base_url + '/BoatsLaravel/public/reserva/validar_fechas'
+                    let url = this.base_url + '/reserva/validar_fechas'
                     axios.post(url, { id: this.form_reserva.id_vote }).then(res => {
                         this.datepicker(res.data.response)
                         this.loading = false
@@ -74,7 +74,7 @@
                 }
             },
             validar_zona_horaria() {
-                let url = this.base_url + '/BoatsLaravel/public/reserva/validar_zona_horaria'
+                let url = this.base_url + '/reserva/validar_zona_horaria'
                 axios.post(url, { id: this.form_reserva.id_vote, fecha: this.fecha_zona }).then(res => {
                 })
             },
@@ -107,7 +107,7 @@
                     this.form_reserva.fecha_inicio_viaje = $('#fechaInicio').val()
                     params.fecha = $('#fechaInicio').val()
                     this.form_resumen.fecha = $('#fechaInicio').val()
-                    let url = base_url + '/BoatsLaravel/public/reserva/validar_zona_horaria'
+                    let url = base_url + '/reserva/validar_zona_horaria'
                     axios.post(url, params).then(res => {
                         response = res.data
                         if (res.data.maniana == 1) $('#por_la_maniana').removeClass('d-none')

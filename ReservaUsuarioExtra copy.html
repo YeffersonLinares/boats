@@ -173,7 +173,7 @@
             extras_type: [],
             getExtras() {
                 console.log('render getextras');
-                let url = this.base_url + '/BoatsLaravel/public/reserva/extras_por_barco'
+                let url = this.base_url + '/reserva/extras_por_barco'
                 axios.post(url, {id: this.form_reserva.id_vote}).then(res => {
                     // console.log('this.extras ==> ', this.extras);
                     let extras = {}

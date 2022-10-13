@@ -110,7 +110,7 @@
                 this.form_reserva.extras = []
                 this.form_resumen.extras = []
                 this.loading = true
-                let url = this.base_url + '/BoatsLaravel/public/reserva/extras_por_barco'
+                let url = this.base_url + '/reserva/extras_por_barco'
                 axios.post(url, { id: this.form_reserva.id_vote }).then(res => {
                     this.extras = res.data
                     for (const key in this.extras) this.extras_type[key] = this.extras[key]

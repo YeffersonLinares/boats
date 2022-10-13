@@ -33,13 +33,13 @@
 
     <?php
     if ($_SERVER["REQUEST_URI"] == '/boats/reserva/' || $_SERVER["REQUEST_URI"] == '/boats/wordpress/') {
-    include_once "reserva.php";
-    include_once 'ReservaUsuarioTimeline.html';
+        include_once "reserva.php";
+        include_once 'ReservaUsuarioTimeline.html';
     }
     ?>
     <template x-if="pantalla!='reserva_usuario'">
         <div class="row flex-lg-nyg-column-reverse mt-7">
-            <div class="col-12 col-lg-9 px-lg-5">
+            <div class="px-lg-5" x-bind:class="[pantalla=='ReservaUsuarioFinal' ? 'col-lg-12' : 'col-lg-9']">
                 <?php
                 include_once "BarcosReservaUsuario.html";
                 include_once "ReservaUsuarioFecha.html";
@@ -2893,8 +2893,8 @@
             pantalla: 'reserva_usuario',
             // pantalla: 'ReservaUsuarioFinal',
             loading: false,
-            // base_url: 'https://botelaravel.rutaapp.com/',
-            base_url: 'https://192.168.5.112:443',
+            base_url: 'https://botelaravel.rutaapp.com',
+            // base_url: 'https://192.168.5.112:443/BoatsLaravel/public',
             form_reserva: {
                 //-------------------------------------------------------------------------
                 // Tabla reserva

@@ -220,7 +220,7 @@
         return {
             finalizar_reserva() {
                 this.loading = true
-                let url = this.base_url + '/BoatsLaravel/public/reserva/store-reserva'
+                let url = this.base_url + '/reserva/store-reserva'
                 axios.post(url, { form_reserva: this.form_reserva, precio_horas_extra: this.precio_horas_extra }).then(res => {
                     this.form_reserva.id = res.data.id
                     this.loading = false

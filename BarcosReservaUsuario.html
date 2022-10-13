@@ -94,7 +94,7 @@
             },
             getBotes() {
                 this.loading = true
-                let url = this.base_url + "/BoatsLaravel/public/reserva/barco_detalles"
+                let url = this.base_url + "/reserva/barco_detalles"
                 axios.post(url, { fecha: this.form_reserva.fecha_inicio_viaje, zona_horaria: this.form_reserva.zona_horaria }).then(resp => {
                     this.botes = resp.data.data;
                     this.loading = false

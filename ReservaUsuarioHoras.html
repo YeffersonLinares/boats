@@ -67,7 +67,7 @@
             getHoras() {
                 this.loading = true
                 this.active = []
-                let url = this.base_url + '/BoatsLaravel/public/reserva/traer_horas'
+                let url = this.base_url + '/reserva/traer_horas'
                 axios.post(url, { id: this.form_reserva.id_vote, zona_horaria: this.form_reserva.zona_horaria }).then(res => {
                     this.horas = res.data.hours
                     this.form_resumen.precio_bote = res.data.precio_bote
@@ -90,7 +90,7 @@
                     }
                 });
                 let permiso = true
-                let url = this.base_url + '/BoatsLaravel/public/reserva/get_hora_regreso'
+                let url = this.base_url + '/reserva/get_hora_regreso'
                 axios.post(url, { hora_salida: this.form_reserva.horaInicio_viaje, zona_horaria: this.form_reserva.zona_horaria }).then(res => {
                     this.regreso = res.data.hours
                     this.regreso.forEach((row, index) => {

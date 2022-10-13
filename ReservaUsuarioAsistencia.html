@@ -93,7 +93,7 @@
             total_personas: 0,
             init() {
                 this.loading = true
-                let url = this.base_url + '/BoatsLaravel/public/reserva/barco_detalles'
+                let url = this.base_url + '/reserva/barco_detalles'
                 axios.post(url, { id: this.form_reserva.id_vote }).then(res => {
                     this.loading = false
                 })

@@ -1,17 +1,10 @@
 <template x-if="pantalla=='ReservaUsuarioFinal'">
     <div x-data="ReservaUsuarioFinal()">
         <div class="container">
-            <div class="mt-5 mb-3">
-                <div>
-                    <h3 class="text-center title-principal-css">A continuación tu reserva</h3>
-                </div>
-                <div>
-                    <div class="icon-gray btn-atras-resume" id="btn-atras" name="btn-atras">
-                        <i class="fa-solid fa-circle-arrow-left fa-lg"></i> Atrás
-                    </div>
-                </div>
+            <div class="my-3">
+                <h3 class="text-center title-principal-css">A continuación tu reserva</h3>
             </div>
-            <h4 class="color-oranged">Gracias. Tu pedido ha sido recibido</h4>
+            <h4 class="my-2 color-oranged">Gracias. Tu pedido ha sido recibido</h4>
             <div class="row mb-4">
                 <div class="col-12 col-sm-6 col-md-3 border-right-dotted d-flex flex-column">
                     <span>NÚMERO DEL PEDIDO:</span>
@@ -23,7 +16,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 border-right-dotted d-flex flex-column">
                     <span>EMAIL:</span>
-                    <b id="correo_end_responsable" x-text="reserva_final?.user_reserva?.email"></b>
+                    <b x-text="reserva_final?.user_reserva?.email"></b>
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 border-right-dotted d-flex flex-column">
                     <span>TOTAL:</span>
@@ -54,7 +47,10 @@
             <h2><b>CUENTA EXPANSIÓN</b></h2>
             <div class="container">
                 <div class="d-flex flex-column justify-content-center align-items-center">
-                    <img src="./images/barco_2.jpg" alt="" srcset="">
+                    <!-- <img src="https://www.portafolio.co/files/article_multimedia/uploads/2022/08/07/62efed37622f3.jpeg" alt="" srcset=""> -->
+                    <div>
+                        <img class="px-md-5" :src="form_resumen.image_bote" style="width: 100%; height: 16rem;">
+                    </div>
                     <div class="container table-responsive mt-5">
                         <table class="table">
                             <tr>
@@ -67,7 +63,7 @@
                                     <strong x-text="reserva_final?.bote?.nombre"></strong>
                                 </td>
                                 <td class="text-end color-blue" style="width: 75%;">
-                                    <b>41€</b>
+                                    <b x-text="form_resumen.precio_bote + '€'"></b>
                                 </td>
                             </tr>
                             <tr>
@@ -81,7 +77,7 @@
                                     <strong x-text="reserva_final.fecha"></strong>
                                 </td>
                                 <td class="text-end color-blue" style="width: 75%;">
-                                    <b>41€</b>
+                                    <!-- <b>41€</b> -->
                                 </td>
                             </tr>
                             <tr>
@@ -91,10 +87,14 @@
                                 </td>
                                 <td>Salida</td>
                                 <td>
-                                    <strong x-text="reserva_final.hora_inicio"></strong>
+                                    <div class="d-flex">
+                                        <strong class="me-5" x-text="form_resumen.hora_inicio"></strong>
+                                        <span class="me-5">Regreso</span>
+                                        <strong x-text="form_resumen.hora_fin">Regreso</strong>
+                                    </div>
                                 </td>
                                 <td class="text-end color-blue" style="width: 75%;">
-                                    <b>41€</b>
+                                    <b x-text="precio_horas_extra + '€'"></b>
                                 </td>
                             </tr>
                             <tr>
@@ -105,10 +105,10 @@
                                 </td>
                                 <td>Responsable</td>
                                 <td>
-                                    <strong x-text="reserva_final?.user_reserva?.nombre"></strong>
+                                    <strong x-text="form_resumen.responsable"></strong>
                                 </td>
                                 <td class="text-end color-blue" style="width: 75%;">
-                                    <b>41€</b>
+                                    <!-- <b>41€</b> -->
                                 </td>
                             </tr>
                             <tr>
@@ -121,7 +121,7 @@
                                     <strong x-text="asistentes()"></strong>
                                 </td>
                                 <td class="text-end color-blue" style="width: 75%;">
-                                    <b>41€</b>
+                                    <!-- <b>41€</b> -->
                                 </td>
                             </tr>
                             <tr>
@@ -135,7 +135,7 @@
                                     <strong x-text="extras_text()"></strong>
                                 </td>
                                 <td class="text-end color-blue" style="width: 75%;">
-                                    <b>41€</b>
+                                    <b x-text="total_extras + '€'"></b>
                                 </td>
                             </tr>
                             <tr>
@@ -145,9 +145,18 @@
                                     </button>
                                 </td>
                                 <td>Pago</td>
-                                <td>Namaré</td>
+                                <td>Normal</td>
                                 <td class="text-end color-blue" style="width: 75%;">
-                                    <b>41€</b>
+                                    <b>0€</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td class="text-end color-blue" style="width: 75%;">
+                                    <b x-text="'Total: ' + form_resumen.total + '€'"></b>
                                 </td>
                             </tr>
                         </table>
@@ -179,35 +188,26 @@
     function ReservaUsuarioFinal() {
         return {
             reserva_final: {},
+            total_extras: 0,
             init() {
                 this.loading = true
-                let url = this.base_url + '/BoatsLaravel/public/reserva/resume_reserva_final'
+                let url = this.base_url + '/reserva/resume_reserva_final'
                 axios.post(url, { id: this.form_reserva.id }).then(res => {
                     this.reserva_final = res.data
                     this.loading = false
                 })
             },
             asistentes() {
-                if (this.reserva_final.cant_adultos) {
-                    let suma = parseInt(this.reserva_final.cant_bebes) + parseInt(this.reserva_final.cant_tres_doce)
-                        + parseInt(this.reserva_final.cant_uno_tres)
-
-                    let msg = this.reserva_final.cant_adultos + ' Personas + ' + suma + ' niños'
-                    return msg
-                } else {
-                    return ''
-                }
+                return this.form_resumen.cant_adultos + ' adultos + ' + this.form_resumen.cant_ninios + ' niños'
             },
             extras_text() {
                 let message = ''
-                if (this.reserva_final.detallesextras) {
-                    this.reserva_final.detallesextras.forEach(item => {
-                        message += 2 + ' ' + item?.extra?.nombre + ' '
-                        console.log('item ==> ', item);
-                    })
-                    return message
-                }
-            }
+                this.form_resumen.extras.forEach(i => {
+                    message += i.nombre + ' ' + i.descripcion + ' x ' + i.cantidad + ' '
+                    this.total_extras += parseInt(i.precio)
+                });
+                return message
+            },
         }
     }
 </script>

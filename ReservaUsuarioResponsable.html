@@ -156,7 +156,7 @@
             },
             val_store() {
                 this.form_reserva.image = $('#blah').attr('src');
-                let url = this.base_url + '/BoatsLaravel/public/reserva/val_store_user_reserva'
+                let url = this.base_url + '/reserva/val_store_user_reserva'
                 axios.post(url, this.form_reserva).then(res => {
                     this.form_resumen.responsable = this.form_reserva.nombre
                     this.pantalla = 'ReservaUsuarioAsistencia'
