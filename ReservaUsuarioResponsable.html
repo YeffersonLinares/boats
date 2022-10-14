@@ -27,6 +27,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-12 mb-4">
                     <div class="form-group">
@@ -50,6 +51,43 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-12">
+                    <div class="form-group d-flex flex-column">
+                        <label class="f-9">¿Quieres crear una cuenta con los datos ingresados?</label>
+                        <div class="d-flex">
+                            <div class="me-4">
+                                <input type="radio" name="crear_cuente" value="si_cuenta" id="si_cuenta" class="me-1"
+                                    x-model="form_reserva.crear_cuenta">
+                                <label for="si_cuenta" class="f-9"> Si </label>
+                            </div>
+                            <div class="me-4">
+                                <input type="radio" name="crear_cuente" value="no_cuenta" id="no_cuenta" class="me-1"
+                                    x-model="form_reserva.crear_cuenta">
+                                <label for="no_cuenta" class="f-9"> No </label>
+                            </div>
+                            <div class="me-4">
+                                <input type="radio" name="crear_cuente" value="quizas_cuenta" id="quizas_cuenta"
+                                    class="me-1" x-model="form_reserva.crear_cuenta">
+                                <label for="quizas_cuenta" class="f-9"> Quizás después </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="form-label f-9" for="">Crea una contraseña</label>
+                    <input class="form-control" type="password">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label f-9" for="">Repite la contraseña</label>
+                    <input class="form-control" type="password">
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="form-group">
                         <label class="f-9">Dispone de titulación requerida:</label>
@@ -57,93 +95,157 @@
                 </div>
                 <div class="col-md-2">
                     <div class="form-group d-flex">
-                        <input type="radio" name="titulacion" checked value="titulado" id="no_tengo" class="me-1"
+                        <input type="radio" name="titulacion" value="titulado" id="no_tengo" class="me-1"
                             x-model="form_reserva.titulado">
-                        <label for="no_tengo" class="f-8"> No tengo titulo </label>
+                        <label for="no_tengo" class="f-9"> No tengo titulo </label>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="form-group d-flex">
                         <input type="radio" name="titulacion" value="no_titulado" id="si_tengo" class="me-1"
                             x-model="form_reserva.titulado">
-                        <label for="si_tengo" class="f-8"> Si tengo titulo </label>
+                        <label for="si_tengo" class="f-9"> Si tengo titulo </label>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="f-9">Tipo de doc.:</label>
-                        <select class="form-select" x-model="form_reserva.tipo_doc">
-                            <option value='DNI'>DNI</option>
-                        </select>
-                    </div>
+
+            <div class="container-fluid bg-yellow-light f-9 px-5 py-3 d-flex mb-4">
+                <div class="me-2">
+                    <button class="btn-icon-red mt-sm07"><i class="fa-solid fa-triangle-exclamation fa-lg"></i></button>
                 </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="f-9">Número ID:</label>
-                        <input type="text" name="numeroId" id="numeroId" class="form-control"
-                            x-model="form_reserva.num_dni">
-                    </div>
+                <div>
+                    <p class="f-9 m-0">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum provident eveniet rerum corrupti
+                        cupiditate, consectetur, nostrum, magnam animi voluptas nobis quas eos soluta sunt dignissimos
+                        laborum
+                        facere minima ducimus! Ipsum, iure deserunt ipsam aliquam magni totam quaerat quisquam
+                        voluptates quo?
+                    </p>
                 </div>
             </div>
-            <div class="row">
 
-                <button type="button" class="btn btn-transparent d-flex d-none shadow-none" id="btn-preview">
-                    <img class="my-4 ms-3" id="blah" alt="Tu imagen" style="width: 24rem; height: 14rem;" />
-                </button>
-
-                <div class="btn btn-transparent col-12 col-md-12 col-lg-6 col-xl-3 my-4 text-start" id="preview-archivo"
-                    style="width:20rem;">
-                    <div class="container" id="image-driver">
-                        <!-- <button class="btn btn-transparent"> -->
-                        <label class="form-label f-9" for="">Foto de documento*:</label>
-                        <div
-                            class="container rounded d-flex flex-column justify-content-start align-items-center border-dotted p-4">
-                            <button type="button" class="btn btn-transparent icon-gray"><i
-                                    class="fas fa-address-card font-32"></i></button>
-                            <span class="color-gray f-9">Cuelga tu imagen aquí o</span>
-                            <span class="color-blue f-9"><b>Descarga desde tu dispositivo</b></span>
-                            <span class="icon-gray f-8">Máximo 1234 x 1234 px</span>
+            <div class="row align-items-center mb-3">
+                <div class="col-md-4 d-flex flex-column">
+                    <div>
+                        <label class="form-label f-9" for=""></label>
+                        <div class="btn btn-transparent col-12 col-md-12 col-lg-6 col-xl-3 my-4 text-start"
+                            id="preview-archivo" style="width:20rem;">
+                            <div class="container" id="image-driver">
+                                <label class="form-label f-9" for="">Foto del título:</label>
+                                <div
+                                    class="container rounded d-flex flex-column justify-content-start align-items-center border-dotted p-4">
+                                    <button type="button" class="btn btn-transparent icon-gray"><i
+                                            class="fas fa-address-card font-32"></i></button>
+                                    <span class="color-gray f-9">Cuelga tu imagen aquí o</span>
+                                    <span class="color-blue f-9"><b>Descarga desde tu dispositivo</b></span>
+                                    <span class="icon-gray f-8">Máximo 1234 x 1234 px</span>
+                                </div>
+                            </div>
                         </div>
-
-                        <!-- </button> -->
                     </div>
-
-                </div>
-
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <input type="file" name="archivo" id="archivo" class="d-none" accept="image/*">
+                    <div class="d-flex">
+                        <span class="f-9 color-gray-responsable">Última foto subida - 12/21/22 13:43 </span>
+                        <button class="btn-icon-gray"><i class="fa-solid fa-address-card fa-xl"></i></button>
+                        <button class="btn-icon-red"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
                 </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-12">
-                    <div class="form-group d-flex">
-                        <input class="me-3" type="checkbox" name="aleta_email" id="aleta_email"
-                            x-model="form_reserva.alert_email" class="">
-                        <label class="f-9" for="aleta_email">Deseo recibir una alerta en mi email llegando el dia de
-                            la reserva</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col-md-12">
-                    <div class="form-group d-flex">
-                        <input type="checkbox" name="aleta_whatsapp" id="aleta_whatsapp"
-                            x-model="form_reserva.alert_whatsapp" class="me-3">
-                        <label class="f-9" for="aleta_whatsapp">Deseo recibir una alerta en mi whatsApp llegando el
-                            dia de la reserva</label>
+                <div class="col-md-4">
+                    <div class="container-fluid bg-yellow-light f-9 px-5 py-3 d-flex mb-4">
+                        <div class="me-2">
+                            <button class="btn-icon-red mt-sm07"><i class="fa-solid fa-triangle-exclamation fa-lg"></i></button>
+                        </div>
+                        <div>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ab vel possimus cupiditate.
+                                Expedita illum facere esse magni. Sint saepe optio delectus cupiditate a totam ratione eligendi
+                                iure quidem illo.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <button class="btn btn-blue" @click="val_store()">
-                <span> Siguiente </span>
-                <i class="fas fa-arrow-alt-circle-right"></i>
-            </button>
-
         </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="f-9">Tipo de doc.:</label>
+                    <select class="form-select" x-model="form_reserva.tipo_doc">
+                        <option value='DNI'>DNI</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="f-9">Número ID:</label>
+                    <input type="text" name="numeroId" id="numeroId" class="form-control"
+                        x-model="form_reserva.num_dni">
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 d-flex flex-column">
+                <div>
+                    <button type="button" class="btn btn-transparent d-flex d-none shadow-none" id="btn-preview">
+                        <img class="my-4 ms-3" id="blah" alt="Tu imagen" style="width: 24rem; height: 14rem;" />
+                    </button>
+        
+                    <div class="btn btn-transparent col-12 col-md-12 col-lg-6 col-xl-3 my-4 text-start" id="preview-archivo"
+                        style="width:20rem;">
+                        <div class="container" id="image-driver">
+                            <label class="form-label f-9" for="">Foto de documento*:</label>
+                            <div
+                                class="container rounded d-flex flex-column justify-content-start align-items-center border-dotted p-4">
+                                <button type="button" class="btn btn-transparent icon-gray"><i
+                                        class="fas fa-address-card font-32"></i></button>
+                                <span class="color-gray f-9">Cuelga tu imagen aquí o</span>
+                                <span class="color-blue f-9"><b>Descarga desde tu dispositivo</b></span>
+                                <span class="icon-gray f-8">Máximo 1234 x 1234 px</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex">
+                        <span class="f-9 color-gray-responsable">Última foto subida - 12/21/22 13:43 </span>
+                        <button class="btn-icon-gray"><i class="fa-solid fa-address-card fa-xl"></i></button>
+                        <button class="btn-icon-red"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="file" name="archivo" id="archivo" class="d-none" accept="image/*">
+                </div>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <div class="form-group d-flex">
+                    <input class="me-3" type="checkbox" name="aleta_email" id="aleta_email"
+                        x-model="form_reserva.alert_email" class="">
+                    <label class="f-9" for="aleta_email">Deseo recibir una alerta en mi email llegando el dia de
+                        la reserva</label>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="form-group d-flex">
+                    <input type="checkbox" name="aleta_whatsapp" id="aleta_whatsapp"
+                        x-model="form_reserva.alert_whatsapp" class="me-3">
+                    <label class="f-9" for="aleta_whatsapp">Deseo recibir una alerta en mi whatsApp llegando el
+                        dia de la reserva</label>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-blue" @click="val_store()">
+            <span> Siguiente </span>
+            <i class="fas fa-arrow-alt-circle-right"></i>
+        </button>
+
+    </div>
     </div>
     </div>
 </template>

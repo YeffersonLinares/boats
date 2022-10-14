@@ -2890,11 +2890,11 @@
 <script>
     function app_alpine() {
         return {
-            pantalla: 'reserva_usuario',
-            // pantalla: 'ReservaUsuarioFinal',
+            // pantalla: 'reserva_usuario',
+            pantalla: 'ReservaUsuarioResponsable',
             loading: false,
-            base_url: 'https://botelaravel.rutaapp.com',
-            // base_url: 'https://192.168.5.112:443/BoatsLaravel/public',
+            // base_url: 'https://botelaravel.rutaapp.com',
+            base_url: 'https://192.168.5.112:443/BoatsLaravel/public',
             form_reserva: {
                 //-------------------------------------------------------------------------
                 // Tabla reserva
@@ -2914,6 +2914,7 @@
                 total_factura: '',
                 medio_pago: '',
                 zona_horaria: '',
+                crear_cuenta: '',
 
                 //-------------------------------------------------------------------------
                 // User reserva
