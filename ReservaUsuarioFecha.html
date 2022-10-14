@@ -132,6 +132,10 @@
                 }
             },
             regresar_pantalla() {
+                this.form_reserva.zona_horaria = ''
+                this.form_reserva.fecha_inicio_viaje = ''
+                this.form_resumen.fecha = ''
+                $('#fechaInicio').val('')
                 if (this.auxiliares.tipo_reserva == 'fecha') {
                     this.pantalla = 'reserva_usuario'
                 } else {

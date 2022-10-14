@@ -140,6 +140,9 @@
                 else return ''
             },
             regresar_pantalla() {
+                this.form_resumen.hora_inicio = ''
+                this.form_resumen.hora_fin = ''
+                this.form_resumen.valor_extras = 0
                 if (this.auxiliares.tipo_reserva == 'fecha') {
                     this.pantalla = 'BarcosReservaUsuario'
                 } else {

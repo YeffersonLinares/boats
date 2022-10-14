@@ -112,6 +112,12 @@
                 }
             },
             regresar_pantalla() {
+                this.form_reserva.id_vote = ''
+                this.form_resumen.image_bote = ''
+                this.form_resumen.nombre_bote = ''
+                this.form_reserva.horaInicio_viaje = ''
+                this.form_reserva.horafinal_viaje = ''
+
                 if (this.auxiliares.tipo_reserva == 'fecha') {
                     this.pantalla = 'ReservaUsuarioFecha'
                 } else {
