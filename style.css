@@ -1279,3 +1279,21 @@ i {
 .color-gray-responsable {
     color: #C6C6C6;
 }
+
+@media (min-width: 992px) {
+    .navbar-expand-lg {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        position: fixed !important;
+        right: 0;
+        width: 25%;
+        padding-right: 1rem;
+    }
+}
+
+[x-cloak] { display: none !important; }
+
+img.imgPreview {
+  max-width: 250px;
+  max-height: 250px;
+}

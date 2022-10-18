@@ -126,38 +126,45 @@
 
             <div class="row align-items-center mb-3">
                 <div class="col-md-4 d-flex flex-column">
-                    <div>
-                        <label class="form-label f-9" for=""></label>
-                        <div class="btn btn-transparent col-12 col-md-12 col-lg-6 col-xl-3 my-4 text-start"
-                            id="preview-archivo" style="width:20rem;">
-                            <div class="container" id="image-driver">
-                                <label class="form-label f-9" for="">Foto del título:</label>
-                                <div
-                                    class="container rounded d-flex flex-column justify-content-start align-items-center border-dotted p-4">
-                                    <button type="button" class="btn btn-transparent icon-gray"><i
-                                            class="fas fa-address-card font-32"></i></button>
-                                    <span class="color-gray f-9">Cuelga tu imagen aquí o</span>
-                                    <span class="color-blue f-9"><b>Descarga desde tu dispositivo</b></span>
-                                    <span class="icon-gray f-8">Máximo 1234 x 1234 px</span>
-                                </div>
+                    <div role="button" class="col-12 col-md-12 col-lg-6 col-xl-3 my-4 text-start" style="width:20rem;">
+                        <div class="container">
+                            <label class="form-label f-9" for="">Foto de titulo*:</label>
+                            <div class="d-flex flex-column justify-content-start align-items-center border-dotted p-4">
+                                <div class="icon-gray"><i class="fas fa-address-card font-32"></i></div>
+                                <span class="color-gray f-9">Cuelga tu imagen aquí o</span>
+                                <span class="color-blue f-9"><b>Descarga desde tu dispositivo</b></span>
+                                <span class="icon-gray f-8">Máximo 1234 x 1234 px</span>
                             </div>
                         </div>
                     </div>
+                    <form x-cloak>
+                        <label for="imgSelect">Select an Image:</label>
+                        <input type="file" id="imgSelect" accept="image/*" x-ref="myFile" @change="previewFile">
+                        <template x-if="imgsrc">
+                          <p>
+                          <img :src="imgsrc" class="imgPreview">
+                          </p>
+                        </template>
+                      </form>
                     <div class="d-flex">
                         <span class="f-9 color-gray-responsable">Última foto subida - 12/21/22 13:43 </span>
                         <button class="btn-icon-gray"><i class="fa-solid fa-address-card fa-xl"></i></button>
                         <button class="btn-icon-red"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
+
                 </div>
                 <div class="col-md-4">
                     <div class="container-fluid bg-yellow-light f-9 px-5 py-3 d-flex mb-4">
                         <div class="me-2">
-                            <button class="btn-icon-red mt-sm07"><i class="fa-solid fa-triangle-exclamation fa-lg"></i></button>
+                            <button class="btn-icon-red mt-sm07"><i
+                                    class="fa-solid fa-triangle-exclamation fa-lg"></i></button>
                         </div>
                         <div>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ab vel possimus cupiditate.
-                                Expedita illum facere esse magni. Sint saepe optio delectus cupiditate a totam ratione eligendi
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ab vel possimus
+                                cupiditate.
+                                Expedita illum facere esse magni. Sint saepe optio delectus cupiditate a totam ratione
+                                eligendi
                                 iure quidem illo.
                             </p>
                         </div>
@@ -185,26 +192,31 @@
         </div>
         <div class="row mb-3">
             <div class="col-12 d-flex flex-column">
-                <div>
-                    <button type="button" class="btn btn-transparent d-flex d-none shadow-none" id="btn-preview">
-                        <img class="my-4 ms-3" id="blah" alt="Tu imagen" style="width: 24rem; height: 14rem;" />
-                    </button>
-        
-                    <div class="btn btn-transparent col-12 col-md-12 col-lg-6 col-xl-3 my-4 text-start" id="preview-archivo"
-                        style="width:20rem;">
-                        <div class="container" id="image-driver">
-                            <label class="form-label f-9" for="">Foto de documento*:</label>
-                            <div
-                                class="container rounded d-flex flex-column justify-content-start align-items-center border-dotted p-4">
-                                <button type="button" class="btn btn-transparent icon-gray"><i
-                                        class="fas fa-address-card font-32"></i></button>
+                <template x-if="!imgsrc">
+                    <div role="button" class="col-lg-6 col-xl-3 my-4 text-start" style="width:20rem;"
+                        @click="trigger_foto_documento()">
+                        <div class="container">
+                            <label class="form-label f-9">Foto del documento*:</label>
+                            <div class="d-flex flex-column justify-content-start align-items-center border-dotted p-4">
+                                <div class="icon-gray"> <i class="fas fa-address-card font-32"></i> </div>
                                 <span class="color-gray f-9">Cuelga tu imagen aquí o</span>
                                 <span class="color-blue f-9"><b>Descarga desde tu dispositivo</b></span>
                                 <span class="icon-gray f-8">Máximo 1234 x 1234 px</span>
                             </div>
                         </div>
                     </div>
-                </div>
+                </template>
+                <form x-cloak>
+                    <input class="d-none" type="file" id="foto_documento" accept="image/*" x-ref="myFile"
+                        @change="previewFile">
+                    <template x-if="imgsrc">
+                        <div class="d-flex flex-column mt-3">
+                            <label class="form-label f-9">Foto del documento*:</label>
+                            <img :src="imgsrc" class="imgPreview" role="button" @click="trigger_foto_documento()">
+
+                        </div>
+                    </template>
+                </form>
                 <div>
                     <div class="d-flex">
                         <span class="f-9 color-gray-responsable">Última foto subida - 12/21/22 13:43 </span>
@@ -217,6 +229,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <input type="file" name="archivo" id="archivo" class="d-none" accept="image/*">
+                    <input type="file" name="titulo" id="titulo" class="d-none" accept="image/*">
                 </div>
             </div>
         </div>
@@ -254,7 +267,6 @@
     function ReservaUsuarioResponsable() {
         return {
             init() {
-                // alert('llego a usuario')
             },
             val_store() {
                 this.form_reserva.image = $('#blah').attr('src');
@@ -281,9 +293,50 @@
                 this.form_reserva.tutilado = ''
                 this.form_resumen.responsable = ''
                 this.pantalla = 'ReservaUsuarioHoras'
+            },
+            imgsrc: null,
+            previewFile() {
+                let file = this.$refs.myFile.files[0];
+                if (!file || file.type.indexOf('image/') === -1) return;
+                this.imgsrc = null;
+                let reader = new FileReader();
+                reader.onload = e => { this.imgsrc = e.target.result; }
+                reader.readAsDataURL(file);
+
+            },
+            trigger_foto_documento() {
+                $('#foto_documento').click()
             }
         }
     }
+</script>
+
+<script>
+    $('body').on('click', '#preview-titulo', function () {
+        $('#archivo').trigger('click')
+    })
+
+    $('body').on('click', '#btn-titulo', function () {
+        $('#titulo').trigger('click')
+    })
+
+    function readImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#blah-titulo').attr('src', e.target.result); // Renderizamos la imagen
+                // console.log('this.form_reserva.image ==> ', this.form_reserva.image);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $('body').on('change', '#archivo', function () {
+        readImage(this);
+        $('#blah-titulo').removeClass('d-none')
+        $('#preview-titulo').addClass('d-none')
+        $('#btn-titulo').removeClass('d-none')
+    })
 </script>
 
 <script>

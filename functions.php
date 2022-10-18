@@ -2890,6 +2890,9 @@
 <script>
     function app_alpine() {
         return {
+            init() {
+                $('.wp-site-blocks').addClass('d-none')
+            },
             // pantalla: 'reserva_usuario',
             pantalla: 'ReservaUsuarioResponsable',
             loading: false,
