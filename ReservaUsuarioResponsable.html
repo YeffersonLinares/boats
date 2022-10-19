@@ -74,78 +74,122 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <label class="form-label f-9" for="">Crea una contraseña</label>
-                    <input class="form-control" type="password">
+            <template x-if="form_reserva.crear_cuenta == 'si_cuenta'">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="form-label f-9" for="">Crea una contraseña</label>
+                        <input class="form-control" type="password" x-model="form_reserva.password">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label f-9" for="">Repite la contraseña</label>
+                        <input class="form-control" type="password" x-model="form_reserva.password_confirmation">
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <label class="form-label f-9" for="">Repite la contraseña</label>
-                    <input class="form-control" type="password">
-                </div>
-            </div>
+            </template>
 
             <hr class="my-4">
 
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="form-group">
-                        <label class="f-9">Dispone de titulación requerida:</label>
+                        <label class="f-9">¿Desea contratar un capitán?</label>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="form-group d-flex">
-                        <input type="radio" name="titulacion" value="titulado" id="no_tengo" class="me-1"
-                            x-model="form_reserva.titulado">
-                        <label for="no_tengo" class="f-9"> No tengo titulo </label>
+                        <input type="radio" name="capitan" value="0" id="no_capitan" class="me-1"
+                            x-model="form_reserva.capitan_barco">
+                        <label for="no_capitan" class="f-9"> No </label>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="form-group d-flex">
-                        <input type="radio" name="titulacion" value="no_titulado" id="si_tengo" class="me-1"
-                            x-model="form_reserva.titulado">
-                        <label for="si_tengo" class="f-9"> Si tengo titulo </label>
+                        <div class="d-flex">
+                            <input type="radio" name="capitan" value="1" id="si_capitan" class="me-1"
+                                x-model="form_reserva.capitan_barco" @click="form_reserva.titulado = ''">
+                            <label for="si_capitan" class="f-9"> Si </label>
+                        </div>
+                        <div>
+                            <strong class="ms-3 mt-1 color-blue f-9" x-text="'+'+bote.valor_capitan+'€'"></strong>
+                        </div>
                     </div>
                 </div>
             </div>
+            <template x-if="form_reserva.capitan_barco === '0'">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="form-group">
+                            <label class="f-9">Dispone de titulación requerida:</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group d-flex">
+                            <input type="radio" name="titulacion" value="0" id="no_tengo" class="me-1"
+                                x-model="form_reserva.titulado">
+                            <label for="no_tengo" class="f-9"> No tengo titulo </label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group d-flex">
+                            <input type="radio" name="titulacion" value="1" id="si_tengo" class="me-1"
+                                x-model="form_reserva.titulado">
+                            <label for="si_tengo" class="f-9"> Si tengo titulo </label>
+                        </div>
+                    </div>
+                </div>
+            </template>
 
-            <div class="container-fluid bg-yellow-light f-9 px-5 py-3 d-flex mb-4">
-                <div class="me-2">
-                    <button class="btn-icon-red mt-sm07"><i class="fa-solid fa-triangle-exclamation fa-lg"></i></button>
+            <template x-if="form_reserva.titulado === '0'">
+                <div class="container-fluid bg-yellow-light f-9 px-5 py-3 d-flex mb-4">
+                    <div class="me-2">
+                        <button class="btn-icon-red mt-sm07"><i
+                                class="fa-solid fa-triangle-exclamation fa-lg"></i></button>
+                    </div>
+                    <div>
+                        <p class="f-9 m-0">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum provident eveniet rerum
+                            corrupti
+                            cupiditate, consectetur, nostrum, magnam animi voluptas nobis quas eos soluta sunt
+                            dignissimos
+                            laborum
+                            facere minima ducimus! Ipsum, iure deserunt ipsam aliquam magni totam quaerat quisquam
+                            voluptates quo?
+                        </p>
+                    </div>
                 </div>
-                <div>
-                    <p class="f-9 m-0">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum provident eveniet rerum corrupti
-                        cupiditate, consectetur, nostrum, magnam animi voluptas nobis quas eos soluta sunt dignissimos
-                        laborum
-                        facere minima ducimus! Ipsum, iure deserunt ipsam aliquam magni totam quaerat quisquam
-                        voluptates quo?
-                    </p>
-                </div>
-            </div>
+            </template>
 
             <div class="row align-items-center mb-3">
                 <div class="col-md-4 d-flex flex-column">
-                    <div role="button" class="col-12 col-md-12 col-lg-6 col-xl-3 my-4 text-start" style="width:20rem;">
-                        <div class="container">
-                            <label class="form-label f-9" for="">Foto de titulo*:</label>
-                            <div class="d-flex flex-column justify-content-start align-items-center border-dotted p-4">
-                                <div class="icon-gray"><i class="fas fa-address-card font-32"></i></div>
-                                <span class="color-gray f-9">Cuelga tu imagen aquí o</span>
-                                <span class="color-blue f-9"><b>Descarga desde tu dispositivo</b></span>
-                                <span class="icon-gray f-8">Máximo 1234 x 1234 px</span>
+                    <template x-if="!form_reserva.imagen_titulo">
+                        <div role="button" class="col-12 col-md-12 col-lg-6 col-xl-3 my-4 text-start"
+                            style="width:20rem;" @click="trigger_foto_titulo()">
+                            <div class="container">
+                                <label class="form-label f-9" for="">Foto de titulo:</label>
+                                <div
+                                    class="d-flex flex-column justify-content-start align-items-center border-dotted p-4">
+                                    <div class="icon-gray"><i class="fas fa-address-card font-32"></i></div>
+                                    <span class="color-gray f-9">Cuelga tu imagen aquí o</span>
+                                    <span class="color-blue f-9"><b>Descarga desde tu dispositivo</b></span>
+                                    <span class="icon-gray f-8">Máximo 1234 x 1234 px</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </template>
                     <form x-cloak>
-                        <label for="imgSelect">Select an Image:</label>
-                        <input type="file" id="imgSelect" accept="image/*" x-ref="myFile" @change="previewFile">
-                        <template x-if="imgsrc">
-                          <p>
-                          <img :src="imgsrc" class="imgPreview">
-                          </p>
+                        <!-- <label for="imgSelect">Select an Image:</label> -->
+
+                        <input type="file" class="d-none" id="foto_titulo" accept="image/*" x-ref="foto_titulo"
+                            @change="previewTitulo">
+                        <template x-if="form_reserva.imagen_titulo">
+                            <div class="d-flex flex-column mt-3">
+                                <label class="form-label f-9">Foto del titulo*:</label>
+                                <img :src="form_reserva.imagen_titulo" class="imgPreview" role="button"
+                                    @click="trigger_foto_titulo()">
+
+                            </div>
                         </template>
-                      </form>
+                    </form>
                     <div class="d-flex">
                         <span class="f-9 color-gray-responsable">Última foto subida - 12/21/22 13:43 </span>
                         <button class="btn-icon-gray"><i class="fa-solid fa-address-card fa-xl"></i></button>
@@ -192,7 +236,7 @@
         </div>
         <div class="row mb-3">
             <div class="col-12 d-flex flex-column">
-                <template x-if="!imgsrc">
+                <template x-if="!form_reserva.imagen_documento">
                     <div role="button" class="col-lg-6 col-xl-3 my-4 text-start" style="width:20rem;"
                         @click="trigger_foto_documento()">
                         <div class="container">
@@ -209,10 +253,11 @@
                 <form x-cloak>
                     <input class="d-none" type="file" id="foto_documento" accept="image/*" x-ref="myFile"
                         @change="previewFile">
-                    <template x-if="imgsrc">
+                    <template x-if="form_reserva.imagen_documento">
                         <div class="d-flex flex-column mt-3">
                             <label class="form-label f-9">Foto del documento*:</label>
-                            <img :src="imgsrc" class="imgPreview" role="button" @click="trigger_foto_documento()">
+                            <img :src="form_reserva.imagen_documento" class="imgPreview" role="button"
+                                @click="trigger_foto_documento()">
 
                         </div>
                     </template>
@@ -228,8 +273,6 @@
 
             <div class="col-md-12">
                 <div class="form-group">
-                    <input type="file" name="archivo" id="archivo" class="d-none" accept="image/*">
-                    <input type="file" name="titulo" id="titulo" class="d-none" accept="image/*">
                 </div>
             </div>
         </div>
@@ -269,10 +312,20 @@
             init() {
             },
             val_store() {
-                this.form_reserva.image = $('#blah').attr('src');
+                if(this.bote.reserva_sin_titulacion != 1) {
+                    console.log('this.form_reserva.titulado ==> ', this.form_reserva.titulado);
+                    if(this.form_reserva.titulado === '0') {
+                        Swal.fire('','Esta embarcación exige un responsable titulado para navegar', 'error')
+                        return
+                    }
+                }
                 let url = this.base_url + '/reserva/val_store_user_reserva'
                 axios.post(url, this.form_reserva).then(res => {
                     this.form_resumen.responsable = this.form_reserva.nombre
+                    if (this.form_reserva.capitan_barco == 1) {
+                        this.form_reserva.valor_capitan = this.bote.valor_capitan
+                        this.form_resumen.total += parseInt(this.form_reserva.valor_capitan)
+                    }
                     this.pantalla = 'ReservaUsuarioAsistencia'
                 }).catch(errors => {
                     var error = Object.values(errors.response.data.errors)[0][0];
@@ -290,79 +343,35 @@
                 this.form_reserva.alert_email = ''
                 this.form_reserva.alert_whatsapp = ''
                 this.form_reserva.tipo_doc = ''
+                this.form_reserva.valor_capitan = ''
                 this.form_reserva.tutilado = ''
                 this.form_resumen.responsable = ''
                 this.pantalla = 'ReservaUsuarioHoras'
             },
-            imgsrc: null,
             previewFile() {
                 let file = this.$refs.myFile.files[0];
                 if (!file || file.type.indexOf('image/') === -1) return;
-                this.imgsrc = null;
+                this.form_reserva.imagen_documento = null;
                 let reader = new FileReader();
-                reader.onload = e => { this.imgsrc = e.target.result; }
+                reader.onload = e => { this.form_reserva.imagen_documento = e.target.result; }
+                reader.readAsDataURL(file);
+
+            },
+            previewTitulo() {
+                let file = this.$refs.foto_titulo.files[0];
+                if (!file || file.type.indexOf('image/') === -1) return;
+                this.form_reserva.imagen_titulo = null;
+                let reader = new FileReader();
+                reader.onload = e => { this.form_reserva.imagen_titulo = e.target.result; }
                 reader.readAsDataURL(file);
 
             },
             trigger_foto_documento() {
                 $('#foto_documento').click()
+            },
+            trigger_foto_titulo() {
+                $('#foto_titulo').click()
             }
         }
     }
-</script>
-
-<script>
-    $('body').on('click', '#preview-titulo', function () {
-        $('#archivo').trigger('click')
-    })
-
-    $('body').on('click', '#btn-titulo', function () {
-        $('#titulo').trigger('click')
-    })
-
-    function readImage(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#blah-titulo').attr('src', e.target.result); // Renderizamos la imagen
-                // console.log('this.form_reserva.image ==> ', this.form_reserva.image);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    $('body').on('change', '#archivo', function () {
-        readImage(this);
-        $('#blah-titulo').removeClass('d-none')
-        $('#preview-titulo').addClass('d-none')
-        $('#btn-titulo').removeClass('d-none')
-    })
-</script>
-
-<script>
-    $('body').on('click', '#preview-archivo', function () {
-        $('#archivo').trigger('click')
-    })
-
-    $('body').on('click', '#btn-preview', function () {
-        $('#archivo').trigger('click')
-    })
-
-    function readImage(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result); // Renderizamos la imagen
-                console.log('this.form_reserva.image ==> ', this.form_reserva.image);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    $('body').on('change', '#archivo', function () {
-        readImage(this);
-        $('#blah').removeClass('d-none')
-        $('#preview-archivo').addClass('d-none')
-        $('#btn-preview').removeClass('d-none')
-    })
 </script>

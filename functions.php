@@ -32,7 +32,7 @@
     </div>
 
     <?php
-    if ($_SERVER["REQUEST_URI"] == '/boats/reserva/' || $_SERVER["REQUEST_URI"] == '/boats/wordpress/') {
+    if ($_SERVER["REQUEST_URI"] == '/boats/reserva/' || $_SERVER["REQUEST_URI"] == '/boats/wordpress/' || $_SERVER["REQUEST_URI"] == '/boats/reserva') {
         include_once "reserva.php";
         include_once 'ReservaUsuarioTimeline.html';
     }
@@ -2893,11 +2893,11 @@
             init() {
                 $('.wp-site-blocks').addClass('d-none')
             },
-            // pantalla: 'reserva_usuario',
-            pantalla: 'ReservaUsuarioResponsable',
+            pantalla: 'reserva_usuario',
+            // pantalla: 'ReservaUsuarioResponsable',
             loading: false,
-            // base_url: 'https://botelaravel.rutaapp.com',
-            base_url: 'https://192.168.5.112:443/BoatsLaravel/public',
+            base_url: 'https://botelaravel.rutaapp.com',
+            // base_url: 'https://192.168.5.112:443/BoatsLaravel/public',
             form_reserva: {
                 //-------------------------------------------------------------------------
                 // Tabla reserva
@@ -2917,7 +2917,7 @@
                 total_factura: '',
                 medio_pago: '',
                 zona_horaria: '',
-                crear_cuenta: '',
+                capitan_barco: '',
 
                 //-------------------------------------------------------------------------
                 // User reserva
@@ -2929,11 +2929,15 @@
                 telefono: '',
                 email: '',
                 num_dni: '',
-                image: '',
+                imagen_documento: '',
+                imagen_titulo: '',
                 alert_email: '',
                 alert_whatsapp: '',
                 tipo_doc: '',
-                tutilado: '',
+                titulado: '',
+                password: '',
+                password_confirmation: '',
+                crear_cuenta: '',
 
                 //-------------------------------------------------------------------------
                 // Tabla extras reserva
@@ -2959,6 +2963,7 @@
                 precio_bote: '',
 
             },
+            bote: {valor_capitan: 50, reserva_sin_titulacion: 0},
             cant_personas: 0,
             precio_horas_extra: 0,
             auxiliares: {

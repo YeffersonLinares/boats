@@ -165,6 +165,10 @@
                 }
             },
             regresar_pantalla() {
+                if (this.form_reserva.capitan_barco == 1) {
+                    // this.form_reserva.valor_capitan = this.bote.valor_capitan
+                    this.form_resumen.total -= parseInt(this.form_reserva.valor_capitan)
+                }
                 this.pantalla = 'ReservaUsuarioResponsable'
             }
         }
