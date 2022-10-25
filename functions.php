@@ -59,7 +59,7 @@
     <?php
 
     $reserva = $_SERVER["REQUEST_URI"];
-    if ($reserva == '/boats/reservas_admin/') require 'Reserva_mes.html';
+    if ($reserva == '/boats/reservas_admin/' || $reserva == '/wordpress/reservas_admin/') require 'Reserva_mes.html';
 
     add_shortcode('reservas_admin', 'plugin_reservas_admin');
 
@@ -2891,7 +2891,7 @@
     function app_alpine() {
         return {
             init() {
-                $('.wp-site-blocks').addClass('d-none')
+                // $('.wp-site-blocks').addClass('d-none')
             },
             pantalla: 'reserva_usuario',
             // pantalla: 'ReservaUsuarioResponsable',
