@@ -159,62 +159,65 @@
                 </div>
             </template>
 
-            <div class="row align-items-center mb-3">
-                <div class="col-md-4 d-flex flex-column">
-                    <template x-if="!form_reserva.imagen_titulo">
-                        <div role="button" class="col-12 col-md-12 col-lg-6 col-xl-3 my-4 text-start"
-                            style="width:20rem;" @click="trigger_foto_titulo()">
-                            <div class="container">
-                                <label class="form-label f-9" for="">Foto de titulo:</label>
-                                <div
-                                    class="d-flex flex-column justify-content-start align-items-center border-dotted p-4">
-                                    <div class="icon-gray"><i class="fas fa-address-card font-32"></i></div>
-                                    <span class="color-gray f-9">Cuelga tu imagen aquí o</span>
-                                    <span class="color-blue f-9"><b>Descarga desde tu dispositivo</b></span>
-                                    <span class="icon-gray f-8">Máximo 1234 x 1234 px</span>
+            <template x-if="form_reserva.titulado == 1">
+                <div class="row align-items-center mb-3">
+                    <div class="col-md-4 d-flex flex-column">
+                        <template x-if="!form_reserva.imagen_titulo">
+                            <div role="button" class="col-12 col-md-12 col-lg-6 col-xl-3 my-4 text-start"
+                                style="width:20rem;" @click="trigger_foto_titulo()">
+                                <div class="container">
+                                    <label class="form-label f-9" for="">Foto de titulo:</label>
+                                    <div
+                                        class="d-flex flex-column justify-content-start align-items-center border-dotted p-4">
+                                        <div class="icon-gray"><i class="fas fa-address-card font-32"></i></div>
+                                        <span class="color-gray f-9">Cuelga tu imagen aquí o</span>
+                                        <span class="color-blue f-9"><b>Descarga desde tu dispositivo</b></span>
+                                        <span class="icon-gray f-8">Máximo 1234 x 1234 px</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </template>
-                    <form x-cloak>
-                        <!-- <label for="imgSelect">Select an Image:</label> -->
-
-                        <input type="file" class="d-none" id="foto_titulo" accept="image/*" x-ref="foto_titulo"
-                            @change="previewTitulo">
-                        <template x-if="form_reserva.imagen_titulo">
-                            <div class="d-flex flex-column mt-3">
-                                <label class="form-label f-9">Foto del titulo*:</label>
-                                <img :src="form_reserva.imagen_titulo" class="imgPreview" role="button"
-                                    @click="trigger_foto_titulo()">
-
-                            </div>
                         </template>
-                    </form>
-                    <div class="d-flex">
-                        <span class="f-9 color-gray-responsable">Última foto subida - 12/21/22 13:43 </span>
-                        <button class="btn-icon-gray"><i class="fa-solid fa-address-card fa-xl"></i></button>
-                        <button class="btn-icon-red"><i class="fa-solid fa-trash-can"></i></button>
-                    </div>
+                        <form x-cloak>
+                            <!-- <label for="imgSelect">Select an Image:</label> -->
 
-                </div>
-                <div class="col-md-4">
-                    <div class="container-fluid bg-yellow-light f-9 px-5 py-3 d-flex mb-4">
-                        <div class="me-2">
-                            <button class="btn-icon-red mt-sm07"><i
-                                    class="fa-solid fa-triangle-exclamation fa-lg"></i></button>
+                            <input type="file" class="d-none" id="foto_titulo" accept="image/*" x-ref="foto_titulo"
+                                @change="previewTitulo">
+                            <template x-if="form_reserva.imagen_titulo">
+                                <div class="d-flex flex-column mt-3">
+                                    <label class="form-label f-9">Foto del titulo*:</label>
+                                    <img :src="form_reserva.imagen_titulo" class="imgPreview" role="button"
+                                        @click="trigger_foto_titulo()">
+
+                                </div>
+                            </template>
+                        </form>
+                        <div class="d-flex">
+                            <span class="f-9 color-gray-responsable">Última foto subida - 12/21/22 13:43 </span>
+                            <button class="btn-icon-gray"><i class="fa-solid fa-address-card fa-xl"></i></button>
+                            <button class="btn-icon-red"><i class="fa-solid fa-trash-can"></i></button>
                         </div>
-                        <div>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ab vel possimus
-                                cupiditate.
-                                Expedita illum facere esse magni. Sint saepe optio delectus cupiditate a totam ratione
-                                eligendi
-                                iure quidem illo.
-                            </p>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="container-fluid bg-yellow-light f-9 px-5 py-3 d-flex mb-4">
+                            <div class="me-2">
+                                <button class="btn-icon-red mt-sm07"><i
+                                        class="fa-solid fa-triangle-exclamation fa-lg"></i></button>
+                            </div>
+                            <div>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ab vel possimus
+                                    cupiditate.
+                                    Expedita illum facere esse magni. Sint saepe optio delectus cupiditate a totam
+                                    ratione
+                                    eligendi
+                                    iure quidem illo.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </template>
         </div>
 
         <div class="row">
@@ -312,10 +315,10 @@
             init() {
             },
             val_store() {
-                if(this.bote.reserva_sin_titulacion != 1) {
+                if (this.bote.reserva_sin_titulacion != 1) {
                     console.log('this.form_reserva.titulado ==> ', this.form_reserva.titulado);
-                    if(this.form_reserva.titulado === '0') {
-                        Swal.fire('','Esta embarcación exige un responsable titulado para navegar', 'error')
+                    if (this.form_reserva.titulado === '0') {
+                        Swal.fire('', 'Esta embarcación exige un responsable titulado para navegar', 'error')
                         return
                     }
                 }
