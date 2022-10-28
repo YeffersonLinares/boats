@@ -44,7 +44,10 @@ $uri = $_SERVER["REQUEST_URI"];
 
     <?php
     if ($uri == '/boats/reserva/' || $uri == '/boats/wordpress/' || $uri == '/boats/reserva') {
-        include_once "Reserva_mes.html";
+        // include_once "Reserva_mes.html";
+        // include_once "Reserva_mes.html";
+        include_once "AdministradorClientesIndex.html";
+
         // include_once "reserva.html";
         // include_once 'ReservaUsuarioTimeline.html';
     }

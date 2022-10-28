@@ -1,10 +1,7 @@
 <template x-if="pantalla=='reserva_usuario'">
     <div x-data="reserva_usuario()">
-
-        <!-- <button @click="pantalla='BarcosReservaUsuario'"></button> -->
         <div class="container">
             <div class="container-fluid">
-
                 <div class="w-100 text-center my-5">
                     <h3>¿Qué tipo de reserva deseas?</h3>
                 </div>
@@ -16,16 +13,22 @@
                                 que
                                 está
                                 disponible.</p>
-                            <a href="#" class="card-link"><b>Comenzar la reserva</b> <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="#" class="card-link"><b>Comenzar la reserva</b> <i
+                                    class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="card w-card" role="button" @click="por_fecha()">
                         <div class="card-body">
                             <img src="" alt="">
                             <h4 class="card-title">Reserva Por Fecha</h4>
-                            <p class="card-text">Dinos qué fecha o rango de fechas deseas navegar y te diremos que
-                                embarcaciones tenemos disponibles.</p>
-                            <a href="#" class="card-link"><b>Comenzar la reserva</b> <i class="fas fa-arrow-circle-right"></i></a>
+                            <p class="card-text">
+                                Dinos qué fecha o rango de fechas deseas navegar y te diremos que
+                                embarcaciones tenemos disponibles.
+                            </p>
+                            <a class="card-link">
+                                <b>Comenzar la reserva</b>
+                                <i class="fas fa-arrow-circle-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -40,7 +43,7 @@
             por_barco() {
                 this.pantalla = 'BarcosReservaUsuario'
                 this.auxiliares.tipo_reserva = ''
-            },por_fecha(){
+            }, por_fecha() {
                 this.auxiliares.tipo_reserva = 'fecha'
                 this.pantalla = 'ReservaUsuarioFecha'
             }
