@@ -1043,9 +1043,15 @@ i {
     }
 }
 
-[x-cloak] { display: none !important; }
+[x-cloak] {
+    display: none !important;
+}
 
 img.imgPreview {
-  max-width: 250px;
-  max-height: 250px;
+    max-width: 250px;
+    max-height: 250px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }

@@ -1,132 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
-
-    <!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.39/vue.cjs.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales-all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales-all.min.js"></script>
-</head>
-<body> 
-
-    <div x-data="calendar()">
-        <div class="row my-3 px-2" style="max-width: 100%;">
-            <div class="col-12 col-lg-7 col-xl-7">
-                <div class="d-flex justify-content-between">
-                    <button class="btn btn-transparent">
-                        <i class="fa-solid fa-square color-blue"></i>
-                        <span class="color-dark-extras">Fecha Reservada</span>
-                    </button>
-                    <button class="btn btn-transparent color-light-blue">
-                        <i class="fa-solid fa-square"></i>
-                        <span class="color-dark-extras">Fecha Bloqueada Parcialmente</span></button>
-                    <button class="btn btn-transparent color-dark-red">
-                        <i class="fa-solid fa-triangle-exclamation me-2"></i>
-                        <span>No hay suficiente personal para cubrir todos los turnos del día</span>
-                    </button>
-                </div>
-            </div>
-            <div class="col-12 col-lg-1 col-xl-2"></div>
-            <div class="col-12 col-lg-4 col-xl-3">
-                <div class="d-flex justify-content-between">
-                    <select class="select-gray form-select me-3" id="filtros_vote_id" @change="filtrar_por_barco()">
-                        <option value="">Ver todos los barcos</option>
-                        <template x-for="(i, index) in barcos" :key="index">
-                            <option :value="i.id" x-text="i.nombre"> </option>
-                        </template>
-                    </select>
-                    <button class="btn bg-dark-blue color-white w-3rem me-3">
-                        <i class="fa-solid fa-bars"></i>
-                    </button>
-                    <button class="btn bg-dark-blue color-white w-3rem">
-                        <i class="fa-solid fa-calendar-days"></i>
-                    </button>
-                </div>
+<div x-data="calendar()">
+    <div class="row my-3 px-2" style="max-width: 100%;">
+        <div class="col-12 col-lg-7 col-xl-7">
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-transparent">
+                    <i class="fa-solid fa-square color-blue"></i>
+                    <span class="color-dark-extras">Fecha Reservada</span>
+                </button>
+                <button class="btn btn-transparent color-light-blue">
+                    <i class="fa-solid fa-square"></i>
+                    <span class="color-dark-extras">Fecha Bloqueada Parcialmente</span></button>
+                <button class="btn btn-transparent color-dark-red">
+                    <i class="fa-solid fa-triangle-exclamation me-2"></i>
+                    <span>No hay suficiente personal para cubrir todos los turnos del día</span>
+                </button>
             </div>
         </div>
-        <div id='calendar' class="container-fluid"></div>
+        <div class="col-12 col-lg-1 col-xl-2"></div>
+        <div class="col-12 col-lg-4 col-xl-3">
+            <div class="d-flex justify-content-between">
+                <select class="select-gray form-select me-3" x-model="filtros.id_vote" @change="calendario()">
+                    <option value="">Ver todos los barcos</option>
+                    <template x-for="(i, index) in barcos" :key="index">
+                        <option :value="i.id" x-text="i.nombre"> </option>
+                    </template>
+                </select>
+                <button class="btn bg-dark-blue color-white w-3rem me-3">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <button class="btn bg-dark-blue color-white w-3rem">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </button>
+            </div>
+        </div>
     </div>
-
-</body>
-</html>
-
+    <div id='calendar' class="container-fluid px-3 px-5"></div>
+</div>
 <!-- </body>
 </html> -->
 
 <!-- <template> -->
 
 <script>
-        var filtro_vote_id = '';
-        document.addEventListener('DOMContentLoaded', function() {
+    var filtro_vote_id = '';
+    document.addEventListener('DOMContentLoaded', function () {
 
-      });
+    });
 </script>
 
 <script>
     document.addEventListener('alpine:init', () => {
         Alpine.data('calendar', () => ({
-            init(){
+            init() {
                 this.getBarcos()
                 this.calendario()
             },
+            filtros: { id_vote: '' },
             barcos: [],
-            getBarcos(){
-                let url = window.location.origin + '/boats/wp-content/themes/twentytwentytwo/getBarcos.php'
-                axios.post(url).then(res => {
+            getBarcos() {
+                let url = this.base_url + '/administrador/full_botes'
+                axios.get(url).then(res => {
                     this.barcos = res.data
                 })
             },
-            filtrar_por_barco(){
-                filtro_vote_id = document.getElementById('filtros_vote_id').value
-                this.calendario()
-                console.log('filtro_vote_id ==> ', filtro_vote_id);
-            },
-            toggle() {
-                this.open = ! this.open
-            },
-            calendario(){
-                let url_events = window.location.origin + '/boats/wp-content/themes/twentytwentytwo/ReservaController.php?vote_id=' + filtro_vote_id
-                var calendarEl = document.getElementById('calendar');
-                var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                editable: false,
-                eventLimit: true,
-                locale: 'es',
-                events: url_events,
-                dateClick: function(info) {
-                    let url = window.location.origin + '/boats/wp-content/themes/twentytwentytwo/home.html?fecha=' + info.dateStr
-                    window.location.href = url
-                    }
+            calendario() {
+                this.loading = true
+                let url_events = this.base_url + '/administrador/calendar_data'
+                let data_calendar = []
+                axios.post(url_events, { id_vote: this.filtros.id_vote }).then(res => {
+                    data_calendar = res.data.calendar
+                    var calendarEl = document.getElementById('calendar');
+                    var calendar = new FullCalendar.Calendar(calendarEl, {
+                        initialView: 'dayGridMonth',
+                        editable: false,
+                        eventLimit: true,
+                        locale: 'es',
+                        events: data_calendar,
+                        dateClick: function (info) {
+                            let url = window.location.origin + '/boats/wp-content/themes/twentytwentytwo/home.html?fecha=' + info.dateStr
+                            window.location.href = url
+                        }
                     });
                     calendar.render();
                     $('.fc-col-header-cell').addClass('bg-dark-blue')
                     $('.fc-col-header-cell-cushion ').addClass('color-white')
-                        }
-                    }))
+                    this.loading = false
+                })
+            }
+        }))
     })
 </script>
-
-<script>
-        function getParameterByName(name) {
-            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-            results = regex.exec(location.search);
-            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-        }
-</script>
-
-<style>
-   .cursor-pointer {
-        cursor: pointer;
-    }
-</style>

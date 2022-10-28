@@ -23,6 +23,13 @@ $uri = $_SERVER["REQUEST_URI"];
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
+<!-- Full Calendar -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales-all.min.js"></script>
+
 <div x-data="app_alpine()">
 
     <div class="spinner" x-show="loading">
@@ -37,8 +44,9 @@ $uri = $_SERVER["REQUEST_URI"];
 
     <?php
     if ($uri == '/boats/reserva/' || $uri == '/boats/wordpress/' || $uri == '/boats/reserva') {
-        include_once "reserva.html";
-        include_once 'ReservaUsuarioTimeline.html';
+        include_once "Reserva_mes.html";
+        // include_once "reserva.html";
+        // include_once 'ReservaUsuarioTimeline.html';
     }
     ?>
     <template x-if="pantalla!='reserva_usuario'">
@@ -64,7 +72,7 @@ $uri = $_SERVER["REQUEST_URI"];
     </template>
     <?php
     if ($uri == '/boats/reservas_admin/' || $uri == '/wordpress/reservas_admin/') {
-        require 'Reserva_mes.html';
+        include_once 'Reserva_mes.html';
     }
     ?>
 </div>
@@ -73,13 +81,13 @@ $uri = $_SERVER["REQUEST_URI"];
     function app_alpine() {
         return {
             init() {
-                $('.wp-site-blocks').addClass('d-none')
+                // $('.wp-site-blocks').addClass('d-none')
             },
             pantalla: 'reserva_usuario',
             // pantalla: 'ReservaUsuarioResponsable',
             loading: false,
-            base_url: 'https://botelaravel.rutaapp.com',
-            // base_url: 'https://192.168.5.112:443/BoatsLaravel/public',
+            // base_url: 'https://botelaravel.rutaapp.com',
+            base_url: 'https://192.168.5.112:443/BoatsLaravel/public',
             form_reserva: {
                 //-------------------------------------------------------------------------
                 // Tabla reserva

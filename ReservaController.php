@@ -66,7 +66,7 @@ function map_calendar($data)
         // $array[$index]['id'] = $value[0];
         $array[$index]['title'] = $value[1] . ' - ' . $value[2] . ' ' . $value[4];
         $array[$index]['start'] = $value[5];
-        $array[$index]['url'] = "https://rutaapp.com/boats/wp-content/themes/twentytwentytwo/ResumeReservaAdmin.html?reserva_id=" . $value[0];
+        $array[$index]['url'] = "https://127.0.0.1:443/boats/wordpress/wp-content/themes/twentytwentytwo/ResumeReservaAdmin.html?reserva_id=" . $value[0];
         // $array[$index]['id'] = $value[0];
         // $array[$index]['hora_inicio'] = $value[1];
         // $array[$index]['hora_fin'] = $value[2];
