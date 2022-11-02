@@ -1101,3 +1101,60 @@ img.imgPreview {
 .width200px{
     width: 200px;
 }
+
+.button-inicio {
+    color: white;
+    background: #31a6fb;
+    padding: .5rem;
+    border: 0px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.blue-inicio {
+    background: #1d6caf !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.blue-claro-inicio {
+    color: #31a6fb;
+}
+
+.green-claro-inicio {
+    color: #00b20a;
+}
+
+.title-inicio {
+    font-size: 1.3rem;
+}
+
+.cuadradito {
+    background-color: #31a6fb;
+    width: 10px;
+    height: 10px;
+}
+
+.list-group-item {
+    cursor: pointer;
+}
+
+.btn-blue-tareas {
+    background-color: #31A6FB;
+    color: white;
+    font-size: .9em;
+    border: 1px solid #31A6FB;
+    padding: .5em 2em !important;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn-blue-tareas i, .btn-blue-tareas svg {
+    margin-left: .6em !important;
+}
+
+.color-whatsapp {
+    color: #00b20a;
+}

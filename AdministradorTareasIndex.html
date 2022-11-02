@@ -1,0 +1,110 @@
+<div x-data="AdministradorTareasIndex()">
+    <div class="d-flex justify-content-center align-items-center">
+        <div>
+            <h5 class="text-center mt-3 color-dark-blue"> <b> Tareas Simples y Rutinarias </b> </h5>
+        </div>
+    </div>
+    <hr class="my-1">
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center">
+            <h4> <strong> Listado de Tareas & Rutinas registradas </strong> </h4>
+            <button class="btn-blue-tareas my-2">
+                Crear nueva Tarea
+                <i class="fa-solid fa-check-to-slot"></i>
+            </button>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <div class="d-flex">
+                <div class="form-check me-3 f-9">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="ver_todas" checked>
+                    <label class="form-check-label" for="ver_todas">
+                        Ver todas
+                    </label>
+                </div>
+                <div class="form-check me-3 f-9">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="tareas_simples">
+                    <label class="form-check-label" for="tareas_simples">
+                        Solo tareas simples
+                    </label>
+                </div>
+                <div class="form-check me-3 f-9">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="tareas_rutinarias">
+                    <label class="form-check-label" for="tareas_rutinarias">
+                        Solo Tareas Rutinarias
+                    </label>
+                </div>
+                <div class="form-check me-3 f-9">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="tareas_completadas">
+                    <label class="form-check-label" for="tareas_completadas">
+                        Solo Tareas completadas
+                    </label>
+                </div>
+            </div>
+            <div class="d-flex form-group">
+                <label for="">Ordenar por:</label>
+                <select class="form-select" name="" id="">
+                    <option value="">Fecha asignada más próxima</option>
+                    <option value="">Fecha asignada más alejada</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="container-fluid mt-4 row border-bottom pb-4">
+            <div class="col-md-6">
+                <div class="d-flex flex-column">
+                    <div class="d-flex mb-3">
+                        <button class="btn btn-transparent color-dark-red me-2"><i
+                                class="fa-solid fa-check-to-slot"></i></button>
+                        <strong class="color-dark-blue me-3">Tarea</strong>
+                        <strong class="color-dark-extras me-3">Revisión de Motor</strong>
+                        <span class="color-gray-dark me-1"> - Prioridad: </span>
+                        <span class="color-dark-red me-3">Crítica: </span>
+                        <span class="color-gray-dark me-3"> - Fecha asignada: </span>
+                        <span class="color-dark-blue">03/09/2022</span>
+                    </div>
+                    <div class="d-flex container">
+                        <span class="color-dark-blue me-1">4</span>
+                        <span class="color-extras-gray">Gastos adheridos</span>
+                        <span class="mx-3">|</span>
+                        <span class="color-extras-gray me-3">Total de gastos</span>
+                        <strong class="color-dark-blue">€124</strong>
+                        <span class="mx-3">|</span>
+                        <span class="color-dark-blue me-1">5</span>
+                        <span class="color-extras-gray">Observaciones</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-end pe-4 d-flex flex-column">
+                <div>
+                    <div class="d-flex justify-content-end align-items-center">
+                        <span class="color-dark-extras">Afectado a:</span>
+                        <strong class="color-dark-blue">Barco Namaré</strong>
+                        <div class="ms-2 color-whatsapp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="text-end">
+                    <span class="color-extras-gray f-9">Creado: 10/09/2022 - Martín Pavón</span>
+                </div>
+            </div>
+            <div class="col-md-2 d-flex justify-content-around">
+                <button class="btn btn-transparent color-dark-red"><i class="fa-solid fa-trash-can"></i></button>
+                <button class="btn btn-transparent color-gray-dark"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button class="btn btn-transparent color-gray-dark"><i class="fa-solid fa-check"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function AdministradorTareasIndex() {
+        return {
+            init() {
+                $('#nav-tareas-tab').click()
+                // alert('llego')
+            }
+        }
+    }
+</script>
