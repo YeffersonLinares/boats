@@ -1,0 +1,308 @@
+<div x-data="AdministradorTareasCreate">
+    <div class="d-flex justify-content-center align-items-center">
+        <div>
+            <h5 class="text-center mt-3 color-dark-blue"> <b> Tareas & Rutinas </b> </h5>
+        </div>
+    </div>
+    <hr class="my-1">
+    <div class="d-flex justify-content-between mt-3">
+        <div class="ms-3">
+            <div>
+                <button class="btn-regreso" @click="pantalla = 'index'">
+                    <i class="fa-solid fa-circle-arrow-left"></i>
+                    <strong>Atrás</strong>
+                </button>
+            </div>
+        </div>
+        <div class="d-flex">
+            <div>
+                <button class="btn-tareas me-2">
+                    <strong>Completar esta Tarea</strong>
+                    <i class="fa-solid fa-check" style="color: #00b20a;"></i>
+                </button>
+            </div>
+            <div>
+                <button class="btn-tareas me-2">
+                    <strong>Eliminar esta Tarea</strong>
+                    <i class="fa-solid fa-trash-can" style="color: #ff0000;"></i>
+                </button>
+            </div>
+            <div>
+                <button class="btn-tareas-blue me-2">
+                    <strong>Guardar Modificaciones</strong>
+                    <i class="fa-solid fa-floppy-disk"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid mt-3">
+        <div class="d-flex justify-content-between align-items-center">
+            <h5> <strong> Detalle de la Tarea </strong> </h5>
+        </div>
+    </div>
+
+    <div class="row border-top px-2">
+        <div class="col-lg-6 bg-gray p-3 p-md-4">
+            <div class="row">
+                <div class="col-6 mb-3">
+                    <label for="">Estado*.</label>
+                </div>
+                <div class="col-6 mb-3">
+                    <select class="form-select" x-model="form.estado_id" @change="">
+                        <template x-for="(i,index) in estados">
+                            <option :style="'color:' + i.color" :value="i.id" x-text="i.nombre"></option>
+                        </template>
+                    </select>
+                </div>
+            </div>
+            <hr class="my-3">
+            <div class="row">
+                <div class="col-6 mb-3">
+                    <label for="">Tipo*.</label>
+                </div>
+                <div class="col-6 mb-3">
+                    <select class="form-select" x-model="form.tipo_tarea_id">
+                        <template x-for="(i,index) in tipos">
+                            <option :value="i.id" x-text="i.nombre"></option>
+                        </template>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 mb-3">
+                    <label for="">Titulo*.</label>
+                </div>
+                <div class="col-6 mb-3">
+                    <input class="form-control" type="text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 mb-3">
+                    <label for="">Prioridad*.</label>
+                </div>
+                <div class="col-6 mb-3">
+                    <select class="form-select">
+                        <template x-for="(i,index) in importancias">
+                            <option :style="'color:' + i.color" :value="i.id" x-text="i.nombre"></option>
+                        </template>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 mb-3">
+                    <label for="">Fecha limite*.</label>
+                </div>
+                <div class="col-6 mb-3">
+                    <input class="form-control" type="date">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 mb-3">
+                    <label for="">Afectando a*</label>
+                </div>
+                <div class="col-6 mb-3">
+                    <select class="form-select" x-model="form.tipo_afectado_id">
+                        <template x-for="(i,index) in afectados">
+                            <option :value="i.id" x-text="i.nombre"></option>
+                        </template>
+                    </select>
+                </div>
+            </div>
+            <div class="row" x-show="form.tipo_afectado_id == 1">
+                <div class="col-6 mb-3">
+                    <label for="">¿Qué embarcación?*.</label>
+                </div>
+                <div class="col-6 mb-3">
+                    <select class="form-select">
+                        <option value="">Seleccione</option>
+                    </select>
+                </div>
+            </div>
+            <template x-if="form.tipo_tarea_id == 1">
+                <div>
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label for="">Tipo de frecuencia*.</label>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <select class="form-select">
+                                <option value="">Seleccione</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label for="">Frecuencia*.</label>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <input class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <label for="">Mensaje*</label>
+                    <textarea class="form-control" name="" id="" cols="30" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <div class="d-flex">
+                        <label class="form-check-label me-2" for="check-advertencia"> Mostrar advertencia de tarea
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="" id="check-advertencia">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 mb-3">
+                    <label for="">Notificar esta tarea/rutina a:</label>
+                </div>
+                <div class="col-6 mb-3">
+                    <select class="form-select">
+                        <option value="">Juan Piguave</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <hr>
+                <div class="col-12 my-3">
+                    <label class="color-gray-light" for="">Última edición: 10/09/2022 - Martín Pavón</label>
+                </div>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-12 my-3">
+                    <button class="btn-tareas"> <strong> Enviar Mensaje </strong> </button>
+                </div>
+            </div>
+            <div class="mb-5"></div>
+        </div>
+        <div class="col-lg-6 px-3">
+            <div class="container-fluid">
+                <div class="mb-3">
+                    <h5 style="text-transform: capitalize"> <strong class="color-dark-extras"> Gastos </strong> </h5>
+                </div>
+                <div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <div class="d-flex flex-column mb-1">
+                            <span> Filtro de aceite </span>
+                            <span class="color-extras-gray"> 12:23 2022/10/18 </span>
+                        </div>
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <span class="color-blue fs-11">65€</span>
+                            </div>
+                            <div class="me-3">
+                                <button class="btn btn-transparent color-gray-dark"><i
+                                        class="fa-solid fa-pen-to-square fa-lg fs-11"></i></button>
+                            </div>
+                            <div class="me-3">
+                                <button class="btn btn-transparent color-gray-light"><i
+                                        class="fa-solid fa-camera fa-lg fs-11"></i></button>
+                            </div>
+                            <div class="me-3">
+                                <button class="btn btn-transparent color-dark-red"><i
+                                        class="fa-solid fa-trash-can fa-lg fs-11"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="d-flex justify-content-between px-5 py-2 my-3 bg-gray fs-11">
+                    <span>Total Gastos</span>
+                    <strong> <b> 115€ </b> </strong>
+                </div>
+                <div class="mb-3">
+                    <input class="form-control" type="text" placeholder="Descripción nuevo gasto*">
+                </div>
+                <div class="row">
+                    <div class="col-md-5 mb-3">
+                        <select class="form-select">
+                            <option value="">Medio de pago*</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <input class="form-control" type="text" placeholder="Import Neto €*">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <button class="btn-tareas f-9">
+                            <span> Adjuntar factura </span>
+                            <i class="fa-solid fa-camera"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button class="btn-tareas"> <strong> Agregar Nuevo Gasto </strong> </button>
+                </div>
+                <div>
+                    <h5 class="color-dark-extras"> <strong> Observaciones </strong> </h5>
+                    <template x-for="(i,index) in form.observaciones">
+                        <div>
+                            <div class="d-flex justify-content-between my-3">
+                                <div class="d-flex flex-column">
+                                    <span x-text="i.descripcion"></span>
+                                    <span x-text="i.fecha">12:23 2022/10/18</span>
+                                </div>
+                                <div>
+                                    <button class="btn btn-transparent" @click="editar_observacion(i)"> <i
+                                            class="fa-solid fa-pen-to-square color-gray-dark fs-11"></i> </button>
+                                    <button class="btn btn-transparent" @click="eliminar_observacion(index)"> <i
+                                            class="fa-solid fa-trash-can color-dark-red fs-11"></i> </button>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </template>
+                    <div class="my-3">
+                        <label> Observación </label>
+                        <textarea class="form-control" cols="20" rows="5" x-model="observacion.descripcion"></textarea>
+                    </div>
+                    <div class="d-flex justify-content-end" @click="agregar_observacion()">
+                        <button class="btn-tareas f-9"> <strong> Agregar Observación </strong> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function AdministradorTareasCreate() {
+        return {
+            init() {
+                this.cargar_data()
+            },
+            estados: [],
+            importancias: [],
+            tipos: [],
+            afectados: [],
+            form: { tipo_tarea_id: 1, estado_id: '', tipo_afectado_id: 1, observaciones: [] },
+            observacion: { id: '', descripcion: '', fecha: '' },
+            cargar_data() {
+                let url = this.base_url + '/administrador/get_tareas_create'
+                axios.post(url).then(res => {
+                    this.estados = res.data.estados
+                    this.importancias = res.data.importancias
+                    this.tipos = res.data.tipos
+                    this.afectados = res.data.afectados
+                })
+            },
+            agregar_observacion() {
+                let fecha = new Date().toLocaleString()
+                this.observacion.fecha = fecha
+                this.observacion.id = -1
+                this.form.observaciones.push(this.observacion)
+                this.observacion = { descripcion: '', fecha: '' }
+            },
+            eliminar_observacion(index) {
+                this.form.observaciones.splice(index, 1)
+            },
+            editar_observacion(i) {
+                console.log('i ==> ', i);
+                this.observacion.descripcion = i.descripcion
+            }
+        }
+    }
+</script>

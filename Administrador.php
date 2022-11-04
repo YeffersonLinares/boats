@@ -29,7 +29,7 @@
                     <?php include_once "AdministradorClientesIndex.html" ?>
                 </div>
                 <div class="tab-pane fade" id="nav-tareas" role="tabpanel" aria-labelledby="nav-tareas-tab">
-                    <?php include_once "AdministradorTareasIndex.html" ?>
+                    <?php include_once "AdministradorTareasIndex.php" ?>
                 </div>
             </div>
         </div>
