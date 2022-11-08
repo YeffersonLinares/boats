@@ -247,7 +247,7 @@
                                     <span x-text="i.fecha">12:23 2022/10/18</span>
                                 </div>
                                 <div>
-                                    <button class="btn btn-transparent" @click="editar_observacion(i)"> <i
+                                    <button class="btn btn-transparent" @click="editar_observacion(i, index)"> <i
                                             class="fa-solid fa-pen-to-square color-gray-dark fs-11"></i> </button>
                                     <button class="btn btn-transparent" @click="eliminar_observacion(index)"> <i
                                             class="fa-solid fa-trash-can color-dark-red fs-11"></i> </button>
@@ -274,6 +274,8 @@
             init() {
                 this.cargar_data()
             },
+            is_edit: false,
+            pos: '',
             estados: [],
             importancias: [],
             tipos: [],
@@ -293,14 +295,26 @@
                 let fecha = new Date().toLocaleString()
                 this.observacion.fecha = fecha
                 this.observacion.id = -1
-                this.form.observaciones.push(this.observacion)
-                this.observacion = { descripcion: '', fecha: '' }
+                if (this.is_edit == true) {
+                    this.form.observaciones[this.pos] = this.observacion
+                    this.observacion = { id: '', descripcion: '', fecha: '' }
+                    this.is_edit = false
+                    this.pos = null
+                } else {
+                    this.form.observaciones.push(this.observacion)
+                    this.observacion = { id: '', descripcion: '', fecha: '' }
+                    this.is_edit = false
+                    this.pos = null
+                }
             },
-            eliminar_observacion(index) {
-                this.form.observaciones.splice(index, 1)
+            eliminar_observacion(pos) {
+                this.form.observaciones.splice(pos, 1)
             },
-            editar_observacion(i) {
-                console.log('i ==> ', i);
+            editar_observacion(i, pos) {
+                this.is_edit = true
+                console.log('pos2 ==> ', pos);
+                this.pos = pos
+                console.log('this.pos222 ==> ', this.pos);
                 this.observacion.descripcion = i.descripcion
             }
         }
