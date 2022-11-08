@@ -28,7 +28,7 @@
                 </button>
             </div>
             <div>
-                <button class="btn-tareas-blue me-2">
+                <button class="btn-tareas-blue me-2" @click="store()">
                     <strong>Guardar Modificaciones</strong>
                     <i class="fa-solid fa-floppy-disk"></i>
                 </button>
@@ -74,7 +74,7 @@
                     <label for="">Titulo*.</label>
                 </div>
                 <div class="col-6 mb-3">
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" x-model="form.titulo">
                 </div>
             </div>
             <div class="row">
@@ -82,7 +82,7 @@
                     <label for="">Prioridad*.</label>
                 </div>
                 <div class="col-6 mb-3">
-                    <select class="form-select">
+                    <select class="form-select" x-model="form.tipo_importancia_id">
                         <template x-for="(i,index) in importancias">
                             <option :style="'color:' + i.color" :value="i.id" x-text="i.nombre"></option>
                         </template>
@@ -94,7 +94,7 @@
                     <label for="">Fecha limite*.</label>
                 </div>
                 <div class="col-6 mb-3">
-                    <input class="form-control" type="date">
+                    <input class="form-control" type="date" x-model="form.fecha_asignada">
                 </div>
             </div>
             <div class="row">
@@ -114,8 +114,10 @@
                     <label for="">¿Qué embarcación?*.</label>
                 </div>
                 <div class="col-6 mb-3">
-                    <select class="form-select">
-                        <option value="">Seleccione</option>
+                    <select class="form-select" x-model="form.bote_id">
+                        <template x-for="(i,index) in botes">
+                            <option :value="i.id" x-text="i.nombre"></option>
+                        </template>
                     </select>
                 </div>
             </div>
@@ -126,8 +128,10 @@
                             <label for="">Tipo de frecuencia*.</label>
                         </div>
                         <div class="col-6 mb-3">
-                            <select class="form-select">
-                                <option value="">Seleccione</option>
+                            <select class="form-select" x-model="form.frecuencia_rutina_id">
+                                <template x-for="(i,index) in tipo_rutinas">
+                                    <option :value="i.id" x-text="i.nombre">Seleccione</option>
+                                </template>
                             </select>
                         </div>
                     </div>
@@ -136,7 +140,7 @@
                             <label for="">Frecuencia*.</label>
                         </div>
                         <div class="col-6 mb-3">
-                            <input class="form-control" />
+                            <input class="form-control" x-model="form.salidas" />
                         </div>
                     </div>
                 </div>
@@ -144,7 +148,7 @@
             <div class="row">
                 <div class="col-12 mb-3">
                     <label for="">Mensaje*</label>
-                    <textarea class="form-control" name="" id="" cols="30" rows="5"></textarea>
+                    <textarea class="form-control" name="" id="" cols="30" rows="5" x-model="form.mensaje"></textarea>
                 </div>
             </div>
             <div class="row">
@@ -185,57 +189,63 @@
                 <div class="mb-3">
                     <h5 style="text-transform: capitalize"> <strong class="color-dark-extras"> Gastos </strong> </h5>
                 </div>
-                <div>
-                    <div class="d-flex justify-content-between mb-2">
-                        <div class="d-flex flex-column mb-1">
-                            <span> Filtro de aceite </span>
-                            <span class="color-extras-gray"> 12:23 2022/10/18 </span>
+                <template x-for="(i,index) in form.gastos" :key="index">
+                    <div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <div class="d-flex flex-column mb-1">
+                                <span x-text="i.nombre"></span>
+                                <span class="color-extras-gray"> 12:23 2022/10/18 </span>
+                            </div>
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <span class="color-blue fs-11" x-text="i.precio + '€'"></span>
+                                </div>
+                                <div class="me-3">
+                                    <button class="btn btn-transparent color-gray-dark"><i
+                                            class="fa-solid fa-pen-to-square fa-lg fs-11"></i></button>
+                                </div>
+                                <div class="me-3">
+                                    <button class="btn btn-transparent"
+                                        :class="[i.img_factura ? 'color-gray-light' : 'color-transparent']"><i
+                                            class="fa-solid fa-camera fa-lg fs-11"></i></button>
+                                </div>
+                                <div class="me-3">
+                                    <button class="btn btn-transparent color-dark-red" @click="eliminar_gasto(index)"><i
+                                            class="fa-solid fa-trash-can fa-lg fs-11"></i></button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="d-flex">
-                            <div class="me-3">
-                                <span class="color-blue fs-11">65€</span>
-                            </div>
-                            <div class="me-3">
-                                <button class="btn btn-transparent color-gray-dark"><i
-                                        class="fa-solid fa-pen-to-square fa-lg fs-11"></i></button>
-                            </div>
-                            <div class="me-3">
-                                <button class="btn btn-transparent color-gray-light"><i
-                                        class="fa-solid fa-camera fa-lg fs-11"></i></button>
-                            </div>
-                            <div class="me-3">
-                                <button class="btn btn-transparent color-dark-red"><i
-                                        class="fa-solid fa-trash-can fa-lg fs-11"></i></button>
-                            </div>
-                        </div>
+                        <hr class="my-3">
                     </div>
-                    <hr>
-                </div>
+                </template>
                 <div class="d-flex justify-content-between px-5 py-2 my-3 bg-gray fs-11">
                     <span>Total Gastos</span>
-                    <strong> <b> 115€ </b> </strong>
+                    <strong class="color-dark-extras"> <b x-text="sum_gastos()"></b> </strong>
                 </div>
                 <div class="mb-3">
-                    <input class="form-control" type="text" placeholder="Descripción nuevo gasto*">
+                    <input class="form-control" type="text" placeholder="Descripción nuevo gasto*"
+                        x-model="gasto.nombre">
                 </div>
                 <div class="row">
                     <div class="col-md-5 mb-3">
-                        <select class="form-select">
+                        <select class="form-select" x-model="gasto.medio_pago">
                             <option value="">Medio de pago*</option>
                         </select>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <input class="form-control" type="text" placeholder="Import Neto €*">
+                        <input class="form-control" type="text" placeholder="Import Neto €*" x-model="gasto.precio">
                     </div>
                     <div class="col-md-4 mb-3">
-                        <button class="btn-tareas f-9">
+                        <button class="btn-tareas f-9" @click="img_factura()">
                             <span> Adjuntar factura </span>
                             <i class="fa-solid fa-camera"></i>
                         </button>
+                        <input type="file" name="" id="img_factura" class="d-none" @change="cargar_archivo($event)">
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button class="btn-tareas"> <strong> Agregar Nuevo Gasto </strong> </button>
+                    <button class="btn-tareas" @click="agregar_gasto()"> <strong> Agregar Nuevo Gasto </strong>
+                    </button>
                 </div>
                 <div>
                     <h5 class="color-dark-extras"> <strong> Observaciones </strong> </h5>
@@ -253,7 +263,7 @@
                                             class="fa-solid fa-trash-can color-dark-red fs-11"></i> </button>
                                 </div>
                             </div>
-                            <hr>
+                            <hr class="mb-3">
                         </div>
                     </template>
                     <div class="my-3">
@@ -280,8 +290,11 @@
             importancias: [],
             tipos: [],
             afectados: [],
-            form: { tipo_tarea_id: 1, estado_id: '', tipo_afectado_id: 1, observaciones: [] },
+            tipo_rutinas: [],
+            botes: [],
+            form: { tipo_tarea_id: 1, estado_tarea_id: 1, tipo_afectado_id: 1, tipo_importancia_id: 1, fecha_asignada: '', tipo_afectado_id: 1, tipo_rutina_id: '', frecuencia_rutina_id: '', mensaje: '', bote_id: '', salidas: '', observaciones: [], gastos: [] },
             observacion: { id: '', descripcion: '', fecha: '' },
+            gasto: { id: '', nombre: '', medio_pago: '', precio: '', img_factura: '', fecha: '' },
             cargar_data() {
                 let url = this.base_url + '/administrador/get_tareas_create'
                 axios.post(url).then(res => {
@@ -289,33 +302,63 @@
                     this.importancias = res.data.importancias
                     this.tipos = res.data.tipos
                     this.afectados = res.data.afectados
+                    this.botes = res.data.botes
+                    this.tipo_rutinas = res.data.tipo_rutinas
                 })
             },
             agregar_observacion() {
+                if (!this.observacion.descripcion) {
+                    Swal.fire('', 'El campo observación es obligatorio', 'error')
+                    return
+                }
                 let fecha = new Date().toLocaleString()
                 this.observacion.fecha = fecha
                 this.observacion.id = -1
                 if (this.is_edit == true) {
                     this.form.observaciones[this.pos] = this.observacion
-                    this.observacion = { id: '', descripcion: '', fecha: '' }
-                    this.is_edit = false
-                    this.pos = null
                 } else {
                     this.form.observaciones.push(this.observacion)
-                    this.observacion = { id: '', descripcion: '', fecha: '' }
-                    this.is_edit = false
-                    this.pos = null
                 }
+                this.observacion = { id: '', descripcion: '', fecha: '' }
+                this.is_edit = false
+                this.pos = null
             },
             eliminar_observacion(pos) {
                 this.form.observaciones.splice(pos, 1)
             },
             editar_observacion(i, pos) {
                 this.is_edit = true
-                console.log('pos2 ==> ', pos);
                 this.pos = pos
-                console.log('this.pos222 ==> ', this.pos);
                 this.observacion.descripcion = i.descripcion
+            },
+            agregar_gasto() {
+                let fecha = new Date().toLocaleString()
+                this.gasto.fecha = fecha
+                this.form.gastos.push(this.gasto)
+                this.gasto = { id: '', nombre: '', medio_pago: '', precio: '', img_factura: '', fecha: '' }
+            },
+            eliminar_gasto(pos) {
+                this.form.gastos.splice(pos, 1)
+            },
+            sum_gastos() {
+                let sum = 0
+                this.form.gastos.forEach(element => {
+                    sum += parseInt(element.precio)
+                });
+                return sum + '€'
+            },
+            img_factura() {
+                $('#img_factura').click()
+            },
+            cargar_archivo(event) {
+                this.gasto.img_factura = event.target.files[0]
+                console.log('this.gasto.img_factura ==> ', this.gasto.img_factura);
+            },
+            store() {
+                let url = this.base_url + '/administrador/store_tareas'
+                axios.post(url, this.form).then(res => {
+                    console.log('res.data ==> ', res.data);
+                })
             }
         }
     }

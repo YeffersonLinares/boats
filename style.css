@@ -680,7 +680,7 @@ i {
 }
 
 .color-gray-dark {
-    color: #707070;
+    color: #707070 !important;
 }
 
 .color-light-blue {
@@ -1180,7 +1180,7 @@ img.imgPreview {
 }
 
 .color-gray-light {
-    color: #b5b5b5;
+    color: #b5b5b5 !important;
 }
 
 .fs-11 {
@@ -1196,4 +1196,8 @@ img.imgPreview {
 }
 .btn-tareas svg {
     margin-right: .5em;
+}
+
+.color-transparent {
+    color: transparent !important;
 }
