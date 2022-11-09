@@ -16,13 +16,13 @@
         </div>
         <div class="d-flex">
             <div>
-                <button class="btn-tareas me-2">
-                    <strong>Completar esta Tarea</strong>
+                <button class="btn-tareas me-2" x-show="accion==2">
+                    <strong @click="completar_tarea(form, posicion)">Completar esta Tarea</strong>
                     <i class="fa-solid fa-check" style="color: #00b20a;"></i>
                 </button>
             </div>
             <div>
-                <button class="btn-tareas me-2">
+                <button class="btn-tareas me-2" x-show="accion==2" @click="eliminar_tarea(form.id, posicion)">
                     <strong>Eliminar esta Tarea</strong>
                     <i class="fa-solid fa-trash-can" style="color: #ff0000;"></i>
                 </button>
@@ -302,6 +302,7 @@
         return {
             init() {
                 this.cargar_data()
+                this.preparar_formulario()
             },
             is_edit: false,
             pos: '',
@@ -336,10 +337,10 @@
                 }
                 let fecha = new Date().toLocaleString()
                 this.observacion.fecha = fecha
-                this.observacion.id = -1
                 if (this.is_edit == true) {
                     this.form.observaciones[this.pos] = this.observacion
                 } else {
+                    this.observacion.id = -1
                     this.form.observaciones.push(this.observacion)
                 }
                 this.observacion = { id: '', descripcion: '', fecha: '' }
@@ -352,7 +353,11 @@
             editar_observacion(i, pos) {
                 this.is_edit = true
                 this.pos = pos
-                this.observacion.descripcion = i.descripcion
+                if(!i.id || i.id == -1) this.observacion.descripcion = i.descripcion
+                else {
+                    this.observacion.id = i.id
+                    this.observacion.descripcion = i.descripcion
+                }
             },
             agregar_gasto() {
                 if (!this.gasto.nombre || !this.gasto.precio) {
@@ -424,6 +429,12 @@
                 if (obj)
                     return Base64.encode(obj)
             },
+            preparar_formulario() {
+                if(this.tarea?.id) {
+                    this.form = this.tarea
+                    console.log('this.form ==> ',this.form);
+                }
+            }
         }
     }
 </script>

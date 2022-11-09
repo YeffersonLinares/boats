@@ -10,12 +10,12 @@
             <div class="container-fluid">
                 <div class="d-flex justify-content-between align-items-center">
                     <h4> <strong> Listado de Tareas & Rutinas registradas </strong> </h4>
-                    <button class="btn-blue-tareas my-2" @click="pantalla = 'create'">
+                    <button class="btn-blue-tareas my-2" @click="pantalla = 'create'; accion=1">
                         Crear nueva Tarea
                         <i class="fa-solid fa-check-to-slot"></i>
                     </button>
                 </div>
-    
+
                 <div class="d-flex justify-content-between">
                     <div class="d-flex">
                         <div class="form-check me-3 f-9">
@@ -51,9 +51,9 @@
                         </select>
                     </div>
                 </div>
-    
+
                 <template x-for="(i,index) in tareas">
-                    <div class="container-fluid mt-4 row border-bottom pb-4">
+                    <div class="container-fluid mt-4 row border-bottom pb-4" :class="[i.estado_tarea_id == 3 ? 'opacity03' : '']">
                         <div class="col-md-6">
                             <div class="d-flex flex-column">
                                 <div class="d-flex mb-3">
@@ -88,16 +88,18 @@
                                         <i class="fa-brands fa-whatsapp"></i>
                                     </div>
                                 </div>
-    
+
                             </div>
                             <div class="text-end">
                                 <span class="color-extras-gray f-9" x-text="'Creado: ' + i.created_at + ' - Martín Pavón'"></span>
                             </div>
                         </div>
                         <div class="col-md-2 d-flex justify-content-around">
-                            <button class="btn btn-transparent color-dark-red" @click="eliminar_tarea(i.id, index)"><i class="fa-solid fa-trash-can"></i></button>
-                            <button class="btn btn-transparent color-gray-dark"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button class="btn btn-transparent color-gray-dark"><i class="fa-solid fa-check"></i></button>
+                            <button class="btn btn-transparent color-dark-red" @click="eliminar_tarea(i.id, index)" :disabled="i.estado_tarea_id == 3"><i class="fa-solid fa-trash-can"></i></button>
+                            <button class="btn btn-transparent color-gray-dark" @click="editar_tarea(i, index)" :disabled="i.estado_tarea_id == 3"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button class="btn btn-transparent color-gray-dark" @click="completar_tarea(i, index)" :disabled="i.estado_tarea_id == 3" :class="[i.estado_tarea_id == 3 ? 'green-claro-inicio' : '']">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
                         </div>
                     </div>
                 </template>
@@ -113,7 +115,11 @@
 <script>
     function AdministradorTareasIndex() {
         return {
-            pantalla: 'create',
+            pantalla: 'index',
+            accion: '',
+            tarea: {},
+            posicion: '',
+            // pantalla: 'create',
             tareas: [],
             filtros: {
                 tipo: null,
@@ -142,7 +148,7 @@
                     allowOutsideClick: false,
                 }).then(async (result) => {
                     if (result.isConfirmed) {
-                        this.loading = true;
+                        // this.loading = true;
                         let url = this.base_url + '/administrador/eliminar_tareas'
                         axios.post(url, {
                             id: id
@@ -150,14 +156,46 @@
                             if (res.data.status == 200) {
                                 this.tareas.splice(index, 1)
                                 Swal.fire('Éxito', res.data.msg, 'success')
+                                this.pantalla = 'index'
                             } else if (res.data.status == 500) {
                                 Swal.fire('Error', res.data.msg, 'error')
                             }
-                            this.loading = false
                         })
                     }
 
                 });
+            },
+            completar_tarea(i, index) {
+                Swal.fire({
+                    title: "¿Estás seguro la tarea " + i.titulo + '?',
+                    showDenyButton: true,
+                    confirmButtonText: "Si",
+                    denyButtonText: "No",
+                    allowOutsideClick: false,
+                }).then(async (result) => {
+                    if (result.isConfirmed) {
+                        // this.loading = true;
+                        let url = this.base_url + '/administrador/completar_tareas'
+                        axios.post(url, {
+                            id: i.id
+                        }).then(res => {
+                            if (res.data.status == 200) {
+                                Swal.fire('Éxito', res.data.msg, 'success')
+                                this.tareas[index].estado_tarea_id = 3
+                                this.pantalla = 'index'
+                            }
+                            // this.loading = false
+                        })
+                    }
+
+                });
+            },
+            editar_tarea(i, index) {
+                this.tarea = i
+                this.accion = 2
+                this.posicion = index
+                this.pantalla = 'create'
+
             }
         }
     }
