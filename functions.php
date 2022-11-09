@@ -30,6 +30,8 @@ $uri = $_SERVER["REQUEST_URI"];
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales-all.min.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.1.0/base64.js"></script>
+
 <div x-data="app_alpine()">
 
     <div class="spinner" x-show="loading">

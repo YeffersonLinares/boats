@@ -2,13 +2,13 @@
         <div class="row mt-1">
             <nav class="admin-navs-tabs">
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <button class="width200px nav-link active" id="nav-inicio-tab" data-bs-toggle="tab" data-bs-target="#nav-inicio" type="button" role="tab" aria-controls="nav-inicio" aria-selected="true">Inicio</button>
-                    <button class="width200px nav-link" id="nav-reservas-tab" data-bs-toggle="tab" data-bs-target="#nav-reservas" type="button" role="tab" aria-controls="nav-reservas" aria-selected="false">Reservas</button>
-                    <button class="width200px nav-link" id="nav-barcos-tab" data-bs-toggle="tab" data-bs-target="#nav-barcos" type="button" role="tab" aria-controls="nav-barcos" aria-selected="false">Barcos</button>
-                    <button class="width200px nav-link" id="nav-extras-tab" data-bs-toggle="tab" data-bs-target="#nav-extras" type="button" role="tab" aria-controls="nav-extras" aria-selected="false">Extras</button>
-                    <button class="width200px nav-link" id="nav-clientes-tab" data-bs-toggle="tab" data-bs-target="#nav-clientes" type="button" role="tab" aria-controls="nav-clientes" aria-selected="false">Clientes</button>
-                    <button class="width200px nav-link" id="nav-empresa-tab" data-bs-toggle="tab" data-bs-target="#nav-empresa" type="button" role="tab" aria-controls="nav-empresa" aria-selected="false">Empresa</button>
-                    <button class="width200px nav-link" id="nav-tareas-tab" data-bs-toggle="tab" data-bs-target="#nav-tareas" type="button" role="tab" aria-controls="nav-tareas" aria-selected="false">Tareas</button>
+                    <button class="width185px nav-link active" id="nav-inicio-tab" data-bs-toggle="tab" data-bs-target="#nav-inicio" type="button" role="tab" aria-controls="nav-inicio" aria-selected="true">Inicio</button>
+                    <button class="width185px nav-link" id="nav-reservas-tab" data-bs-toggle="tab" data-bs-target="#nav-reservas" type="button" role="tab" aria-controls="nav-reservas" aria-selected="false">Reservas</button>
+                    <button class="width185px nav-link" id="nav-barcos-tab" data-bs-toggle="tab" data-bs-target="#nav-barcos" type="button" role="tab" aria-controls="nav-barcos" aria-selected="false">Barcos</button>
+                    <button class="width185px nav-link" id="nav-extras-tab" data-bs-toggle="tab" data-bs-target="#nav-extras" type="button" role="tab" aria-controls="nav-extras" aria-selected="false">Extras</button>
+                    <button class="width185px nav-link" id="nav-clientes-tab" data-bs-toggle="tab" data-bs-target="#nav-clientes" type="button" role="tab" aria-controls="nav-clientes" aria-selected="false">Clientes</button>
+                    <button class="width185px nav-link" id="nav-empresa-tab" data-bs-toggle="tab" data-bs-target="#nav-empresa" type="button" role="tab" aria-controls="nav-empresa" aria-selected="false">Empresa</button>
+                    <button class="width185px nav-link" id="nav-tareas-tab" data-bs-toggle="tab" data-bs-target="#nav-tareas" type="button" role="tab" aria-controls="nav-tareas" aria-selected="false">Tareas</button>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">

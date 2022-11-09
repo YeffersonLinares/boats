@@ -1201,3 +1201,7 @@ img.imgPreview {
 .color-transparent {
     color: transparent !important;
 }
+
+.width185px {
+    width: 185px;
+}
