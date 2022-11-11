@@ -8,7 +8,7 @@
     <div class="d-flex justify-content-between mt-3">
         <div class="ms-3">
             <div>
-                <button class="btn-regreso" @click="pantalla = 'index'">
+                <button class="btn-regreso" @click="pantalla = 'index'; tarea = {}; accion = ''">
                     <i class="fa-solid fa-circle-arrow-left"></i>
                     <strong>Atrás</strong>
                 </button>
@@ -49,7 +49,8 @@
                     <label for="">Estado*.</label>
                 </div>
                 <div class="col-6 mb-3">
-                    <select class="form-select" x-model="form.estado_id" @change="">
+                    <select class="form-select" x-model="form.estado_tarea_id" id="estado_tarea_id">
+                        <option value="">Seleccione</option>
                         <template x-for="(i,index) in estados">
                             <option :style="'color:' + i.color" :value="i.id" x-text="i.nombre"></option>
                         </template>
@@ -62,7 +63,8 @@
                     <label for="">Tipo*.</label>
                 </div>
                 <div class="col-6 mb-3">
-                    <select class="form-select" x-model="form.tipo_tarea_id">
+                    <select class="form-select" x-model="form.tipo_tarea_id" id="tipo_tarea_id">
+                        <option value="">Seleccione</option>
                         <template x-for="(i,index) in tipos">
                             <option :value="i.id" x-text="i.nombre"></option>
                         </template>
@@ -83,6 +85,7 @@
                 </div>
                 <div class="col-6 mb-3">
                     <select class="form-select" x-model="form.tipo_importancia_id">
+                        <option value="">Seleccione</option>
                         <template x-for="(i,index) in importancias">
                             <option :style="'color:' + i.color" :value="i.id" x-text="i.nombre"></option>
                         </template>
@@ -103,6 +106,7 @@
                 </div>
                 <div class="col-6 mb-3">
                     <select class="form-select" x-model="form.tipo_afectado_id">
+                        <option value="">Seleccione</option>
                         <template x-for="(i,index) in afectados">
                             <option :value="i.id" x-text="i.nombre"></option>
                         </template>
@@ -115,6 +119,7 @@
                 </div>
                 <div class="col-6 mb-3">
                     <select class="form-select" x-model="form.bote_id">
+                        <option value="">Seleccione</option>
                         <template x-for="(i,index) in botes">
                             <option :value="i.id" x-text="i.nombre"></option>
                         </template>
@@ -128,9 +133,10 @@
                             <label for="">Tipo de frecuencia*.</label>
                         </div>
                         <div class="col-6 mb-3">
-                            <select class="form-select" x-model="form.frecuencia_rutina_id">
+                            <select class="form-select" x-model="form.frecuencia_rutina_id" id="frecuencia_rutina_id">
+                                <option value="">Seleccione</option>
                                 <template x-for="(i,index) in tipo_rutinas">
-                                    <option :value="i.id" x-text="i.nombre">Seleccione</option>
+                                    <option :value="i.id" x-text="i.nombre"></option>
                                 </template>
                             </select>
                         </div>
@@ -167,6 +173,7 @@
                 </div>
                 <div class="col-6 mb-3">
                     <select class="form-select">
+                        <option value="">Seleccione</option>
                         <option value="">Juan Piguave</option>
                     </select>
                 </div>
@@ -192,36 +199,42 @@
                 </div>
                 <template x-for="(i,index) in form.gastos" :key="index">
                     <div>
-                        <div class="d-flex justify-content-between mb-2">
-                            <div class="d-flex flex-column mb-1">
-                                <span x-text="i.nombre"></span>
-                                <span class="color-extras-gray"> 12:23 2022/10/18 </span>
-                            </div>
-                            <div class="d-flex">
-                                <div class="me-3">
-                                    <template x-if="imgsrc[index]">
-                                        <img role="button" :src="imgsrc[index]" class="image_gasto"
-                                            data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                            @click="preview_image_list(index)" />
-                                        <!-- <img role="button" :src="imgsrc[index]" class="image_gasto" data-bs-toggle="modal"
-                                        :data-bs-target="'#' + index + 'modal'" /> -->
-                                    </template>
+                        <template x-if="!i.deleted_at">
+                            <div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <div class="d-flex flex-column mb-1">
+                                        <span x-text="i.nombre"></span>
+                                        <span class="color-extras-gray" x-text="i.updated_at"> </span>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <template x-if="imgsrc[index]">
+                                                <img role="button" :src="imgsrc[index]" class="image_gasto"
+                                                    data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                    @click="preview_image_list(index)" />
+                                                <!-- <img role="button" :src="imgsrc[index]" class="image_gasto" data-bs-toggle="modal"
+                                                :data-bs-target="'#' + index + 'modal'" /> -->
+                                            </template>
+                                        </div>
+                                        <div class="me-3">
+                                            <span class="color-blue fs-11" x-text="i.precio + '€'"></span>
+                                        </div>
+                                        <div class="me-3">
+                                            <button class="btn btn-transparent color-gray-dark"
+                                                @click="editar_gasto(i, index)"><i
+                                                    class="fa-solid fa-pen-to-square fa-lg fs-11"></i></button>
+                                        </div>
+                                        <div class="me-3">
+                                            <button class="btn btn-transparent color-dark-red"
+                                                @click="eliminar_gasto(index)"><i
+                                                    class="fa-solid fa-trash-can fa-lg fs-11"></i></button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="me-3">
-                                    <span class="color-blue fs-11" x-text="i.precio + '€'"></span>
-                                </div>
-                                <div class="me-3">
-                                    <button class="btn btn-transparent color-gray-dark"><i
-                                            class="fa-solid fa-pen-to-square fa-lg fs-11"></i></button>
-                                </div>
-                                <div class="me-3">
-                                    <button class="btn btn-transparent color-dark-red" @click="eliminar_gasto(index)"><i
-                                            class="fa-solid fa-trash-can fa-lg fs-11"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="my-3">
+                                <hr class="my-3">
 
+                            </div>
+                        </template>
                     </div>
                 </template>
                 <div class="d-flex justify-content-between px-5 py-2 my-3 bg-gray fs-11">
@@ -246,7 +259,12 @@
                             <span> Adjuntar factura </span>
                             <i class="fa-solid fa-camera"></i>
                         </button>
-                        <input type="file" name="" id="img_factura" class="d-none" @change="cargar_archivo($event)" accept="image/*,.pdf,.doc,.docx">
+                        <input type="file" name="" id="img_factura" class="d-none" @change="cargar_archivo($event)"
+                            accept="image/*,.pdf,.doc,.docx">
+                        <template x-if="imgSrcInput">
+                            <img role="button" :src="imgSrcInput" class="image_gasto mt-3" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" @click="preview_image_list()" />
+                        </template>
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
@@ -256,21 +274,23 @@
                 <div>
                     <h5 class="color-dark-extras"> <strong> Observaciones </strong> </h5>
                     <template x-for="(i,index) in form.observaciones">
-                        <div>
-                            <div class="d-flex justify-content-between my-3">
-                                <div class="d-flex flex-column">
-                                    <span x-text="reducir_descripcion(i.descripcion)"></span>
-                                    <span x-text="i.fecha">12:23 2022/10/18</span>
+                        <template x-if="!i.deleted_at">
+                            <div>
+                                <div class="d-flex justify-content-between my-3">
+                                    <div class="d-flex flex-column">
+                                        <span x-text="reducir_descripcion(i.descripcion)"></span>
+                                        <span class="color-extras-gray" x-text="i.updated_at"></span>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-transparent" @click="editar_observacion(i, index)"> <i
+                                                class="fa-solid fa-pen-to-square color-gray-dark fs-11"></i> </button>
+                                        <button class="btn btn-transparent" @click="eliminar_observacion(index)"> <i
+                                                class="fa-solid fa-trash-can color-dark-red fs-11"></i> </button>
+                                    </div>
                                 </div>
-                                <div>
-                                    <button class="btn btn-transparent" @click="editar_observacion(i, index)"> <i
-                                            class="fa-solid fa-pen-to-square color-gray-dark fs-11"></i> </button>
-                                    <button class="btn btn-transparent" @click="eliminar_observacion(index)"> <i
-                                            class="fa-solid fa-trash-can color-dark-red fs-11"></i> </button>
-                                </div>
+                                <hr class="mb-3">
                             </div>
-                            <hr class="mb-3">
-                        </div>
+                        </template>
                     </template>
                     <div class="my-3">
                         <label> Observación </label>
@@ -302,9 +322,10 @@
         return {
             init() {
                 this.cargar_data()
-                this.preparar_formulario()
             },
             is_edit: false,
+            is_edit_gasto: false,
+            pos_gasto: '',
             pos: '',
             estados: [],
             importancias: [],
@@ -314,20 +335,24 @@
             botes: [],
             archivo: null,
             tipo_salidas: ['Días', 'Salidas', 'Horas'],
-            form: { tipo_tarea_id: 1, estado_tarea_id: 1, tipo_afectado_id: 1, tipo_importancia_id: 1, fecha_asignada: '', tipo_afectado_id: 1, tipo_rutina_id: '', frecuencia_rutina_id: 1, mensaje: '', bote_id: 1, frecuencia: '', observaciones: [], gastos: [] },
-            observacion: { id: '', descripcion: '', fecha: '' },
-            gasto: { id: '', nombre: '', medio_pago: '', precio: '', img_factura: '', fecha: '' },
+            form: { id: '', tipo_tarea_id: '', estado_tarea_id: '', tipo_afectado_id: '', tipo_importancia_id: '', fecha_asignada: '', tipo_afectado_id: '', tipo_rutina_id: '', frecuencia_rutina_id: '', mensaje: '', bote_id: '', frecuencia: '', observaciones: [], gastos: [], titulo: '' },
+            observacion: { id: '', descripcion: '', updated_at: '', deleted_at: null },
+            gasto: { id: '', nombre: '', medio_pago: '', precio: '', img_factura: '', updated_at: '', deleted_at: null },
             imgsrc: [],
             route_image: '',
-            cargar_data() {
+            imgSrcInput: null,
+            async cargar_data() {
+                this.loading = true
                 let url = this.base_url + '/administrador/get_tareas_create'
-                axios.post(url).then(res => {
+                await axios.post(url).then(res => {
                     this.estados = res.data.estados
                     this.importancias = res.data.importancias
                     this.tipos = res.data.tipos
                     this.afectados = res.data.afectados
                     this.botes = res.data.botes
                     this.tipo_rutinas = res.data.tipo_rutinas
+                    this.preparar_formulario()
+                    this.loading = false
                 })
             },
             agregar_observacion() {
@@ -335,44 +360,97 @@
                     Swal.fire('', 'El campo observación es obligatorio', 'error')
                     return
                 }
-                let fecha = new Date().toLocaleString()
-                this.observacion.fecha = fecha
+                let updated_at = new Date().toLocaleString()
+                this.observacion.updated_at = updated_at
+                let observacion = {}
                 if (this.is_edit == true) {
-                    this.form.observaciones[this.pos] = this.observacion
+                    for (const key in this.observacion) {
+                        observacion[key] = this.observacion[key]
+                    }
+                    this.form.observaciones[this.pos] = observacion
                 } else {
-                    this.observacion.id = -1
-                    this.form.observaciones.push(this.observacion)
+                    this.observacion.id = ''
+                    for (const key in this.observacion) {
+                        observacion[key] = this.observacion[key]
+                    }
+                    this.form.observaciones.push(observacion)
                 }
-                this.observacion = { id: '', descripcion: '', fecha: '' }
+                this.limpiar_observacion()
                 this.is_edit = false
                 this.pos = null
             },
             eliminar_observacion(pos) {
-                this.form.observaciones.splice(pos, 1)
+                let observacion = this.form.observaciones[pos]
+                if (!observacion.id || observacion.id == -1) this.form.observaciones.splice(pos, 1)
+                else {
+                    this.form.observaciones[pos].deleted_at = 1
+                }
+                this.limpiar_observacion()
             },
             editar_observacion(i, pos) {
                 this.is_edit = true
                 this.pos = pos
-                if(!i.id || i.id == -1) this.observacion.descripcion = i.descripcion
+                if (!i.id || i.id == -1) this.observacion.descripcion = i.descripcion
                 else {
                     this.observacion.id = i.id
                     this.observacion.descripcion = i.descripcion
                 }
             },
+            limpiar_observacion() {
+                for (const key in this.observacion) {
+                    this.observacion[key] = ''
+                }
+                this.observacion.deleted_at = null
+            },
+            limpiar_gasto() {
+                for (const key in this.gasto) {
+                    this.gasto[key] = ''
+                }
+                this.gasto.deleted_at = null
+            },
             agregar_gasto() {
                 if (!this.gasto.nombre || !this.gasto.precio) {
-                    Swal.fire('', 'El campo descripción e importe neto son obligatorios', 'error')
+                    Swal.fire('', 'El campo descripción e importe neto son obligatorio ms', 'error')
                     return
                 }
-                let fecha = new Date().toLocaleString()
-                this.gasto.fecha = fecha
-                this.form.gastos.push(this.gasto)
-                console.log('this.gasto ==> ', this.gasto);
+                let updated_at = new Date().toLocaleString()
+                this.gasto.updated_at = updated_at
+                let gasto = {}
+
+                if (this.is_edit_gasto == true) {
+                    for (const key in this.gasto) gasto[key] = this.gasto[key]
+                    console.log('this.imgsrc ==> ', this.imgsrc);
+                    console.log('gastos[this.pos_gasto] ==> ', this.pos_gasto);
+                    this.form.gastos[this.pos_gasto] = gasto
+                    this.is_edit_gasto = false
+                } else {
+                    this.gasto.id = -1
+                    for (const key in this.gasto) gasto[key] = this.gasto[key]
+                    this.form.gastos.push(gasto)
+                }
+
                 this.previewFile()
-                this.gasto = { id: '', nombre: '', medio_pago: '', precio: '', img_factura: '', fecha: '' }
+                this.limpiar_gasto()
+                this.imgSrcInput = null
             },
             eliminar_gasto(pos) {
-                this.form.gastos.splice(pos, 1)
+                let gasto = this.form.gastos[pos]
+                if (!gasto.id || gasto.id == -1) this.form.gastos.splice(pos, 1)
+                else {
+                    this.form.gastos[pos].deleted_at = 1
+                }
+            },
+            editar_gasto(i, pos) {
+                this.is_edit_gasto = true
+                this.pos_gasto = pos
+                for (const key in this.gasto) this.gasto[key] = i[key]
+                console.log('i ==> ', i);
+                if (typeof (i.img_factura) == 'string') {
+                    if(i.img_factura != '') this.imgSrcInput = this.base_url + '/' + i.img_factura
+                } else {
+                    this.imgSrcInput = this.gasto.img_factura
+                    this.previewFile(2)
+                }
             },
             sum_gastos() {
                 let sum = 0
@@ -386,7 +464,7 @@
             },
             cargar_archivo(event) {
                 this.gasto.img_factura = event.target.files[0]
-                console.log('this.gasto.img_factura ==> ', this.gasto.img_factura);
+                this.previewFile(2)
             },
             store() {
                 this.form.gastos.forEach((element, index) => {
@@ -400,19 +478,28 @@
                     Swal.fire('Error', error, 'error')
                 })
             },
-            previewFile() {
+            previewFile(type = 1) {
                 let file = this.gasto.img_factura;
+                if (typeof (file) == 'string') {
+                    this.imgSrcInput = file;
+                    return
+                }
                 if (!file || file.type.indexOf('image/') === -1) return;
-                this.imgsrc[this.form.gastos.length - 1] = null;
+                if (type == 1) {
+                    // this.imgsrc[this.form.gastos.length - 1] = null;
+                    this.imgsrc[this.pos_gasto] = null;
+                }
+                else {
+                    this.imgSrcInput = null
+                }
                 let reader = new FileReader();
 
                 reader.onload = e => {
-                    this.imgsrc[this.form.gastos.length - 1] = e.target.result;
-                    // this.imgsrc = e.target.result;
+                    // if (type == 1) this.imgsrc[this.form.gastos.length - 1] = e.target.result;
+                    if (type == 1) this.imgsrc[this.pos_gasto] = e.target.result;
+                    else this.imgSrcInput = e.target.result;
                 }
-
                 reader.readAsDataURL(file);
-
             },
             reducir_descripcion(cadena) {
                 if (cadena.length > 35) {
@@ -421,18 +508,22 @@
                     return cadena
                 }
             },
-            preview_image_list(index) {
-                this.route_image = this.imgsrc[index]
-                console.log('this.route_image ==> ', this.route_image);
-            },
-            encode64(obj) {
-                if (obj)
-                    return Base64.encode(obj)
+            preview_image_list(index = -1) {
+                if (index == -1) this.route_image = this.imgSrcInput
+                else this.route_image = this.imgsrc[index]
             },
             preparar_formulario() {
-                if(this.tarea?.id) {
-                    this.form = this.tarea
-                    console.log('this.form ==> ',this.form);
+                if (this.tarea?.id) {
+                    // this.form = this.tarea
+                    for (const key in this.form) {
+                        this.form[key] = this.tarea[key]
+                        $('#' + key).val(this.form[key]).trigger('change');
+                    }
+                    this.form.gastos.forEach((element, index) => {
+                        if (element.img_factura) this.imgsrc[index] = this.base_url + '/' + element.img_factura
+                        else this.imgsrc[index] = null
+                    });
+                    $('#frecuencia_rutina_id').val(this.form.frecuencia_rutina_id).trigger('change');
                 }
             }
         }
