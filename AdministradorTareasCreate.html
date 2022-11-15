@@ -97,7 +97,7 @@
                     <label for="">Fecha limite*.</label>
                 </div>
                 <div class="col-6 mb-3">
-                    <input class="form-control" type="date" x-model="form.fecha_asignada">
+                    <input class="form-control" :min="actual" type="date" x-model="form.fecha_asignada">
                 </div>
             </div>
             <div class="row">
@@ -268,7 +268,8 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button class="btn-tareas" @click="agregar_gasto()"> <strong> Agregar Nuevo Gasto </strong>
+                    <button class="btn-tareas" @click="agregar_gasto()">
+                        <strong x-text="is_edit_gasto == false ? 'Agregar Nuevo Gasto' : 'Actualizar Gasto'"> </strong>
                     </button>
                 </div>
                 <div>
@@ -297,7 +298,9 @@
                         <textarea class="form-control" cols="20" rows="5" x-model="observacion.descripcion"></textarea>
                     </div>
                     <div class="d-flex justify-content-end" @click="agregar_observacion()">
-                        <button class="btn-tareas f-9"> <strong> Agregar Observación </strong> </button>
+                        <button class="btn-tareas f-9">
+                            <strong x-text="is_edit == false ? 'Agregar Observación' : 'Actualizar Observación'">
+                            </strong> </button>
                     </div>
                 </div>
             </div>
@@ -410,7 +413,7 @@
             },
             agregar_gasto() {
                 if (!this.gasto.nombre || !this.gasto.precio) {
-                    Swal.fire('', 'El campo descripción e importe neto son obligatorio ms', 'error')
+                    Swal.fire('', 'El campo descripción e importe neto son obligatorio', 'error')
                     return
                 }
                 let updated_at = new Date().toLocaleString()
@@ -419,19 +422,19 @@
 
                 if (this.is_edit_gasto == true) {
                     for (const key in this.gasto) gasto[key] = this.gasto[key]
-                    console.log('this.imgsrc ==> ', this.imgsrc);
-                    console.log('gastos[this.pos_gasto] ==> ', this.pos_gasto);
                     this.form.gastos[this.pos_gasto] = gasto
-                    this.is_edit_gasto = false
                 } else {
                     this.gasto.id = -1
                     for (const key in this.gasto) gasto[key] = this.gasto[key]
                     this.form.gastos.push(gasto)
+                    // if()
                 }
 
                 this.previewFile()
                 this.limpiar_gasto()
                 this.imgSrcInput = null
+                // this.pos_gasto = null
+                this.is_edit_gasto = false
             },
             eliminar_gasto(pos) {
                 let gasto = this.form.gastos[pos]
@@ -444,9 +447,8 @@
                 this.is_edit_gasto = true
                 this.pos_gasto = pos
                 for (const key in this.gasto) this.gasto[key] = i[key]
-                console.log('i ==> ', i);
                 if (typeof (i.img_factura) == 'string') {
-                    if(i.img_factura != '') this.imgSrcInput = this.base_url + '/' + i.img_factura
+                    if (i.img_factura != '') this.imgSrcInput = this.base_url + '/' + i.img_factura
                 } else {
                     this.imgSrcInput = this.gasto.img_factura
                     this.previewFile(2)
@@ -473,6 +475,9 @@
                 let url = this.base_url + '/administrador/store_tareas'
                 axios.post(url, this.form).then(res => {
                     Swal.fire('Éxito', res.data.msg, 'success')
+                    this.pantalla = 'index'
+                    this.tarea = {}; 
+                    this.accion = ''
                 }).catch(errors => {
                     var error = Object.values(errors.response.data.errors)[0][0];
                     Swal.fire('Error', error, 'error')
@@ -486,8 +491,7 @@
                 }
                 if (!file || file.type.indexOf('image/') === -1) return;
                 if (type == 1) {
-                    // this.imgsrc[this.form.gastos.length - 1] = null;
-                    this.imgsrc[this.pos_gasto] = null;
+                    if (this.pos_gasto || this.pos_gasto === 0) this.imgsrc[this.pos_gasto] = null;
                 }
                 else {
                     this.imgSrcInput = null
@@ -495,8 +499,15 @@
                 let reader = new FileReader();
 
                 reader.onload = e => {
-                    // if (type == 1) this.imgsrc[this.form.gastos.length - 1] = e.target.result;
-                    if (type == 1) this.imgsrc[this.pos_gasto] = e.target.result;
+                    if (type == 1) {
+                        if (this.pos_gasto || this.pos_gasto === 0) {
+                            this.imgsrc[this.pos_gasto] = e.target.result;
+                            this.pos_gasto = null
+                        }
+                        else {
+                            this.imgsrc[this.form.gastos.length - 1] = e.target.result;
+                        }
+                    }
                     else this.imgSrcInput = e.target.result;
                 }
                 reader.readAsDataURL(file);

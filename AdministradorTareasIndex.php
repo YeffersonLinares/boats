@@ -121,6 +121,7 @@
             posicion: '',
             // pantalla: 'create',
             tareas: [],
+            actual: '',
             filtros: {
                 tipo: null,
                 orden: 'DESC'
@@ -136,6 +137,7 @@
                 let url = this.base_url + '/administrador/get_tareas'
                 axios.post(url, this.filtros).then(res => {
                     this.tareas = res.data.tareas
+                    this.actual = res.data.actual
                     this.loading = false
                 })
             },
@@ -167,7 +169,7 @@
             },
             completar_tarea(i, index) {
                 Swal.fire({
-                    title: "¿Estás seguro la tarea " + i.titulo + '?',
+                    title: "¿Estás seguro que completaste la tarea " + i.titulo + '?',
                     showDenyButton: true,
                     confirmButtonText: "Si",
                     denyButtonText: "No",

@@ -93,7 +93,7 @@ $uri = $_SERVER["REQUEST_URI"];
             // pantalla: 'ReservaUsuarioResponsable',
             loading: false,
             // base_url: 'https://botelaravel.rutaapp.com',
-            base_url: 'https://192.168.5.112:443/BoatsLaravel/public',
+            base_url: 'https://127.0.0.1:443/BoatsLaravel/public',
             form_reserva: {
                 //-------------------------------------------------------------------------
                 // Tabla reserva
