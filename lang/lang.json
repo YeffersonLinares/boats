@@ -1,0 +1,16 @@
+{
+    "es": {
+        "title_tareas": "Listado de Tareas & Rutinas registradas",
+        "title_module_tareas": "Tareas Simples y Rutinarias",
+        "prueba2": "Hola Catherine, ¿cómo estás?"
+    },
+    "en": {
+        "title_tareas": "List of Tasks & Registered Routines",
+        "title_module_tareas": "Simple and Routine Tasks",
+        "prueba2": "Hello Catherine, how are you?"
+    },
+    "fr": {
+        "prueba1": "Ceci est un text de test",
+        "prueba2": "Bonjour Catherine, comment vas-tu ?"
+    }
+}

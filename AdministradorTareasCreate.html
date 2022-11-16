@@ -1,16 +1,17 @@
 <div x-data="AdministradorTareasCreate">
     <div class="d-flex justify-content-center align-items-center">
         <div>
-            <h5 class="text-center mt-3 color-dark-blue"> <b> Tareas & Rutinas </b> </h5>
+            <h5 class="text-center mt-3 color-dark-blue"> <b class="lang" key="tasks_routines"> Tareas & Rutinas </b>
+            </h5>
         </div>
     </div>
     <hr class="my-1">
     <div class="d-flex justify-content-between mt-3">
         <div class="ms-3">
             <div>
-                <button class="btn-regreso" @click="pantalla = 'index'; tarea = {}; accion = ''">
+                <button class="btn-regreso" @click="atras()">
                     <i class="fa-solid fa-circle-arrow-left"></i>
-                    <strong>Atrás</strong>
+                    <strong class="lang" key="back">Atrás</strong>
                 </button>
             </div>
         </div>
@@ -29,7 +30,7 @@
             </div>
             <div>
                 <button class="btn-tareas-blue me-2" @click="store()">
-                    <strong>Guardar Modificaciones</strong>
+                    <strong class="lang" key="save_modifications">Guardar Modificaciones</strong>
                     <i class="fa-solid fa-floppy-disk"></i>
                 </button>
             </div>
@@ -38,7 +39,7 @@
     </div>
     <div class="container-fluid mt-3">
         <div class="d-flex justify-content-between align-items-center">
-            <h5> <strong> Detalle de la Tarea </strong> </h5>
+            <h5> <strong class="lang" key="task_details"> Detalle de la Tarea </strong> </h5>
         </div>
     </div>
 
@@ -46,11 +47,11 @@
         <div class="col-lg-6 bg-gray p-3 p-md-4">
             <div class="row">
                 <div class="col-6 mb-3">
-                    <label for="">Estado*.</label>
+                    <label for="" class="lang" key="status">Estado*.</label>
                 </div>
                 <div class="col-6 mb-3">
                     <select class="form-select" x-model="form.estado_tarea_id" id="estado_tarea_id">
-                        <option value="">Seleccione</option>
+                        <option class="lang" key="choose" value="">Seleccione</option>
                         <template x-for="(i,index) in estados">
                             <option :style="'color:' + i.color" :value="i.id" x-text="i.nombre"></option>
                         </template>
@@ -60,11 +61,11 @@
             <hr class="my-3">
             <div class="row">
                 <div class="col-6 mb-3">
-                    <label for="">Tipo*.</label>
+                    <label class="lang" key="type" for="">Tipo*.</label>
                 </div>
                 <div class="col-6 mb-3">
                     <select class="form-select" x-model="form.tipo_tarea_id" id="tipo_tarea_id">
-                        <option value="">Seleccione</option>
+                        <option class="lang" key="choose" value="">Seleccione</option>
                         <template x-for="(i,index) in tipos">
                             <option :value="i.id" x-text="i.nombre"></option>
                         </template>
@@ -73,7 +74,7 @@
             </div>
             <div class="row">
                 <div class="col-6 mb-3">
-                    <label for="">Titulo*.</label>
+                    <label class="lang" key="title" for="">Titulo*.</label>
                 </div>
                 <div class="col-6 mb-3">
                     <input class="form-control" type="text" x-model="form.titulo">
@@ -81,11 +82,11 @@
             </div>
             <div class="row">
                 <div class="col-6 mb-3">
-                    <label for="">Prioridad*.</label>
+                    <label class="lang" key="priority2" for="">Prioridad*.</label>
                 </div>
                 <div class="col-6 mb-3">
                     <select class="form-select" x-model="form.tipo_importancia_id">
-                        <option value="">Seleccione</option>
+                        <option class="lang" key="choose" value="">Seleccione</option>
                         <template x-for="(i,index) in importancias">
                             <option :style="'color:' + i.color" :value="i.id" x-text="i.nombre"></option>
                         </template>
@@ -94,7 +95,7 @@
             </div>
             <div class="row">
                 <div class="col-6 mb-3">
-                    <label for="">Fecha limite*.</label>
+                    <label class="lang" key="deadline" for="">Fecha limite*.</label>
                 </div>
                 <div class="col-6 mb-3">
                     <input class="form-control" :min="actual" type="date" x-model="form.fecha_asignada">
@@ -102,11 +103,11 @@
             </div>
             <div class="row">
                 <div class="col-6 mb-3">
-                    <label for="">Afectando a*</label>
+                    <label class="lang" key="affected_to2" for="">Afectando a*</label>
                 </div>
                 <div class="col-6 mb-3">
                     <select class="form-select" x-model="form.tipo_afectado_id">
-                        <option value="">Seleccione</option>
+                        <option class="lang" key="choose" value="">Seleccione</option>
                         <template x-for="(i,index) in afectados">
                             <option :value="i.id" x-text="i.nombre"></option>
                         </template>
@@ -154,14 +155,14 @@
             </template>
             <div class="row">
                 <div class="col-12 mb-3">
-                    <label for="">Mensaje*</label>
+                    <label class="lang" key="message" for="">Mensaje*</label>
                     <textarea class="form-control" name="" id="" cols="30" rows="5" x-model="form.mensaje"></textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 mb-3">
                     <div class="d-flex">
-                        <label class="form-check-label me-2" for="check-advertencia"> Mostrar advertencia de tarea
+                        <label class="form-check-label me-2 lang" key="show_task_warning" for="check-advertencia"> Mostrar advertencia de tarea
                         </label>
                         <input class="form-check-input" type="checkbox" value="" id="check-advertencia">
                     </div>
@@ -173,7 +174,7 @@
                 </div>
                 <div class="col-6 mb-3">
                     <select class="form-select">
-                        <option value="">Seleccione</option>
+                        <option class="lang" key="choose" value="">Seleccione</option>
                         <option value="">Juan Piguave</option>
                     </select>
                 </div>
@@ -195,7 +196,7 @@
         <div class="col-lg-6 px-3">
             <div class="container-fluid">
                 <div class="mb-3">
-                    <h5 style="text-transform: capitalize"> <strong class="color-dark-extras"> Gastos </strong> </h5>
+                    <h5 style="text-transform: capitalize"> <strong class="color-dark-extras lang" key="expenses"> Gastos </strong> </h5>
                 </div>
                 <template x-for="(i,index) in form.gastos" :key="index">
                     <div>
@@ -238,7 +239,7 @@
                     </div>
                 </template>
                 <div class="d-flex justify-content-between px-5 py-2 my-3 bg-gray fs-11">
-                    <span>Total Gastos</span>
+                    <span class="lang" key="total_expenses">Total Gastos</span>
                     <strong class="color-dark-extras"> <b x-text="sum_gastos()"></b> </strong>
                 </div>
                 <div class="mb-3">
@@ -256,7 +257,7 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <button class="btn-tareas f-9" @click="img_factura()">
-                            <span> Adjuntar factura </span>
+                            <span class="lang" key="attach_invoice"> Adjuntar factura </span>
                             <i class="fa-solid fa-camera"></i>
                         </button>
                         <input type="file" name="" id="img_factura" class="d-none" @change="cargar_archivo($event)"
@@ -273,7 +274,7 @@
                     </button>
                 </div>
                 <div>
-                    <h5 class="color-dark-extras"> <strong> Observaciones </strong> </h5>
+                    <h5 class="color-dark-extras"> <strong class="lang" key="observations"> Observaciones </strong> </h5>
                     <template x-for="(i,index) in form.observaciones">
                         <template x-if="!i.deleted_at">
                             <div>
@@ -294,7 +295,7 @@
                         </template>
                     </template>
                     <div class="my-3">
-                        <label> Observación </label>
+                        <label class="lang" key="observation"> Observación </label>
                         <textarea class="form-control" cols="20" rows="5" x-model="observacion.descripcion"></textarea>
                     </div>
                     <div class="d-flex justify-content-end" @click="agregar_observacion()">
@@ -325,6 +326,7 @@
         return {
             init() {
                 this.cargar_data()
+                this.lang("task")
             },
             is_edit: false,
             is_edit_gasto: false,
@@ -427,13 +429,11 @@
                     this.gasto.id = -1
                     for (const key in this.gasto) gasto[key] = this.gasto[key]
                     this.form.gastos.push(gasto)
-                    // if()
                 }
 
                 this.previewFile()
                 this.limpiar_gasto()
                 this.imgSrcInput = null
-                // this.pos_gasto = null
                 this.is_edit_gasto = false
             },
             eliminar_gasto(pos) {
@@ -476,7 +476,7 @@
                 axios.post(url, this.form).then(res => {
                     Swal.fire('Éxito', res.data.msg, 'success')
                     this.pantalla = 'index'
-                    this.tarea = {}; 
+                    this.tarea = {};
                     this.accion = ''
                 }).catch(errors => {
                     var error = Object.values(errors.response.data.errors)[0][0];
@@ -536,7 +536,7 @@
                     });
                     $('#frecuencia_rutina_id').val(this.form.frecuencia_rutina_id).trigger('change');
                 }
-            }
+            },
         }
     }
 </script>

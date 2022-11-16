@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div x-data="test()">
+        <button class="translate" id="es">Es</button>
+        <button class="translate" id="en">En</button>
+        <button class="translate" id="fr">Fr</button>
+<br>
+        <span class="lang" key="prueba1">Esto es una prueba</span>
+        <p class="lang" key="prueba2">Este texto esta en español</p>
+    </div>
+</body>
+<script>
+    function test() {
+        return {
+            init() {
+                console.log('llego');
+                $.getJSON("lang.json", function (json) {
+                    //Lenguaje por defecto de la página sessionStorage.setItem("lang", "idioma")"
+                    if (!localStorage.getItem("lang")) {
+                        localStorage.setItem("lang", "en");
+                    }
+                    var lang = localStorage.getItem("lang");
+                    var doc = json;
+                    $('.lang').each(function (index, element) {
+                        let text = $(this).text(doc[lang][$(this).attr('key')]);
+                    });//Each
+
+                    $('.translate').click(function () {
+                        localStorage.setItem("lang", $(this).attr('id'));
+                        var lang = $(this).attr('id');
+                        var doc = json;
+                        $('.lang').each(function (index, element) {
+                            $(this).text(doc[lang][$(this).attr('key')]);
+                        }); //Each
+                    }); //Funcion click
+                });//Get json AJAX
+            }
+        }
+    }
+</script>
+
+</html>

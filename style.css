@@ -1209,3 +1209,14 @@ img.imgPreview {
 .opacity03 {
     opacity: .3;
 }
+
+.lang-style {
+    position: fixed;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    background: white;
+    border: 1px solid #F5F5F5;
+    top: 0;
+    /* bottom: 0; */
+}

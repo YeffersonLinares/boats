@@ -1,0 +1,61 @@
+<div x-data="LangMenu()">
+    <div class="d-flex justify-content-end mt-1 lang-style">
+        <template x-for="(i,index) in active">
+            <button class="btn btn-transparent translate d-flex flex-column align-items-center p-3 m-0"
+                x-bind:class="[i.state == false ? 'opacity-06' : '']" :id="i.id" @click="is_active(index)">
+                <img :src="i.flag" style="width: 2rem; height: 1.3rem;" alt="">
+                <strong x-text="i.sub"></strong>
+            </button>
+        </template>
+    </div>
+</div>
+<script>
+    function LangMenu() {
+        return {
+            init() {
+                var lang = localStorage.getItem("lang");
+                this.active.forEach((item, position) => {
+                    if (item.id == lang) {
+                        this.active[position].state = true
+                    } else {
+                        this.active[position].state = false
+                    }
+                })
+            },
+            active: [
+                {
+                    state: false,
+                    flag: 'wp-content/themes/twentytwentytwo/bandera_espania.webp',
+                    id: 'es',
+                    sub: 'Es',
+                },
+                {
+                    state: false,
+                    flag: 'wp-content/themes/twentytwentytwo/Bandera-de-Reino-Unido.png',
+                    id: 'en',
+                    sub: 'En',
+                },
+                {
+                    state: false,
+                    flag: 'wp-content/themes/twentytwentytwo/BanderaFrancia.png',
+                    id: 'fr',
+                    sub: 'Fr',
+                },
+            ],
+            is_active(index) {
+                this.active.forEach((item, position) => {
+                    if (index == position) {
+                        this.active[position].state = true
+                    } else {
+                        this.active[position].state = false
+                    }
+                })
+            }
+        }
+    }
+</script>
+<style>
+    .opacity-06 {
+        opacity: .6;
+    }
+</style>

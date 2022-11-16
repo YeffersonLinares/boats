@@ -45,6 +45,10 @@ $uri = $_SERVER["REQUEST_URI"];
     </div>
 
     <?php
+        include_once "LangMenu.html";
+    ?>
+
+    <?php
     if ($uri == '/boats/reserva/' || $uri == '/boats/wordpress/' || $uri == '/boats/reserva') {
         // include_once "Reserva_mes.html";
         // include_once "Reserva_mes.html";
@@ -167,6 +171,28 @@ $uri = $_SERVER["REQUEST_URI"];
             precio_horas_extra: 0,
             auxiliares: {
                 tipo_reserva: ''
+            },
+            lang(module) {
+                $.getJSON("wp-content/themes/twentytwentytwo/lang.json", function(json) {
+                    //Lenguaje por defecto de la página sessionStorage.setItem("lang", "idioma")"
+                    if (!localStorage.getItem("lang")) {
+                        localStorage.setItem("lang", "en");
+                    }
+                    var lang = localStorage.getItem("lang");
+                    var doc = json;
+                    $('.lang').each(function(index, element) {
+                        $(this).text(doc[lang][module][$(this).attr('key')]);
+                    }); //Each
+
+                    $('.translate').click(function() {
+                        localStorage.setItem("lang", $(this).attr('id'));
+                        var lang = $(this).attr('id');
+                        var doc = json;
+                        $('.lang').each(function(index, element) {
+                            $(this).text(doc[lang][module][$(this).attr('key')]);
+                        }); //Each
+                    }); //Funcion click
+                }); //Get json AJAX
             },
         }
     }
