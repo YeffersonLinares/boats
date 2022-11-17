@@ -91,12 +91,13 @@
 
                             </div>
                             <div class="text-end">
-                                <span class="color-extras-gray f-9 lang" x-text="'Creado: ' + i.created_at + ' - Martín Pavón'"></span>
+                                <span class="color-extras-gray f-9 lang" lang="created">Creado:</span>
+                                <span class="color-extras-gray f-9 lang" x-text="i.created_at + ' - Martín Pavón'"></span>
                             </div>
                         </div>
                         <div class="col-md-2 d-flex justify-content-around">
                             <button class="btn btn-transparent color-dark-red" @click="eliminar_tarea(i.id, index)" :disabled="i.estado_tarea_id == 3"><i class="fa-solid fa-trash-can"></i></button>
-                            <button class="btn btn-transparent color-gray-dark" @click="editar_tarea(i, index)" :disabled="i.estado_tarea_id == 3"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button class="btn btn-transparent color-gray-dark" @click="editar_tarea(i, index)"><i class="fa-solid fa-pen-to-square"></i></button>
                             <button class="btn btn-transparent color-gray-dark" @click="completar_tarea(i, index)" :disabled="i.estado_tarea_id == 3" :class="[i.estado_tarea_id == 3 ? 'green-claro-inicio' : '']">
                                 <i class="fa-solid fa-check"></i>
                             </button>

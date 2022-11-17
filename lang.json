@@ -44,6 +44,15 @@
             "Notify this task/routine to:": "Notificar esta tarea/rutina a:",
             "Send Message": "Enviar Mensaje",
             "Last edition": "Última edición:"
+        },
+        "menu": {
+            "Tasks": "Tareas",
+            "Company": "Empresa",
+            "Customers": "Clientes",
+            "Home": "Inicio",
+            "Bookings": "Reservas",
+            "Extras": "Extras",
+            "Boats": "Botes"
         }
     },
     "en": {
@@ -91,6 +100,15 @@
             "Notify this task/routine to:": "Notify this task/routine to:",
             "Send Message": "Send Message",
             "Last edition": "Last edition:"
+        },
+        "menu": {
+            "Tasks": "Tasks",
+            "Company": "Company",
+            "Customers": "Customers",
+            "Home": "Home",
+            "Bookings": "Bookings",
+            "Extras": "Extras",
+            "Boats": "Boats"
         }
     },
     "fr": {
@@ -138,6 +156,15 @@
             "Notify this task/routine to:": "Notifier cette tâche/routine à:",
             "Send Message": "Envoyer le message",
             "Last edition": "Dernière édition:"
+        },
+        "menu": {
+            "Tasks": "Tâches",
+            "Company": "Compagnie",
+            "Customers": "Clients",
+            "Bookings": "Réservations",
+            "Home": "Home",
+            "Extras": "Extras",
+            "Boats": "Bateaux"
         }
     }
 }
