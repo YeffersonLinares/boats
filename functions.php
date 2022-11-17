@@ -45,7 +45,7 @@ $uri = $_SERVER["REQUEST_URI"];
     </div>
 
     <?php
-        include_once "LangMenu.html";
+    include_once "LangMenu.html";
     ?>
 
     <?php
@@ -172,7 +172,7 @@ $uri = $_SERVER["REQUEST_URI"];
             auxiliares: {
                 tipo_reserva: ''
             },
-            lang(module) {
+            lang(module, attr = 'text') {
                 $.getJSON("wp-content/themes/twentytwentytwo/lang.json", function(json) {
                     //Lenguaje por defecto de la página sessionStorage.setItem("lang", "idioma")"
                     if (!localStorage.getItem("lang")) {
@@ -181,7 +181,19 @@ $uri = $_SERVER["REQUEST_URI"];
                     var lang = localStorage.getItem("lang");
                     var doc = json;
                     $('.lang').each(function(index, element) {
-                        $(this).text(doc[lang][module][$(this).attr('key')]);
+                        if ($(this).attr('key') != undefined && $(this).attr('key') != null && $(this).attr('key') != '') {
+                            if (!$(this).attr('placeholder')) {
+                                $(this)[attr](doc[lang][module][$(this).attr('key')]);
+                            } else {
+                                $(this).attr('placeholder', doc[lang][module][$(this).attr('key')]);
+                            }
+                        } else {
+                            if (!$(this).attr('placeholder')) {
+                                $(this)[attr](doc[lang][module][$(this).attr('lang')]);
+                            } else {
+                                $(this).attr('placeholder', doc[lang][module][$(this).attr('lang')]);
+                            }
+                        }
                     }); //Each
 
                     $('.translate').click(function() {
@@ -189,7 +201,19 @@ $uri = $_SERVER["REQUEST_URI"];
                         var lang = $(this).attr('id');
                         var doc = json;
                         $('.lang').each(function(index, element) {
-                            $(this).text(doc[lang][module][$(this).attr('key')]);
+                            if ($(this).attr('key') != undefined && $(this).attr('key') != null && $(this).attr('key') != '') {
+                                if (!$(this).attr('placeholder')) {
+                                    $(this)[attr](doc[lang][module][$(this).attr('key')]);
+                                } else {
+                                    $(this).attr('placeholder', doc[lang][module][$(this).attr('key')]);
+                                }
+                            } else {
+                                if (!$(this).attr('placeholder')) {
+                                    $(this)[attr](doc[lang][module][$(this).attr('lang')]);
+                                } else {
+                                    $(this).attr('placeholder', doc[lang][module][$(this).attr('lang')]);
+                                }
+                            }
                         }); //Each
                     }); //Funcion click
                 }); //Get json AJAX

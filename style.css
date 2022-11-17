@@ -1220,3 +1220,10 @@ img.imgPreview {
     top: 0;
     /* bottom: 0; */
 }
+
+@media(max-width: 1400px) {
+    .lang-style {
+        bottom: 0;
+        top: auto;
+    }
+}

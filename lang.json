@@ -1,6 +1,6 @@
 {
     "es": {
-        "task":{
+        "task": {
             "title_tareas": "Listado de Tareas & Rutinas registradas",
             "title_module_tareas": "Tareas Simples y Rutinarias",
             "see_all": "Ver todas",
@@ -19,7 +19,7 @@
             "affected_to": "Afectado a",
             "created": "Creado",
             "tasks_routines": "Tareas & Rutinas",
-            "back": "Back",
+            "back": "Atrás",
             "task_details": "DETALLE DE LA TAREA",
             "save_modifications": "Guardar Modificaciones",
             "status": "Estado*",
@@ -35,7 +35,15 @@
             "observation": "Observación",
             "description_new_expense": "Descripción nuevo gasto*",
             "attach_invoice": "Adjuntar factura",
-            "show_task_warning": "Mostrar advertencia de tarea"
+            "show_task_warning": "Mostrar advertencia de tarea",
+            "net_amount": "Import Neto €*",
+            "Add New Expense": "Agregar Nuevo Gasto",
+            "Add Observation": "Agregar Observación",
+            "Edit Observation": "Editar Observation",
+            "Edit Expense": "Editar Gasto",
+            "Notify this task/routine to:": "Notificar esta tarea/rutina a:",
+            "Send Message": "Enviar Mensaje",
+            "Last edition": "Última edición:"
         }
     },
     "en": {
@@ -43,7 +51,7 @@
             "title_tareas": "List of Tasks & Registered Routines",
             "title_module_tareas": "Simple and Routine Tasks",
             "see_all": "See all",
-            "just_simple_tasks": "Just simple tasks",
+            "just_simple_tasks": "simple tasks only",
             "routine_tasks_only": "Routine tasks only",
             "completed_tasks_only": "Completed Tasks Only",
             "create_task": "Create new task",
@@ -74,11 +82,62 @@
             "observation": "Observation",
             "description_new_expense": "Description new expense*",
             "attach_invoice": "Attach invoice",
-            "show_task_warning": "Show task warning"
+            "show_task_warning": "Show task warning",
+            "net_amount": "Net amount €*",
+            "Add New Expense": "Add New Expense",
+            "Edit Expense": "Edit Expense",
+            "Add Observation": "Add Observation",
+            "Edit Observation": "Edit Observation",
+            "Notify this task/routine to:": "Notify this task/routine to:",
+            "Send Message": "Send Message",
+            "Last edition": "Last edition:"
         }
     },
     "fr": {
-        "prueba1": "Ceci est un text de test",
-        "prueba2": "Bonjour Catherine, comment vas-tu ?"
+        "task": {
+            "title_tareas": "Liste des tâches et routines enregistrées",
+            "title_module_tareas": "Tâches simples et routinières",
+            "see_all": "Voir tout",
+            "just_simple_tasks": "Des tâches simples",
+            "routine_tasks_only": "Tâches courantes uniquement",
+            "completed_tasks_only": "Tâches terminées uniquement",
+            "create_task": "Créer une nouvelle tâche",
+            "sort_by": "Trier par",
+            "nearest_assigned_dates": "Dates assignées les plus proches",
+            "farthest_dates_assigned": "Dates les plus éloignées attribuées",
+            "assigned_date": "Date attribuée",
+            "attached_expenses": "Dépenses attachées",
+            "total_expenditures": "Dépenses totales",
+            "observations": "Observations",
+            "priority": "Priorité",
+            "affected_to": "Affecté à",
+            "created": "Établi",
+            "tasks_routines": "Tâches et routines",
+            "back": "Derrière",
+            "task_details": "DÉTAIL DE LA TÂCHE",
+            "save_modifications": "Enregistrer les modifications",
+            "status": "Statut*",
+            "choose": "Choisir",
+            "type": "Taper*",
+            "title": "Titre*",
+            "priority2": "Priorité*",
+            "deadline": "Date limite*",
+            "affected_to2": "Affecté à*",
+            "message": "Message*",
+            "expenses": "Dépenses",
+            "total_expenses": "Dépenses totales",
+            "observation": "Observation",
+            "description_new_expense": "Description nouvelle dépense*",
+            "attach_invoice": "Joindre la facture",
+            "show_task_warning": "Afficher l'avertissement de tâche",
+            "net_amount": "Montant net €*",
+            "Add New Expense": "Ajouter une nouvelle dépense",
+            "Edit Expense": "modifier la dépense",
+            "Add Observation": "Ajouter une observation",
+            "Edit Observation": "Modifier l'observation",
+            "Notify this task/routine to:": "Notifier cette tâche/routine à:",
+            "Send Message": "Envoyer le message",
+            "Last edition": "Dernière édition:"
+        }
     }
 }

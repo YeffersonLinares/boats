@@ -115,8 +115,8 @@
 <script>
     function AdministradorTareasIndex() {
         return {
-            // pantalla: 'index',
-            pantalla: 'create',
+            pantalla: 'index',
+            // pantalla: 'create',
             accion: '',
             tarea: {},
             posicion: '',

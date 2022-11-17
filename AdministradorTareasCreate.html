@@ -170,7 +170,7 @@
             </div>
             <div class="row">
                 <div class="col-6 mb-3">
-                    <label for="">Notificar esta tarea/rutina a:</label>
+                    <label class="lang" key="Notify this task/routine to:" for="">Notificar esta tarea/rutina a:</label>
                 </div>
                 <div class="col-6 mb-3">
                     <select class="form-select">
@@ -182,13 +182,14 @@
             <div class="row">
                 <hr>
                 <div class="col-12 my-3">
-                    <label class="color-gray-light" for="">Última edición: 10/09/2022 - Martín Pavón</label>
+                    <span class="color-gray-light lang" key="Last edition">Última edición: </span>
+                    <span class="color-gray-light">10/09/2022 - Martín Pavón</span>
                 </div>
                 <hr>
             </div>
             <div class="row">
                 <div class="col-12 my-3">
-                    <button class="btn-tareas"> <strong> Enviar Mensaje </strong> </button>
+                    <button class="btn-tareas lang" key="Send Message"> <strong> Enviar Mensaje </strong> </button>
                 </div>
             </div>
             <div class="mb-5"></div>
@@ -243,7 +244,7 @@
                     <strong class="color-dark-extras"> <b x-text="sum_gastos()"></b> </strong>
                 </div>
                 <div class="mb-3">
-                    <input class="form-control" type="text" placeholder="Descripción nuevo gasto*"
+                    <input class="form-control lang" type="text" placeholder="Descripción nuevo gasto*" key="description_new_expense"
                         x-model="gasto.nombre">
                 </div>
                 <div class="row">
@@ -253,7 +254,7 @@
                         </select>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <input class="form-control" type="text" placeholder="Import Neto €*" x-model="gasto.precio">
+                        <input class="form-control lang" type="text" placeholder="Import Neto €*" x-model="gasto.precio" key="net_amount">
                     </div>
                     <div class="col-md-4 mb-3">
                         <button class="btn-tareas f-9" @click="img_factura()">
@@ -270,7 +271,7 @@
                 </div>
                 <div class="d-flex justify-content-end">
                     <button class="btn-tareas" @click="agregar_gasto()">
-                        <strong x-text="is_edit_gasto == false ? 'Agregar Nuevo Gasto' : 'Actualizar Gasto'"> </strong>
+                        <strong class="lang" :lang="is_edit_gasto == false ? 'Add New Expense' : 'Edit Expense'"> </strong>
                     </button>
                 </div>
                 <div>
@@ -300,8 +301,9 @@
                     </div>
                     <div class="d-flex justify-content-end" @click="agregar_observacion()">
                         <button class="btn-tareas f-9">
-                            <strong x-text="is_edit == false ? 'Agregar Observación' : 'Actualizar Observación'">
-                            </strong> </button>
+                            <!-- <strong class="lang" :lang="is_edit_gasto == false ? 'Add New Expense' : 'Edit Expense'"> </strong> -->
+                            <strong class="lang" :lang="is_edit == false ? 'Add Observation' : 'Edit Observation'"></strong> 
+                        </button>
                     </div>
                 </div>
             </div>
@@ -365,6 +367,7 @@
                     Swal.fire('', 'El campo observación es obligatorio', 'error')
                     return
                 }
+                this.lang('task')
                 let updated_at = new Date().toLocaleString()
                 this.observacion.updated_at = updated_at
                 let observacion = {}
@@ -400,6 +403,7 @@
                     this.observacion.id = i.id
                     this.observacion.descripcion = i.descripcion
                 }
+                this.lang('task')
             },
             limpiar_observacion() {
                 for (const key in this.observacion) {
@@ -418,6 +422,7 @@
                     Swal.fire('', 'El campo descripción e importe neto son obligatorio', 'error')
                     return
                 }
+                this.lang('task')
                 let updated_at = new Date().toLocaleString()
                 this.gasto.updated_at = updated_at
                 let gasto = {}
@@ -453,6 +458,7 @@
                     this.imgSrcInput = this.gasto.img_factura
                     this.previewFile(2)
                 }
+                this.lang('task')
             },
             sum_gastos() {
                 let sum = 0
