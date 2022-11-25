@@ -227,7 +227,6 @@
                 let url = this.base_url + '/administrador/get_reservas_inicio'
                 // window.location.origin + "/boats/wp-content/themes/twentytwentytwo/ReservasInicioController.php"
                 axios.post(url).then(res => {
-                    console.log('res ==> ', res.data);
                     let data = res.data
                     let array = []
                     for (const key in data) {

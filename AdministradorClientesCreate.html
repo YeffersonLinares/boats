@@ -1,0 +1,534 @@
+<div x-data="AdministradorClientesCreate()">
+    <div class="container-fluid px-md-5">
+        <div class="text-center mt-3">
+            <h6 class="color-dark-blue"> <b  class="lang" lang="CLIENTS"> Clientes </b> </h6>
+        </div>
+
+        <hr class="my-3">
+
+        <div class="row">
+            <div class="col-md-6 d-flex">
+                <div class="me-3">
+                    <button class="btn-regreso" @click="cambiar_pantalla('index')">
+                        <i class="fa-solid fa-circle-arrow-left"></i>
+                        <strong class="lang" lang="Back">Atrás</strong>
+                    </button>
+                </div>
+                <div class="me-3">
+                    <h4> <strong>Nombre Apellido</strong> </h4>
+                </div>
+                <div>
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-star me-1"></i>
+                        <span class="mt-1">2/5</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex justify-content-end">
+                <button class="btn-tareas me-2">
+                    <strong class="lang" lang="Delete Client">Borrar Cliente</strong>
+                    <i class="fa-solid fa-trash-can" style="color: #ff0000;"></i>
+                </button>
+                <button class="btn-tareas-blue me-2">
+                    <strong class="lang" lang="Save Modifications">Guardar Modificaciones</strong>
+                    <i class="fa-solid fa-floppy-disk"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="row mt-1">
+            <div class="col-md-5 col-lg-3 bg-gray">
+                <div class="my-3">
+                    <h6> <strong class="color-dark-extras fs-1p2rem lang" key="CLIENT SUMMARY"> Resumen del cliente </strong> </h6>
+                </div>
+                <div class="py-3 px-2">
+                    <div class="d-flex flex-column mt-1">
+                        <div class="col-12">
+                            <nav class="navbar bg-transparent px-3 py-1 border-bottom d-block fs-1p2rem">
+                                <div>
+                                    <div role="button" class="d-flex justify-content-between pb-3 align-items-center"
+                                        data-bs-toggle="collapse" data-bs-target="#reservas_hechas"
+                                        aria-controls="reservas_hechas" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                        <span class="color-gray-dark lang" lang="Reservations Made">Reservas Hechas</span>
+                                        <div class="d-flex align-items-center">
+                                            <span class="color-dark-blue mt-1 me-3 fs-1p2rem">5</span>
+                                            <span><i class="fa-solid fa-sort-down icon-dropdown"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="collapse navbar-collapse fs-6" id="reservas_hechas">
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item">
+                                                <strong class="color-dark-blue">Namaré</strong>
+                                            </li>
+                                            <li class="nav-item">
+                                                <div class="d-flex">
+                                                    <strong class="color-dark-blue me-3 mb-3">10/09/2022</strong>
+                                                    <strong class="color-dark-extras">11:30 a 15:30</strong>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item">
+                                                <strong class="color-dark-blue">Nautilus Beige</strong>
+                                            </li>
+                                            <li class="nav-item">
+                                                <div class="d-flex">
+                                                    <strong class="color-dark-blue me-3 mb-3">10/09/2022</strong>
+                                                    <strong class="color-dark-extras">11:30 a 15:30</strong>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column mt-1">
+                        <div class="col-12">
+                            <nav class="navbar bg-transparent px-3 py-1 border-bottom d-block fs-1p2rem">
+                                <div>
+                                    <div role="button" class="d-flex justify-content-between pb-3 align-items-center"
+                                        data-bs-toggle="collapse" data-bs-target="#reservas_abiertas"
+                                        aria-controls="reservas_abiertas" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                        <span class="color-gray-dark lang" lang="Open Reservations">Reservas Abiertas</span>
+                                        <div class="d-flex align-items-center">
+                                            <span class="color-dark-blue mt-1 me-3 fs-1p2rem">5</span>
+                                            <span><i class="fa-solid fa-sort-down icon-dropdown"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="collapse navbar-collapse fs-6" id="reservas_abiertas">
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item">
+                                                <strong class="color-dark-blue">Namaré</strong>
+                                            </li>
+                                            <li class="nav-item">
+                                                <div class="d-flex">
+                                                    <strong class="color-dark-blue me-3 mb-3">10/09/2022</strong>
+                                                    <strong class="color-dark-extras">11:30 a 15:30</strong>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item">
+                                                <strong class="color-dark-blue">Nautilus Beige</strong>
+                                            </li>
+                                            <li class="nav-item">
+                                                <div class="d-flex">
+                                                    <strong class="color-dark-blue me-3 mb-3">10/09/2022</strong>
+                                                    <strong class="color-dark-extras">11:30 a 15:30</strong>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column mt-1">
+                        <div class="col-12">
+                            <nav class="navbar bg-transparent px-3 py-1 border-bottom d-block fs-1p2rem">
+                                <div>
+                                    <div role="button" class="d-flex justify-content-between pb-3 align-items-center"
+                                        data-bs-toggle="collapse" data-bs-target="#reservas_confirmadas"
+                                        aria-controls="reservas_confirmadas" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                        <span class="color-gray-dark lang" lang="Confirmed Reservations">Reservas confirmadas</span>
+                                        <div class="d-flex align-items-center">
+                                            <span class="color-dark-blue mt-1 me-3 fs-1p2rem">5</span>
+                                            <span><i class="fa-solid fa-sort-down icon-dropdown"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="collapse navbar-collapse fs-6" id="reservas_confirmadas">
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item">
+                                                <strong class="color-dark-blue">Namaré</strong>
+                                            </li>
+                                            <li class="nav-item">
+                                                <div class="d-flex">
+                                                    <strong class="color-dark-blue me-3 mb-3">10/09/2022</strong>
+                                                    <strong class="color-dark-extras">11:30 a 15:30</strong>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item">
+                                                <strong class="color-dark-blue">Nautilus Beige</strong>
+                                            </li>
+                                            <li class="nav-item">
+                                                <div class="d-flex">
+                                                    <strong class="color-dark-blue me-3 mb-3">10/09/2022</strong>
+                                                    <strong class="color-dark-extras">11:30 a 15:30</strong>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column mt-1">
+                        <div class="col-12">
+                            <nav class="navbar bg-transparent px-3 py-1 border-bottom d-block fs-1p2rem">
+                                <div>
+                                    <div role="button" class="d-flex justify-content-between pb-3 align-items-center"
+                                        data-bs-toggle="collapse" data-bs-target="#reservas_canceladas"
+                                        aria-controls="reservas_canceladas" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                        <span class="color-gray-dark lang" lang="Canceled Reservations">Reservas canceladas</span>
+                                        <div class="d-flex align-items-center">
+                                            <span class="color-dark-blue mt-1 me-3 fs-1p2rem">5</span>
+                                            <span><i class="fa-solid fa-sort-down icon-dropdown"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="collapse navbar-collapse fs-6" id="reservas_canceladas">
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item">
+                                                <strong class="color-dark-blue">Namaré</strong>
+                                            </li>
+                                            <li class="nav-item">
+                                                <div class="d-flex">
+                                                    <strong class="color-dark-blue me-3 mb-3">10/09/2022</strong>
+                                                    <strong class="color-dark-extras">11:30 a 15:30</strong>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item">
+                                                <strong class="color-dark-blue">Nautilus Beige</strong>
+                                            </li>
+                                            <li class="nav-item">
+                                                <div class="d-flex">
+                                                    <strong class="color-dark-blue me-3 mb-3">10/09/2022</strong>
+                                                    <strong class="color-dark-extras">11:30 a 15:30</strong>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column mt-1">
+                        <div class="col-12">
+                            <nav class="navbar bg-transparent px-3 py-1 border-bottom d-block fs-1p2rem">
+                                <div>
+                                    <div role="button" class="d-flex justify-content-between pb-3 align-items-center"
+                                        data-bs-toggle="collapse" data-bs-target="#barcos_alquilados"
+                                        aria-controls="barcos_alquilados" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                        <span class="color-gray-dark lang" lang="Rented Boat">Barcos alquilados</span>
+                                        <!-- <div class="d-flex align-items-center">
+                                            <span class="color-dark-blue mt-1 me-3 fs-1p2rem">5</span>
+                                            <span><i class="fa-solid fa-sort-down icon-dropdown"></i></span>
+                                        </div> -->
+                                    </div>
+                                    <div class="collapse navbar-collapse fs-1p1rem" id="barcos_alquilados">
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item">
+                                                <strong class="color-dark-blue">Namaré</strong>
+                                            </li>
+                                        </ul>
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item">
+                                                <strong class="color-dark-blue">Nautilus Beige</strong>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column mt-1">
+                        <div class="col-12">
+                            <div
+                                class="d-flex justify-content-between pb-3 align-items-center fs-1p2rem px-3 py-1 border-bottom">
+                                <span class="color-gray-dark lang" lang="Kilometers traveled">Kilometros recorridos</span>
+                                <div class="d-flex align-items-center">
+                                    <span class="color-dark-blue mt-1 me-3 fs-1p2rem">5</span>
+                                    <!-- <span><i class="fa-solid fa-sort-down icon-dropdown"></i></span> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column mt-1">
+                        <div class="col-12">
+                            <div
+                                class="d-flex justify-content-between pb-3 align-items-center fs-1p2rem px-3 py-1 border-bottom">
+                                <span class="color-gray-dark lang" lang="Total Paid">Total Pagado</span>
+                                <div class="d-flex align-items-center">
+                                    <span class="color-dark-blue mt-1 me-3 fs-1p2rem">5</span>
+                                    <!-- <span><i class="fa-solid fa-sort-down icon-dropdown"></i></span> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column mt-1">
+                        <div class="col-12">
+                            <nav class="navbar bg-transparent px-3 py-1 d-block fs-1p2rem">
+                                <div class="border-bottom">
+                                    <div role="button" class="d-flex justify-content-between pb-3 align-items-center"
+                                        data-bs-toggle="collapse" data-bs-target="#pagos_pendientes"
+                                        aria-controls="pagos_pendientes" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                        <span class="color-gray-dark lang" lang="Pending Payments">Pagos pendientes</span>
+                                        <div class="d-flex align-items-center">
+                                            <span class="color-dark-blue mt-1 me-3 fs-1p2rem">5</span>
+                                            <span><i class="fa-solid fa-sort-down icon-dropdown"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="collapse navbar-collapse fs-6" id="pagos_pendientes">
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item">
+                                                <strong class="color-dark-blue">Namaré</strong>
+                                            </li>
+                                            <li class="nav-item">
+                                                <div class="d-flex">
+                                                    <strong class="color-dark-blue me-3 mb-3">10/09/2022</strong>
+                                                    <strong class="color-dark-extras">11:30 a 15:30</strong>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item">
+                                                <strong class="color-dark-blue">Nautilus Beige</strong>
+                                            </li>
+                                            <li class="nav-item">
+                                                <div class="d-flex">
+                                                    <strong class="color-dark-blue me-3 mb-3">10/09/2022</strong>
+                                                    <strong class="color-dark-extras">11:30 a 15:30</strong>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between color-dark-blue py-1">
+                                    <span class="lang" lang="To Debt">A deuda:</span>
+                                    <strong>350€</strong>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 col-lg-6">
+                <div class="my-3">
+                    <h6> <strong class="color-dark-extras fs-1p2rem"> Resumen del cliente </strong> </h6>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <span class="color-dark-extras lang" lang="Client ID">Cliente ID:</span>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <span class="color-dark-extras lang" lang="Full Name">Nombre Completo:</span>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <span class="color-dark-extras lang" lang="Full Last Name">Apellido Completo:</span>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <span class="color-dark-extras lang" lang="Mobile Phone">Teléfono móvil</span>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <span class="color-dark-extras">Email</span>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <span class="color-dark-extras">ID</span>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex">
+                            <select class="form-select me-3" name="" id="">
+                                <option value="">Pasaporte</option>
+                            </select>
+                            <input class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <span class="color-dark-extras lang" lang="License">Licencia</span>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <span class="color-dark-extras lang" lang="Date of Birth">Fecha de nacimiento</span>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="date">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <span class="color-dark-extras lang" lang="Address">Dirección</span>
+                    </div>
+                    <div class="col-md-6">
+                        <textarea class="form-control" cols="5" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label class="mb-3 lang" lang="Customer Comments" for=""><strong>Observaciones del cliente</strong></label>
+                        <textarea class="form-control" name="" id="" cols="30" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label class="form-label lang" lang="Observation Directed To" for="">Observación dirigida a</label>
+                        <select class="form-select mb-3" name="" id="">
+                            <option value="">Reserva hecha</option>
+                        </select>
+                        <select class="form-select mb-3" name="" id="">
+                            <option value="">Reserva hecha</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="d-flex mb-3">
+                    <button class="btn-tareas f-9"> <strong> Agregar Observación </strong> </button>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p>Esta observación sobre [responsable] se te advertirá cada vez que haga una reserva.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex justify-content-between bg-gray py-4 px-3">
+                        <div>
+                            <span class="me-2">12/08/2022</span>
+                            <span class="me-2">Observación en general</span>
+                            <span>Siempre le gusta pedir una botella de Cham….</span>
+                        </div>
+                        <div>
+                            <button class="btn btn-transparent color-gray-dark me-3"><i
+                                    class="fa-solid fa-pen-to-square fa-lg fs-11"></i></button>
+                            <button class="btn btn-transparent color-dark-red"><i
+                                    class="fa-solid fa-trash-can fa-lg fs-11"></i></button>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between py-4 px-3">
+                        <div>
+                            <span class="me-2">12/08/2022</span>
+                            <span class="me-2">Observación en general</span>
+                            <span>Siempre le gusta pedir una botella de Cham….</span>
+                        </div>
+                        <div>
+                            <button class="btn btn-transparent color-gray-dark me-3"><i
+                                    class="fa-solid fa-pen-to-square fa-lg fs-11"></i></button>
+                            <button class="btn btn-transparent color-dark-red"><i
+                                    class="fa-solid fa-trash-can fa-lg fs-11"></i></button>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between bg-gray py-4 px-3">
+                        <div>
+                            <span class="me-2">12/08/2022</span>
+                            <span class="me-2">Observación en general</span>
+                            <span>Siempre le gusta pedir una botella de Cham….</span>
+                        </div>
+                        <div>
+                            <button class="btn btn-transparent color-gray-dark me-3"><i
+                                    class="fa-solid fa-pen-to-square fa-lg fs-11"></i></button>
+                            <button class="btn btn-transparent color-dark-red"><i
+                                    class="fa-solid fa-trash-can fa-lg fs-11"></i></button>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between py-4 px-3">
+                        <div>
+                            <span class="me-2">12/08/2022</span>
+                            <span class="me-2">Observación en general</span>
+                            <span>Siempre le gusta pedir una botella de Cham….</span>
+                        </div>
+                        <div>
+                            <button class="btn btn-transparent color-gray-dark me-3"><i
+                                    class="fa-solid fa-pen-to-square fa-lg fs-11"></i></button>
+                            <button class="btn btn-transparent color-dark-red"><i
+                                    class="fa-solid fa-trash-can fa-lg fs-11"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="my-3">
+                    <div class="row">
+                        <div class="col-12 px-5 mb-3">
+                            <h6> <strong class="color-dark-extras fs-1p2rem lang" lang="CUSTOMER PHOTOS"> Fotos Cliente </strong> </h6>
+                            <img class="w-100 h-95" src="images.jpeg" alt="">
+                        </div>
+                        <div class="col-12 px-5 my-4">
+                            <div class="d-flex flex-column align-items-center border-dotted py-4">
+                                <button class="btn btn-transparent icon-gray"><i
+                                        class="fas fa-address-card font-32"></i></button>
+                                <span class="color-gray f-9 lang" lang="Add another image here or">Agrega otra imagen aquí o</span>
+                                <span class="color-blue f-9"><b class="lang" lang="Download from your device">Descarga desde tu dispositivo</b></span>
+                                <div class="d-flex">
+                                    <span class="icon-gray f-8 lang me-2" lang="Maximum"></span>
+                                    <span class="icon-gray f-8">1234 x 1234 px</span>
+                                </div>
+                            </div>
+                            <input type="file" id="input-image-driver" class="d-none" accept="image/*">
+                        </div>
+                        <div class="col-12 px-5 my-4">
+                            <h6> <strong class="color-dark-extras fs-1p2rem mb-3 lang" lang="PHOTO LICENSE"> Foto Licencia </strong> </h6>
+                            <div class="d-flex flex-column align-items-center border-dotted py-4">
+                                <button class="btn btn-transparent icon-gray"><i
+                                        class="fas fa-address-card font-32"></i></button>
+                                <span class="color-gray f-9 lang" lang="Add another image here or">Agrega otra imagen aquí o</span>
+                                <span class="color-blue f-9"><b class="lang" lang="Download from your device">Descarga desde tu dispositivo</b></span>
+                                <div class="d-flex">
+                                    <span class="icon-gray f-8 lang me-2" lang="Maximum"></span>
+                                    <span class="icon-gray f-8">1234 x 1234 px</span>
+                                </div>
+                            </div>
+                            <input type="file" id="input-image-driver" class="d-none" accept="image/*">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function AdministradorClientesCreate() {
+        return  {
+            init() {
+                // alert('llego')
+                this.lang("client")
+            }
+        }
+    }
+    // document.addEventListener('alpine:init', () => {
+    //     Alpine.data('ssss', () => ({
+    //             init() {
+    //                 alert('llego')
+    //                 this.lang("client")
+    //             },
+    //     }))
+    // })
+</script>

@@ -173,6 +173,7 @@ $uri = $_SERVER["REQUEST_URI"];
                 tipo_reserva: ''
             },
             lang(module, attr = 'text') {
+                console.log('module ==> ', module);
                 $.getJSON("wp-content/themes/twentytwentytwo/lang.json", function(json) {
                     //Lenguaje por defecto de la página sessionStorage.setItem("lang", "idioma")"
                     if (!localStorage.getItem("lang")) {

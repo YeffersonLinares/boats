@@ -128,7 +128,7 @@
                 orden: 'DESC'
             },
             init() {
-                $('#nav-tareas-tab').click()
+                // $('#nav-tareas-tab').click()
                 this.getTareas()
                 this.lang("task")
             },

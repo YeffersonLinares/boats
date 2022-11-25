@@ -27,7 +27,8 @@
                 <div class="tab-pane fade" id="nav-barcos" role="tabpanel" aria-labelledby="nav-barcos-tab">Barcos</div>
                 <div class="tab-pane fade" id="nav-extras" role="tabpanel" aria-labelledby="nav-extras-tab">Extras</div>
                 <div class="tab-pane fade" id="nav-clientes" role="tabpanel" aria-labelledby="nav-clientes-tab">
-                    <?php include_once "AdministradorClientesIndex.html" ?>
+                    <?php include_once "AdministradorClientesIndex.php" ?>
+                    <?php #include_once "AdministradorClientesCreate.html" ?>
                 </div>
                 <div class="tab-pane fade" id="nav-tareas" role="tabpanel" aria-labelledby="nav-tareas-tab">
                     <?php include_once "AdministradorTareasIndex.php" ?>
@@ -40,6 +41,7 @@
 function Administrador() {
     return {
         init() {
+            $('#nav-clientes-tab').click()
             this.lang('menu')
         }
     }
