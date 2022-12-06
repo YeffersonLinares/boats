@@ -1,7 +1,7 @@
-<div x-data="AdministradorClientesCreate()">
+<div x-data="AdministradorClientesCreate()" x-cloak>
     <div class="container-fluid px-md-5">
         <div class="text-center mt-3">
-            <h6 class="color-dark-blue"> <b  class="lang" lang="CLIENTS"> Clientes </b> </h6>
+            <h6 class="color-dark-blue"> <b class="lang" lang="CLIENTS"> Clientes </b> </h6>
         </div>
 
         <hr class="my-3">
@@ -15,7 +15,7 @@
                     </button>
                 </div>
                 <div class="me-3">
-                    <h4> <strong>Nombre Apellido</strong> </h4>
+                    <h4> <strong x-text="form.nombre + ' ' + form.apellido">Nombre Apellido</strong> </h4>
                 </div>
                 <div>
                     <div class="d-flex align-items-center">
@@ -25,12 +25,14 @@
                 </div>
             </div>
             <div class="col-md-6 d-flex justify-content-end">
-                <button class="btn-tareas me-2">
-                    <strong class="lang" lang="Delete Client">Borrar Cliente</strong>
-                    <i class="fa-solid fa-trash-can" style="color: #ff0000;"></i>
-                </button>
+                <template x-if="id">
+                    <button class="btn-tareas me-2">
+                        <strong class="lang" lang="Delete Client">Borrar Cliente</strong>
+                        <i class="fa-solid fa-trash-can" style="color: #ff0000;"></i>
+                    </button>
+                </template>
                 <button class="btn-tareas-blue me-2">
-                    <strong class="lang" lang="Save Modifications">Guardar Modificaciones</strong>
+                    <strong class="lang" lang="Save Modifications" @click="store()">Guardar Modificaciones</strong>
                     <i class="fa-solid fa-floppy-disk"></i>
                 </button>
             </div>
@@ -39,7 +41,8 @@
         <div class="row mt-1">
             <div class="col-md-5 col-lg-3 bg-gray">
                 <div class="my-3">
-                    <h6> <strong class="color-dark-extras fs-1p2rem lang" key="CLIENT SUMMARY"> Resumen del cliente </strong> </h6>
+                    <h6> <strong class="color-dark-extras fs-1p2rem lang" key="CLIENT SUMMARY"> Resumen del cliente
+                        </strong> </h6>
                 </div>
                 <div class="py-3 px-2">
                     <div class="d-flex flex-column mt-1">
@@ -50,9 +53,10 @@
                                         data-bs-toggle="collapse" data-bs-target="#reservas_hechas"
                                         aria-controls="reservas_hechas" aria-expanded="false"
                                         aria-label="Toggle navigation">
-                                        <span class="color-gray-dark lang" lang="Reservations Made">Reservas Hechas</span>
+                                        <span class="color-gray-dark lang" lang="Reservations Made">Reservas
+                                            Hechas</span>
                                         <div class="d-flex align-items-center">
-                                            <span class="color-dark-blue mt-1 me-3 fs-1p2rem">5</span>
+                                            <span class="color-dark-blue mt-1 me-3 fs-1p2rem" x-text="form.reservas_count">5</span>
                                             <span><i class="fa-solid fa-sort-down icon-dropdown"></i></span>
                                         </div>
                                     </div>
@@ -92,9 +96,10 @@
                                         data-bs-toggle="collapse" data-bs-target="#reservas_abiertas"
                                         aria-controls="reservas_abiertas" aria-expanded="false"
                                         aria-label="Toggle navigation">
-                                        <span class="color-gray-dark lang" lang="Open Reservations">Reservas Abiertas</span>
+                                        <span class="color-gray-dark lang" lang="Open Reservations">Reservas
+                                            Abiertas</span>
                                         <div class="d-flex align-items-center">
-                                            <span class="color-dark-blue mt-1 me-3 fs-1p2rem">5</span>
+                                            <span class="color-dark-blue mt-1 me-3 fs-1p2rem" x-text="form.reservas_abiertas_count">5</span>
                                             <span><i class="fa-solid fa-sort-down icon-dropdown"></i></span>
                                         </div>
                                     </div>
@@ -134,7 +139,8 @@
                                         data-bs-toggle="collapse" data-bs-target="#reservas_confirmadas"
                                         aria-controls="reservas_confirmadas" aria-expanded="false"
                                         aria-label="Toggle navigation">
-                                        <span class="color-gray-dark lang" lang="Confirmed Reservations">Reservas confirmadas</span>
+                                        <span class="color-gray-dark lang" lang="Confirmed Reservations">Reservas
+                                            confirmadas</span>
                                         <div class="d-flex align-items-center">
                                             <span class="color-dark-blue mt-1 me-3 fs-1p2rem">5</span>
                                             <span><i class="fa-solid fa-sort-down icon-dropdown"></i></span>
@@ -176,7 +182,8 @@
                                         data-bs-toggle="collapse" data-bs-target="#reservas_canceladas"
                                         aria-controls="reservas_canceladas" aria-expanded="false"
                                         aria-label="Toggle navigation">
-                                        <span class="color-gray-dark lang" lang="Canceled Reservations">Reservas canceladas</span>
+                                        <span class="color-gray-dark lang" lang="Canceled Reservations">Reservas
+                                            canceladas</span>
                                         <div class="d-flex align-items-center">
                                             <span class="color-dark-blue mt-1 me-3 fs-1p2rem">5</span>
                                             <span><i class="fa-solid fa-sort-down icon-dropdown"></i></span>
@@ -244,7 +251,8 @@
                         <div class="col-12">
                             <div
                                 class="d-flex justify-content-between pb-3 align-items-center fs-1p2rem px-3 py-1 border-bottom">
-                                <span class="color-gray-dark lang" lang="Kilometers traveled">Kilometros recorridos</span>
+                                <span class="color-gray-dark lang" lang="Kilometers traveled">Kilometros
+                                    recorridos</span>
                                 <div class="d-flex align-items-center">
                                     <span class="color-dark-blue mt-1 me-3 fs-1p2rem">5</span>
                                     <!-- <span><i class="fa-solid fa-sort-down icon-dropdown"></i></span> -->
@@ -272,7 +280,8 @@
                                         data-bs-toggle="collapse" data-bs-target="#pagos_pendientes"
                                         aria-controls="pagos_pendientes" aria-expanded="false"
                                         aria-label="Toggle navigation">
-                                        <span class="color-gray-dark lang" lang="Pending Payments">Pagos pendientes</span>
+                                        <span class="color-gray-dark lang" lang="Pending Payments">Pagos
+                                            pendientes</span>
                                         <div class="d-flex align-items-center">
                                             <span class="color-dark-blue mt-1 me-3 fs-1p2rem">5</span>
                                             <span><i class="fa-solid fa-sort-down icon-dropdown"></i></span>
@@ -321,7 +330,7 @@
                         <span class="color-dark-extras lang" lang="Client ID">Cliente ID:</span>
                     </div>
                     <div class="col-md-6">
-                        <input class="form-control" type="text">
+                        <input class="form-control" type="text" x-model="form.id" disabled>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -329,7 +338,7 @@
                         <span class="color-dark-extras lang" lang="Full Name">Nombre Completo:</span>
                     </div>
                     <div class="col-md-6">
-                        <input class="form-control" type="text">
+                        <input class="form-control" type="text" x-model="form.nombre">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -337,15 +346,16 @@
                         <span class="color-dark-extras lang" lang="Full Last Name">Apellido Completo:</span>
                     </div>
                     <div class="col-md-6">
-                        <input class="form-control" type="text">
+                        <input class="form-control" type="text" x-model="form.apellido">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-6">
-                        <span class="color-dark-extras lang" lang="Mobile Phone">Teléfono móvil</span>
+                        <span class="color-dark-extras lang" lang="Mobile Phone" x-model="form.telefono">Teléfono
+                            móvil</span>
                     </div>
                     <div class="col-md-6">
-                        <input class="form-control" type="text">
+                        <input class="form-control" type="text" x-model="form.telefono">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -353,7 +363,7 @@
                         <span class="color-dark-extras">Email</span>
                     </div>
                     <div class="col-md-6">
-                        <input class="form-control" type="text">
+                        <input class="form-control" type="text" x-model="form.email">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -365,7 +375,7 @@
                             <select class="form-select me-3" name="" id="">
                                 <option value="">Pasaporte</option>
                             </select>
-                            <input class="form-control" type="text">
+                            <input class="form-control" type="text" x-model="form.num_dni">
                         </div>
                     </div>
                 </div>
@@ -390,18 +400,21 @@
                         <span class="color-dark-extras lang" lang="Address">Dirección</span>
                     </div>
                     <div class="col-md-6">
-                        <textarea class="form-control" cols="5" rows="3"></textarea>
+                        <textarea class="form-control" cols="5" rows="3" x-model="form.direccion"></textarea>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <label class="mb-3 lang" lang="Customer Comments" for=""><strong>Observaciones del cliente</strong></label>
-                        <textarea class="form-control" name="" id="" cols="30" rows="5"></textarea>
+                        <label class="mb-3 lang" lang="Customer Comments" for=""><strong>Observaciones del
+                                cliente</strong></label>
+                        <textarea class="form-control" name="" id="" cols="30" rows="5"
+                            x-model="observacion.descripcion"></textarea>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <label class="form-label lang" lang="Observation Directed To" for="">Observación dirigida a</label>
+                        <label class="form-label lang" lang="Observation Directed To" for="">Observación dirigida
+                            a</label>
                         <select class="form-select mb-3" name="" id="">
                             <option value="">Reserva hecha</option>
                         </select>
@@ -412,95 +425,89 @@
 
                 </div>
                 <div class="d-flex mb-3">
-                    <button class="btn-tareas f-9"> <strong> Agregar Observación </strong> </button>
+                    <button class="btn-tareas f-9" @click="agregar_observación()"> <strong> Agregar Observación
+                        </strong> </button>
                 </div>
                 <div class="row">
                     <div class="col-12">
                         <p>Esta observación sobre [responsable] se te advertirá cada vez que haga una reserva.</p>
                     </div>
                 </div>
-                <div>
-                    <div class="d-flex justify-content-between bg-gray py-4 px-3">
-                        <div>
-                            <span class="me-2">12/08/2022</span>
-                            <span class="me-2">Observación en general</span>
-                            <span>Siempre le gusta pedir una botella de Cham….</span>
-                        </div>
-                        <div>
-                            <button class="btn btn-transparent color-gray-dark me-3"><i
-                                    class="fa-solid fa-pen-to-square fa-lg fs-11"></i></button>
-                            <button class="btn btn-transparent color-dark-red"><i
-                                    class="fa-solid fa-trash-can fa-lg fs-11"></i></button>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between py-4 px-3">
-                        <div>
-                            <span class="me-2">12/08/2022</span>
-                            <span class="me-2">Observación en general</span>
-                            <span>Siempre le gusta pedir una botella de Cham….</span>
-                        </div>
-                        <div>
-                            <button class="btn btn-transparent color-gray-dark me-3"><i
-                                    class="fa-solid fa-pen-to-square fa-lg fs-11"></i></button>
-                            <button class="btn btn-transparent color-dark-red"><i
-                                    class="fa-solid fa-trash-can fa-lg fs-11"></i></button>
+                <template x-for="(i,index) in form.observaciones">
+                    <div>
+                        <div class="d-flex justify-content-between py-4 px-3"
+                            x-bind:class="[index%2==0 ? 'bg-gray': '']">
+                            <div>
+                                <span class="me-2">12/08/2022</span>
+                                <span class="me-2">Observación en general</span>
+                                <span x-text="resum_observacion(i.descripcion)">Siempre le gusta pedir una botella de
+                                    Cham….</span>
+                            </div>
+                            <div>
+                                <button class="btn btn-transparent color-gray-dark me-3"><i
+                                        class="fa-solid fa-pen-to-square fa-lg fs-11"
+                                        @click="edit_observacion(index)"></i></button>
+                                <button class="btn btn-transparent color-dark-red"
+                                    @click="eliminar_observacion(index)"><i
+                                        class="fa-solid fa-trash-can fa-lg fs-11"></i></button>
+                            </div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-between bg-gray py-4 px-3">
-                        <div>
-                            <span class="me-2">12/08/2022</span>
-                            <span class="me-2">Observación en general</span>
-                            <span>Siempre le gusta pedir una botella de Cham….</span>
-                        </div>
-                        <div>
-                            <button class="btn btn-transparent color-gray-dark me-3"><i
-                                    class="fa-solid fa-pen-to-square fa-lg fs-11"></i></button>
-                            <button class="btn btn-transparent color-dark-red"><i
-                                    class="fa-solid fa-trash-can fa-lg fs-11"></i></button>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between py-4 px-3">
-                        <div>
-                            <span class="me-2">12/08/2022</span>
-                            <span class="me-2">Observación en general</span>
-                            <span>Siempre le gusta pedir una botella de Cham….</span>
-                        </div>
-                        <div>
-                            <button class="btn btn-transparent color-gray-dark me-3"><i
-                                    class="fa-solid fa-pen-to-square fa-lg fs-11"></i></button>
-                            <button class="btn btn-transparent color-dark-red"><i
-                                    class="fa-solid fa-trash-can fa-lg fs-11"></i></button>
-                        </div>
-                    </div>
-                </div>
+                </template>
             </div>
             <div class="col-lg-3">
                 <div class="my-3">
                     <div class="row">
-                        <div class="col-12 px-5 mb-3">
-                            <h6> <strong class="color-dark-extras fs-1p2rem lang" lang="CUSTOMER PHOTOS"> Fotos Cliente </strong> </h6>
-                            <img class="w-100 h-95" src="images.jpeg" alt="">
+                        <div class="col-12 px-5">
+                            <h6> <strong class="color-dark-extras fs-1p2rem lang" lang="CUSTOMER PHOTOS"> Fotos Cliente
+                                </strong> </h6>
+                            <form class="d-flex justify-content-center mb-0" x-data="imgPreview" x-cloak>
+                                <input class="d-none" type="file" id="imgSelect" accept="image/*" x-ref="myFile"
+                                    @change="previewFile">
+                                <template x-if="form.image" class="mb-0">
+                                    <img :src="image_preview(form.image)" class="imgPreview w-100 height13rem" role="button"
+                                        @click="preview_image_charged(form.image)">
+                                </template>
+                            </form>
                         </div>
-                        <div class="col-12 px-5 my-4">
+                        <div class="col-12 px-5 my-4" role="button" @click="abrir_imagen_cliente()">
                             <div class="d-flex flex-column align-items-center border-dotted py-4">
                                 <button class="btn btn-transparent icon-gray"><i
                                         class="fas fa-address-card font-32"></i></button>
-                                <span class="color-gray f-9 lang" lang="Add another image here or">Agrega otra imagen aquí o</span>
-                                <span class="color-blue f-9"><b class="lang" lang="Download from your device">Descarga desde tu dispositivo</b></span>
+                                <span class="color-gray f-9 lang" lang="Add another image here or">Agrega otra imagen
+                                    aquí o</span>
+                                <span class="color-blue f-9"><b class="lang" lang="Download from your device">Descarga
+                                        desde tu dispositivo</b></span>
                                 <div class="d-flex">
                                     <span class="icon-gray f-8 lang me-2" lang="Maximum"></span>
                                     <span class="icon-gray f-8">1234 x 1234 px</span>
                                 </div>
                             </div>
-                            <input type="file" id="input-image-driver" class="d-none" accept="image/*">
+                            <input type="file" id="input-image-client" class="d-none" accept="image/*">
                         </div>
-                        <div class="col-12 px-5 my-4">
-                            <h6> <strong class="color-dark-extras fs-1p2rem mb-3 lang" lang="PHOTO LICENSE"> Foto Licencia </strong> </h6>
-                            <div class="d-flex flex-column align-items-center border-dotted py-4">
+                        <div class="col-12 px-5 my-4" role="button">
+                            <h6> <strong class="color-dark-extras fs-1p2rem mb-3 lang" lang="PHOTO LICENSE"> Foto
+                                    <!-- <img class="w-100 h-95" src="images.jpeg" alt=""> -->
+                                    Licencia
+                                </strong> </h6>
+                            <div class="col-12 px-5 mb-3">
+                                <form class="d-flex justify-content-center mb-0" x-data="imgPreview" x-cloak>
+                                    <input class="d-none" type="file" id="imgSelectLicencia" accept="image/*"
+                                        x-ref="myFile" @change="previewFileLicencia">
+                                    <template x-if="form.imagen_titulo" class="mb-0">
+                                        <img :src="image_preview(form.imagen_titulo)" class="imgPreview w-100 height13rem" role="button"
+                                        @click="preview_image_charged(form.imagen_titulo)">
+                                    </template>
+                                </form>
+                            </div>
+                            <div class="d-flex flex-column align-items-center border-dotted py-4"
+                                @click="abrir_imagen_licencia()">
                                 <button class="btn btn-transparent icon-gray"><i
                                         class="fas fa-address-card font-32"></i></button>
-                                <span class="color-gray f-9 lang" lang="Add another image here or">Agrega otra imagen aquí o</span>
-                                <span class="color-blue f-9"><b class="lang" lang="Download from your device">Descarga desde tu dispositivo</b></span>
+                                <span class="color-gray f-9 lang" lang="Add another image here or">Agrega otra imagen
+                                    aquí o</span>
+                                <span class="color-blue f-9"><b class="lang" lang="Download from your device">Descarga
+                                        desde tu dispositivo</b></span>
                                 <div class="d-flex">
                                     <span class="icon-gray f-8 lang me-2" lang="Maximum"></span>
                                     <span class="icon-gray f-8">1234 x 1234 px</span>
@@ -512,23 +519,156 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="modal_preview_client" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body d-flex justify-content-center">
+                        <template x-if="route_image">
+                            <img :src="route_image" class="w-100 height-100" />
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script>
     function AdministradorClientesCreate() {
-        return  {
+        return {
+            form: {
+                id: '',
+                nombre: '',
+                apellido: '',
+                telefono: '',
+                email: '',
+                direccion: '',
+                num_dni: '',
+                image: '',
+                imagen_titulo: '',
+                observaciones: [],
+                reservas_count: 0,
+                reservas_abiertas_count: 0,
+            },
+            is_edit: false,
+            posicion: '',
+            imgsrc: null,
+            imgsrcLicencia: null,
+            route_image: '',
+            observacion: { id: '', descripcion: '', deleted_at: '', created_at: '' },
             init() {
-                // alert('llego')
+                // alert('entro')
                 this.lang("client")
+                if (this.id) {
+                    this.getResults()
+                }
+            },
+            getResults() {
+                let url = this.base_url + '/administrador/edit_cliente'
+                axios.post(url, { id: this.id }).then(res => {
+                    this.form = res.data
+                })
+            },
+            agregar_observación() {
+                if (!this.observacion.descripcion) {
+                    Swal.fire('', 'El campo observaciones del cliente es obligatorio', 'error')
+                    return
+                }
+                let observacion = {}
+                for (const key in this.observacion) observacion[key] = this.observacion[key]
+
+                if (this.is_edit == false) this.form.observaciones.push(observacion)
+                else this.form.observaciones[this.posicion] = observacion
+
+                this.limpiar_observacion()
+
+            },
+            eliminar_observacion(index) {
+                if (this.form.observaciones[index].id) {
+                    this.form.observaciones[index].deleted_at = 1
+                } else {
+                    this.form.observaciones.splice(index, 1)
+                }
+                this.limpiar_observacion()
+            },
+            limpiar_observacion() {
+                for (const key in this.observacion) this.observacion[key] = ''
+
+                this.is_edit = false
+                this.posicion = ''
+            },
+            edit_observacion(index) {
+                let observacion = {}
+                for (const key in this.observacion) observacion[key] = this.form.observaciones[index][key]
+
+                this.observacion = observacion
+                this.is_edit = true
+                this.posicion = index
+            },
+            resum_observacion(text) {
+                if (text.length >= 35) {
+                    return text.substring(0, 35) + '...'
+                } else {
+                    return text
+                }
+            },
+            abrir_imagen_cliente() {
+                $('#imgSelect').click()
+            },
+            abrir_imagen_licencia() {
+                $('#imgSelectLicencia').click()
+            },
+            previewFile() {
+                let file = this.$refs.myFile.files[0];
+                if (!file || file.type.indexOf('image/') === -1) return;
+                this.imgsrc = null;
+                let reader = new FileReader();
+
+                reader.onload = e => {
+                    this.imgsrc = e.target.result;
+                    this.form.image = e.target.result;
+                }
+
+                reader.readAsDataURL(file);
+            },
+            previewFileLicencia() {
+                let file = this.$refs.myFile.files[0];
+                if (!file || file.type.indexOf('image/') === -1) return;
+                this.imgsrcLicencia = null;
+                let reader = new FileReader();
+
+                reader.onload = e => {
+                    this.imgsrcLicencia = e.target.result;
+                    this.form.imagen_titulo = e.target.result;
+                }
+
+                reader.readAsDataURL(file);
+            },
+            store() {
+                let url = this.base_url + '/administrador/store_clientes'
+                axios.post(url, this.form).then(res => {
+                    Swal.fire('Éxito', res.data.msg, 'success')
+                    this.form.id = res.data.user_reserva.id
+                }).catch(errors => {
+                    var error = Object.values(errors.response.data.errors)[0][0];
+                    Swal.fire('Error', error, 'error')
+                })
+                // .catch(errors => {
+                //     var error = Object.values(errors.response.data.errors)[0][0];
+                //     Swal.fire('Error', error, 'error')
+                // })
+            },
+            image_preview(img) {
+                if(img.substr(0, 4) != 'data') {
+                    return this.base_url + img
+                }else {
+                    return img
+                }
+            },
+            preview_image_charged(image) {
+                this.route_image = this.image_preview(image)
+                $('#modal_preview_client').modal('show')
             }
         }
     }
-    // document.addEventListener('alpine:init', () => {
-    //     Alpine.data('ssss', () => ({
-    //             init() {
-    //                 alert('llego')
-    //                 this.lang("client")
-    //             },
-    //     }))
-    // })
 </script>

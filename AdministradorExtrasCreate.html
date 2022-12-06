@@ -1,0 +1,261 @@
+<div x-data="AdministradorExtrasCreate()">
+    <template x-if="pantalla=='create'">
+        <div>
+            <div class="container-fluid px-md-5">
+                <div class="text-center mt-3">
+                    <h6 class="color-dark-blue"> <b> Clientes </b> </h6>
+                </div>
+                <hr class="my-3">
+
+                <div class="d-flex justify-content-between mt-3 align-items-center">
+                    <div class="ms-3">
+                        <div>
+                            <button class="btn-regreso">
+                                <i class="fa-solid fa-circle-arrow-left"></i>
+                                <strong>Atrás</strong>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="mt-1"> <strong> Nuevo servicio / Producto Extra </strong> </h5>
+                    </div>
+                    <div class="d-flex">
+                        <div>
+                            <button class="btn-tareas me-2">
+                                <strong>Eliminar Extra</strong>
+                                <i class="fa-solid fa-trash-can" style="color: #ff0000;"></i>
+                            </button>
+                        </div>
+                        <div>
+                            <button class="btn-tareas-blue me-2">
+                                <strong>Guardar Extra</strong>
+                                <i class="fa-solid fa-floppy-disk"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-lg-9">
+                        <h5><strong>Tipo de Servicio o Producto extra es*</strong></h5>
+                        <div class="d-flex">
+                            <div class="d-flex flex-column me-4">
+                                <button class="btn btn-transparent px-0">
+                                    <i class="fa-solid fa-volleyball fa-2x p-2 border-button-extras"></i>
+                                </button>
+                                <span class="f-8">Recreativo Acuático</span>
+                            </div>
+                            <div class="d-flex flex-column me-4">
+                                <button class="btn btn-transparent px-0 button-active-extras">
+                                    <i class="fa-solid fa-utensils fa-2x p-2 border-button-extras"></i>
+                                </button>
+                                <span class="f-8">Recreativo Acuático</span>
+                            </div>
+                            <div class="d-flex flex-column me-4 align-items-center">
+                                <button class="btn btn-transparent px-0 button-active-extras">
+                                    <i class="fa-regular fa-star fa-2x p-2 border-button-extras active"></i>
+                                </button>
+                                <span class="f-8">Otro</span>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 mt-5">
+                                <label class="form-label" for="">Titulo</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-12 mt-5">
+                                <label class="form-label" for="">Descripción</label>
+                                <textarea class="form-control" cols="30" rows="4"></textarea>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <div class="d-flex">
+
+                                </div>
+                            </div>
+                            <div class="col-12 d-flex align-items-center my-3">
+                                <strong>Antelación mínima para requerir este servicio o producto extra:</strong>
+                                <select class="form-select mx-3" name="" id="" style="width: 10%;">
+                                    <option value="">0</option>
+                                </select>
+                                <strong>Días</strong>
+                            </div>
+                            <div class="p-4 bg-gray">
+                                <div class="mb-3">
+                                    <strong class="mb-3">Variaciones de este Extra</strong>
+                                </div>
+                                <div class="row border-bottom border-top py-2 mb-3">
+                                    <div class="col-8">
+                                        <span class="color-dark-blue">Premium</span>
+                                    </div>
+                                    <div class="d-flex col-4 justify-content-between">
+                                        <span class="color-dark-blue">30€</span>
+                                        <span class="color-gray-dark">18u</span>
+                                        <span class="color-gray-dark">Individual</span>
+                                        <button class="btn btn-transparent color-gray-dark">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </button>
+                                        <button class="btn btn-transparent color-dark-red">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label class="form-label" for="">Descripción</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-between">
+                                        <div class="me-4">
+                                            <label class="form-label" for="">Precio €*</label>
+                                            <input class="form-control" type="text">
+                                        </div>
+                                        <div class="me-4">
+                                            <label class="form-label" for="">Stock*</label>
+                                            <select class="form-select" name="" id="">
+                                                <option value="">0</option>
+                                            </select>
+                                        </div>
+                                        <div class="me-4">
+                                            <label class="form-label" for="">Se compartirá</label>
+                                            <select class="form-select" name="" id="">
+                                                <option value="">Compartido Individual</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex my-3">
+                                    <button class="btn btn-transparent color-limpiar">
+                                        <i class="fa-solid fa-broom"></i>
+                                        <span>Limpiar todos los campos</span>
+                                    </button>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <button class="btn-tareas">
+                                            <span>Cancelar</span>
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <button class="btn-tareas">
+                                            <span>Guardar Variante</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <strong class="color-dark-extras">Como pagar este Extra*</strong>
+                                <div class="d-flex my-4 f-9">
+                                    <div class="form-check me-3">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Incluir el precio en la reserva
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            Permitir pago en el día de la reserva
+                                        </label>
+                                    </div>
+                                </div>
+                                <strong class="color-dark-extras">Agregar imagen</strong>
+                                <div class="my-4" style="width: 30%;">
+                                    <div class="d-flex flex-column align-items-center border-dotted py-4">
+                                        <button class="btn btn-transparent icon-gray"><i
+                                                class="fas fa-address-card font-32"></i></button>
+                                        <span class="color-gray f-9">Agrega otra imagen aquí o</span>
+                                        <span class="color-blue f-9"><b>Descarga desde tu dispositivo</b></span>
+                                        <span class="icon-gray f-8">Máximo 1234 x 1234 px</span>
+                                    </div>
+                                    <input type="file" id="input-image-driver" class="d-none" accept="image/*">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3" role="button">
+                                <img class="d-block w-100 height-11rem"
+                                    src="https://media.revistagq.com/photos/5ca5f0da267a327e887243a7/master/w_1600,c_limit/los_mejores_platos_de_cocina_del_mundo_chef_3359.jpg"
+                                    alt="">
+                                <span class="top-image">Portada</span>
+                                <button class="button-image"><i class="fa-solid fa-trash-can"></i></button>
+                            </div>
+                            <div class="col-3" role="button">
+                                <img class="d-block w-100 height-11rem"
+                                    src="https://media.revistagq.com/photos/5ca5f0da267a327e887243a7/master/w_1600,c_limit/los_mejores_platos_de_cocina_del_mundo_chef_3359.jpg"
+                                    alt="">
+                                <button class="button-image"><i class="fa-solid fa-trash-can"></i></button>
+                            </div>
+                            <div class="col-3" role="button">
+                                <img class="d-block w-100 height-11rem"
+                                    src="https://media.revistagq.com/photos/5ca5f0da267a327e887243a7/master/w_1600,c_limit/los_mejores_platos_de_cocina_del_mundo_chef_3359.jpg"
+                                    alt="">
+                                <button class="button-image"><i class="fa-solid fa-trash-can"></i></button>
+                            </div>
+                            <div class="col-3" role="button">
+                                <img class="d-block w-100 height-11rem"
+                                    src="https://media.revistagq.com/photos/5ca5f0da267a327e887243a7/master/w_1600,c_limit/los_mejores_platos_de_cocina_del_mundo_chef_3359.jpg"
+                                    alt="">
+                                <button class="button-image"><i class="fa-solid fa-trash-can"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <span>Vista previa del Extra</span>
+                        <div>
+                            <img class="w-100 height-11rem"
+                                src="https://media.revistagq.com/photos/5ca5f0da267a327e887243a7/master/w_1600,c_limit/los_mejores_platos_de_cocina_del_mundo_chef_3359.jpg"
+                                alt="">
+                            <div class="mt-3">
+                                <h6>Titulo</h6>
+                                <span>Descripción: Objectively transition orthogonal paradigms via long-term high-impact
+                                    portals.
+                                    Efficiently transition premier models whereas viral growth strategies.</span>
+                                <div class="d-flex justify-content-between fa-gray mt-2">
+                                    <div class="d-flex justify-content-between">
+                                        <button class="btn-minus-plus">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </button>
+                                        <span class="fs-6 mx-4">0</span>
+                                        <button class="btn-minus-plus">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <span>+30€</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between fa-gray mt-2">
+                                    <div class="d-flex justify-content-between">
+                                        <button class="btn-minus-plus">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </button>
+                                        <span class="fs-6 mx-4">0</span>
+                                        <button class="btn-minus-plus">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <span>+30€</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </template>
+</div>
+<script>
+    function AdministradorExtrasCreate() {
+        return {
+            extras: [],
+            init() {
+            },
+        }
+    }
+</script>

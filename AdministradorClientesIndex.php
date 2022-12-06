@@ -1,4 +1,4 @@
-<div x-data="AdministradorClientesIndex()">
+<div x-data="AdministradorClientesIndex()" x-cloak>
     <template x-if="pantalla=='index'">
         <div>
             <div class="row">
@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end">
-                <button @click="cambiar_pantalla('create')">Agregar Nuevo Cliente <i class="fa-solid fa-user-plus"></i></button>
+                <button class="btn-blue-tareas " @click="cambiar_pantalla('create')">Agregar Nuevo Cliente <i class="fa-solid fa-user-plus"></i></button>
             </div>
             <div class="row">
                 <div class="col-12 d-flex align-items-center">
@@ -18,11 +18,9 @@
             </div>
             <div class="row">
                 <template x-for="(i,index) in clientes" :key="index">
-                    <div class="col-md-6 col-lg-3 mb-3">
+                    <div class="col-md-6 col-lg-3 mb-3" role="button" @click="edit_cliente(index)">
                         <div class="card card_cliente">
-                            <!-- <img :src="i.image" class="card-img-top" alt="..."> -->
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Documento_de_Identidad_2000%E2%80%942020_%28Mayores_de_Edad%29_Anverso.jpg"
-                                class="card-img-top" alt="...">
+                            <img :src="base_url + i.image" class="card-img-top image-card-nyg" alt="...">
                             <div class="card-body">
                                 <h5 class="card_cliente-title" x-text="i.nombre + ' ' + i.apellido"></h5>
                                 <hr>
@@ -52,8 +50,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-9 d-flex flex-column">
-                                        <span class="mb-1">Reservas Abiertas: <b class="text-blue"
-                                                x-text="i.reserva_count"></b></span>
+                                        <span class="mb-1">Reservas Abiertas: <b class="text-blue" x-text="i.reserva_count"></b></span>
                                         <span class="mb-1">Reservas Confirmadas: <b class="text-blue">0</b></span>
                                         <span class="mb-1">Reservas Canceladas: <b class="text-blue">0</b></span>
                                         <span class="mb-1">Pagos Pendientes: <b class="text-blue">0</b></span>
@@ -79,7 +76,8 @@
     </template>
     <template x-if="pantalla=='create'">
         <div>
-            <?php include_once 'AdministradorClientesCreate.html'; ?>
+            <!-- <h1>Llego</h1> -->
+            <?php require 'AdministradorClientesCreate.html'; ?>
         </div>
     </template>
 </div>
@@ -87,8 +85,9 @@
     function AdministradorClientesIndex() {
         return {
             clientes: [],
-            pantalla: 'create',
-            // pantalla: 'index',
+            id: null,
+            // pantalla: 'create',
+            pantalla: "index",
             init() {
                 // $('#nav-clientes-tab').click()
                 this.getClients()
@@ -108,7 +107,13 @@
                 }
             },
             cambiar_pantalla(pantalla) {
+                this.id = null
                 this.pantalla = pantalla
+                console.log('this.pantalla ==> ', this.pantalla);
+            },
+            edit_cliente(index) {
+                this.id = this.clientes[index].id
+                this.pantalla = 'create'
             }
         }
     }
