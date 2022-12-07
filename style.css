@@ -711,7 +711,7 @@ i {
 }
 
 .bg-gray-light {
-    background-color: #B5B5B5;
+    background-color: #B5B5B5 !important;
 }
 
 .btn-cancelar-reserva {
@@ -1294,4 +1294,12 @@ img.imgPreview {
 .btn-icon-menu {
     font-size: 1.2rem;
     margin-right: .5rem;
+}
+
+.border-dark-gray {
+    border: 1px solid #464646 !important;
+}
+
+.bottom-4p4rem {
+    bottom: 4.4rem;
 }

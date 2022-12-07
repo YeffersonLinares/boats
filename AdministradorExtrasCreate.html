@@ -3,7 +3,7 @@
         <div>
             <div class="container-fluid px-md-5">
                 <div class="text-center mt-3">
-                    <h6 class="color-dark-blue"> <b> Clientes </b> </h6>
+                    <h6 class="color-dark-blue"> <b class="lang" lang="Customers"> Clientes </b> </h6>
                 </div>
                 <hr class="my-3">
 
@@ -12,12 +12,13 @@
                         <div>
                             <button class="btn-regreso">
                                 <i class="fa-solid fa-circle-arrow-left"></i>
-                                <strong>Atrás</strong>
+                                <strong class="lang" lang="Back">Atrás</strong>
                             </button>
                         </div>
                     </div>
                     <div>
-                        <h5 class="mt-1"> <strong> Nuevo servicio / Producto Extra </strong> </h5>
+                        <h5 class="mt-1"> <strong class="lang" lang="NEW SERVICE"> Nuevo servicio / Producto Extra
+                            </strong> </h5>
                     </div>
                     <div class="d-flex">
                         <div>
@@ -38,26 +39,19 @@
 
                 <div class="row mt-5">
                     <div class="col-lg-9">
-                        <h5><strong>Tipo de Servicio o Producto extra es*</strong></h5>
+                        <h5><strong class="lang" lang="TYPE OF SERVICE">Tipo de Servicio o Producto extra es*</strong>
+                        </h5>
                         <div class="d-flex">
-                            <div class="d-flex flex-column me-4">
-                                <button class="btn btn-transparent px-0">
-                                    <i class="fa-solid fa-volleyball fa-2x p-2 border-button-extras"></i>
-                                </button>
-                                <span class="f-8">Recreativo Acuático</span>
-                            </div>
-                            <div class="d-flex flex-column me-4">
-                                <button class="btn btn-transparent px-0 button-active-extras">
-                                    <i class="fa-solid fa-utensils fa-2x p-2 border-button-extras"></i>
-                                </button>
-                                <span class="f-8">Recreativo Acuático</span>
-                            </div>
-                            <div class="d-flex flex-column me-4 align-items-center">
-                                <button class="btn btn-transparent px-0 button-active-extras">
-                                    <i class="fa-regular fa-star fa-2x p-2 border-button-extras active"></i>
-                                </button>
-                                <span class="f-8">Otro</span>
-                            </div>
+                            <template x-for="(i,index) in form.tipos" :key="index">
+                                <div class="d-flex flex-column me-4 align-items-center">
+                                    <button class="btn btn-transparent px-0 button-active-extras"
+                                        @click="active_extra(index)">
+                                        <i :class="[i.active ? 'active ' + i.icon : i.icon]"
+                                            class="fa-2x p-2 border-button-extras"></i>
+                                    </button>
+                                    <span class="f-8" x-text="i.nombre"></span>
+                                </div>
+                            </template>
                         </div>
                         <div class="row mt-3">
                             <div class="col-12 mt-5">
@@ -65,7 +59,7 @@
                                 <input type="text" class="form-control">
                             </div>
                             <div class="col-12 mt-5">
-                                <label class="form-label" for="">Descripción</label>
+                                <label class="form-label lang" for="" lang="Description">Descripción</label>
                                 <textarea class="form-control" cols="30" rows="4"></textarea>
                             </div>
                             <div class="col-12 d-flex">
@@ -73,52 +67,81 @@
 
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="form-label" for="">Descripción</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                                <div class="col-6 d-flex justify-content-between">
+                                    <div class="me-4">
+                                        <label class="form-label" for="">Precio €*</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                    <div class="me-4">
+                                        <label class="form-label" for="">Stock*</label>
+                                        <input type="number" class="form-control">
+                                        <!-- <select class="form-select" name="" id="">
+                                            <option value="">0</option>
+                                        </select> -->
+                                    </div>
+                                    <div class="me-4">
+                                        <label class="form-label" for="">Se compartirá</label>
+                                        <select class="form-select" name="" id="">
+                                            <option value="">Compartido Individual</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-12 d-flex align-items-center my-3">
-                                <strong>Antelación mínima para requerir este servicio o producto extra:</strong>
+                                <strong class="lang" lang="Minimum Product">Antelación mínima para requerir este
+                                    servicio o producto extra:</strong>
                                 <select class="form-select mx-3" name="" id="" style="width: 10%;">
                                     <option value="">0</option>
                                 </select>
-                                <strong>Días</strong>
+                                <strong class="lang" lang="Days">Días</strong>
                             </div>
                             <div class="p-4 bg-gray">
                                 <div class="mb-3">
-                                    <strong class="mb-3">Variaciones de este Extra</strong>
+                                    <strong class="mb-3 lang" lang="Variations Extra">Variaciones de este Extra</strong>
                                 </div>
-                                <div class="row border-bottom border-top py-2 mb-3">
-                                    <div class="col-8">
-                                        <span class="color-dark-blue">Premium</span>
+                                <template x-for="(i,index) in detalles">
+                                    <div class="row border-bottom border-top py-2 mb-3">
+                                        <div class="col-8">
+                                            <span class="color-dark-blue" x-text="i.descripcion">Premium</span>
+                                        </div>
+                                        <div class="d-flex col-4 justify-content-between">
+                                            <span class="color-dark-blue" x-text="i.valor + '€'"></span>
+                                            <span class="color-gray-dark" x-text="i.cantidad + 'u'">18u</span>
+                                            <span class="color-gray-dark" x-text="i.compartir">Individual</span>
+                                            <button class="btn btn-transparent color-gray-dark">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </button>
+                                            <button class="btn btn-transparent color-dark-red" @click="delete_detalle(index)">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="d-flex col-4 justify-content-between">
-                                        <span class="color-dark-blue">30€</span>
-                                        <span class="color-gray-dark">18u</span>
-                                        <span class="color-gray-dark">Individual</span>
-                                        <button class="btn btn-transparent color-gray-dark">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </button>
-                                        <button class="btn btn-transparent color-dark-red">
-                                            <i class="fa-solid fa-trash-can"></i>
-                                        </button>
-                                    </div>
-                                </div>
+                                </template>
                                 <div class="row">
                                     <div class="col-6">
                                         <label class="form-label" for="">Descripción</label>
-                                        <input class="form-control" type="text">
+                                        <input class="form-control" type="text" x-model="detalle.descripcion">
                                     </div>
                                     <div class="col-6 d-flex justify-content-between">
                                         <div class="me-4">
                                             <label class="form-label" for="">Precio €*</label>
-                                            <input class="form-control" type="text">
+                                            <input class="form-control" type="text" x-model="detalle.valor">
                                         </div>
                                         <div class="me-4">
                                             <label class="form-label" for="">Stock*</label>
-                                            <select class="form-select" name="" id="">
+                                            <input type="number" class="form-control" x-model="detalle.cantidad">
+                                            <!-- <select class="form-select" name="" id="">
                                                 <option value="">0</option>
-                                            </select>
+                                            </select> -->
                                         </div>
                                         <div class="me-4">
                                             <label class="form-label" for="">Se compartirá</label>
-                                            <select class="form-select" name="" id="">
+                                            <select class="form-select" name="" id="" x-model="detalle.compartir">
                                                 <option value="">Compartido Individual</option>
                                             </select>
                                         </div>
@@ -137,32 +160,35 @@
                                         </button>
                                     </div>
                                     <div>
-                                        <button class="btn-tareas">
+                                        <button class="btn-tareas" @click="add_detalle()">
                                             <span>Guardar Variante</span>
                                         </button>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <strong class="color-dark-extras">Como pagar este Extra*</strong>
+                                <strong class="color-dark-extras lang" lang="How Pay Extra">¿Cómo pagar este
+                                    Extra?*</strong>
                                 <div class="d-flex my-4 f-9">
                                     <div class="form-check me-3">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
                                             id="flexRadioDefault1">
-                                        <label class="form-check-label" for="flexRadioDefault1">
+                                        <label class="form-check-label lang" for="flexRadioDefault1"
+                                            lang="Include Price Reservation">
                                             Incluir el precio en la reserva
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
                                             id="flexRadioDefault2" checked>
-                                        <label class="form-check-label" for="flexRadioDefault2">
+                                        <label class="form-check-label lang" for="flexRadioDefault2"
+                                            lang="Allow Rayment Reservation">
                                             Permitir pago en el día de la reserva
                                         </label>
                                     </div>
                                 </div>
-                                <strong class="color-dark-extras">Agregar imagen</strong>
-                                <div class="my-4" style="width: 30%;">
+                                <strong class="color-dark-extras lang" lang="add image">Agregar imagen</strong>
+                                <div class="my-4" style="width: 30%;" role="button" @click="open_input()">
                                     <div class="d-flex flex-column align-items-center border-dotted py-4">
                                         <button class="btn btn-transparent icon-gray"><i
                                                 class="fas fa-address-card font-32"></i></button>
@@ -170,36 +196,32 @@
                                         <span class="color-blue f-9"><b>Descarga desde tu dispositivo</b></span>
                                         <span class="icon-gray f-8">Máximo 1234 x 1234 px</span>
                                     </div>
-                                    <input type="file" id="input-image-driver" class="d-none" accept="image/*">
                                 </div>
                             </div>
                         </div>
+                        <input type="file" id="image_extra" class="d-none" accept="image/*" @change="previewFile()"
+                            x-ref="myFile">
                         <div class="row">
-                            <div class="col-3" role="button">
-                                <img class="d-block w-100 height-11rem"
-                                    src="https://media.revistagq.com/photos/5ca5f0da267a327e887243a7/master/w_1600,c_limit/los_mejores_platos_de_cocina_del_mundo_chef_3359.jpg"
-                                    alt="">
-                                <span class="top-image">Portada</span>
-                                <button class="button-image"><i class="fa-solid fa-trash-can"></i></button>
-                            </div>
-                            <div class="col-3" role="button">
-                                <img class="d-block w-100 height-11rem"
-                                    src="https://media.revistagq.com/photos/5ca5f0da267a327e887243a7/master/w_1600,c_limit/los_mejores_platos_de_cocina_del_mundo_chef_3359.jpg"
-                                    alt="">
-                                <button class="button-image"><i class="fa-solid fa-trash-can"></i></button>
-                            </div>
-                            <div class="col-3" role="button">
-                                <img class="d-block w-100 height-11rem"
-                                    src="https://media.revistagq.com/photos/5ca5f0da267a327e887243a7/master/w_1600,c_limit/los_mejores_platos_de_cocina_del_mundo_chef_3359.jpg"
-                                    alt="">
-                                <button class="button-image"><i class="fa-solid fa-trash-can"></i></button>
-                            </div>
-                            <div class="col-3" role="button">
-                                <img class="d-block w-100 height-11rem"
-                                    src="https://media.revistagq.com/photos/5ca5f0da267a327e887243a7/master/w_1600,c_limit/los_mejores_platos_de_cocina_del_mundo_chef_3359.jpg"
-                                    alt="">
-                                <button class="button-image"><i class="fa-solid fa-trash-can"></i></button>
-                            </div>
+                            <template x-for="(i,index) in form.images">
+                                <div class="col-md-6 col-lg-3">
+                                    <img class="d-block w-100 height-11rem" :src="i.src" role="button"
+                                        @click="open_input(index)">
+                                    <template x-if="!i.active">
+                                        <div class="d-flex justify-content-around align-items-center top-image w-50 bg-gray-light"
+                                            @click="is_portada(index)">
+                                            <span role="button">Portada</span>
+                                            <input class="form-check-input border-dark-gray m-0" type="radio"
+                                                name="inlineRadioOptions" id="inlineRadio1" value="option1" disabled
+                                                style="opacity: 1">
+                                        </div>
+                                    </template>
+                                    <template x-if="i.active">
+                                        <span role="button" class="top-image">Portada</span>
+                                    </template>
+                                    <button class="button-image p-1" x-bind:class="[!i.active ? 'bottom-4p4rem' : '']"
+                                        @click="delete_image(index)"><i class="fa-solid fa-trash-can"></i></button>
+                                </div>
+                            </template>
                         </div>
                     </div>
                     <div class="col-lg-3">
@@ -254,8 +276,124 @@
     function AdministradorExtrasCreate() {
         return {
             extras: [],
-            init() {
+            imgsrc: null,
+            editImage: false,
+            index_image: 0,
+            form: {
+                images: [
+                    {
+                        id: '',
+                        src: 'https://media.revistagq.com/photos/5ca5f0da267a327e887243a7/master/w_1600,c_limit/los_mejores_platos_de_cocina_del_mundo_chef_3359.jpg',
+                        active: true
+                    },
+                    {
+                        id: '',
+                        src: 'https://media.revistagq.com/photos/5ca5f0da267a327e887243a7/master/w_1600,c_limit/los_mejores_platos_de_cocina_del_mundo_chef_3359.jpg',
+                        active: false
+                    },
+                    // {
+                    //     id: '',
+                    //     src: 'https://media.revistagq.com/photos/5ca5f0da267a327e887243a7/master/w_1600,c_limit/los_mejores_platos_de_cocina_del_mundo_chef_3359.jpg',
+                    //     active: false
+                    // },
+                    // {
+                    //     id: '',
+                    //     src: 'https://media.revistagq.com/photos/5ca5f0da267a327e887243a7/master/w_1600,c_limit/los_mejores_platos_de_cocina_del_mundo_chef_3359.jpg',
+                    //     active: false
+                    // },
+                ],
+                tipos: [
+                    {
+                        nombre: 'Recreativo Acuático',
+                        icon: 'fa-solid fa-volleyball',
+                        active: true
+                    },
+                    {
+                        nombre: 'Comestibles & Catering',
+                        icon: 'fa-solid fa-utensils',
+                        active: false
+                    },
+                    {
+                        nombre: 'Otros',
+                        icon: 'fa-regular fa-star',
+                        active: false
+                    },
+                ],
+                variaciones: []
             },
+            detalles: [],
+            detalle: {
+                valor: '',
+                cantidad: '',
+                compartir: '',
+                descripcion: ''
+            },
+            init() {
+                this.lang('extra')
+            },
+            active_extra(index) {
+                this.form.tipos.forEach((item, position) => {
+                    if (position == index) {
+                        this.form.tipos[position].active = true
+                    } else {
+                        this.form.tipos[position].active = false
+                    }
+                })
+            },
+            is_portada(index) {
+                this.form.images.forEach((item, position) => {
+                    if (position == index) {
+                        this.form.images[position].active = true
+                    } else {
+                        this.form.images[position].active = false
+                    }
+                })
+            },
+            delete_image(index) {
+                this.form.images.splice(index, 1)
+            },
+            previewFile() {
+                if (this.form.images.length >= 4 && this.editImage == false) {
+                    Swal.fire('', 'Solo puedes cargar un máximo de cuatro imagenes', 'error')
+                    return
+                }
+                let file = this.$refs.myFile.files[0];
+                if (!file || file.type.indexOf('image/') === -1) return;
+                // this.imgsrc = null;
+                let reader = new FileReader();
+
+
+                reader.onload = e => {
+                    if (!this.editImage) {
+                        this.form.images.push({ src: e.target.result, active: false, id: '' });
+                    } else {
+                        this.form.images[this.index_image] = ({ src: e.target.result, active: false, id: '' });
+                        this.index_image = null
+                        this.editImage = false
+                    }
+                }
+
+                reader.readAsDataURL(file);
+
+            },
+            open_input(index = null) {
+                if (index || index === 0) {
+                    this.index_image = index
+                    this.editImage = true
+                }
+                $('#image_extra').click()
+            },
+            add_detalle() {
+                let detalle = {}
+                for (const key in this.detalle) detalle[key] = this.detalle[key]
+
+                for (const key in this.detalle) this.detalle[key] = ''
+
+                this.detalles.push(detalle)
+            },
+            delete_detalle(index) {
+                this.detalles.splice(index, 1)
+            }
         }
     }
 </script>

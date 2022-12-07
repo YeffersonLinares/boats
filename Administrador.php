@@ -104,4 +104,8 @@
     .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
         border-bottom: none !important;
     }
+
+    .width185px {
+        width: 209px;
+    }
 </style>

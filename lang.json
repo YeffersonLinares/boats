@@ -84,6 +84,21 @@
             "Maximum": "Máximo",
             "Delete Client": "Borrar Cliente",
             "Save Modifications": "Guardar Modificaciones"
+        },
+        "extra": {
+            "Customers": "Clientes",
+            "NEW SERVICE": "NUEVO SERVICIO / PRODUCTO EXTRA",
+            "Back": "Atrás",
+            "TYPE OF SERVICE": "TIPO DE SERVICIO O PRODUCTO EXTRA ES",
+            "Aquatic Recreational": "Recreativo Acuático",
+            "Description": "Descripción",
+            "Variations Extra": "Variaciones de este Extra",
+            "Minimum Product": "Antelación mínima para requerir este servicio o producto extra",
+            "Days": "Días",
+            "How Pay Extra": "¿Cómo pagar este Extra?",
+            "Include Price Reservation": "Incluir el precio en la reserva",
+            "Allow Rayment Reservation": "Permitir pago en el día de la reserva",
+            "add image": "Agregar imagen"
         }
     },
     "en": {
@@ -171,6 +186,21 @@
             "Maximum": "Maximum",
             "Delete Client": "Delete Client",
             "Save Modifications": "Save Modifications"
+        },
+        "extra": {
+            "Customers": "Customers",
+            "NEW SERVICE": "NEW SERVICE / EXTRA PRODUCT",
+            "Back": "Back",
+            "TYPE OF SERVICE": "TYPE OF SERVICE OR EXTRA PRODUCT EN",
+            "Aquatic Recreational": "Aquatic Recreational",
+            "Description": "Description",
+            "Variations Extra": "Variations of this Extra",
+            "Minimum Product": "Minimum notice to purchase this extra service or product",
+            "Days": "Days",
+            "How Pay Extra": "How to pay this Extra?",
+            "Include Price Reservation": "Include the price in the reservation",
+            "Allow Rayment Reservation": "Allow payment on the day of reservation",
+            "add image": "add image"
         }
     },
     "fr": {
@@ -256,6 +286,21 @@
             "Maximum": "Maximum",
             "Delete Client": "Supprimer le client",
             "Save Modifications": "Enregistrer les modifications"
+        },
+        "extra": {
+            "Customers": "Clientes",
+            "NEW SERVICE": "NEW SERVICE / EXTRA PRODUCT",
+            "Back": "Back",
+            "TYPE OF SERVICE": "TIPO DE SERVICIO O PRODUCTO EXTRA ES",
+            "Aquatic Recreational": "Recreativo Acuático",
+            "Description": "Description",
+            "Variations Extra": "Variations of this Extra",
+            "Minimum Product": "Minimum notice to purchase this extra service or product",
+            "Days": "Days",
+            "How Pay Extra": "How to pay this Extra?",
+            "Include Price Reservation": "Include the price in the reservation",
+            "Allow Rayment Reservation": "Allow payment on the day of reservation",
+            "add image": "add image"
         }
     }
 }
