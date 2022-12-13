@@ -53,7 +53,8 @@
             </nav>
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade" id="nav-empresa" role="tabpanel" aria-labelledby="nav-empresa-tab">
-                    <?php #include_once "Empresa.php"; ?>
+                    <?php #include_once "Empresa.php"; 
+                    ?>
                 </div>
                 <div class="tab-pane fade show active" id="nav-inicio" role="tabpanel" aria-labelledby="nav-inicio-tab">
                     <?php include_once "AdminitradorInicio.html";
@@ -62,7 +63,10 @@
                 <div class="tab-pane fade" id="nav-reservas" role="tabpanel" aria-labelledby="nav-reservas-tab">
                     <?php include_once "Reserva_mes.html"; ?>
                 </div>
-                <div class="tab-pane fade" id="nav-barcos" role="tabpanel" aria-labelledby="nav-barcos-tab">Barcos</div>
+                <div class="tab-pane fade" id="nav-barcos" role="tabpanel" aria-labelledby="nav-barcos-tab">
+                    <!-- Barcos -->
+                    <?php include_once 'AdministradorBarcoIndex.php'; ?>
+                </div>
                 <div class="tab-pane fade" id="nav-extras" role="tabpanel" aria-labelledby="nav-extras-tab">
                     <?php include_once 'AdministradorExtrasIndex.php' ?>
                 </div>
@@ -85,7 +89,8 @@
                 aria_controls: 'nav-inicio'
             }],
             init() {
-                $('#nav-extras-tab').click()
+                $('#nav-barcos-tab').click()
+                // $('#nav-extras-tab').click()
                 // $('#nav-clientes-tab').click()
                 this.lang('menu')
             },
@@ -101,7 +106,8 @@
         border-radius: 8px 8px 0 0 !important;
     }
 
-    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    .nav-tabs .nav-item.show .nav-link,
+    .nav-tabs .nav-link.active {
         border-bottom: none !important;
     }
 

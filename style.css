@@ -1303,3 +1303,26 @@ img.imgPreview {
 .bottom-4p4rem {
     bottom: 4.4rem;
 }
+
+
+.ms-1p4rem {
+    margin-left: 1.4rem;
+}
+
+.color-warning-boa {
+    color: #FFB100;
+}
+
+.color-green-check {
+    color: #00F238;
+}
+
+.size-img-card {
+    width: 100%;
+    display: block;
+    height: 13rem;
+}
+
+.color-golden {
+    color: #D0B449;
+}
