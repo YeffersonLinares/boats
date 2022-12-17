@@ -1326,3 +1326,28 @@ img.imgPreview {
 .color-golden {
     color: #D0B449;
 }
+
+.border-menu-barco {
+    border: 1px solid #E8E8E8;
+}
+
+.p-08rem {
+    padding: .8rem;
+}
+
+.active-menu-barco .active {
+    background-color: #FFFFFF !important;
+    /* border: none; */
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.form-check-input[type=checkbox] {
+    border-radius: 0 !important;
+}
+
+.mt-1p49rem {
+    margin-top: 1.49rem;
+}
