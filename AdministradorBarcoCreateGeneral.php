@@ -1,4 +1,4 @@
-<div>
+<div x-data="AdministradorBarcoCreateGeneral()">
     <div class="row">
         <div class="col-md-4 mb-4">
             <label>Nombre del barco *</label>
@@ -8,79 +8,46 @@
     <div>
         <label class="mb-4">Tipo de barco *</label>
         <div class="d-flex mb-4">
-            <div class="d-flex flex-column me-4">
-                <button class="btn btn-transparent">
-                    <i class="fa-solid fa-volleyball fa-2x p-2 border-button-extras"></i>
-                    <!-- <img src="../../../images/neumatico.svg" alt=""> -->
-                </button>
-                <span class="f-8">Neumático</span>
-            </div>
-            <div class="d-flex flex-column me-4">
-                <button class="btn btn-transparent px-0">
-                    <i class="fa-solid fa-utensils fa-2x p-2 border-button-extras"></i>
-                </button>
-                <span class="f-8">Moto de Agua</span>
-            </div>
-            <div class="d-flex flex-column me-4">
-                <button class="btn btn-transparent px-0 button-active-extras">
-                    <i class="fa-regular fa-star fa-2x p-2 border-button-extras"></i>
-                </button>
-                <span class="f-8">Yate</span>
-            </div>
-            <div class="d-flex flex-column me-4">
-                <button class="btn btn-transparent px-0 button-active-extras">
-                    <i class="fa-regular fa-star fa-2x p-2 border-button-extras"></i>
-                </button>
-                <span class="f-8">Catamarán</span>
-            </div>
-            <div class="d-flex flex-column me-4">
-                <button class="btn btn-transparent px-0 button-active-extras">
-                    <i class="fa-regular fa-star fa-2x p-2 border-button-extras"></i>
-                </button>
-                <span class="f-8">Velero</span>
-            </div>
-            <div class="d-flex flex-column me-4">
-                <button class="btn btn-transparent px-0 button-active-extras">
-                    <i class="fa-regular fa-star fa-2x p-2 border-button-extras"></i>
-                </button>
-                <span class="f-8">Semi-Rigida</span>
-            </div>
-            <div class="d-flex flex-column me-4">
-                <button class="btn btn-transparent px-0 button-active-extras">
-                    <i class="fa-regular fa-star fa-2x p-2 border-button-extras"></i>
-                </button>
-                <span class="f-8">Lancha</span>
-            </div>
+            <template x-for="(i, index) in tipos">
+                <div class="d-flex flex-column me-4">
+                    <button class="btn btn-transparent button-active-extras" @click="active_extra(index)">
+                        <i class="fa-solid fa-2x p-2 border-button-extras" x-bind:class="[i.active ? 'active ' + i.icon : i.icon]"></i>
+                    </button>
+                    <span class="f-8" x-text="i.nombre"></span>
+                </div>
+            </template>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6 mb-4">
             <label for="">Ciudad *</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" x-model="form.ciudad">
         </div>
         <div class="col-md-6 mb-4">
             <label for="">Puerto *</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" x-model="form.puerto">
         </div>
     </div>
     <div class="row">
         <div class="col-md-4 mb-4">
             <label for="">Fabricante *</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" x-model="form.fabricante">
         </div>
         <div class="col-md-4 mb-4">
             <label for="">Modelo *</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" x-model="form.modelo">
         </div>
         <div class="col-md-4 mb-4">
             <label for="">N° de matrícula *</label>
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" x-model="form.matricula">
         </div>
     </div>
     <div class="row border-top border-bottom mb-4 py-4">
         <div class="col-md-4">
             <label for="">Titulación requerida*</label>
-            <input class="form-control" type="text">
+            <select class="form-select" name="" id="" x-model="form.tipo_titulacion_requerida">
+                <option value="">Seleccione</option>
+            </select>
         </div>
     </div>
     <div class="row bg-gray p-4 mb-4">
@@ -106,8 +73,8 @@
         <hr class="my-4">
         <div class="col-12 mb-3">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                <label class="form-check-label" for="inlineCheckbox1">Permitir la reserva de este barco si
+                <input class="form-check-input" type="checkbox" id="reserva_sin_titulacion" value="option1" x-model="form.reserva_sin_titulacion">
+                <label class="form-check-label" for="reserva_sin_titulacion">Permitir la reserva de este barco si
                     no se dispone la titulación requerida ni capitán</label>
             </div>
         </div>
@@ -174,3 +141,56 @@
         </div>
     </div>
 </div>
+<script>
+    function AdministradorBarcoCreateGeneral() {
+        return {
+            init() {},
+            tipos: [{
+                    nombre: 'Neumático',
+                    icon: 'fa-volleyball',
+                    active: true,
+                },
+                {
+                    nombre: 'Moto de Agua',
+                    icon: 'fa-utensils',
+                    active: false,
+                },
+                {
+                    nombre: 'Yate',
+                    icon: 'fa-star',
+                    active: false,
+                },
+                {
+                    nombre: 'Catamarán',
+                    icon: 'fa-star',
+                    active: false,
+                },
+                {
+                    nombre: 'Velero',
+                    icon: 'fa-star',
+                    active: false,
+                },
+                {
+                    nombre: 'Semi-Rigida',
+                    icon: 'fa-star',
+                    active: false,
+                },
+                {
+                    nombre: 'Lancha',
+                    icon: 'fa-star',
+                    active: false,
+                },
+            ],
+            active_extra(index) {
+                this.tipos.forEach((item, position) => {
+                    if (position == index) {
+                        this.tipos[position].active = true
+                        this.form.tipo_barco = index + 1
+                    } else {
+                        this.tipos[position].active = false
+                    }
+                })
+            },
+        }
+    }
+</script>
