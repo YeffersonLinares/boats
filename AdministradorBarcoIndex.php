@@ -25,303 +25,43 @@
                             <h6> Filtrar Listado | 6 Barcos </h6>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6 col-md-4 mb-4" role="button">
-                                <div class="card card_cliente">
-                                    <img class="size-img-card" src="images/Screenshot_1.png" alt="...">
-                                    <div class="card-body color-dark-extras">
-                                        <div class="d-flex justify-content-between w-100 border-bottom pb-1">
-                                            <div>
-                                                <strong class="color-dark-extras">Namaré</strong>
-                                                <i class="fa-sharp fa-solid fa-triangle-exclamation fa-lg color-warning-boa"></i>
+                            <template x-for="(i,index) in botes">
+                                <div class="col-sm-6 col-md-4 mb-4" role="button">
+                                    <div class="card card_cliente">
+                                        <img class="size-img-card" src="images/Screenshot_1.png" alt="...">
+                                        <div class="card-body color-dark-extras">
+                                            <div class="d-flex justify-content-between w-100 border-bottom pb-1">
+                                                <div>
+                                                    <span> <strong class="color-dark-extras" x-text="i.nombre">Namaré</strong> </span>
+                                                    <i class="fa-sharp fa-solid fa-triangle-exclamation fa-lg color-warning-boa"></i>
+                                                </div>
+                                                <div class="color-green-check">
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                    <span>100%</span>
+                                                </div>
                                             </div>
-                                            <div class="color-green-check">
-                                                <i class="fa-solid fa-circle-check"></i>
-                                                <span>100%</span>
+                                            <div class="d-flex justify-content-between border-bottom p-1">
+                                                <div>
+                                                    <i class="fa-solid fa-graduation-cap color-extras-gray"></i>
+                                                    <span class="color-gray" 
+                                                    x-text="i.reserva_sin_titulacion ? 'Sin titulación' : 'No requiere titulación'"
+                                                    >Sin titulación</span>
+                                                </div>
+                                                <div class="color-extras-gray">
+                                                    <i class="fa-solid fa-users"></i>
+                                                    <span x-text="i.cant_pasajeros"></span>
+                                                    <i class="fa-sharp fa-solid fa-left-right"></i>
+                                                    <span x-text="i.eslora + 'mts'">4,9mts</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between border-bottom p-1">
-                                            <div>
-                                                <i class="fa-solid fa-graduation-cap color-extras-gray"></i>
-                                                <span class="color-gray">Sin titulación</span>
+                                            <div class="d-flex flex-column mt-3">
+                                                <strong class="color-grays">4hs175€</strong>
+                                                <strong class="color-grays f-9">8hs 260€</strong>
                                             </div>
-                                            <div class="color-extras-gray">
-                                                <i class="fa-solid fa-users"></i>
-                                                <span>6</span>
-                                                <i class="fa-sharp fa-solid fa-left-right"></i>
-                                                <span>4,9mts</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-column mt-3">
-                                            <strong class="color-grays">4hs175€</strong>
-                                            <strong class="color-grays f-9">8hs 260€</strong>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4 mb-4" role="button">
-                                <div class="card card_cliente">
-                                    <img class="size-img-card" src="images/barco.jpg" alt="...">
-                                    <div class="card-body color-dark-extras">
-                                        <div class="d-flex justify-content-between w-100 border-bottom pb-1">
-                                            <div>
-                                                <strong class="color-dark-extras">Namaré</strong>
-                                                <i class="fa-sharp fa-solid fa-triangle-exclamation fa-lg color-warning-boa"></i>
-                                            </div>
-                                            <div class="color-green-check">
-                                                <i class="fa-solid fa-circle-check"></i>
-                                                <span>100%</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between border-bottom p-1">
-                                            <div>
-                                                <i class="fa-solid fa-graduation-cap color-extras-gray"></i>
-                                                <span class="color-gray">Sin titulación</span>
-                                            </div>
-                                            <div class="color-extras-gray">
-                                                <i class="fa-solid fa-users"></i>
-                                                <span>6</span>
-                                                <i class="fa-sharp fa-solid fa-left-right"></i>
-                                                <span>4,9mts</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-column mt-3">
-                                            <strong class="color-grays">4hs175€</strong>
-                                            <strong class="color-grays f-9">8hs 260€</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4 mb-4" role="button">
-                                <div class="card card_cliente">
-                                    <img class="size-img-card" src="images/Barco.png" alt="...">
-                                    <div class="card-body color-dark-extras">
-                                        <div class="d-flex justify-content-between w-100 border-bottom pb-1">
-                                            <div>
-                                                <strong class="color-dark-extras">Namaré</strong>
-                                                <i class="fa-sharp fa-solid fa-triangle-exclamation fa-lg color-warning-boa"></i>
-                                            </div>
-                                            <div class="color-green-check">
-                                                <i class="fa-solid fa-circle-check"></i>
-                                                <span>100%</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between border-bottom p-1">
-                                            <div>
-                                                <i class="fa-solid fa-graduation-cap color-extras-gray"></i>
-                                                <span class="color-gray">Sin titulación</span>
-                                            </div>
-                                            <div class="color-extras-gray">
-                                                <i class="fa-solid fa-users"></i>
-                                                <span>6</span>
-                                                <i class="fa-sharp fa-solid fa-left-right"></i>
-                                                <span>4,9mts</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-column mt-3">
-                                            <strong class="color-grays">4hs175€</strong>
-                                            <strong class="color-grays f-9">8hs 260€</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4 mb-4" role="button">
-                                <div class="card card_cliente">
-                                    <img class="size-img-card" src="images/barco_2.jpg" alt="...">
-                                    <div class="card-body color-dark-extras">
-                                        <div class="d-flex justify-content-between w-100 border-bottom pb-1">
-                                            <div>
-                                                <strong class="color-dark-extras">Namaré</strong>
-                                                <i class="fa-sharp fa-solid fa-triangle-exclamation fa-lg color-warning-boa"></i>
-                                            </div>
-                                            <div class="color-green-check">
-                                                <i class="fa-solid fa-circle-check"></i>
-                                                <span>100%</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between border-bottom p-1">
-                                            <div>
-                                                <i class="fa-solid fa-graduation-cap color-extras-gray"></i>
-                                                <span class="color-gray">Sin titulación</span>
-                                            </div>
-                                            <div class="color-extras-gray">
-                                                <i class="fa-solid fa-users"></i>
-                                                <span>6</span>
-                                                <i class="fa-sharp fa-solid fa-left-right"></i>
-                                                <span>4,9mts</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-column mt-3">
-                                            <strong class="color-grays">4hs175€</strong>
-                                            <strong class="color-grays f-9">8hs 260€</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4 mb-4" role="button">
-                                <div class="card card_cliente">
-                                    <img class="size-img-card" src="images/Barco.png" alt="...">
-                                    <div class="card-body color-dark-extras">
-                                        <div class="d-flex justify-content-between w-100 border-bottom pb-1">
-                                            <div>
-                                                <strong class="color-dark-extras">Namaré</strong>
-                                                <i class="fa-sharp fa-solid fa-triangle-exclamation fa-lg color-warning-boa"></i>
-                                            </div>
-                                            <div class="color-green-check">
-                                                <i class="fa-solid fa-circle-check"></i>
-                                                <span>100%</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between border-bottom p-1">
-                                            <div>
-                                                <i class="fa-solid fa-graduation-cap color-extras-gray"></i>
-                                                <span class="color-gray">Sin titulación</span>
-                                            </div>
-                                            <div class="color-extras-gray">
-                                                <i class="fa-solid fa-users"></i>
-                                                <span>6</span>
-                                                <i class="fa-sharp fa-solid fa-left-right"></i>
-                                                <span>4,9mts</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-column mt-3">
-                                            <strong class="color-grays">4hs175€</strong>
-                                            <strong class="color-grays f-9">8hs 260€</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4 mb-4" role="button">
-                                <div class="card card_cliente">
-                                    <img class="size-img-card" src="images/barco_2.jpg" alt="...">
-                                    <div class="card-body color-dark-extras">
-                                        <div class="d-flex justify-content-between w-100 border-bottom pb-1">
-                                            <div>
-                                                <strong class="color-dark-extras">Namaré</strong>
-                                                <i class="fa-sharp fa-solid fa-triangle-exclamation fa-lg color-warning-boa"></i>
-                                            </div>
-                                            <div class="color-green-check">
-                                                <i class="fa-solid fa-circle-check"></i>
-                                                <span>100%</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between border-bottom p-1">
-                                            <div>
-                                                <i class="fa-solid fa-graduation-cap color-extras-gray"></i>
-                                                <span class="color-gray">Sin titulación</span>
-                                            </div>
-                                            <div class="color-extras-gray">
-                                                <i class="fa-solid fa-users"></i>
-                                                <span>6</span>
-                                                <i class="fa-sharp fa-solid fa-left-right"></i>
-                                                <span>4,9mts</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-column mt-3">
-                                            <strong class="color-grays">4hs175€</strong>
-                                            <strong class="color-grays f-9">8hs 260€</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4 mb-4" role="button">
-                                <div class="card card_cliente">
-                                    <img class="size-img-card" src="images/barco_2.jpg" alt="...">
-                                    <div class="card-body color-dark-extras">
-                                        <div class="d-flex justify-content-between w-100 border-bottom pb-1">
-                                            <div>
-                                                <strong class="color-dark-extras">Namaré</strong>
-                                                <i class="fa-sharp fa-solid fa-triangle-exclamation fa-lg color-warning-boa"></i>
-                                            </div>
-                                            <div class="color-green-check">
-                                                <i class="fa-solid fa-circle-check"></i>
-                                                <span>100%</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between border-bottom p-1">
-                                            <div>
-                                                <i class="fa-solid fa-graduation-cap color-extras-gray"></i>
-                                                <span class="color-gray">Sin titulación</span>
-                                            </div>
-                                            <div class="color-extras-gray">
-                                                <i class="fa-solid fa-users"></i>
-                                                <span>6</span>
-                                                <i class="fa-sharp fa-solid fa-left-right"></i>
-                                                <span>4,9mts</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-column mt-3">
-                                            <strong class="color-grays">4hs175€</strong>
-                                            <strong class="color-grays f-9">8hs 260€</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4 mb-4" role="button">
-                                <div class="card card_cliente">
-                                    <img class="size-img-card" src="images/Barco.png" alt="...">
-                                    <div class="card-body color-dark-extras">
-                                        <div class="d-flex justify-content-between w-100 border-bottom pb-1">
-                                            <div>
-                                                <strong class="color-dark-extras">Namaré</strong>
-                                                <i class="fa-sharp fa-solid fa-triangle-exclamation fa-lg color-warning-boa"></i>
-                                            </div>
-                                            <div class="color-green-check">
-                                                <i class="fa-solid fa-circle-check"></i>
-                                                <span>100%</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between border-bottom p-1">
-                                            <div>
-                                                <i class="fa-solid fa-graduation-cap color-extras-gray"></i>
-                                                <span class="color-gray">Sin titulación</span>
-                                            </div>
-                                            <div class="color-extras-gray">
-                                                <i class="fa-solid fa-users"></i>
-                                                <span>6</span>
-                                                <i class="fa-sharp fa-solid fa-left-right"></i>
-                                                <span>4,9mts</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-column mt-3">
-                                            <strong class="color-grays">4hs175€</strong>
-                                            <strong class="color-grays f-9">8hs 260€</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4 mb-4" role="button">
-                                <div class="card card_cliente">
-                                    <img class="size-img-card" src="images/barco_2.jpg" alt="...">
-                                    <div class="card-body color-dark-extras">
-                                        <div class="d-flex justify-content-between w-100 border-bottom pb-1">
-                                            <div>
-                                                <strong class="color-dark-extras">Namaré</strong>
-                                                <i class="fa-sharp fa-solid fa-triangle-exclamation fa-lg color-warning-boa"></i>
-                                            </div>
-                                            <div class="color-green-check">
-                                                <i class="fa-solid fa-circle-check"></i>
-                                                <span>100%</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between border-bottom p-1">
-                                            <div>
-                                                <i class="fa-solid fa-graduation-cap color-extras-gray"></i>
-                                                <span class="color-gray">Sin titulación</span>
-                                            </div>
-                                            <div class="color-extras-gray">
-                                                <i class="fa-solid fa-users"></i>
-                                                <span>6</span>
-                                                <i class="fa-sharp fa-solid fa-left-right"></i>
-                                                <span>4,9mts</span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-column mt-3">
-                                            <strong class="color-grays">4hs175€</strong>
-                                            <strong class="color-grays f-9">8hs 260€</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </template>
                         </div>
                     </div>
                     <div class="col-lg-3">
@@ -342,7 +82,7 @@
                                     </div>
                                     <div class="d-flex">
                                         <div><strong class="me-1 color-dark-blue">[nombre del barco]</strong></div>
-                                        <div><i class="fa-brands fa-whatsapp fa-lg green-claro-inicio"></i></div>
+                                        <div class="d-flex align-items-center mb-2"><i class="fa-brands fa-whatsapp fa-lg green-claro-inicio"></i></div>
                                     </div>
                                 </div>
                                 <div>
@@ -366,7 +106,7 @@
                                     </div>
                                     <div class="d-flex">
                                         <div><strong class="me-1 color-dark-blue">[nombre del barco]</strong></div>
-                                        <div><i class="fa-brands fa-whatsapp fa-lg green-claro-inicio"></i></div>
+                                        <div class="d-flex align-items-center mb-2"><i class="fa-brands fa-whatsapp fa-lg green-claro-inicio"></i></div>
                                     </div>
                                 </div>
                                 <div>
@@ -390,7 +130,7 @@
                                     </div>
                                     <div class="d-flex">
                                         <div><strong class="me-1 color-dark-blue">[nombre del barco]</strong></div>
-                                        <div><i class="fa-brands fa-whatsapp fa-lg green-claro-inicio"></i></div>
+                                        <div class="d-flex align-items-center mb-2"><i class="fa-brands fa-whatsapp fa-lg green-claro-inicio"></i></div>
                                     </div>
                                 </div>
                                 <div>
@@ -414,7 +154,7 @@
                                     </div>
                                     <div class="d-flex">
                                         <div><strong class="me-1 color-dark-blue">[nombre del barco]</strong></div>
-                                        <div><i class="fa-brands fa-whatsapp fa-lg green-claro-inicio"></i></div>
+                                        <div class="d-flex align-items-center mb-2"><i class="fa-brands fa-whatsapp fa-lg green-claro-inicio"></i></div>
                                     </div>
                                 </div>
                                 <div>
@@ -446,10 +186,18 @@
     function AdministradorBarcoIndex() {
         return {
             pantalla: 'create',
+            // pantalla: 'index',
+            botes: [],
             init() {
                 this.lang("client")
+                this.get_barcos()
             },
-            tarea_create() {
+            get_barcos() {
+                let url = this.base_url + '/administrador/get-botes'
+                axios.get(url).then(res => {
+                    this.botes = res.data
+                    console.log('res.data ==> ', res.data);
+                });
                 // this.pantalla = 'create'
             },
             barco_create() {

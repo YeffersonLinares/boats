@@ -1,4 +1,4 @@
-<div>
+<div x-data="AdministradorBarcoCreateEquipos()">
     <div class="row">
         <div class="col-md-8">
             <strong class="color-dark-extras">Elementos del barco que requieren verificación estando
@@ -6,34 +6,35 @@
             <div class="row">
                 <div class="col-md-4">
                     <label class="color-dark-extras" for="">Titulo de Revisión</label>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" x-model="equipo.titulo">
                 </div>
                 <div class="col-md-5">
                     <label class="color-dark-extras" for="">Se Necesita</label>
-                    <select class="form-select" name="" id="">
-                        <option value=""> Enseñar su funcionamiento </option>
+                    <select class="form-select" name="" id="" x-model="equipo.se_necesita">
+                        <option value=""> Seleccione </option>
+                        <option value="2"> Enseñar su funcionamiento </option>
                     </select>
                 </div>
                 <div class="col-md-3">
                     <label class="color-dark-extras" for="">Precio estimado</label>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" x-model="equipo.precio_estimado">
                 </div>
                 <div class="col-md-9">
                     <label class="color-dark-extras" for="">Observación</label>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" x-model="equipo.observacion">
                 </div>
                 <div class="col-12">
                     <label class="color-dark-extras" for="">Verificar en</label>
                     <div class="d-flex">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" x-model="equipo.check_in">
                             <label class="form-check-label color-dark-extras" for="inlineCheckbox1">
                                 <i class="fa-solid fa-ship"></i>
                                 <span>Check in</span>
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input color-dark-extras" type="checkbox" id="inlineCheckbox2" value="option2">
+                            <input class="form-check-input color-dark-extras" type="checkbox" id="inlineCheckbox2" value="option2" x-model="equipo.check_out">
                             <label class="form-check-label color-dark-extras" for="inlineCheckbox2">
                                 <i class="fa-solid fa-flag-checkered"></i>
                                 Check out
@@ -45,22 +46,27 @@
         </div>
         <div class="col-md-4">
             <div class="my-4">
-                <div class="d-flex flex-column align-items-center border-dotted py-4">
+                <div class="d-flex flex-column align-items-center border-dotted py-4" @click="open_image()">
                     <button class="btn btn-transparent icon-gray"><i class="fas fa-address-card font-32"></i></button>
                     <span class="color-gray f-9">Agrega otra imagen aquí o</span>
                     <span class="color-blue f-9"><b>Descarga desde tu dispositivo</b></span>
                     <span class="icon-gray f-8">Máximo 1234 x 1234 px</span>
                 </div>
+                <input class="d-none" type="file" id="input-image-barco-create-equipos" accept="image/*" @change="guardar_foto()" x-ref="myFileEquipo">
             </div>
-            <div class="d-flex justify-content-between align-items-center">
-                <span class="color-dark-extras">Última foto subida - 12/21/22 14:43</span>
-                <div>
-                    <img role="button" class="image_gasto_equipo me-3" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22202%22%20height%3D%22120%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20202%20120%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1853fafca28%20text%20%7B%20fill%3A%2397c085%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1853fafca28%22%3E%3Crect%20width%3D%22202%22%20height%3D%22120%22%20fill%3D%22%23bdf0a7%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2275.046875%22%20y%3D%2264.5%22%3E202x120%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" />
-                    <button class="btn-icon-red"><i class="fa-solid fa-trash-can"></i></button>
+            <template x-if="equipo.imagen">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="color-dark-extras f-9">Última foto subida - 12/21/22 14:43</span>
+                    <div>
+                        <template x-if="equipo.imagen">
+                            <img role="button" class="image_gasto_equipo me-3" :src="equipo.imagen" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="preview_imagen_modal(equipo.imagen)" />
+                        </template>
+                        <button class="btn-icon-red" @click="equipo.imagen = ''"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
                 </div>
-            </div>
+            </template>
             <div class="d-flex justify-content-end mt-4">
-                <button class="btn-tareas">Agregar Revisión</button>
+                <button class="btn-tareas" @click="agregar_revision()">Agregar Revisión</button>
             </div>
         </div>
     </div>
@@ -78,90 +84,39 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">
-                        <div>
-                            <img class="table-size-image" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22213%22%20height%3D%22120%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20213%20120%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1853fb00080%20text%20%7B%20fill%3A%2396c085%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A11pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1853fb00080%22%3E%3Crect%20width%3D%22213%22%20height%3D%22120%22%20fill%3D%22%23bcf0a7%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2277.9609375%22%20y%3D%2264.8%22%3E213x120%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="">
-                        </div>
-                    </td>
-                    <td> <strong class="color-dark-extras">Élice de popa</strong></td>
-                    <td class="color-blue">Mostrar su estado</td>
-                    <td>
-                        <div class="d-flex color-dark-extras">
-                            <div class="me-3"> <i class="fa-solid fa-flag-checkered"></i> </div>
-                            <div> <i class="fa-solid fa-ship"></i> </div>
-                        </div>
-                    </td>
-                    <td class="color-blue">29 €</td>
-                    <td class="color-dark-extras">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio odio, quis deleniti
-                        nostrum voluptates ab voluptatum recusandae nulla similique consequatur.
-                    </td>
-                    <td>
-                        <div class="d-flex">
-                            <button class="btn-icon-gray-dark"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button class="btn-icon-red"><i class="fa-solid fa-trash-can"></i></button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">
-                        <div>
-                            <img class="table-size-image" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22213%22%20height%3D%22120%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20213%20120%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1853fb00080%20text%20%7B%20fill%3A%2396c085%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A11pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1853fb00080%22%3E%3Crect%20width%3D%22213%22%20height%3D%22120%22%20fill%3D%22%23bcf0a7%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2277.9609375%22%20y%3D%2264.8%22%3E213x120%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="">
-                        </div>
-                    </td>
-                    <td> <strong class="color-dark-extras">Élice de popa</strong></td>
-                    <td class="color-blue">Mostrar su estado</td>
-                    <td>
-                        <div class="d-flex color-dark-extras">
-                            <div class="me-3"> <i class="fa-solid fa-flag-checkered"></i> </div>
-                            <div> <i class="fa-solid fa-ship"></i> </div>
-                        </div>
-                    </td>
-                    <td class="color-blue">29 €</td>
-                    <td class="color-dark-extras">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio odio, quis deleniti
-                        nostrum voluptates ab voluptatum recusandae nulla similique consequatur.
-                    </td>
-                    <td>
-                        <div class="d-flex">
-                            <button class="btn-icon-gray-dark"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button class="btn-icon-red"><i class="fa-solid fa-trash-can"></i></button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">
-                        <div>
-                            <img class="table-size-image" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22213%22%20height%3D%22120%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20213%20120%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1853fb00080%20text%20%7B%20fill%3A%2396c085%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A11pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1853fb00080%22%3E%3Crect%20width%3D%22213%22%20height%3D%22120%22%20fill%3D%22%23bcf0a7%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2277.9609375%22%20y%3D%2264.8%22%3E213x120%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="">
-                        </div>
-                    </td>
-                    <td> <strong class="color-dark-extras">Élice de popa</strong></td>
-                    <td class="color-blue">Mostrar su estado</td>
-                    <td>
-                        <div class="d-flex color-dark-extras">
-                            <div class="me-3"> <i class="fa-solid fa-flag-checkered"></i> </div>
-                            <div> <i class="fa-solid fa-ship"></i> </div>
-                        </div>
-                    </td>
-                    <td class="color-blue">29 €</td>
-                    <td class="color-dark-extras">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio odio, quis deleniti
-                        nostrum voluptates ab voluptatum recusandae nulla similique consequatur.
-                    </td>
-                    <td>
-                        <div class="d-flex">
-                            <button class="btn-icon-gray-dark"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button class="btn-icon-red"><i class="fa-solid fa-trash-can"></i></button>
-                        </div>
-                    </td>
-                </tr>
+                <template x-for="(i, index) in form.equipos">
+                    <template x-if="!i.deleted_at">
+                        <tr>
+                            <td scope="row">
+                                <div>
+                                    <img role="button" class="table-size-image" :src="i.imagen ? i.imagen : 'images/image-holder.jpeg'" alt="" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="preview_imagen_modal(i.imagen)">
+                                </div>
+                            </td>
+                            <td> <strong class="color-dark-extras" x-text="i.titulo">Élice de popa</strong></td>
+                            <td class="color-blue" x-text="i.se_necesita">Mostrar su estado</td>
+                            <td>
+                                <div class="d-flex color-dark-extras">
+                                    <div x-show="i.check_out" class="me-3"> <i class="fa-solid fa-flag-checkered"></i> </div>
+                                    <div x-show="i.check_in"> <i class="fa-solid fa-ship"></i> </div>
+                                </div>
+                            </td>
+                            <td class="color-blue" x-text="i.precio_estimado + '€'">29 €</td>
+                            <td class="color-dark-extras" x-text="i.observacion"></td>
+                            <td>
+                                <div class="d-flex">
+                                    <button class="btn-icon-gray-dark" @click="editar_revision(index)"><i class="fa-solid fa-pen-to-square"></i></button>
+                                    <button class="btn-icon-red" @click="eliminar_revision(index)"><i class="fa-solid fa-trash-can"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </template>
+                </template>
             </tbody>
         </table>
     </div>
     <div class="d-flex flex-column">
         <strong class="my-4">Equipos</strong>
-        <span class="mb-4">Indica el equipamiento que posee tu embarcación [nombre_de_la_barca] *</span>
+        <span class="mb-4" x-text="'Indica el equipamiento que posee tu embarcación ' +form.nombre + '*'">*</span>
         <div class="row">
             <div class="col-md-3 mb-4 d-flex flex-column">
                 <strong>Ningún equipamiento</strong>
@@ -545,4 +500,104 @@
             </div>
         </div>
     </div>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body d-flex justify-content-center">
+                    <template x-if="route_preview_imagen">
+                        <img :src="route_preview_imagen" style="width: 100%; height: 100%;" />
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<script>
+    function AdministradorBarcoCreateEquipos() {
+        return {
+            is_edit: false,
+            pos: null,
+            route_preview_imagen: '',
+            equipo: {
+                id: '',
+                titulo: '',
+                se_necesita: '',
+                precio_estimado: '',
+                observacion: '',
+                check_in: false,
+                check_out: false,
+                imagen: '',
+                fecha_imagen: '',
+                bote_id: 1,
+                deleted_at: ''
+            },
+            init() {},
+            open_image() {
+                $('#input-image-barco-create-equipos').click()
+            },
+            agregar_revision() {
+                if (!this.validarCampos()) return
+                let formulario = {}
+                for (const key in this.equipo) {
+                    formulario[key] = this.equipo[key]
+                }
+
+                if (!this.is_edit) this.form.equipos.push(formulario)
+                else this.form.equipos[this.pos] = formulario
+
+                this.is_edit = false
+                this.limpiarCampos()
+            },
+            guardar_foto() {
+                let file = this.$refs.myFileEquipo.files[0];
+                if (!file || file.type.indexOf('image/') === -1) return;
+
+                let reader = new FileReader();
+
+                reader.onload = e => {
+                    this.equipo.imagen = e.target.result
+                }
+                reader.readAsDataURL(file);
+            },
+            limpiarCampos() {
+                for (const key in this.equipo) this.equipo[key] = ''
+
+                this.equipo.check_in = false
+                this.equipo.check_out = false
+                this.equipo.bote_id = 1
+            },
+            validarCampos() {
+                this.equipo.bote_id = 1
+                for (const key in this.equipo) {
+                    if (key != 'deleted_at' && key != 'id' && key != 'check_in' && key != 'check_out' && key != 'imagen' && key != 'fecha_imagen') {
+                        if (!this.equipo[key]) {
+                            Swal.fire('', 'Completa todos los campos obligatorios', 'error')
+                            return false
+                        }
+                    }
+                }
+                return true
+            },
+            eliminar_revision(index) {
+                if (!this.equipo.id) {
+                    this.form.equipos.splice(index, 1)
+                } else {
+                    this.form.equipos[index].deleted_at = true
+                }
+            },
+            editar_revision(index) {
+                this.is_edit = true
+                this.pos = index
+                let equipo_edit = this.form.equipos[index]
+                for (const key in equipo_edit) {
+                    this.equipo[key] = equipo_edit[key]
+                }
+            },
+            preview_imagen_modal(route) {
+                this.route_preview_imagen = route
+            }
+        }
+    }
+</script>

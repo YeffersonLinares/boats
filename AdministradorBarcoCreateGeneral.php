@@ -9,7 +9,7 @@
         <label class="mb-4">Tipo de barco *</label>
         <div class="d-flex mb-4">
             <template x-for="(i, index) in tipos">
-                <div class="d-flex flex-column me-4">
+                <div class="d-flex flex-column me-4 align-items-center">
                     <button class="btn btn-transparent button-active-extras" @click="active_extra(index)">
                         <i class="fa-solid fa-2x p-2 border-button-extras" x-bind:class="[i.active ? 'active ' + i.icon : i.icon]"></i>
                     </button>

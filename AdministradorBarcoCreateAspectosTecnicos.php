@@ -1,4 +1,7 @@
 <div class="container-fluid pe-5" x-data="AdministradorBarcoCreateAspectosTecnicos()">
+    <!-- <div class="d-flex">
+        <button class="btn-blue-tareas">Siguiente <i class="fa-solid fa-circle-arrow-right"></i></button>
+    </div> -->
     <div class="row">
         <div class="col-md-4 color-dark-extras mb-5">
             <label for="">Capacidad a bordo autorizada *</label>
@@ -63,7 +66,10 @@
 <script>
     function AdministradorBarcoCreateAspectosTecnicos() {
         return {
-            init() {
+            init() {},
+            store() {
+                let url = this.base_url + '/'
+                axios.post()
             }
         }
     }

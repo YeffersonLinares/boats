@@ -1411,4 +1411,12 @@ img.imgPreview {
   margin-top: 1.49rem !important;
 }
 
+.height-12rem {
+  height: 12rem;
+}
+
+.w-25 {
+  width: 25%;
+}
+
 /*# sourceMappingURL=style.css.map */

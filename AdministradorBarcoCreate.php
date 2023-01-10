@@ -1,11 +1,11 @@
 <div class="container-fluid" x-data="AdministradorBarcoCreate()">
     <div class="d-flex flex-column px-3 my-4">
         <div>
-            <span class="color-dark-extras f-8 color-dark-blue">catalan</span>
+            <span class="color-dark-extras f-8 color-dark-blue">Barcos</span>
             <span class="color-dark-extras f-8">/</span>
             <span class="color-dark-extras f-8 color-dark-blue">Creación de Barco</span>
             <span class="color-dark-extras f-8">/</span>
-            <span class="color-dark-extras f-8 color-gray-dark">Descripción</span>
+            <span class="color-dark-extras f-8 color-gray-dark" x-text="title_link">Descripción</span>
             <!-- <span class="color-dark-extras f-8">catalan</span> -->
         </div>
         <div class="d-flex flex-sm-row flex-column justify-content-between">
@@ -13,7 +13,7 @@
                 <i class="fa-solid fa-chevron-left me-3 color-gray-dark"></i>
                 <strong class="color-dark-extras">Descripción de la embarcación</strong>
             </div>
-            <div class="d-flex">
+            <div>
                 <button class="btn-blue-tareas">Siguiente <i class="fa-solid fa-circle-arrow-right"></i></button>
             </div>
         </div>
@@ -23,7 +23,7 @@
             <div class="d-flex flex-column active-menu-barco" role="button">
                 <template x-for="(i,index) in menu" :key="index">
                     <div class="d-flex align-items-center bg-gray border-menu-barco px-4 py-3" x-bind:class="[pantalla_create_barco == i.active ? 'active': '']"
-                    @click="pantalla_create_barco = i.active">
+                    @click="pantalla_create_barco = i.active; title_link = i.text">
                         <i class="fa-solid color-gray-dark me-3" :class="i.icon"></i>
                         <span class="color-dark-extras" x-text="i.text">General</span>
                     </div>
@@ -67,9 +67,9 @@
 <script>
     function AdministradorBarcoCreate() {
         return {
-            pantalla_create_barco: 'aspectosTecnicos',
+            pantalla_create_barco: 'promociones',
+            title_link: 'Fotos',
             form: {
-                fotos: [],
                 nombre: 'Namaré',
                 tipo_barco: '',
                 ciudad: '',
@@ -80,7 +80,9 @@
                 titulacion_requerida: '',
                 tipo_titulacion_requerida: '',
                 horarios: [],
-                inactividades: []
+                inactividades: [],
+                fotos: [],
+                equipos: [],
             },
             menu: [
                 {
@@ -134,7 +136,10 @@
                     active: 'extras'
                 },
             ],
-            init() {}
+            init() {},
+            title_link_switch(key) {
+
+            }
         }
     }
 </script>
